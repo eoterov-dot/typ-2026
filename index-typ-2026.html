@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T&P 2026 — Dr. Eduardo Otero · Tobillo & Pie</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #eef2f7; color: #1a1a2e; }
+    header {
+      background: linear-gradient(135deg, #0f2a4a 0%, #1a4a72 55%, #1a7f8e 100%);
+      color: #fff; padding: 36px 40px;
+    }
+    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: 8px; }
+    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
+    header p { font-size: 14px; opacity: .75; }
+    .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+    /* highlight box */
+    .highlight-box {
+      background: #fff; border-radius: 14px; padding: 28px 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07); margin-bottom: 32px;
+    }
+    .highlight-box h3 { font-size: 13px; color: #1a7f8e; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #d0edf0; }
+    .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 6px; color: #fff; margin-bottom: 6px; }
+    .badge.nivel-i  { background: #c0392b; }
+    .badge.nivel-ii { background: #1a4a72; }
+    .badge.nivel-iii{ background: #1e7c4b; }
+    .badge.nivel-iv { background: #6c5b7b; }
+    .badge.nivel-v  { background: #888; }
+    .paper-item { padding: 14px 0; border-bottom: 1px solid #f0f4f8; }
+    .paper-item:last-child { border-bottom: none; }
+    .paper-item p { font-size: 13.5px; color: #2d3748; line-height: 1.65; margin-top: 6px; }
+
+    /* section label */
+    .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 16px; }
+
+    /* week cards */
+    .weeks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .week-card {
+      background: #fff; border-radius: 12px; padding: 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06); text-decoration: none; color: inherit;
+      border: 2px solid transparent; transition: border-color .2s;
+    }
+    .week-card:hover { border-color: #1a7f8e; }
+    .week-card.current { border-color: #1a7f8e; background: linear-gradient(135deg, #f0faff, #e8f4f8); }
+    .week-card .week-title { font-size: 15px; font-weight: 700; color: #0f2a4a; margin-bottom: 5px; }
+    .week-card .week-date  { font-size: 11.5px; color: #1a7f8e; margin-bottom: 8px; }
+    .week-card .papers-count { font-size: 12px; color: #888; }
+    .current-badge { display: inline-block; font-size: 9px; font-weight: 700; background: #1a7f8e; color: #fff; padding: 2px 7px; border-radius: 5px; letter-spacing: 1px; margin-bottom: 8px; }
+
+    footer { text-align: center; font-size: 11px; color: #bbb; padding: 24px 0 32px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Centro Trauma Ñuble · Dr. Eduardo Otero</div>
+  <h1>Tobillo &amp; Pie 2026</h1>
+  <p>Actualización científica semanal · AJSM · FAI · JFAS</p>
+</header>
+
+<div class="container">
+
+  <!-- HIGHLIGHT BOX — semana actual (parseado por n8n schedule) -->
+  <div class="highlight-box">
+    <h3>🔥 Semana 1 — Destacados · 28 Apr–4 May 2026</h3>
+
+    <div class="paper-item">
+      <div class="badge nivel-i">Nivel I · Meta-análisis</div>
+      <p>PRP supera a ESWT en dolor (VAS SMD 1.08) y función (AOFAS SMD 3.31) en fascitis plantar: meta-análisis 6 RCTs 432 pacientes — Daher 2024 (FAI)</p>
+    </div>
+
+    <div class="paper-item">
+      <div class="badge nivel-ii">Nivel II · RCT</div>
+      <p>Mecobalamina mejora FAAM a 3 meses y reduce 39% el uso de pregabalina en CRPS tipo 1 de tobillo — Arunakul 2024 (FAI)</p>
+    </div>
+
+    <div class="paper-item">
+      <div class="badge nivel-iii">Nivel III · Cohorte</div>
+      <p>Recesión de gastrocnemio en 167 pacientes a 12.5 años: FAAM-ADL 22.5→89, VAS 8.6→1.33, 94% satisfacción — Slullitel 2024 (FAI)</p>
+    </div>
+
+    <div class="paper-item">
+      <div class="badge nivel-iii">Nivel III · Serie</div>
+      <p>Artrodesis tibiotalocalcánea en 1 tiempo para artritis séptica severa: 83% fusión, 24% reinfección en 25 pacientes — Boucly 2024 (FAI)</p>
+    </div>
+
+    <div class="paper-item">
+      <div class="badge nivel-iii">Nivel III · Cohorte</div>
+      <p>Sesamoidectomía medial con burr percutáneo: FAAM ADL +25 puntos, 80% satisfacción — nueva técnica MIS — Engasser 2024 (FAI)</p>
+    </div>
+  </div>
+
+  <!-- LISTADO DE SEMANAS -->
+  <div class="section-label">Archivo semanal</div>
+  <div class="weeks-grid">
+
+    <a class="week-card current" href="semana-1.html">
+      <div class="current-badge">ACTUAL</div>
+      <div class="week-title">Semana 1</div>
+      <div class="week-date">CRPS · Fascitis Plantar · Gastrocnemio · TTC · MIS</div>
+      <div class="papers-count">5 papers · 28 Apr–4 May 2026</div>
+    </a>
+
+  </div>
+
+</div>
+
+<footer>T&amp;P 2026 · Centro Trauma Ñuble · Chillán, Chile</footer>
+
+</body>
+</html>
