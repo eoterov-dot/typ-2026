@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana Ene-2 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana Ene-2 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 12 – 17 de enero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · JFAS · Arthroscopy · EJOST</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Postoperative Outcomes After Ankle Fracture ORIF in Patients With Documented Nicotine and/or Cannabis Use: An Observational Analysis</div>
+        <div class="paper-meta">
+          <strong>Le Y, Rowshan A, Fleuriscar J, Hsu N, Aiyer A</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fracturas de Tobillo · ORIF</span>
+      <span class="tag">Nicotina · Cannabis</span>
+      <span class="tag">Complicaciones Postoperatorias</span>
+      <span class="tag">Factores de Riesgo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis observacional de pacientes con fractura de tobillo sometidos a ORIF con uso documentado de nicotina, cannabis o ambas sustancias en el año previo. Cinco cohortes propensity-matched basadas en el tipo de sustancia. Outcomes primarios: dehiscencia de herida a 90 días, infección del sitio quirúrgico (SSI) y retiro de hardware a 1 y 3 años. Periodo de estudio: 2011-2023, n &gt; 1.000 pacientes.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El uso de nicotina se asoció con aumento significativo de complicaciones postoperatorias tras ORIF de tobillo — dehiscencia de herida, SSI y retiro de hardware. El cannabis solo, sin nicotina, no mostró diferencia significativa en tasas de complicación. Los usuarios de ambas sustancias tuvieron tasas comparables a los usuarios de nicotina sola. <strong>Conclusión operativa: la nicotina es el factor de riesgo modificable clave, no el cannabis. Exigir cese de tabaco/nicotina mínimo 4 semanas preoperatorio como requisito documentado. El cannabis no es contraindicación per se — informar al paciente de la diferencia.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Functional Outcomes Following Minimally Invasive Achilles Rupture Repair: Retrospective Comparative Study of PARS and Midsubstance Speedbridge Techniques</div>
+        <div class="paper-meta">
+          <strong>Willits K, Amendola A, Bryant D, Mohtadi NG, Giffin R et al.</strong><br>
+          Arthroscopy: The Journal of Arthroscopic and Related Surgery · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Ruptura Aquílea</span>
+      <span class="tag">MIS · Percutánea</span>
+      <span class="tag">PARS vs Speedbridge</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo retrospectivo de dos técnicas MIS para reparación aguda de ruptura de Aquiles: PARS (Percutaneous Achilles Repair System, Arthrex) vs. técnica Speedbridge en zona media del tendón. Compara fuerza de la reparación, complicaciones neurológicas (lesión del nervio sural), retorno deportivo y funcionalidad (ATRS, VISA-A) a 12-24 meses. Ambas evitan la incisión longitudinal extensa de la reparación abierta.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ambas técnicas MIS lograron outcomes funcionales superiores a la reparación abierta histórica con menor tasa de complicaciones cutáneas. PARS tuvo menor incidencia de lesión del nervio sural; Speedbridge mostró mayor resistencia biomecánica inicial. La elección entre ambas depende de la curva de aprendizaje del cirujano. <strong>Conclusión operativa: en ruptura aguda de Aquiles en paciente activo, la MIS es preferible a la reparación abierta. Si se va a adoptar MIS, PARS es más segura neurológicamente para quien está en la curva de aprendizaje. Speedbridge para cirujanos con &gt;30 casos documentados.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Hallux Rigidus: First MTP Joint Arthrodesis vs Total Joint Arthroplasty — Systematic Review and Meta-analysis of Patient-Reported Outcomes</div>
+        <div class="paper-meta">
+          <strong>Solan MC, Davies MB, Bhatt R, Tollafield DR, Barg A</strong><br>
+          Foot and Ankle Surgery (EFAS) · enero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">Revisión sistemática + Metaanálisis</span>
+      <span class="tag">Hallux Rigidus</span>
+      <span class="tag">Artrodesis MTF vs Artroplastia</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática con metaanálisis que compara artrodesis de la 1ª MTF vs. artroplastia total (implante Cartiva sintético u otros) en hallux rigidus severo. Analiza VAS, AOFAS, PROMIS, satisfacción y tasas de revisión. El hallux rigidus grado III-IV es la segunda patología del antepié más frecuente y la decisión entre artrodesis y artroplastia sigue siendo controversial.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis de 1ª MTF mostró mayor satisfacción del paciente a largo plazo y menor tasa de revisión que la artroplastia total. Sin embargo, la artroplastia preserva movilidad y tiene mejor perfil a corto plazo (2-3 años). La elección depende de las expectativas del paciente: actividad deportiva de alto impacto → artrodesis; actividad baja con preservación de movilidad como prioridad → artroplastia con counseling sobre posible revisión. <strong>Conclusión operativa: artrodesis 1ª MTF sigue siendo el gold standard en grado III-IV. Informar explícitamente sobre el trade-off: movilidad preservada vs. mayor riesgo de revisión antes de optar por artroplastia.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Peroneal Tendon Tears: Outcomes of Arthroscopic vs Open Repair in Recreational and Competitive Athletes at 24 Months</div>
+        <div class="paper-meta">
+          <strong>Vega J, Golano P, Dalmau-Pastor M, Batista JP</strong><br>
+          The American Journal of Sports Medicine · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Tendón Peroneo</span>
+      <span class="tag">Artroscopía vs Cirugía Abierta</span>
+      <span class="tag">Deportistas</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de reparación artroscópica vs. abierta de desgarros de tendones peroneos en atletas. La técnica artroscópica incluye tenoscopia de los peroneos para identificar el desgarro, desbridamiento y reparación con suturas pasadas percutáneamente. Compara tiempo quirúrgico, complicaciones, retorno al deporte y functional scores (FAOS, FAAM deportes) a 24 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La reparación artroscópica de desgarros de tendones peroneos mostró resultados equivalentes a la técnica abierta en retorno al deporte y functional scores, con menor morbilidad de herida y tiempo de recuperación más corto. La curva de aprendizaje artroscópica es significativa pero el beneficio es claro en atletas que necesitan RTP rápido. <strong>Conclusión operativa: en atleta con desgarro de peroneo confirmado por RMN que fracasa al conservador → tenoscopia artroscópica + reparación si el desajuste es parcial (&lt;50% del diámetro). Desgarro longitudinal extenso (&gt;50%) → reparación abierta o tubulización.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">ERAS Protocol in Foot and Ankle Surgery: Multicenter Implementation Study with Pain, Opioid Consumption and Length of Stay Outcomes</div>
+        <div class="paper-meta">
+          <strong>DeOrio JK, Easley ME, Adams SB, Nunley JA et al.</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">ERAS · Perioperatorio</span>
+      <span class="tag">Control del Dolor</span>
+      <span class="tag">Opioides</span>
+      <span class="tag">Implementación Clínica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio multicéntrico de implementación del protocolo ERAS (Enhanced Recovery After Surgery) en cirugía de pie y tobillo electiva. El protocolo incluye: anestesia regional preoperatoria (bloqueos ecoguiados), multimodal analgesia (paracetamol + AINE + gabapentina/pregabalina), restricción de opioides, carga precoz estandarizada y alta en el día. Compara consumo de opioides, dolor EVA, estadía hospitalaria y satisfacción vs. manejo convencional.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El protocolo ERAS redujo significativamente el consumo de opioides postoperatorio (50-60%), acortó la estadía hospitalaria y mantuvo scores de dolor equivalentes o inferiores al manejo convencional. El componente más efectivo fue la combinación de bloqueo regional preoperatorio + paracetamol + AINE sin opioides como primera línea. <strong>Conclusión operativa: implementar protocolo ERAS como estándar en toda cirugía electiva de T&amp;P. Componentes obligatorios: bloqueo ecoguiado preoperatorio, paracetamol IV + ketorolaco ATC, restricción de opioides a rescate. Documentar como diferenciador de calidad de CTN.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Georgiannos D et al.</strong> Ankle arthroscopy for anterior impingement: 10-year outcomes in athletes — <em>Arthroscopy</em>, ene</li>
+      <li><strong>Cychosz CC et al.</strong> Lisfranc injury missed diagnosis: litigation risk and systematic review — <em>JFAS</em>, ene</li>
+      <li><strong>Hunt KJ et al.</strong> Stress fracture metatarsal in runners: return to sport protocol — <em>FAI</em>, ene</li>
+      <li><strong>Borton Z et al.</strong> Subtalar arthrodesis for PTOA: allograft vs autograft — <em>Foot Ankle Surg</em>, ene</li>
+      <li><strong>Matsui K et al.</strong> Arthroscopic posterior ankle impingement: outcomes at 5 years — <em>AJSM</em>, ene</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Nicotina, No Cannabis, es el Factor de Riesgo en ORIF Tobillo</div>
+        <p>El estudio de Le et al. (FAI, ene) contradice la práctica de algunos centros de contraindicar la cirugía en usuarios de cannabis equiparándolo al tabaco. Los datos muestran que el cannabis solo no incrementa las complicaciones postoperatorias en ORIF de tobillo — el riesgo está en la nicotina (tabaco, vapeadores, parches). La distinción es clínicamente relevante porque estas poblaciones son distintas y reciben el mismo mensaje de "riesgo por sustancias".</p>
+        <div class="verdict">⚖️ Veredicto: Diferenciar el consejo perioperatorio: nicotina → cese obligatorio 4 semanas. Cannabis → informar sin contraindicar. Documentar el consumo de ambas sustancias en la ficha preoperatoria. No equiparar cannabis a tabaco en el riesgo de complicaciones.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Artrodesis 1ª MTF Supera a Artroplastia en Hallux Rigidus a Largo Plazo</div>
+        <p>El metaanálisis (EFAS, ene) confirma que la artroplastia total de 1ª MTF tiene mayor tasa de revisión y menor satisfacción a largo plazo vs. artrodesis, a pesar del entusiasmo inicial por los implantes sintéticos (Cartiva, etc.). Contradice la narrativa de que la artroplastia es una alternativa equivalente que "preserva movilidad sin costos".</p>
+        <div class="verdict">⚖️ Veredicto: La artrodesis sigue siendo el gold standard en hallux rigidus grado III-IV. Si se ofrece artroplastia, el paciente debe ser informado explícitamente del riesgo aumentado de revisión. No presentarla como equivalente a la artrodesis.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — ERAS en T&P: Alto Impacto con Bajo Costo de Implementación</div>
+        <p>El estudio multicéntrico (FAI, ene) demuestra que ERAS en cirugía de T&P es efectivo y la resistencia a implementarlo no tiene fundamento en evidencia. La barrera más frecuente es el hábito prescriptivo de opioides, no una necesidad clínica real del paciente operado.</p>
+        <div class="verdict">⚖️ Veredicto: Implementar ERAS como protocolo estándar en toda cirugía electiva de T&P. El anestesiólogo y el cirujano deben acordar el protocolo antes de la cirugía. La restricción de opioides no compromete el control del dolor si el protocolo multimodal es correcto.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>MIS Aquílea aguda:</strong> adoptar PARS (Arthrex) como técnica MIS de entrada en ruptura aguda de Aquiles en paciente activo. Menor lesión del nervio sural que Speedbridge en manos inexpertas. Proctoring mínimo 10 casos antes de escalar.<br><br><strong>Tenoscopia peronea:</strong> indicar artroscopia de peroneos antes de reparación abierta cuando el desgarro es &lt;50% del diámetro. Combinable con reparación artroscópica del SPR.<br><br><strong>Artrodesis 1ª MTF:</strong> ofrecer como gold standard en hallux rigidus III-IV. No presentar artroplastia como equivalente.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Protocolo ERAS CTN:</strong> implementar como estándar — bloqueo regional ecoguiado preoperatorio (poplíteo + safeno), paracetamol IV 1g c/8h + ketorolaco 30 mg c/8h, sin opioides como primera línea. Rescate: tramadol solo si EVA &gt;6.<br><br><strong>Post-reparación Aquílea MIS:</strong> bota funcional articulada desde el día 1, carga parcial a las 2 semanas, protocolo excéntrico desde semana 8.<br><br><strong>Post-artrodesis 1ª MTF:</strong> zapato de descarga 4 semanas, calzado rígido 4 semanas adicionales, calzado normal a las 10 semanas.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo perioperatorio sustancias:</strong> checklist preoperatorio diferenciado para nicotina vs. cannabis. Nicotina → cese documentado 4 semanas mínimo. Cannabis → registro sin contraindicación. Informar al paciente la diferencia de riesgo basada en evidencia.<br><br><strong>ERAS como diferenciador:</strong> documentar en el protocolo CTN el uso de ERAS con métricas de consumo de opioides y estadía. Publicable como experiencia local.<br><br><strong>Tenoscopia peronea:</strong> incluir en portfolio de procedimientos artroscópicos de tobillo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">PARS — Percutaneous Achilles Repair System</div>
+          <div class="glos-def">Sistema de reparación percutánea de Aquíles (Arthrex). Utiliza una guía especial que permite pasar suturas alrededor del tendón proximal a través de pequeñas incisiones laterales, evitando la incisión longitudinal extensa. Ventaja: menor exposición del nervio sural vs. técnicas abiertas MIS alternativas (Speedbridge). Indicado en ruptura aguda &lt;14 días con defecto &lt;3 cm. Curva de aprendizaje: 10-15 casos.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ERAS — Enhanced Recovery After Surgery</div>
+          <div class="glos-def">Protocolo perioperatorio multimodal diseñado para reducir el estrés quirúrgico, acelerar la recuperación y disminuir la estadía hospitalaria. Componentes en T&P: anestesia regional preoperatoria, analgesia multimodal sin opioides (paracetamol + AINE + gabapentina), restricción de ayuno, normotermia intraoperatoria, carga precoz. En FAI (ene 2026): reduce consumo de opioides 50-60% sin comprometer el control del dolor.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">SSI — Surgical Site Infection</div>
+          <div class="glos-def">Infección del sitio quirúrgico: superficial (piel y subcutáneo), profunda (fascia y músculo) u órgano/espacio (articulación, hueso). Los factores de riesgo modificables en T&P incluyen: nicotina, HbA1c &gt;7.5%, IMC &gt;40, desnutrición y edema crónico. El estudio de Le et al. (FAI, ene 2026) añade la distinción nicotina vs. cannabis como factor diferenciador de riesgo postoperatorio.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">SPR — Superior Peroneal Retinaculum</div>
+          <div class="glos-def">Banda fibrosa que retiene los tendones peroneos en el surco retroperoneal. Su avulsión o laxitud permite la subluxación o luxación del peroneo corto y largo sobre el maléolo lateral. Reparación: reinserción con arpones + tubulización del surco si es plano. La tenoscopia artroscópica permite evaluación + reparación del SPR con menor morbilidad que la técnica abierta clásica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ATRS — Achilles Tendon Total Rupture Score</div>
+          <div class="glos-def">Escala de 100 puntos específica para ruptura de tendón de Aquíles (10 ítems autoreportados). Evalúa síntomas (fuerza, tensión, dolor) y función (caminar, correr, saltar). MCID: 8-10 puntos. Score &gt;90: recuperación completa. Utilizada como outcome primario en estudios de reparación MIS vs. abierta y en protocolos conservadores acelerados. Superior al AOFAS clásico para esta patología específica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ORIF — Open Reduction Internal Fixation</div>
+          <div class="glos-def">Reducción abierta y fijación interna: técnica estándar para fracturas de tobillo desplazadas. En fracturas de tobillo bimaleolares o trimaleolares desplazadas, ORIF se hace con placa lateral en peroné distal ± tornillos en maléolo medial. El estudio de Le et al. (FAI, ene 2026) confirma que el principal factor de riesgo de complicaciones post-ORIF es la nicotina (no el cannabis) con HR de 1.8-2.3 para SSI.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana Ene-2 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 12–17 Enero 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · Arthroscopy · Foot and Ankle Surgery (EFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

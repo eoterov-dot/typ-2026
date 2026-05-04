@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 3 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 3 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 24 febrero – 1 marzo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 7 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI + JFAS + AJSM</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 3 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Efficacy of Inferior Extensor Retinaculum Reinforcement in Arthroscopic Broström-Gould Procedure</div>
+        <div class="paper-meta">
+          <strong>ECA fase II, n=88, seguimiento 2 años</strong><br>
+          The American Journal of Sports Medicine · 24 febrero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Inestabilidad lateral de tobillo</span>
+      <span class="tag">Broström artroscópico</span>
+      <span class="tag">IER augment</span>
+      <span class="tag">Atletas competición</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El refuerzo del retináculo extensor inferior (IER) como augment biológico en el Broström artroscópico reduce la tasa de re-inestabilidad a 2 años de 14.2% (sin IER) a 4.8% (con IER) en atletas de competición (p=0.03). La técnica IER es reproducible, sin implantes adicionales y sin costo extra. Se realiza con el IER como "flap" rotado sobre el ATFL reparado antes del cierre capsular. Incrementa la rigidez mecánica del complejo ligamentario lateral en 40%.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p><strong>Incorporar IER wrap sistemáticamente en todo Broström artroscópico en atletas de competición.</strong> Técnica sin costo adicional, sin implantes, reducción de re-inestabilidad de 14.2% a 4.8%. Cero argumentos en contra para no adoptarla en cirujanos con capacidad artroscópica.</p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Do Small Talar Osteochondral Defects Need Repair During Late Lateral Ankle Ligament Reconstruction?</div>
+        <div class="paper-meta">
+          <strong>Cohorte retrospectiva, n=97</strong><br>
+          Journal of Foot and Ankle Surgery · 18 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">OCD del Talo</span>
+      <span class="tag">Inestabilidad crónica tobillo</span>
+      <span class="tag">No tratar OLT pequeño</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Las OLT pequeñas (&lt;50 mm² y profundidad ≤5 mm, Berndt-Harty I-II) encontradas incidentalmente durante reconstrucción artroscópica del ligamento lateral en CAI tardía NO requieren tratamiento específico (microfractura) si la inestabilidad subyacente es correctamente tratada. El AOFAS y FAAM a 2 años son similares entre el grupo con microfractura vs. el grupo con estabilización sin tratar la OLT pequeña.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p><strong>No realizar microfractura en OLT incidental pequeño durante Broström.</strong> La inestabilidad es el driver principal del progreso de la OLT, no la lesión condral en sí. Solo tratar si la OLT fue el motivo de consulta original o si es sintomática en el preoperatorio. Evita tiempo quirúrgico adicional y morbilidad del microfracturado innecesario.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Incidence of Skin and Soft Tissue Infection in Elective Foot and Ankle Surgery: A Large Database Analysis</div>
+        <div class="paper-meta">
+          <strong>Análisis de base de datos, n=48.200 procedimientos</strong><br>
+          Journal of Foot and Ankle Surgery · 1 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Infección / SSI</span>
+      <span class="tag">Gran base de datos</span>
+      <span class="tag">Factores de riesgo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Tasa de SSI en cirugía electiva de pie/tobillo: 1.8% superficial, 0.6% profunda. Factores de riesgo independientes: DM2 (OR 2.4), tabaco activo (OR 1.9), IMC &gt;35 (OR 1.6), tiempo quirúrgico &gt;120 min (OR 2.1), e implantes biodegradables vs titanio (OR 1.5 para biodegradable, inesperado). La profilaxis antibiótica en dosis única preoperatoria es suficiente en procedimientos &lt;120 min sin implante.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Optimizar factores modificables preoperatorios: HbA1c, tabaco (cese mínimo 4 semanas), IMC. Profilaxis única si &lt;120 min sin implante. Dato inesperado sobre biodegradables: preferir titanio en pacientes de alto riesgo (DM2, inmunocomprometidos).</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+
+  <div class="section-card" style="box-shadow:0 2px 14px rgba(0,0,0,0.07);">
+    <div class="section-card-body" style="padding:16px 22px;">
+      <ul style="padding-left:18px;font-size:0.84rem;line-height:2;color:#444;">
+        <li><strong>Postoperative Opioid Use After 3rd/4th Metatarsal Surgery</strong> — Con analgesia multimodal + bloqueo poplíteo: 78% de pacientes sin opioides postoperatorios. <em>FAI</em></li>
+        <li><strong>Radiographic Osseointegration Across TAR Designs</strong> — Oseointegración similar entre implantes a 2 años; diferencias emergen a 5+ años. <em>FAI</em></li>
+        <li><strong>Union Outcomes in Medial Column Arthrodesis</strong> — Artrodesis columna medial: unión 91% con placa + tornillo; tabaco OR 3.1 para fallo. <em>FAI</em></li>
+        <li><strong>Preoperative Depression in Achilles Rupture</strong> — Depresión preoperatoria: 2.8× más elección de conservador, peores outcomes a 12m. Indicación de PHQ-9 preoperatorio. <em>JFAS</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Disrupciones de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚠️ Hallazgos que cambian el estándar de práctica</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — OLT pequeño: no tratar es la respuesta correcta</div>
+        <p>El paradigma habitual de "si veo una OLT durante la artroscopia, la trato" queda cuestionado. Para OLT incidentales pequeñas (&lt;50mm² / Berndt-Harty I-II) encontradas durante reconstrucción de inestabilidad lateral, el microfracturado añade tiempo quirúrgico, posible morbilidad adicional y sin beneficio medible si la inestabilidad se trata correctamente. La inestabilidad es el principal driver del progreso de la OLT.</p>
+        <div class="verdict">⚖️ Veredicto — OLT &lt;50mm² incidental durante Broström: estabilizar la inestabilidad y no tocar la lesión condral. Solo tratar si la OLT fue el motivo de consulta original o si es sintomática preoperatoriamente.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA — Implantes biodegradables con mayor tasa de SSI</div>
+        <p>El hallazgo inesperado del estudio de SSI (JFAS, Mar 1) es que los implantes biodegradables muestran OR 1.5 de infección versus titanio. El mecanismo propuesto: la degradación del polímero genera debris con propiedades inflamatorias que pueden actuar como sustrato de colonización bacteriana. Contradice la narrativa de "biodegradable = más biocompatible y menor riesgo infeccioso".</p>
+        <div class="verdict">⚖️ Veredicto — Dato de base de datos con múltiples confounders. No cambiar política de implantes por este hallazgo aislado, pero tenerlo en cuenta en pacientes de alto riesgo (DM2, inmunocomprometidos). Preferir titanio en alto riesgo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Aplicación clínica — Centro Trauma Ñuble</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">🏥 Implementación práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica quirúrgica</h4>
+          <p><strong>Broström artroscópico en atletas:</strong> incorporar IER wrap sistemáticamente. Técnica sin costo adicional, re-inestabilidad de 14.2% a 4.8%.<br><br><strong>OLT incidental pequeño:</strong> no microfracturar; documentar tamaño en el informe artroscópico.<br><br><strong>Artrodesis columna medial:</strong> placa dorsomedial + tornillo interfragmentario; contraindicar en fumador activo.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Analgesia / protocolos</h4>
+          <p><strong>Cirugía electiva antepié libre de opioides:</strong> bloqueo poplíteo preoperatorio + paracetamol 1g IV + ketorolaco → 78% sin opioides postoperatorios. Implementar como protocolo estándar en metatarsales, hallux, digitotomías.<br><br><strong>Screening salud mental:</strong> PHQ-9 preoperatorio en rotura Aquiles. Si &gt;10 puntos: derivar psicología antes de decidir tratamiento.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Programa "Tobillo sin Opioides":</strong> meta &lt;25% de pacientes electivos con opioides. Diferenciador de calidad y cumplimiento de normativas de prescripción.<br><br><strong>Infección cero:</strong> protocolo de optimización preoperatoria sistemática: HbA1c, tabaco (cese mínimo 4 semanas), IMC. Documentar como protocolo de prevención de SSI.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Glosario técnico</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📚 Siglas y conceptos de la semana</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">IER — Inferior Extensor Retinaculum</div>
+          <div class="glos-def">Retináculo extensor inferior: banda fibrosa en forma de "Y" invertida en la cara anterior del tobillo, que cubre los tendones extensores. En el Broström artroscópico, se moviliza como flap local con ancla de sutura y se sobrepone al ATFL reparado, dando soporte mecánico adicional sin implantes extra. Técnica del Broström-Gould original adaptada a la artroscopia.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PHQ-9 — Patient Health Questionnaire-9</div>
+          <div class="glos-def">Cuestionario de 9 ítems para screening de depresión en atención primaria y quirúrgica. Escala 0–27 puntos. Interpretación: 0–4 sin depresión; 5–9 leve; 10–14 moderada; 15–19 moderada-severa; 20–27 severa. Su aplicación preoperatoria en cirugía ortopédica identifica pacientes con mayor riesgo de outcome subóptimo independientemente de la técnica quirúrgica. MCID clínica: 5 puntos.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">SSI — Surgical Site Infection</div>
+          <div class="glos-def">Infección del sitio quirúrgico según criterios CDC/NHSN. Clasificación: superficial (piel y subcutáneo, primeras 30 días), profunda (fascia y músculo, primeras 30–90 días) y órgano/espacio (articulación, tendón, implante, primeros 90 días–1 año). La SSI profunda en cirugía de tobillo con implante (TAR, ORIF) se considera catastrófica y requiere manejo agresivo temprano.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Artrodesis Columna Medial / Lapidus Extendido</div>
+          <div class="glos-def">Fusión de las articulaciones TMT-1 y TMT-2. Indicaciones: hallux valgus con inestabilidad TMT-1, artritis tarsometatarsiana por Lisfranc crónico, pie plano adulto. Fijación óptima: placa dorsomedial (3.5mm) + tornillo de compresión interfragmentario cruzado. Unión: 91% con placa + tornillo vs 74% con tornillos solos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
+
+</body>
+</html>

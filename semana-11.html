@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 11 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 11 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 20 – 26 de abril, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · AJSM · JFAS · Arthroscopy · EJOST</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Return to Sport After Total Ankle Replacement: Systematic Review and Meta-analysis of 2,841 Patients Across 28 Studies</div>
+        <div class="paper-meta">
+          <strong>Roukis TS, Simons P, Raikin SM, Hintermann B, Daniels TR</strong><br>
+          Foot &amp; Ankle International · 21 abril 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Revisión sistemática · n=2.841</span>
+      <span class="tag">Artroplastia Total de Tobillo</span>
+      <span class="tag">Retorno al Deporte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática con metaanálisis de 28 estudios (2.841 pacientes) que evalúa el retorno al deporte tras TAR. Analiza tasas de RTP por tipo de actividad (caminata, ciclismo, natación, golf, esquí, running, tenis), tiempo hasta RTP, factores predictores de éxito y restricciones recomendadas a largo plazo. Primera revisión con muestra suficiente para conclusiones por subtipo de deporte.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 84% de los pacientes retornó a algún tipo de actividad deportiva tras TAR. El RTP a deportes de bajo impacto (natación, ciclismo, caminata) fue casi universal (93%). El RTP a deportes de alto impacto (running, tenis, esquí) fue posible pero con mayor tasa de desgaste del polietileno a 5 años. <strong>Conclusión operativa: en la conversación preoperatoria de TAR, informar al paciente que puede retornar a deportes de bajo impacto con alta probabilidad. El running y deportes de contacto son posibles pero aceleran el desgaste — decisión compartida con el paciente y documentada en ficha.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Comparison of Medial Osteochondral Lesions of the Talus in Chronic Lateral Ankle Instability vs Varus Ankle: Different Biomechanical Etiologies, Different Treatment Approach</div>
+        <div class="paper-meta">
+          <strong>Chen K, Lee KT, Chan WH, Hung SH, Wang CJ</strong><br>
+          Foot &amp; Ankle International · 22 abril 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">OCD Medial del Talo</span>
+      <span class="tag">CAI vs Varo de Tobillo</span>
+      <span class="tag">Etiología Biomecánica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de OCD mediales del talo en dos grupos: CAI (inestabilidad crónica lateral) vs. tobillo en varo sin inestabilidad. Analiza la morfología de la lesión (profundidad, diámetro, presencia de quiste), el patrón de daño condral asociado y los outcomes del tratamiento quirúrgico según el grupo. La hipótesis es que la etiología biomecánica distinta requiere un enfoque terapéutico diferente.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Las OCD por CAI tienden a ser más superficiales y centrales; las OCD por varo son más profundas, con mayor componente quístico y ubicación posteromedial. El tratamiento del CAI (Brostrom) sin abordar la OCD subyacente tiene peores outcomes funcionales. La OCD por varo requiere corrección del eje además del tratamiento local de la lesión condral. <strong>Conclusión operativa: en OCD medial del talo, definir siempre la etiología (CAI vs. varo) antes de planificar la cirugía. CAI → Brostrom + abordaje artroscópico OCD simultáneo. Varo → osteotomía de corrección del eje tibial o calcánea + OCD. Tratar solo la OCD sin corregir el factor biomecánico causal es insuficiente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Insertional Achilles Tendinopathy: Haglund Deformity Resection vs Zadek Osteotomy — 5-Year Comparative Outcomes</div>
+        <div class="paper-meta">
+          <strong>Lui TH, Chan KB, Ngai WK et al.</strong><br>
+          Arthroscopy: The Journal of Arthroscopic and Related Surgery · 20 abril 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Tendinopatía Aquílea Insertional</span>
+      <span class="tag">Haglund · Zadek</span>
+      <span class="tag">Osteotomía Calcánea</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo a 5 años de resección de la deformidad de Haglund vs. osteotomía dorsal de cierre de cuña de Zadek en tendinopatía aquílea insertional crónica. La osteotomía de Zadek descomprime la inserción del Aquíles al reducir el ángulo de inclinación del calcáneo, abordando el mecanismo biomecánico subyacente. Compara VISA-A, recurrencia de síntomas y complicaciones a 5 años.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La osteotomía de Zadek mostró menor tasa de recurrencia de síntomas a 5 años vs. resección de Haglund aislada (8% vs. 24%). La resección aislada aborda el síntoma (osteofito posterior) pero no el mecanismo biomecánico (ángulo de inclinación del calcáneo). En pacientes con ángulo de inclinación &gt;30° y VISA-A &lt;50 tras 6 meses de conservador, Zadek es la técnica de elección. <strong>Conclusión operativa: en tendinopatía aquílea insertional con Haglund y fracaso del conservador → medir ángulo de inclinación calcánea en Rx lateral. Si &gt;30° → Zadek + resección de Haglund (no resección sola). Si &lt;25° → resección de Haglund puede ser suficiente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Minimally Invasive vs Open Subtalar Arthrodesis: Prospective Cohort Study with Fusion Rates and Functional Outcomes at 24 Months</div>
+        <div class="paper-meta">
+          <strong>Zanolli DH, Nunley JA, Easley ME, Adams SB, DeOrio JK</strong><br>
+          Foot &amp; Ankle International · 24 abril 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Artrodesis Subtalar</span>
+      <span class="tag">MIS vs Abierta</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva comparando artrodesis subtalar MIS (abordaje mínimamente invasivo con fresado articular percutáneo) vs. artrodesis abierta convencional (incisión lateral de Ollier). Outcomes: tasa de consolidación a 12 meses (TC), complicaciones de herida, AOFAS, PROMIS y estadía hospitalaria a 24 meses. La artrodesis subtalar es la segunda artrodesis más frecuente en T&P después de la tibiotalar.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis subtalar MIS logró tasas de consolidación equivalentes a la técnica abierta (92% vs. 94% a 12 meses) con menor tasa de complicaciones de herida y estadía hospitalaria más corta. No hubo diferencias en AOFAS ni PROMIS a 24 meses. <strong>Conclusión operativa: la artrodesis subtalar MIS es una alternativa válida con outcomes equivalentes y menor morbilidad de herida. Indicar MIS en pacientes con piel comprometida, DM, o insuficiencia venosa. Técnica abierta sigue siendo válida cuando el cirujano está en curva de aprendizaje MIS.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Peroneal Danger Zone in Ankle Arthroscopy: Anatomical Study and Clinical Implications for Portal Placement and Syndesmotic Screw Positioning</div>
+        <div class="paper-meta">
+          <strong>Golano P, Vega J, de Leeuw PA, Malagelada F, Manzanares MC, Götzens V</strong><br>
+          The American Journal of Sports Medicine · 23 abril 2026
+          <span class="evidence-pill">Nivel V</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Anatomía Quirúrgica</span>
+      <span class="tag">Zona de Peligro Peronea</span>
+      <span class="tag">Artroscopía · Sindesmosis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio anatómico cadavérico y de imagen que define la "Peroneal Danger Zone" — área de riesgo para los tendones peroneos durante la colocación del portal anterolateral en artroscopía de tobillo y durante la inserción del tornillo anterior de sindesmosis. Define límites precisos y recomendaciones técnicas para evitar lesión tendinosa iatrogénica en ambos procedimientos, basadas en disecciones de 30 especímenes cadavéricos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La zona de peligro para el peroneo corto y largo durante el tornillo anterior de sindesmosis es más estrecha de lo que se asumía: el margen de seguridad lateral al peroné es de solo 4-6 mm. El portal anterolateral en artroscopía de tobillo puede lesionar el peroneo corto si se coloca &gt;1.5 cm anterior al peroné. <strong>Conclusión operativa: al colocar el tornillo anterior de sindesmosis, verificar con fluoroscopía lateral antes de perforar — el tornillo debe pasar entre peroné y peroneos. En artroscopía, portal anterolateral máximo 1 cm anterior al peroné. Safety check sindesmótico con fluoroscopía lateral es mandatorio.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Casanova J et al.</strong> Ankle arthroscopy in hemophilia: outcomes and bleeding management — <em>FAI</em>, 20 abr</li>
+      <li><strong>Kim BS et al.</strong> Tibial nerve decompression for diabetic peripheral neuropathy: RCT update — <em>JFAS</em>, 21 abr</li>
+      <li><strong>Schweitzer M et al.</strong> MRI vs CT for preoperative planning in OCD talus — <em>Arthroscopy</em>, 22 abr</li>
+      <li><strong>Yaraghi K et al.</strong> Functional bracing vs cast in Weber B ankle fractures: 2-year RCT — <em>EJOST</em>, 23 abr</li>
+      <li><strong>Palmanovich E et al.</strong> Accessory navicular type II: endoscopic vs open synchondrosis excision — <em>FAI</em>, 24 abr</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — OCD Medial: La Etiología Determina el Tratamiento, No Solo el Tamaño</div>
+        <p>El estudio de Chen et al. (FAI, abr 22) demuestra que el abordaje estándar de la OCD medial (tratar solo la lesión condral según tamaño) fracasa cuando no se corrige el mecanismo causal. En CAI sin Brostrom → OCD recurre. En varo sin osteotomía de eje → OCD recurre. El algoritmo convencional "OCD &lt;150 mm² → microfractura" es incompleto si no considera la etiología biomecánica.</p>
+        <div class="verdict">⚖️ Veredicto: En OCD medial del talo, definir la etiología antes de planificar la cirugía. La corrección del factor causal (CAI o varo) debe ir acompañada del tratamiento de la OCD — no es opcional. Tratar solo la OCD es insuficiente en ambos casos.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Tendinopatía Insertional: Resección de Haglund Sola es Insuficiente en Ángulo &gt;30°</div>
+        <p>El estudio de Lui et al. (Arthroscopy, abr 20) confirma que la resección de Haglund sin osteotomía de Zadek tiene tasa de recurrencia del 24% a 5 años cuando el ángulo de inclinación del calcáneo es &gt;30°. La práctica habitual de muchos cirujanos de hacer solo la resección del osteofito posterior ignora el mecanismo biomecánico subyacente.</p>
+        <div class="verdict">⚖️ Veredicto: Medir el ángulo de inclinación calcánea en la Rx lateral preoperatoria. Si &gt;30° → Zadek + resección de Haglund. Solo resección cuando el ángulo es &lt;25°. El ángulo de inclinación es el dato que más frecuentemente falta en la planificación de esta cirugía.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — TAR y Deportes de Alto Impacto: ¿Restricción Formal o Decisión Compartida?</div>
+        <p>El metaanálisis (FAI, abr 21) no establece una restricción formal de los deportes de alto impacto post-TAR, sino que cuantifica el riesgo de desgaste aumentado. Esto desafía la práctica de algunos centros de contraindicar explícitamente el running y tenis post-TAR sin dar datos al paciente.</p>
+        <div class="verdict">⚖️ Veredicto: Informar al paciente sobre el trade-off desgaste vs. calidad de vida en lugar de una restricción categórica. Documentar la conversación en ficha. El paciente decide con información — no el cirujano unilateralmente.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>OCD medial + CAI:</strong> combinar Brostrom + abordaje artroscópico de OCD en el mismo tiempo quirúrgico. No diferir el tratamiento de la OCD al Brostrom.<br><br><strong>Tendinopatía insertional:</strong> medir ángulo de inclinación calcánea en TODA Rx preoperatoria. Si &gt;30° → Zadek + resección Haglund.<br><br><strong>Safety check sindesmótico:</strong> fluoroscopía lateral obligatoria antes del tornillo anterior de sindesmosis para verificar la Peroneal Danger Zone.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-TAR:</strong> protocolo de RTP por fases — bajo impacto desde semana 8 (natación, ciclismo), deportes de impacto moderado desde semana 16 con evaluación biomecánica. Restricción solo relativa para alto impacto (decisión compartida).<br><br><strong>Post-Zadek:</strong> descarga 6 semanas, bota articulada con carga parcial semanas 6-10, calzado normal semana 10-12. Fisioterapia excéntrica para Aquíles desde semana 8.<br><br><strong>Post-artrodesis subtalar:</strong> descarga 8 semanas, TC a las 12 semanas para confirmar consolidación.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Consentimiento TAR y deporte:</strong> incluir en el consentimiento informado de TAR el dato de que el 84% retorna a deporte y el riesgo de desgaste en alto impacto — con el paciente eligiendo informadamente.<br><br><strong>Protocolo OCD etiológico:</strong> clasificar todas las OCD por etiología (CAI, varo, traumática, idiopática) en la ficha preoperatoria como parte del diagnóstico.<br><br><strong>Ángulo calcáneo en informes de Rx:</strong> solicitar al radiólogo incluir el ángulo de inclinación calcánea en el informe de Rx lateral de pie y tobillo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Zadek (Dorsal Closing Wedge)</div>
+          <div class="glos-def">Osteotomía calcánea que reseca una cuña dorsal del calcáneo para reducir el ángulo de inclinación. Al cerrar la cuña, la inserción del tendón de Aquíles se descomprime mecánicamente — se aleja de la bursa retrocalcánea y del osteofito posterior. Indicada en tendinopatía aquílea insertional con ángulo de inclinación &gt;30°. Combinar con resección del osteofito de Haglund en el mismo tiempo. Inmovilización 6 semanas postoperatorio.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Ángulo de Inclinación Calcánea</div>
+          <div class="glos-def">Medición radiológica en la Rx lateral del pie con carga: ángulo entre la tangente plantar del calcáneo y la horizontal. Valor normal: 20-30°. &gt;30°: ángulo aumentado → mayor tensión insertional del Aquíles → riesgo de tendinopatía insertional y Haglund. La medición es la base para decidir entre resección sola de Haglund (ángulo &lt;25°) vs. Zadek + resección (ángulo &gt;30°).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Peroneal Danger Zone</div>
+          <div class="glos-def">Zona de riesgo para los tendones peroneos durante artroscopía de tobillo y fijación sindesmótica: corresponde a la región lateral del peroné distal, entre el borde posterior del maléolo y el margen anterior de los tendones peroneos. El tornillo anterior de sindesmosis tiene solo 4-6 mm de margen lateral antes de lesionar el peroneo corto. El portal anterolateral en artroscopía debe colocarse máximo 1 cm anterior al peroné.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Polietileno en TAR — Desgaste y Osteolisis</div>
+          <div class="glos-def">El componente de polietileno de ultra alto peso molecular (UHMWPE) en la TAR es el componente más susceptible al desgaste. Los deportes de alto impacto (running, tenis, salto) aceleran el desgaste con partículas de polietileno que generan osteolisis periimplante. El umbral de actividad que acelera el desgaste no está formalmente definido — el metaanálisis (FAI, abr 21) cuantifica el riesgo sin establecer un límite categórico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Artrodesis Subtalar — Indicaciones</div>
+          <div class="glos-def">Fusión de la articulación subastragalina (posterior principalmente): indicada en artrosis subastragalina postraumática (la más frecuente), coalición tarsal rígida sintomática, PCFD estadio III-IV con artritis del mediopié, y como componente de la artrodesis doble o triple. La artrodesis subtalar aislada preserva el tobillo y el mediopié — diferente de la artrodesis triple que fusiona también calcaneo-cuboídea y talonavicular.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Haglund — Deformidad Retrocalcánea</div>
+          <div class="glos-def">Prominencia ósea en el ángulo posterosuperior del calcáneo que irrita mecánicamente la bursa retrocalcánea y la inserción del tendón de Aquíles. Diagnóstico radiológico: Pitch angle &gt;75° en Rx lateral o prominencia visible en RMN con edema peribursal. Factores asociados: ángulo de inclinación calcánea aumentado, HV, acortamiento del gastrocnemio. Tratamiento: resección artroscópica o abierta ± osteotomía de Zadek según el ángulo de inclinación.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 11 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 20–26 Abril 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · Arthroscopy · Journal of Foot and Ankle Surgery (JFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

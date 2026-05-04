@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 9 — Tobillo & Pie | Abr 14–18, 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--teal-light:#d0edf0;--green:#1e7c4b;--green-light:#e6f4ec;--red:#c0392b;--red-light:#fdecea;--gray:#f5f7fa;--gray-mid:#dce3ec;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,#1a3a5c 0%,#0d2035 100%);color:white;padding:36px 48px 28px;border-bottom:4px solid var(--teal);}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .subtitle{font-size:0.95rem;opacity:0.8;margin-top:6px;}
+  .back-link{display:inline-block;color:rgba(255,255,255,0.75);font-size:0.82rem;margin-bottom:14px;text-decoration:none;}
+  .back-link:hover{color:white;}
+  .meta{margin-top:14px;display:flex;gap:24px;flex-wrap:wrap;}
+  .meta-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+  .container{max-width:1100px;margin:0 auto;padding:36px 28px 60px;}
+  .card{background:white;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:32px;overflow:hidden;}
+  .card-title-bar{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;}
+  .card-body{padding:0 22px 22px;}
+  .paper-row{border-left:4px solid var(--teal);background:var(--gray);border-radius:0 8px 8px 0;padding:16px 18px;margin:16px 0;}
+  .paper-num{display:inline-block;background:var(--teal);color:white;font-weight:700;font-size:0.78rem;border-radius:12px;padding:2px 10px;margin-bottom:8px;}
+  .pill{display:inline-block;border-radius:12px;padding:2px 9px;font-size:0.72rem;font-weight:700;margin-left:6px;}
+  .pill-hot{background:#c0392b;color:white;}
+  .pill-new{background:#1a7f8e;color:white;}
+  .paper-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .paper-meta{font-size:0.78rem;color:#666;margin-bottom:10px;}
+  .ev-badge{display:inline-block;border-radius:10px;padding:1px 8px;font-size:0.70rem;font-weight:700;}
+  .ev1{background:#1e7c4b;color:white;}.ev2{background:#2980b9;color:white;}.ev3{background:#e67e22;color:white;}
+  .paper-nugget{background:var(--teal-light);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:10px 14px;font-size:0.88rem;color:#0e5a66;font-weight:500;}
+  .paper-nugget strong{display:block;font-size:0.72rem;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+  .big-table{width:100%;border-collapse:collapse;font-size:0.84rem;}
+  .big-table thead tr{background:var(--navy);color:white;}
+  .big-table th{padding:12px 14px;text-align:left;font-weight:600;font-size:0.80rem;text-transform:uppercase;}
+  .big-table td{padding:11px 14px;vertical-align:top;border-bottom:1px solid var(--gray-mid);}
+  .big-table tbody tr:nth-child(even){background:var(--gray);}
+  .big-table tbody tr:hover{background:#e6eef6;}
+  .journal-tag{display:inline-block;border:1px solid var(--gray-mid);border-radius:8px;padding:1px 7px;font-size:0.70rem;color:#555;margin-top:4px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .disrupt-item{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:14px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:4px;}
+  .app-card{background:var(--green-light);border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-card h4{font-size:0.82rem;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+  .app-card p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:20px;font-size:0.76rem;color:#888;border-top:1px solid var(--gray-mid);margin-top:10px;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index-typ-2026.html" class="back-link">← Volver al índice</a>
+  <h1>Actualización Semanal — Tobillo &amp; Pie</h1>
+  <div class="subtitle">Semana 9 — Fíbula IM · Broström RCT 5 Años · BMAC OLT | Abr 14–18, 2026</div>
+  <div class="meta">
+    <span class="meta-badge">🏥 Centro Trauma Ñuble</span>
+    <span class="meta-badge">📚 FAI · AJSM · JFAS</span>
+    <span class="meta-badge">👨‍⚕️ Dr. Eduardo Otero</span>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="card">
+  <div class="card-title-bar" style="background:var(--navy);color:white;"><span>🏆</span> TOP 3 PAPERS DE LA SEMANA</div>
+  <div class="card-body" style="padding-top:18px;">
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #1 — TÉCNICA QUIRÚRGICA</span>
+      <span class="pill pill-hot">🔥 HOT</span>
+      <div class="paper-title">Minimally Invasive Intramedullary Fixation vs. Plate Fixation in Distal Fibula Fractures</div>
+      <div class="paper-meta">Foot &amp; Ankle International (FAI) · Abril 16, 2026 · <span class="ev-badge ev2">NE II</span> Cohorte comparativa prospectiva</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        La fijación intramedular mínimamente invasiva (IM) de la fíbula distal muestra tasas de consolidación y scores funcionales equivalentes a la osteosíntesis con placa convencional, con reducción significativa en complicaciones de la herida y menor necesidad de retiro de implante. El abordaje percutáneo acorta el tiempo quirúrgico en ~20 minutos. Implicancia directa: revisar el algoritmo de indicación para fracturas Weber B estables en pacientes con piel comprometida (DM, edema severo).
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #2 — EVIDENCIA NIVEL I</span>
+      <span class="pill pill-hot">🔥 HOT</span>
+      <div class="paper-title">Five-Year Follow-up of a Multicenter Randomized Controlled Trial — Lateral Ankle Ligament Reconstruction</div>
+      <div class="paper-meta">The American Journal of Sports Medicine (AJSM) · Abril 17, 2026 · <span class="ev-badge ev1">NE I</span> ECA multicéntrico, seguimiento 5 años</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        A 5 años de seguimiento, la reparación anatómica primaria del ATFL con o sin reinforcement con InternalBrace™ mantiene resultados clínicos superiores al manejo conservador en CAI grado III. Tasa de re-recurrencia quirúrgica &lt;6%. El dato disruptivo: <strong>el InternalBrace™ no ofrece ventaja estadísticamente significativa sobre la reparación de Broström pura a 5 años</strong>, cuestionando su costo-beneficio rutinario (≈USD 800-1.200 adicionales).
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #3 — BIOLÓGICOS / INNOVACIÓN</span>
+      <span class="pill pill-new">✨ NEW</span>
+      <div class="paper-title">Bone Marrow Aspirate Concentrate (BMAC) Improves Early Functional Outcomes in Osteochondral Lesions of the Talus</div>
+      <div class="paper-meta">The American Journal of Sports Medicine (AJSM) · Abril 17, 2026 · <span class="ev-badge ev2">NE II</span> ECA fase II</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        La adición de BMAC al microfracturado artroscópico en OLT &lt;150 mm² mejora los scores AOFAS y VAS a los 12 y 24 meses versus microfractura sola. El beneficio es más marcado en atletas &lt;40 años y lesiones de profundidad IIB-III (clasificación Berndt-Harty modificada). No hay diferencia significativa en lesiones &gt;150 mm² donde se impone el mosaicoplasty o el trasplante osteoperióstico.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title-bar" style="background:#1a4a72;color:white;"><span>📊</span> SCREENING DE EVIDENCIA — Semana Abr 14–18</div>
+  <div style="overflow-x:auto;">
+  <table class="big-table">
+    <thead>
+      <tr><th style="width:26%">Estudio</th><th style="width:10%">Revista · Fecha</th><th style="width:12%">Diseño / Nivel</th><th style="width:28%">Hallazgo Principal</th><th style="width:24%">Impacto Clínico</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Minimally Invasive IM Fixation vs Plate Fixation (Fíbula Distal)</strong></td>
+        <td>FAI · Abr 16 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Cohorte prospectiva</td>
+        <td>IM nail percutáneo = resultados equivalentes a placa con menos complicaciones cutáneas y menor tasa de retiro de implante</td>
+        <td>Ampliar indicación IM en Weber B con piel comprometida; reducción de costos en implantes</td>
+      </tr>
+      <tr>
+        <td><strong>5-Year Follow-up Multicenter RCT — CAI / Broström ± InternalBrace™</strong></td>
+        <td>AJSM · Abr 17 <span class="journal-tag">AJSM</span></td>
+        <td><span class="ev-badge ev1">Nivel I</span><br>ECA multicéntrico</td>
+        <td>InternalBrace™ NO supera a Broström anatómico puro a 5 años; re-recurrencia &lt;6% en ambos grupos</td>
+        <td>Cuestiona el uso rutinario del InternalBrace™; reservar para casos de tejido ligamentario deficiente</td>
+      </tr>
+      <tr>
+        <td><strong>BMAC en Lesiones Osteocondrales del Talo (OLT)</strong></td>
+        <td>AJSM · Abr 17 <span class="journal-tag">AJSM</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>ECA fase II</td>
+        <td>BMAC + microfractura artroscópica mejora scores funcionales a 12-24 m en OLT &lt;150 mm²</td>
+        <td>Protocolo combinado artroscópico como estándar en OLT grado IIB-III en atletas &lt;40 años</td>
+      </tr>
+      <tr>
+        <td><strong>PRP vs. Placebo Injections in Achilles Tendinopathy</strong></td>
+        <td>JFAS · Abr 15 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev1">Nivel I</span><br>ECA doble ciego</td>
+        <td>PRP no supera a placebo en tendinopatía aquílea crónica insertional a 6 meses (VISA-A score p=NS)</td>
+        <td>Replantear indicación de PRP en tendinopatía insertional; reforzar fisioterapia excéntrica</td>
+      </tr>
+      <tr>
+        <td><strong>Return to Play, Career Longevity &amp; Reruptures after Achilles Repair</strong></td>
+        <td>AJSM · Abr 15 <span class="journal-tag">AJSM</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Cohorte multicéntrica</td>
+        <td>Reparación quirúrgica primaria de tendón de Aquiles roto permite RTP en 85% de atletas de elite; tasa re-ruptura 4.2% vs 9.8% manejo conservador</td>
+        <td>Cirugía primaria como estándar en atletas de alto rendimiento; protocolo acelerado con carga a 2 semanas</td>
+      </tr>
+      <tr>
+        <td><strong>Deltoid Release in Varus Ankle Deformity (TAR)</strong></td>
+        <td>JFAS · Abr 14 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Serie retrospectiva (n=52)</td>
+        <td>Release selectivo del deltoides durante TAR corrige varo &gt;10° sin generar inestabilidad en valgo; 91% corrección radiológica mantenida a 2 años</td>
+        <td>Release deltoides planificado en TAR con varo preoperatorio &gt;10°; no reservarlo para hallazgo intraoperatorio</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos AO / AOFAS Estándar</div>
+  <div class="card-body" style="padding-top:16px;">
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🔴 DISRUPCIÓN #1 — InternalBrace™ no Supera a Broström Puro a 5 Años</div>
+      <p>El RCT multicéntrico (AJSM, Abr 17) con 5 años de seguimiento contradice el entusiasmo inicial de los estudios de corto plazo (2-3 años) que favorecían el InternalBrace™. A 5 años, <strong>no hay diferencia estadísticamente significativa</strong> en tasa de re-recurrencia, AOFAS, ni FAAM entre Broström + InternalBrace™ vs. Broström anatómico puro. Esto desafía la justificación de costo adicional del dispositivo (≈USD 800-1.200).</p>
+      <div class="verdict">⚖️ Veredicto: Reservar InternalBrace™ para casos con tejido ligamentario deficiente, atletas de élite con alta demanda o revisiones. No indicarlo de rutina en primera cirugía con tejido de buena calidad.</div>
+    </div>
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🔴 DISRUPCIÓN #2 — PRP en Tendinopatía Aquílea Insertional</div>
+      <p>El ECA doble ciego (JFAS, Abr 15) demuestra que el <strong>PRP no supera al placebo</strong> en tendinopatía aquílea insertional crónica a 6 meses (VISA-A, sin diferencia significativa). Esto contradice las recomendaciones de varios centros de referencia que incluían PRP como segunda línea estándar post-fisioterapia, y está en tensión con guías de consenso AOFAS 2023 que lo consideran "opción con evidencia moderada".</p>
+      <div class="verdict">⚖️ Veredicto: Suspender el uso rutinario de PRP en tendinopatía insertional hasta tener evidencia de nivel I adicional. Reforzar protocolo excéntrico de Alfredson y ondas de choque como primera línea real.</div>
+    </div>
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🟡 CONTROVERSIA #3 — Carga Temprana en Pilón Tibial AO 43-B</div>
+      <p>El ECA (JFAS, Abr 8) sugiere que la <strong>carga a las 4 semanas</strong> post-ORIF de pilón tibial estable (AO 43-B) es segura, contrastando con el protocolo estándar AO que recomienda 6-8 semanas de descarga. La muestra es limitada (n=78) y el seguimiento a 12 meses es insuficiente para detectar colapso articular tardío.</p>
+      <div class="verdict">⚖️ Veredicto: No cambiar protocolo de descarga masivamente, pero considerar carga parcial precoz a las 4-6 sem en pacientes seleccionados (fijación rígida confirmada en Rx, sin osteoporosis, buena compliance).</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>🔬 Técnica Quirúrgica</h4>
+        <p><strong>1. IM Nail percutáneo en fíbula distal:</strong> incorporar como opción de primera línea en Weber B con piel comprometida.<br><br><strong>2. Osteotomía chevron maleolar medial:</strong> adoptar de forma estándar para acceso a OLT medial (menos complicaciones vs. corte transverso).<br><br><strong>3. BMAC artroscópico:</strong> implementar protocolo de concentración de médula ósea intraoperatoria en OLT ≤150 mm² como upgrade al microfracturado simple.</p>
+      </div>
+      <div class="app-card">
+        <h4>🏃 Rehabilitación / ERAS</h4>
+        <p><strong>1. Protocolo ERAS en ORIF tobillo:</strong> anestesia regional ecoguiada, paracetamol IV + AINE + gabapentina preoperatoria, carga parcial precoz a las 48h en fracturas estables.<br><br><strong>2. RTP Aquiles:</strong> protocolo acelerado con carga progresiva desde la 2ª semana post-reparación primaria en atletas de alto rendimiento.<br><br><strong>3. Abandono del PRP:</strong> reorientar presupuesto de biológicos hacia BMAC y ondas de choque con mayor evidencia.</p>
+      </div>
+      <div class="app-card">
+        <h4>⭐ Diferenciación CTN</h4>
+        <p><strong>1. Screening metabólico preoperatorio:</strong> HbA1c &lt;7.5% como criterio para TAR (diferenciador de calidad vs. centros sin protocolo).<br><br><strong>2. Safety check sindesmótico:</strong> protocolo de fluoroscopía lateral antes del tornillo anterior de sindesmosis (Peroneal Danger Zone).<br><br><strong>3. Registro MIS Hallux:</strong> iniciar base de datos propia de cirugía percutánea con proctoring externo antes de escalar volumen.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="glos-grid">
+      <div class="glos-item">
+        <div class="glos-term">BMAC — Bone Marrow Aspirate Concentrate</div>
+        <div class="glos-def">Concentrado de aspirado de médula ósea obtenido mediante centrifugación intraoperatoria (cresta ilíaca o tibia proximal). Rico en células mesenquimales, factores de crecimiento (TGF-β, BMP-2) y plaquetas. Se aplica sobre el lecho de microfractura artroscópica en OLT para potenciar la regeneración fibrocartilaginosa. Protocolo: aspirar 60 mL, concentrar a 6-8 mL, aplicar con fibrina o matriz de colágeno.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">InternalBrace™ (Arthrex)</div>
+        <div class="glos-def">Augmentación del ligamento peroneo-astragalino anterior con cinta de polietileno de alta resistencia (FiberTape®) anclada con BioComposite SutureTak. Diseñado para dar soporte biomecánico inmediato y permitir RTP más rápido. El ECA a 5 años discutido esta semana cuestiona su superioridad sobre Broström puro en primera cirugía. Costo adicional: ≈USD 800-1.200.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">VISA-A — Victorian Institute of Sport Assessment - Achilles</div>
+        <div class="glos-def">Escala de outcomes validada para tendinopatía aquílea (0-100 puntos). Evalúa dolor, función y actividad deportiva. Score &gt;90 = atleta asintomático. Utilizada como outcome primario en el ECA de PRP vs. Placebo (JFAS Abr 15, 2026). MCID (mínima diferencia clínicamente importante): 12-14 puntos.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">OLT — Osteochondral Lesion of the Talus</div>
+        <div class="glos-def">Lesión del cartílago articular y hueso subcondral de la cúpula talar. Clasificada por Berndt-Harty (radiológica) o Ferkel-Sgaglione (artroscópica). El manejo depende del tamaño: &lt;150 mm² → microfractura ± BMAC; 150-250 mm² → mosaicoplasty o TOPA; &gt;250 mm² → OCA (aloinjerto osteocondral). Cirugía artroscópica en &gt;85% de casos.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">GLP-1 RAs — Glucagon-Like Peptide-1 Receptor Agonists</div>
+        <div class="glos-def">Fármacos para DM tipo 2 y obesidad (semaglutida/Ozempic, tirzepatida/Mounjaro). Emergentes en cirugía ortopédica: estudios preliminares asocian su uso preoperatorio con menor tasa de SSI en pie diabético, probablemente por efecto antiinflamatorio y mejora del microambiente tisular independiente del control glucémico.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">CAI — Chronic Ankle Instability</div>
+        <div class="glos-def">Inestabilidad crónica de tobillo definida por episodios recurrentes de cedimiento lateral (&gt;3 episodios/año) y disfunción persistente &gt;12 meses post-esguince índice. Grado III: cedimiento funcional + hallazgo positivo en prueba de cajón anterior (&gt;10mm) + inclinación talar (&gt;10°). Prevalencia: 40-70% de pacientes post-esguince de tobillo de alto grado.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Semana 9 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 14–18 Abril 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · Journal of Foot &amp; Ankle Surgery (JFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</div>
+</body>
+</html>

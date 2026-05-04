@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 12 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 12 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 27 abril – 3 mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · AJSM · JBJS · JFAS · Arthroscopy</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Osteochondral Allograft Transplantation for Large Talar Defects: 10-Year Outcomes and Survivorship Analysis</div>
+        <div class="paper-meta">
+          <strong>Raikin SM, Elias I, Zoga AC, Besser M, Morrison WB</strong><br>
+          The Journal of Bone and Joint Surgery · 28 abril 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">OCD Talo · Aloinjerto Osteocondral</span>
+      <span class="tag">Defecto Grande · 10 años</span>
+      <span class="tag">Supervivencia del Implante</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis de supervivencia a 10 años de aloinjerto osteocondral (OCA) para defectos condrales grandes del talo (&gt;2.5 cm²). Evalúa tasa de éxito clínico (FAOS &gt;65, sin cirugía de rescate), factores predictores de fracaso (edad, tamaño de la lesión, lesión lateral vs. medial, defecto quístico) y conversión a TAR o artrodesis. Es la serie con seguimiento más largo publicada para OCA talar.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La supervivencia del OCA talar a 10 años fue del 72% (sin necesidad de cirugía de rescate). Los predictores de fracaso fueron: lesión &gt;4 cm², edad &gt;45 años al momento de la cirugía, y defecto lateral (vs. medial). El 28% que fracasó se convirtió a TAR o artrodesis — ambas con buenos outcomes como cirugía de rescate. <strong>Conclusión operativa: OCA talar es una opción válida para defectos &gt;2.5 cm² en pacientes jóvenes (&lt;45 años) con buena reserva ósea. En &gt;45 años o defecto &gt;4 cm² → informar sobre mayor riesgo de fracaso y considerar TAR directamente. El OCA no es un procedimiento definitivo en pacientes mayores.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Ankle Fracture ORIF in Patients with Obesity (BMI &gt;35): Complication Risk and Modified Surgical Approach — A Propensity-Matched Analysis</div>
+        <div class="paper-meta">
+          <strong>Ellington JK, Schon LC, Sanders RW, Greisberg JK et al.</strong><br>
+          Foot &amp; Ankle International · 29 abril 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">ORIF Tobillo · Obesidad</span>
+      <span class="tag">BMI &gt;35 · Factores de Riesgo</span>
+      <span class="tag">Técnica Modificada</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis propensity-matched de ORIF de tobillo en pacientes con IMC &gt;35 vs. IMC normal. Compara tasas de SSI, dehiscencia, falla de implante y malreducción. Adicionalmente propone y evalúa modificaciones técnicas para el subgrupo de alto riesgo: incisiones más cortas, uso preferencial de clavo IM sobre placa lateral, y protocolos de descarga modificados. Serie de 420 pacientes con seguimiento mínimo 12 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>En obesidad (IMC &gt;35), el ORIF con placa lateral tiene una tasa de complicaciones de herida del 19% vs. 6% en normopeso. El clavo IM percutáneo redujo esta tasa al 9% en el grupo obeso — similar al de normopeso con placa. La falla de fijación también fue mayor con placa en obesos (&gt;100 kg). <strong>Conclusión operativa: en paciente obeso (IMC &gt;35) con fractura de peroné distal → clavo IM percutáneo de primera elección, no placa lateral. En fracturas que requieren placa obligatoriamente → protocolo de descarga más estricto (sin carga 8-10 semanas) y profilaxis antibiótica extendida.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Arthroscopic vs Mini-Open Brostrom for Chronic Lateral Ankle Instability: Prospective Randomized Trial at 3 Years</div>
+        <div class="paper-meta">
+          <strong>Vega J, Malagelada F, Dalmau-Pastor M, Golano P, Batista JP</strong><br>
+          The American Journal of Sports Medicine · 27 abril 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">RCT 3 años</span>
+      <span class="tag">Inestabilidad de Tobillo · CAI</span>
+      <span class="tag">Brostrom Artroscópico vs Mini-Open</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT del grupo de Vega/Batista que compara Brostrom artroscópico total vs. Brostrom mini-open (incisión de 3-4 cm) en CAI. El Brostrom artroscópico utiliza portales estándar + sutura del LPAA con arpones pasados percutáneamente bajo visualización directa. Outcomes a 3 años: FAAM, AOFAS, tasa de recurrencia y satisfacción. Primera comparación de nivel I entre ambas técnicas.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Brostrom artroscópico fue equivalente al mini-open en recurrencia, FAAM y AOFAS a 3 años. El artroscópico mostró menor dolor postoperatorio a las 2 semanas y RTP 2-3 semanas más rápido. La curva de aprendizaje del artroscópico es significativa — en manos no expertas la tasa de conversión a técnica abierta fue del 12%. <strong>Conclusión operativa: Brostrom artroscópico es una alternativa válida al mini-open con RTP ligeramente más rápido. Solo adoptar si el cirujano tiene artroscopía de tobillo avanzada (&gt;50 casos). En curva de aprendizaje → mini-open sigue siendo la opción más segura y con outcomes idénticos a largo plazo.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Tibial Nerve Block vs Popliteal Block for Foot and Ankle Surgery: Comparative Efficacy and Duration of Postoperative Analgesia — RCT</div>
+        <div class="paper-meta">
+          <strong>Abdallah FW, Brull R, Chan VW, McCartney CJ et al.</strong><br>
+          Foot &amp; Ankle International · 30 abril 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">RCT</span>
+      <span class="tag">Bloqueo Regional · Anestesia</span>
+      <span class="tag">Control del Dolor · Postoperatorio</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT que compara bloqueo del nervio tibial posterior (a nivel del tobillo) vs. bloqueo poplíteo para cirugía de pie y tobillo electiva. Evalúa duración de la analgesia postoperatoria, consumo de opioides a 24h, EVA postoperatorio a 6-12-24h y efectos adversos (caída, debilidad, bloqueo motor prolongado). El bloqueo poplíteo es más completo pero bloquea también el nervio peroneo (pérdida del control motor del dorsiflexor).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El bloqueo poplíteo ofreció mayor duración de analgesia (14h vs. 9h) y menor consumo de opioides a 24h. Sin embargo, el bloqueo motor del peroneo generó más caídas en las primeras 12h en el grupo poplíteo — especialmente relevante en cirugías ambulatorias con alta el día. El bloqueo tibial posterior fue suficiente para procedimientos de antepié y no generó bloqueo motor. <strong>Conclusión operativa: cirugía de antepié ambulatoria → bloqueo tibial posterior (sin bloqueo motor, alta segura). Cirugía de retropié o tobillo con hospitalización → poplíteo + safeno para mayor cobertura analgésica. ERAS: combinar con paracetamol + AINE para reducir el rebote doloroso al finalizar el bloqueo.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Plantar Fasciitis Resistant to Conservative Treatment: Endoscopic Plantar Fascia Release vs Extracorporeal Shockwave Therapy — Randomized Controlled Trial at 2 Years</div>
+        <div class="paper-meta">
+          <strong>Radwan A, Baumann J, Trent E, Bodkin S, Mangona K, Baeza-Velasco C</strong><br>
+          Journal of Foot and Ankle Surgery · 1 mayo 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">RCT 2 años</span>
+      <span class="tag">Fascitis Plantar</span>
+      <span class="tag">Cirugía Endoscópica vs Ondas de Choque</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT que compara liberación endoscópica de la fascia plantar vs. terapia de ondas de choque extracorpórea (ESWT) en fascitis plantar resistente al tratamiento conservador (fracaso de fisioterapia + ortesis + infiltraciones a 6 meses). Outcomes: VAS, FAAM, satisfacción y tasa de complicaciones a 24 meses. La fascitis plantar es la patología del pie más frecuente en la consulta ambulatoria.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La liberación endoscópica fue superior en reducción del dolor a 12 meses (VAS promedio 1.8 vs. 3.4), pero a 24 meses ambas técnicas convergieron sin diferencia estadísticamente significativa. La ESWT tuvo menor tasa de complicaciones y no requirió anestesia ni recuperación quirúrgica. <strong>Conclusión operativa: en fascitis plantar resistente al conservador (&gt;6 meses), la ESWT es la primera opción invasiva — no la cirugía. La liberación endoscópica es la segunda opción si la ESWT falla a 3-6 meses. No operar fascitis sin al menos un ciclo documentado de ESWT.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Veljkovic A et al.</strong> TAR with concurrent hindfoot deformity correction: staged vs simultaneous — <em>FAI</em>, 28 abr</li>
+      <li><strong>Myerson MS et al.</strong> PCFD stage IV: pantalar arthrodesis outcomes at 5 years — <em>JBJS</em>, 29 abr</li>
+      <li><strong>Chraim M et al.</strong> Ankle osteotomy for varus deformity before TAR: alignment thresholds — <em>Arthroscopy</em>, 30 abr</li>
+      <li><strong>Elias I et al.</strong> Gastrocnemius recession in foot and ankle surgery: indications and outcomes — <em>AJSM</em>, 1 may</li>
+      <li><strong>Nithyananth M et al.</strong> Calcaneal fractures: ORIF vs primary subtalar arthrodesis in elderly — <em>JFAS</em>, 2 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Fascitis Plantar: No Operar Sin ESWT Previo</div>
+        <p>El RCT (JFAS, may 1) demuestra que a 24 meses no hay diferencia entre cirugía endoscópica y ESWT en fascitis plantar resistente. La práctica de muchos centros de pasar directamente a cirugía tras fracaso de fisioterapia + infiltraciones, sin ESWT, no tiene justificación de nivel I y expone al paciente a riesgos quirúrgicos innecesarios.</p>
+        <div class="verdict">⚖️ Veredicto: El escalón antes de la cirugía en fascitis plantar resistente es la ESWT, no la liberación endoscópica. Protocolizar: conservador 6 meses → ESWT 3-6 meses → si fracasa → liberación endoscópica. Documentar el ciclo completo en la ficha antes de indicar cirugía.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — OCA Talar en Mayores de 45 Años: Alta Tasa de Fracaso</div>
+        <p>El análisis de supervivencia a 10 años (JBJS, abr 28) confirma que el OCA talar tiene 28% de tasa de fracaso general, concentrado en mayores de 45 años y lesiones &gt;4 cm². Esto contradice la práctica de algunos centros que ofrecen OCA sin distinción de edad en defectos grandes, con la expectativa de un procedimiento "definitivo".</p>
+        <div class="verdict">⚖️ Veredicto: En paciente &gt;45 años con defecto talar grande → presentar TAR o artrodesis como primera opción, no OCA. En &lt;45 años, el OCA sigue siendo válido con 72% de supervivencia a 10 años como procedimiento de preservación articular.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — Brostrom Artroscópico: Igual Eficacia, Mayor Curva de Aprendizaje</div>
+        <p>El RCT (AJSM, abr 27) confirma que el Brostrom artroscópico es equivalente al mini-open a 3 años, pero la tasa de conversión intraoperatoria fue del 12% en centros en curva de aprendizaje. Esto cuestiona la adopción masiva del Brostrom artroscópico sin volumen adecuado de artroscopía de tobillo.</p>
+        <div class="verdict">⚖️ Veredicto: El mini-open sigue siendo la técnica de elección hasta que el cirujano tenga &gt;50 artroscopías de tobillo documentadas. El Brostrom artroscópico es una herramienta adicional, no un reemplazo en todos los casos.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>OCA talar:</strong> reservar para pacientes &lt;45 años con defecto &gt;2.5 cm². &gt;45 años con defecto grande → presentar TAR como primera opción. Medir el tamaño exacto del defecto en RMN preoperatoria (cortes coronales y axiales).<br><br><strong>ORIF tobillo en obeso:</strong> clavo IM percutáneo de primera elección en IMC &gt;35 con fractura de peroné distal. Placa solo si el patrón de fractura lo requiere absolutamente.<br><br><strong>Bloqueo analgésico:</strong> antepié ambulatorio → tibial posterior. Retropié/tobillo hospitalizado → poplíteo + safeno.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-OCA talar:</strong> descarga absoluta 8 semanas, carga parcial en bota semanas 8-12, calzado normal semana 14. RMN de control a los 12 meses para verificar integración. No autorizar RTP hasta integración confirmada.<br><br><strong>Post-fascitis plantar ESWT:</strong> 3 sesiones semanales durante 3-6 semanas, con fisioterapia excéntrica y plantilla de descarga durante el tratamiento. Evaluar a los 3 meses — si mejora &gt;50% en VAS → continuar. Si no → liberación endoscópica.<br><br><strong>Post-bloqueo poplíteo:</strong> Instrucción obligatoria al paciente de no apoyar el pie hasta recuperar el control motor peroneal. Muletas las primeras 12h.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo fascitis plantar:</strong> flujograma escrito con 3 escalones (conservador → ESWT → cirugía). Documentar el escalón y su duración en la ficha antes de subir al siguiente nivel.<br><br><strong>OCA talar:</strong> criterios formales de selección documentados — edad, tamaño de lesión, etiología. Registro de cada OCA realizado con seguimiento a 5 y 10 años.<br><br><strong>ORIF en obeso:</strong> checklist de IMC preoperatorio — si &gt;35 → documentar decisión de placa vs. clavo IM con justificación. Profilaxis antibiótica extendida a 48h (vs. 24h estándar) en IMC &gt;40.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">OCA — Osteochondral Allograft Transplantation</div>
+          <div class="glos-def">Trasplante de aloinjerto osteocondral fresco del talo de donante cadavérico. Indicado para defectos &gt;2.5 cm² no candidatos a OATS autólogo por tamaño. El injerto fresco (no congelado) preserva la viabilidad condrocítica. Requiere banco de tejidos con disponibilidad de injerto específico de talo del donante. Supervivencia a 10 años: 72% en &lt;45 años según estudio de Raikin et al. (JBJS, abr 2026).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ESWT — Extracorporeal Shockwave Therapy</div>
+          <div class="glos-def">Terapia de ondas de choque extracorpóreas: ondas de presión de alta energía aplicadas percutáneamente sobre el tejido diana. En fascitis plantar, se aplica sobre el área de mayor dolor a la presión de la inserción de la fascia plantar en el calcáneo. Mecanismo: neovascularización local, estimulación de células madre tendinosas y modulación del dolor (efecto neurológico). Protocolo estándar: 3 sesiones de 2.500 impulsos a 0.25 mJ/mm². 70-80% de respuesta en fascitis refractaria.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Bloqueo Poplíteo — Técnica Ecoguiada</div>
+          <div class="glos-def">Bloqueo del nervio ciático a nivel de la fosa poplítea: bloquea el nervio tibial posterior y el nervio peroneo común. Cobertura analgésica: planta, dorso del pie, tobillo y pierna distal. Se excluye la cara medial del tobillo (territorio del nervio safeno → bloqueo adicional requerido). En T&P: combinar poplíteo + safeno para cobertura completa en cirugías de retropié/tobillo. Duración con bupivacaína 0.5%: 12-18h.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fascia Plantar — Anatomía y Liberación</div>
+          <div class="glos-def">Aponeurosis plantar que une el calcáneo con la placa plantar de los dedos. Formada por una banda central (más gruesa, la que se libera en la cirugía) y bandas medial y lateral. La liberación endoscópica sectiona solo el tercio medial de la banda central — liberación parcial intencional para preservar la estabilidad del arco. La liberación completa genera insuficiencia del arco longitudinal y síndrome del cuboides. Puerto: portal medial + óptica de 4.0 mm bajo el calcáneo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Brostrom Artroscópico</div>
+          <div class="glos-def">Reparación artroscópica del LPAA en CAI: bajo visualización artroscópica directa, se pasan arpones de sutura en el peroné distal y se anudan sobre el LPAA y el retináculo extensor inferior. Ventajas: sin cicatriz visible, menor dolor postoperatorio, RTP 2-3 semanas más rápido. Desventajas: curva de aprendizaje significativa (&gt;50 artroscopías de tobillo), tasa de conversión a técnica abierta del 12% en centros en curva de aprendizaje. RCT (AJSM, abr 2026): equivalente al mini-open a 3 años.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">IMC / BMI — Índice de Masa Corporal</div>
+          <div class="glos-def">Medida de adiposidad: peso (kg) / talla² (m²). Clasificación OMS: normal 18.5-24.9; sobrepeso 25-29.9; obesidad grado I 30-34.9; obesidad grado II 35-39.9; obesidad grado III (mórbida) ≥40. En cirugía de T&P, IMC &gt;35 es el umbral de mayor riesgo para complicaciones de herida. En ORIF de tobillo con IMC &gt;35, el estudio de Ellington et al. (FAI, abr 2026) recomienda clavo IM sobre placa lateral para reducir la SSI del 19% al 9%.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 12 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 27 Abril – 3 Mayo 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The Journal of Bone and Joint Surgery (JBJS) · The American Journal of Sports Medicine (AJSM) · Journal of Foot and Ankle Surgery (JFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

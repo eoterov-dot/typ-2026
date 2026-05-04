@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana Ene-4 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana Ene-4 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 26 – 31 de enero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · JBJS · AJSM · Foot Ankle Surg</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">High-Energy Syndesmotic Injuries: Surgical vs Functional Treatment in Athletes — A Prospective Randomized Trial at 2 Years</div>
+        <div class="paper-meta">
+          <strong>Baumbach SF, Herterich V, Deisenroth C, Böcker W, Polzer H</strong><br>
+          The Journal of Bone and Joint Surgery · enero 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">RCT</span>
+      <span class="tag">Lesión Sindesmótica</span>
+      <span class="tag">Esguince Alto de Tobillo</span>
+      <span class="tag">Atletas</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT que compara fijación quirúrgica vs. tratamiento funcional en lesión sindesmótica de alta energía (gravedad clasificada como grado II-III en el sistema de Cotton) en atletas competitivos. El tratamiento funcional incluía bota de yeso funcional + carga protegida + rehabilitación intensiva. Outcomes primarios: función sindesmótica a 2 años (Maisonneuve test, ecografía dinámica), AOFAS, FAOS y RTP.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>En lesiones sindesmóticas grado II estables (sin traslación en la prueba de estrés fluoroscópica intraoperatoria), el tratamiento funcional no fue inferior a la fijación quirúrgica en función y RTP a 2 años. Las lesiones grado III (con traslación en estrés) sí requieren fijación. <strong>Conclusión operativa: en esguince alto grado II en atleta → prueba de estrés fluoroscópica obligatoria. Si estable (sin traslación &gt;2 mm) → tratamiento funcional es válido y evita la cirugía. Si inestable → fijación con botón (TightRope) o tornillo sindesmótico.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Fifth Metatarsal Base Fractures in Elite Athletes: Return to Sport After Surgical vs Conservative Treatment — Systematic Review and Meta-analysis</div>
+        <div class="paper-meta">
+          <strong>Hunt KJ, Anderson RB, Easley ME, Nunley JA et al.</strong><br>
+          The American Journal of Sports Medicine · enero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Revisión sistemática + Metaanálisis</span>
+      <span class="tag">Fractura Zona II/III 5to Metatarsiano</span>
+      <span class="tag">Jones · Deportistas de Élite</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática con metaanálisis de fracturas de la base del 5to metatarsiano (zona I, II y III) en atletas de élite, comparando tratamiento quirúrgico (fijación con tornillo intramedular) vs. conservador en retorno al deporte. Distingue claramente entre las zonas: zona I (avulsión del peroné corto) — la más benigna — vs. zona II/III (fractura de Jones) — la que concentra el mayor debate quirúrgico.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>En atletas de élite con fractura de Jones (zona II/III), la fijación quirúrgica redujo el tiempo de RTP en 5-7 semanas vs. conservador (11 vs. 17-19 semanas) y tuvo menor tasa de no-unión. En no-atletas o atletas recreativos, el conservador es aceptable. La zona I (avulsión) es conservadora en todos los contextos. <strong>Conclusión operativa: atleta de élite o semiprofesional con fractura de Jones → fijación quirúrgica con tornillo intramedular de 4.5 mm como primera opción. No ofrecer conservador como equivalente cuando el RTP rápido es prioridad clínica del paciente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Minimally Invasive Calcaneal Osteotomy for Hindfoot Valgus in PCFD: Technique Refinement and Early Outcomes in 85 Consecutive Cases</div>
+        <div class="paper-meta">
+          <strong>Veljkovic A, Lau J, Wing K, Younger A et al.</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Osteotomía Calcánea MIS</span>
+      <span class="tag">PCFD · Valgo de Retropié</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de 85 casos consecutivos de osteotomía calcánea de lateralización percutánea para corrección del valgo de retropié en PCFD. La técnica MIS usa osteotomo percutáneo, sin osteotomía abierta clásica. Evalúa corrección del ángulo de Kite, alineamiento del retropié en RX de carga y complicaciones (especialmente lesión del nervio sural y calcáneo-cutáneo). Seguimiento mínimo 12 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</html>
+      <p>La osteotomía calcánea MIS logró corrección equivalente a la técnica abierta con menor tasa de complicaciones de herida y cicatriz lateral. La principal curva de aprendizaje está en el control de la dirección del corte para evitar el sobredesplazamiento. La lesión del nervio sural fue la complicación más frecuente (5.8%), reducible con técnica ecoguiada. <strong>Conclusión operativa: en PCFD con valgo de retropié que requiere osteotomía calcánea, la técnica MIS es preferible si el cirujano tiene volumen adecuado (&gt;20 casos). Ecoguía para proteger el nervio sural. En curva de aprendizaje → técnica abierta sigue siendo segura.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Charcot Neuroarthropathy of the Foot: Outcomes of Surgical Reconstruction vs Extended Total Contact Cast — A Matched Cohort Analysis</div>
+        <div class="paper-meta">
+          <strong>Rogers LC, Frykberg RG, Armstrong DG, Boulton AJ</strong><br>
+          Journal of Foot and Ankle Surgery · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Neuroartropatía de Charcot</span>
+      <span class="tag">Pie Diabético</span>
+      <span class="tag">Reconstrucción vs Conservador</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohortes pareadas que compara reconstrucción quirúrgica (exostectomía + artrodesis segmentaria) vs. tratamiento conservador extendido con yeso de contacto total (TCC) en neuroartropatía de Charcot del pie en estadio activo y crónico. Outcomes primarios: tasa de amputación, úlceras recurrentes y capacidad de deambulación a 5 años. Población: 78 pacientes DM2 con NAC grado I-II de Sanders.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La reconstrucción quirúrgica redujo significativamente la tasa de amputación (12% vs. 31%) y ulceración recurrente (18% vs. 48%) vs. TCC a 5 años en NAC con deformidad significativa (Charcot rocker-bottom foot). En NAC sin deformidad severa (grado I sin colapso del arco), el TCC fue suficiente. <strong>Conclusión operativa: NAC con deformidad en rocker-bottom o colapso del arco longitudinal medial → evaluación quirúrgica activa. No diferir la reconstrucción indefinidamente con TCC cuando hay deformidad establecida — la tasa de amputación se triplica a 5 años con manejo solo conservador.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Return to Sport After Ankle Ligament Surgery: Consensus Statement from the International Ankle Consortium — 2026 Update</div>
+        <div class="paper-meta">
+          <strong>Gribble PA, Bleakley CM, Caulfield BM, Docherty CL, Fourchet F, Fong DTP et al.</strong><br>
+          British Journal of Sports Medicine · enero 2026
+          <span class="evidence-pill">Nivel V</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Retorno al Deporte · RTP</span>
+      <span class="tag">Inestabilidad de Tobillo</span>
+      <span class="tag">Consenso Internacional</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Actualización 2026 del consenso del International Ankle Consortium sobre criterios de retorno al deporte post-cirugía ligamentaria de tobillo (Brostrom y técnicas afines). El consenso reemplaza el criterio temporal (semanas postoperatorias) por un modelo basado en criterios funcionales progresivos: 3 fases — Retorno al entrenamiento, Retorno a la competencia, Retorno al rendimiento previo. Incluye criterios objetivos de evaluación para cada fase.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El modelo de RTP por criterios reemplaza definitivamente el modelo temporal ("a las 16 semanas"). Los criterios objetivos obligatorios antes de RTP a competencia incluyen: fuerza peronea ≥90% contralateral, SEBT alcance 90%, CAIT ≥24/28 y paso de evaluación de movimiento funcional específica del deporte. <strong>Conclusión operativa: adoptar el modelo de RTP por criterios en todos los pacientes postoperatorios de cirugía ligamentaria. Eliminar el calendario fijo de "alta a las N semanas". El fisioterapeuta certifica cada fase antes del retorno al nivel siguiente.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Li F et al.</strong> Ankle replacement survival analysis: 15-year Swedish register data — <em>FAI</em>, ene</li>
+      <li><strong>Wiewiorski M et al.</strong> OATS vs matrix-induced chondrogenesis for OCD talus: RCT at 36 months — <em>AJSM</em>, ene</li>
+      <li><strong>Phisitkul P et al.</strong> Medial malleolus osteotomy healing: screw vs suture anchor fixation — <em>JFAS</em>, ene</li>
+      <li><strong>Saragas NP et al.</strong> Lesser toe deformities: hammertoe vs claw toe — surgical decision guide — <em>Foot Ankle Surg</em>, ene</li>
+      <li><strong>Peng J et al.</strong> Platelet-rich fibrin augmentation in ankle ligament repair — <em>FAI</em>, ene</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — RTP Post-Cirugía Ligamentaria: Eliminar el Modelo Temporal</div>
+        <p>El consenso 2026 del International Ankle Consortium (BJSM, ene) reemplaza explícitamente el modelo de "N semanas para RTP" por un modelo basado en criterios funcionales objetivos. La práctica actual de la mayoría de los centros de dar alta a las 16-20 semanas por protocolo temporal no tiene respaldo en evidencia de nivel I y ha sido formalmente abandonada por el consenso de los mayores expertos mundiales.</p>
+        <div class="verdict">⚖️ Veredicto: Adoptar el modelo de RTP por criterios: Fase 1 → entrenamiento, Fase 2 → competencia, Fase 3 → rendimiento previo. Cada fase requiere certificación objetiva por fisioterapeuta. Eliminar el alta por semanas del protocolo CTN.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Charcot con Deformidad: Conservador Triplica la Tasa de Amputación a 5 Años</div>
+        <p>El estudio de cohortes (JFAS, ene) demuestra que en NAC con deformidad rocker-bottom establecida, el tratamiento conservador exclusivo (TCC) tiene tasa de amputación del 31% a 5 años vs. 12% con reconstrucción quirúrgica. La inercia de diferir la cirugía en Charcot "porque el pie no duele" tiene consecuencias que este estudio cuantifica claramente.</p>
+        <div class="verdict">⚖️ Veredicto: En NAC con colapso del arco o deformidad en rocker-bottom → derivar a cirugía. No continuar indefinidamente con TCC cuando hay deformidad establecida. El criterio de derivación quirúrgica es la deformidad, no el dolor.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — Fractura de Jones en Atleta Élite: Cirugía Siempre</div>
+        <p>El metaanálisis (AJSM, ene) cierra el debate en atletas de élite: la fijación quirúrgica de la fractura de Jones reduce el tiempo de RTP en 5-7 semanas vs. conservador. En el deporte de élite, 5 semanas es la diferencia entre finalizar o no una temporada. El argumento de "es zona II/III con buen hueso → tratar conservador" no aplica cuando el RTP rápido es el objetivo primario.</p>
+        <div class="verdict">⚖️ Veredicto: Atleta de élite con fractura de Jones → ofrecer cirugía como primera opción explicando el beneficio en tiempo de RTP. El conservador se reserva para el paciente que rechaza la cirugía o que tiene bajo nivel de demanda deportiva.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Sindesmosis:</strong> prueba de estrés fluoroscópica obligatoria antes de cualquier decisión en esguince alto. Si grado II estable → funcional. Si inestable → TightRope (fijación elástica preferida sobre tornillo).<br><br><strong>Jones fractura en atleta:</strong> ofrecer tornillo intramedular de 4.5 mm como primera opción con RTP estimado a 11 semanas vs. 17-19 conservador.<br><br><strong>NAC con deformidad:</strong> derivar a reconstrucción si hay rocker-bottom — no diferir con TCC indefinidamente.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>RTP ligamentario por criterios:</strong> implementar protocolo de 3 fases objetivas. Fase 1 completa si: sin dolor, fuerza peronea ≥85%, SEBT 80%. Fase 2 si: fuerza ≥90%, SEBT ≥90%, CAIT ≥24. Fase 3 si: rendimiento deportivo específico sin limitación.<br><br><strong>Post-Jones quirúrgico:</strong> descarga 4 semanas, bota con carga desde semana 4, calzado normal semana 8, retorno progresivo al deporte desde semana 10.<br><br><strong>Sindesmosis funcional:</strong> bota 3 semanas, fisioterapia propioceptiva intensiva desde semana 2.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo RTP por criterios:</strong> adoptar el consenso 2026 del IAC como protocolo oficial de CTN. Documento escrito con las 3 fases y criterios objetivos. Físioterapeuta certifica cada fase.<br><br><strong>Charcot screening quirúrgico:</strong> todo NAC con deformidad establecida → evaluación por cirujano de pie antes de continuar con TCC. Registro de derivación en ficha.<br><br><strong>Sindesmosis con fluoroscopía:</strong> incluir prueba de estrés intraoperatoria como paso mandatorio en todo ORIF de tobillo con sospecha sindesmótica.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Sindesmosis Tibioperoneal</div>
+          <div class="glos-def">Articulación fibrosa entre la tibia distal y el peroné, estabilizada por 4 ligamentos: AITFL (anterior), PITFL (posterior), ligamento interóseo y TTFL (transverso). El AITFL es el primero en lesionarse en el esguince alto. La prueba de estrés fluoroscópica evalúa estabilidad: &gt;2 mm de diastasis tibio-peroneal indica inestabilidad con necesidad de fijación. TightRope (botón flexible) tiene menor tasa de retiro de implante que el tornillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fractura de Jones — Zona II/III del 5to Metatarsiano</div>
+          <div class="glos-def">Fractura transversal en la zona de unión metáfisis-diáfisis del 5to metatarsiano (zona II de Lawrence-Botte) o diáfisis proximal (zona III). Alta tasa de no-unión por zona watershed vascular. En atletas: fijación con tornillo intramedular 4.5 mm de acero inoxidable o titanio. Zona I (avulsión del peroné corto, base del 5to): siempre conservador — no es fractura de Jones.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">NAC — Neuroartropatía de Charcot</div>
+          <div class="glos-def">Destrucción articular neuropática del pie por pérdida de la propiocepción y nocicepción (principalmente DM2, pero también lepra, siringomielia). Clasificación de Sanders: grado 0 (riesgo), I (luxación), II (fragmentación), III (coalescencia), IV (consolidación). La deformidad en rocker-bottom (colapso de la columna medial) es la complicación más grave y la que más frecuentemente requiere reconstrucción quirúrgica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">SEBT — Star Excursion Balance Test</div>
+          <div class="glos-def">Test funcional de equilibrio y control neuromuscular del tobillo: el paciente se mantiene en apoyo unipodal y alcanza con el pie libre en 8 direcciones desde una estrella central. El alcance en la dirección posterolateral es el más sensible para detectar déficit en CAI. Normalización: alcance / longitud de extremidad inferior × 100. Criterio de RTP fase 2: alcance &gt;90% del contralateral. Reproducible y fácil de implementar sin equipamiento especial.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">CAIT — Cumberland Ankle Instability Tool</div>
+          <div class="glos-def">Cuestionario de 9 ítems (0-30 puntos) para diagnóstico y seguimiento de CAI. Score &lt;24/30 indica inestabilidad crónica clínicamente significativa. Ampliamente validado en múltiples idiomas y culturas. El consenso 2026 del IAC lo establece como criterio obligatorio para la fase 2 del RTP post-cirugía ligamentaria (requiere score ≥24/30 antes de retornar a competencia).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">TightRope — Fijación Flexible Sindesmótica</div>
+          <div class="glos-def">Sistema de fijación sindesmótica con botón metálico (Arthrex) y sutura de alta resistencia (FiberTape). Permite micromovimiento fisiológico de la sindesmosis vs. el tornillo rígido. Ventaja clave: no requiere retiro rutinario del implante. Estudios comparativos con tornillo muestran outcomes equivalentes en reducción y estabilidad, con menor tasa de reintervención. Costo: ~USD 600-900 vs. tornillo convencional ~USD 80-150.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana Ene-4 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 26–31 Enero 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The Journal of Bone and Joint Surgery (JBJS) · The American Journal of Sports Medicine (AJSM) · British Journal of Sports Medicine (BJSM)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

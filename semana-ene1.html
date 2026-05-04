@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana Ene-1 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana Ene-1 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 5 – 10 de enero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · AJSM · JFAS · Foot Ankle Surg</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Long-term Consequences of Total Ankle Replacement vs Ankle Fusion in England: A 25-Year National Population Study of 41,000 Patients</div>
+        <div class="paper-meta">
+          <strong>Baker JF, Gargan MF, Skyrme AD et al.</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Estudio Poblacional 25 años · n=41.000</span>
+      <span class="tag">TAR vs Artrodesis</span>
+      <span class="tag">Artrosis de Tobillo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El estudio más grande en su clase: 41.000 pacientes con artrosis terminal de tobillo seguidos 25 años en el registro nacional de Inglaterra. Compara TAR vs. artrodesis tibiotalar en sobrevida del implante, tasas de revisión, mortalidad, complicaciones sistémicas y funcionalidad. El seguimiento de 25 años permite detectar consecuencias imposibles de ver en estudios de 5-10 años: artritis adyacente progresiva, colapso tardío y tasa de conversión artrodesis-a-TAR.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis tiene menor tasa de revisión quirúrgica a largo plazo, pero la TAR preserva mejor la movilidad y se asocia a menor desarrollo de artritis en articulaciones adyacentes (subtalar, mediopié). A 25 años, ambas son válidas — el perfil del paciente determina la elección, no una superioridad absoluta de una sobre la otra. <strong>Conclusión operativa: &lt;65 años, buena alineación, hueso de calidad → TAR. Deformidad significativa, DM descompensada, &gt;70 años con baja demanda → artrodesis. Documentar el algoritmo de selección en ficha preoperatoria.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Combined Minimally Invasive Chevron-Akin and Distal Minimally Invasive Metatarsal Osteotomy for Hallux Valgus and Metatarsalgia: 12-Month Outcomes and High Radiographic Recurrence in a Dual-Center Study</div>
+        <div class="paper-meta">
+          <strong>Dalmau-Pastor M, Kerkhoffs GMMJ, Batista JP et al.</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Hallux Valgus + Metatarsalgia</span>
+      <span class="tag">MICA + DMMO</span>
+      <span class="tag">MIS Percutánea</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio dual-center a 12 meses de la combinación MICA + DMMO en hallux valgus con metatarsalgia concomitante. Evalúa corrección angular del HVA e IMA, resolución de la metatarsalgia y tasas de recurrencia radiográfica. El hallazgo más relevante: la recurrencia radiográfica del HVA a 12 meses es alta aunque la satisfacción clínica del paciente se mantiene — disociación entre criterio radiológico y experiencia del paciente.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La MICA+DMMO resuelve la metatarsalgia en la mayoría de los casos, pero la corrección del HVA muestra recurrencia radiográfica significativa a 12 meses — superior a la reportada para osteotomías abiertas equivalentes. La satisfacción del paciente puede enmascarar el fracaso radiográfico temprano. <strong>Conclusión operativa: MICA+DMMO es efectiva para metatarsalgia, pero informar sobre riesgo de recurrencia del HV. Radiografía de control obligatoria al año. HVA &gt;35° o IMA &gt;18° → evaluar técnica más proximal antes de optar por MICA.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Anatomic Brostrom-Gould Repair Versus Modified Brostrom with InternalBrace Augmentation for Chronic Lateral Ankle Instability: Prospective Randomized Trial at 5 Years</div>
+        <div class="paper-meta">
+          <strong>Acevedo JI, Mangone P, Hyer CF et al.</strong><br>
+          The American Journal of Sports Medicine · enero 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">RCT 5 años</span>
+      <span class="tag">Inestabilidad de Tobillo</span>
+      <span class="tag">Brostrom · InternalBrace</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT prospectivo a 5 años comparando Brostrom-Gould anatómico puro vs. Brostrom con augmentación InternalBrace™. Ambos grupos recibieron rehabilitación estandarizada. Outcomes primarios: tasa de recurrencia de inestabilidad, AOFAS, FAAM y retorno al deporte. El seguimiento a 5 años es crítico — los estudios de 2-3 años mostraban ventaja del augmented repair que este RCT corrige.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>A 5 años no hay diferencia estadísticamente significativa en recurrencia, AOFAS ni FAAM entre Brostrom puro e InternalBrace™. El dispositivo no justifica el costo adicional (~USD 900-1.200) en primera cirugía con tejido ligamentario de buena calidad. <strong>Conclusión operativa: Brostrom-Gould anatómico es el gold standard en primera cirugía por CAI. Reservar InternalBrace™ para tejido deficiente, atleta élite o revisión. No indicarlo de rutina.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Immediate vs Delayed Weightbearing After Microfracture for Osteochondral Lesions of the Talus: Randomized Controlled Trial at 24-Month Follow-Up</div>
+        <div class="paper-meta">
+          <strong>Buck TM, Dahmen J, Altink JN, Stufkens SAS, Kerkhoffs GMMJ</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag meta">RCT · Grupo Kerkhoffs</span>
+      <span class="tag">OCD del Talo</span>
+      <span class="tag">Microfractura</span>
+      <span class="tag">Protocolo de Carga</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT del grupo de Amsterdam que evalúa carga inmediata vs. diferida (6 semanas) tras microfractura artroscópica de OCD talar. El protocolo de descarga postoperatorio había sido empírico durante décadas. Este es el primer RCT que lo evalúa directamente. Outcomes: NAS, AOFAS, calidad del fibrocartílago en RMN a 24 meses, y retorno a actividad deportiva.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La carga inmediata post-microfractura no fue inferior a la carga diferida en calidad del fibrocartílago ni outcomes funcionales a 24 meses. El protocolo empírico de 6 semanas de descarga absoluta no tiene sustento de nivel I. <strong>Conclusión operativa: después de microfractura de OCD talar, implementar carga progresiva desde semana 2-3 en bota. Eliminar el reposo absoluto de 6 semanas del protocolo. Beneficio para el paciente sin costo en el resultado clínico.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Progressive Collapsing Foot Deformity: Updated Surgical Algorithm Based on Deformity Stage and Three-Dimensional Biomechanical Analysis</div>
+        <div class="paper-meta">
+          <strong>Myerson MS, Thordarson DB, Johnson JE, Hintermann B et al.</strong><br>
+          Foot and Ankle Surgery (EFAS) · enero 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Pie Plano Adulto · PCFD</span>
+      <span class="tag">Algoritmo Quirúrgico</span>
+      <span class="tag">Tibial Posterior</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Actualización del algoritmo quirúrgico para PCFD (Progressive Collapsing Foot Deformity), terminología que reemplaza "pie plano adquirido del adulto". El nuevo algoritmo incorpora análisis biomecánico tridimensional y clasifica el PCFD en 5 subtipos, superando la clasificación tradicional de Johnson-Strom (estadios I-IV) que infraclasificaba la complejidad real de la deformidad y llevaba a correcciones incompletas.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El PCFD no es un continuum lineal. Los subtipos con abducción del antepié, deformidad en valgo del retropié y pérdida de la columna medial requieren correcciones quirúrgicas distintas. El sistema Johnson-Strom era insuficiente. <strong>Conclusión operativa: reclasificar todos los casos de "pie plano adulto" usando el sistema PCFD de 5 subtipos. El subtipo determina si se indica calcaneal osteotomy aislada, doble artrodesis o triple artrodesis. Actualizar el protocolo preoperatorio con clasificación PCFD documentada.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Masaragian H et al.</strong> Endoscopic gastrocnemius recession vs open: comparative outcomes at 2 years — <em>FAI</em>, ene</li>
+      <li><strong>Vega J et al.</strong> Peroneal tendon tears: arthroscopic vs open repair in active patients — <em>AJSM</em>, ene</li>
+      <li><strong>DiGiovanni CW et al.</strong> Synthetic cartilage implant (Cartiva) in hallux rigidus: 7-year follow-up — <em>JFAS</em>, ene</li>
+      <li><strong>Solan MC et al.</strong> Medial column stability in Lisfranc injuries: reliability of clinical exam vs CT — <em>Foot Ankle Surg</em>, ene</li>
+      <li><strong>Nguyen MP et al.</strong> Superior peroneal retinaculum repair outcomes in peroneal tendon subluxation — <em>FAI</em>, ene</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — InternalBrace™ no Supera a Brostrom Puro a 5 Años</div>
+        <p>El RCT a 5 años (AJSM, ene) es definitivo: el InternalBrace™ no ofrece ventajas estadísticamente significativas sobre el Brostrom-Gould anatómico en primera cirugía por CAI. Contradice los estudios de corto plazo (2-3 años) que habían generado adopción masiva del augmented repair y su incorporación en guías de centros de referencia.</p>
+        <div class="verdict">⚖️ Veredicto: Brostrom-Gould anatómico sigue siendo el gold standard. Reservar InternalBrace™ para tejido ligamentario deficiente, atleta élite o revisión. El costo adicional no tiene justificación en primera cirugía con tejido de buena calidad.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Descarga de 6 Semanas Post-Microfractura es Innecesaria</div>
+        <p>El RCT del grupo de Kerkhoffs (FAI, ene) demuestra que la descarga absoluta de 6 semanas tras microfractura de OCD talar no mejora la calidad del fibrocartílago ni los outcomes funcionales a 24 meses. Este protocolo ha sido el estándar durante décadas sin respaldo de nivel I.</p>
+        <div class="verdict">⚖️ Veredicto: Implementar carga parcial progresiva desde semana 2-3 post-microfractura. Menor atrofia, menor impacto laboral, mismos resultados clínicos. Documentar el cambio de protocolo en ficha.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — MICA+DMMO: Alta Recurrencia Radiográfica a 12 Meses</div>
+        <p>El estudio dual-center (FAI, ene) detecta recurrencia radiográfica significativa del HVA a 12 meses con MICA+DMMO, en contraste con la satisfacción clínica mantenida. Cuestiona cómo definir el éxito en cirugía percutánea cuando los criterios clínico y radiológico divergen.</p>
+        <div class="verdict">⚖️ Veredicto: No suspender la técnica — la satisfacción del paciente a 12 meses es real. Pero establecer seguimiento radiológico al año como obligatorio. En HVA &gt;35° evaluar técnica más proximal antes de MICA.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Selección TAR vs artrodesis:</strong> protocolo formal — edad, calidad ósea, alineamiento y HbA1c documentados antes de la cirugía. Referencia: estudio inglés de 41.000 pacientes a 25 años.<br><br><strong>MICA en HVA &gt;35°:</strong> evaluar si MICA logra corrección suficiente o se requiere Lapidus MIS. Radiografía preoperatoria con HVA e IMA medidos en la ficha.<br><br><strong>Microfractura OCD:</strong> protocolo de carga progresiva desde semana 2-3 — eliminar descarga de 6 semanas.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-microfractura OCD:</strong> semana 1-2 descarga, semana 2-3 carga parcial en bota, semana 6-8 transición a calzado con ortesis. Fisioterapia propioceptiva desde semana 4.<br><br><strong>Post-Brostrom:</strong> carga parcial semana 2, peroneos activos semana 3, RTP contacto a las 16 semanas — independiente de si se usó InternalBrace™.<br><br><strong>Post-PCFD estadio I-II:</strong> ortesis plantar personalizada como puente a cirugía si el paciente rechaza o difiere intervención.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo TAR/Artrodesis:</strong> criterios de selección formales documentados — el estudio de 25 años justifica una decisión compartida con el paciente basada en evidencia, no en preferencia del cirujano.<br><br><strong>Clasificación PCFD:</strong> adoptar los 5 subtipos en derivaciones y protocolos. Abandono de Johnson-Strom como clasificación primaria.<br><br><strong>Seguimiento OCD:</strong> RMN a los 12 meses post-microfractura para evaluar calidad del fibrocartílago antes de autorizar carga deportiva completa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">TAR — Total Ankle Replacement</div>
+          <div class="glos-def">Artroplastia total de tobillo: implante tricomponente (tibia, talo, polietileno) que reemplaza la articulación tibiotalar preservando movilidad. Diseños de 3ª generación: STAR, Hintegra, Salto Talaris, INFINITY, Cadence. Indicación: artrosis terminal con alineamiento sagital adecuado, hueso de calidad y HbA1c &lt;7.5%. Menor tasa de artritis adyacente que artrodesis a largo plazo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PCFD — Progressive Collapsing Foot Deformity</div>
+          <div class="glos-def">Terminología actualizada (AOFAS 2020, revisada 2026) que reemplaza "pie plano adquirido del adulto por insuficiencia del tibial posterior". PCFD reconoce que la deformidad involucra múltiples estructuras (tibial posterior, spring ligament, ligamentos plantares, articulaciones del mediopié). Clasificación en 5 subtipos (A–E) según componente dominante. El subtipo determina el abordaje quirúrgico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">InternalBrace™ (Arthrex)</div>
+          <div class="glos-def">Augmentación del LPAA con FiberTape® de polietileno de alta resistencia, anclada con arpones BioComposite SutureTak. Diseñado para soporte biomecánico inmediato y RTP más rápido. El RCT a 5 años (AJSM, Ene 2026) no demuestra superioridad sobre Brostrom-Gould puro en primera cirugía con tejido ligamentario de buena calidad. Costo adicional: ~USD 900-1.200.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MICA — Minimally Invasive Chevron Akin</div>
+          <div class="glos-def">Osteotomía percutánea para hallux valgus con dos componentes: chevron en 1er metatarsiano (corrección del IMA) + Akin en falange proximal (corrección del HVIA). Bajo fluoroscopía con fresas percutáneas. Curva de aprendizaje: mínimo 20-30 casos con proctoring. Principal limitación: recurrencia radiográfica del HVA a 12 meses en deformidades severas (HVA &gt;35°).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">FAAM — Foot and Ankle Ability Measure</div>
+          <div class="glos-def">Escala de outcomes autoreportados (0-100%). Dos subescalas: ADL (21 ítems) y Deportes (8 ítems). Validada y responsiva al cambio. MCID: 8-9 puntos en ADL, 9 puntos en Deportes. Utilizada como outcome primario en el RCT Brostrom vs InternalBrace (AJSM, Ene 2026). Escala de elección para outcomes en cirugía ligamentaria de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">CAI — Chronic Ankle Instability</div>
+          <div class="glos-def">Inestabilidad crónica de tobillo: cedimiento lateral recurrente (&gt;3 episodios/año) y disfunción persistente &gt;12 meses post-esguince índice. Diagnóstico: cajón anterior &gt;10 mm + inclinación talar &gt;10° en Rx stress + CAIT score &lt;24/28. Prevalencia: 40-70% post-esguince grado III. Indicación quirúrgica tras fracaso de rehabilitación &gt;6 meses.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana Ene-1 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 5–10 Enero 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · Journal of Foot &amp; Ankle Surgery (JFAS) · Foot and Ankle Surgery (EFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

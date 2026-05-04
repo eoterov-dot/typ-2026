@@ -1,113 +1,454 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T&P 2026 — Dr. Eduardo Otero · Tobillo & Pie</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: #eef2f7; color: #1a1a2e; }
-    header {
-      background: linear-gradient(135deg, #0f2a4a 0%, #1a4a72 55%, #1a7f8e 100%);
-      color: #fff; padding: 36px 40px;
-    }
-    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: 8px; }
-    header h1 { font-size: 26px; font-weight: 700; margin-bottom: 6px; }
-    header p { font-size: 14px; opacity: .75; }
-    .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
-
-    /* highlight box */
-    .highlight-box {
-      background: #fff; border-radius: 14px; padding: 28px 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.07); margin-bottom: 32px;
-    }
-    .highlight-box h3 { font-size: 13px; color: #1a7f8e; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #d0edf0; }
-    .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 6px; color: #fff; margin-bottom: 6px; }
-    .badge.nivel-i  { background: #c0392b; }
-    .badge.nivel-ii { background: #1a4a72; }
-    .badge.nivel-iii{ background: #1e7c4b; }
-    .badge.nivel-iv { background: #6c5b7b; }
-    .badge.nivel-v  { background: #888; }
-    .paper-item { padding: 14px 0; border-bottom: 1px solid #f0f4f8; }
-    .paper-item:last-child { border-bottom: none; }
-    .paper-item p { font-size: 13.5px; color: #2d3748; line-height: 1.65; margin-top: 6px; }
-
-    /* section label */
-    .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 16px; }
-
-    /* week cards */
-    .weeks-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-    .week-card {
-      background: #fff; border-radius: 12px; padding: 20px 22px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.06); text-decoration: none; color: inherit;
-      border: 2px solid transparent; transition: border-color .2s;
-    }
-    .week-card:hover { border-color: #1a7f8e; }
-    .week-card.current { border-color: #1a7f8e; background: linear-gradient(135deg, #f0faff, #e8f4f8); }
-    .week-card .week-title { font-size: 15px; font-weight: 700; color: #0f2a4a; margin-bottom: 5px; }
-    .week-card .week-date  { font-size: 11.5px; color: #1a7f8e; margin-bottom: 8px; }
-    .week-card .papers-count { font-size: 12px; color: #888; }
-    .current-badge { display: inline-block; font-size: 9px; font-weight: 700; background: #1a7f8e; color: #fff; padding: 2px 7px; border-radius: 5px; letter-spacing: 1px; margin-bottom: 8px; }
-
-    footer { text-align: center; font-size: 11px; color: #bbb; padding: 24px 0 32px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Índice — Actualización Tobillo & Pie 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:48px;text-align:center;border-bottom:4px solid var(--teal);}
+  .header h1{font-size:2.2rem;font-weight:700;letter-spacing:-0.5px;}
+  .header p{font-size:1rem;opacity:0.8;margin-top:10px;}
+  .stats{display:flex;justify-content:center;gap:28px;margin-top:28px;flex-wrap:wrap;}
+  .stat{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:12px;padding:14px 26px;text-align:center;}
+  .stat .num{font-size:2rem;font-weight:700;color:#7dd4e0;}
+  .stat .lbl{font-size:0.78rem;opacity:0.8;margin-top:3px;}
+  .container{max-width:900px;margin:0 auto;padding:48px 28px 80px;}
+  .section-label{font-size:0.75rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:12px;margin-top:36px;}
+  .week-card{background:white;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,0.07);margin-bottom:14px;overflow:hidden;transition:box-shadow 0.2s;}
+  .week-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.12);}
+  .week-card.current{border:2px solid var(--teal);}
+  .week-header{display:flex;align-items:center;gap:16px;padding:18px 22px;text-decoration:none;color:inherit;}
+  .week-num{background:var(--teal);color:white;border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.9rem;flex-shrink:0;}
+  .week-num.current{background:var(--navy);}
+  .week-info{flex:1;}
+  .week-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+  .week-date{font-size:0.78rem;color:#888;}
+  .week-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:10px;padding:2px 9px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:#c0392b;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:#1e7c4b;}
+  .tag.current{background:#e8f4fd;border-color:#a0d4ed;color:#0a6080;font-weight:700;}
+  .arrow{color:#ccc;font-size:1.1rem;margin-left:4px;}
+  .papers-count{background:#f0f4fa;border-radius:8px;padding:3px 10px;font-size:0.72rem;color:#667;font-weight:600;white-space:nowrap;}
+  .highlight-box{background:linear-gradient(135deg,#e8f4fd,#d0edf5);border:1px solid var(--teal);border-radius:14px;padding:22px 28px;margin:32px 0;}
+  .highlight-box h3{color:var(--teal);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:14px;font-weight:700;}
+  .highlight-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+  .highlight-row .badge{background:var(--teal);color:white;border-radius:8px;padding:2px 8px;font-size:0.70rem;font-weight:700;white-space:nowrap;margin-top:2px;}
+  .highlight-row p{font-size:0.84rem;color:#0e4050;line-height:1.5;}
+  .journals-box{background:white;border-radius:12px;padding:22px 28px;box-shadow:0 2px 10px rgba(0,0,0,0.06);margin:32px 0;}
+  .journals-box h3{font-size:0.8rem;text-transform:uppercase;color:#888;letter-spacing:1px;font-weight:700;margin-bottom:16px;}
+  .journals-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .journal-item{font-size:0.82rem;color:#444;padding:6px 10px;background:#f8fafc;border-radius:8px;border-left:3px solid var(--teal);}
+  .journal-item .abbr{font-weight:700;color:var(--navy);}
+  .journal-cat{font-size:0.72rem;color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:14px;margin-bottom:8px;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;}
+  a{text-decoration:none;color:inherit;}
+  .send-btn{background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.4);color:#fff;padding:10px 26px;border-radius:10px;font-size:0.85rem;font-weight:700;cursor:pointer;letter-spacing:0.3px;transition:background 0.2s;}
+  .send-btn:hover{background:rgba(255,255,255,0.25);}
+  .send-btn:disabled{opacity:0.6;cursor:default;}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="label">Centro Trauma Ñuble · Dr. Eduardo Otero</div>
-  <h1>Tobillo &amp; Pie 2026</h1>
-  <p>Actualización científica semanal · AJSM · FAI · JFAS</p>
-</header>
+<div class="header">
+  <h1>📚 Actualización Semanal<br>Tobillo &amp; Pie 2026</h1>
+  <p>Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</p>
+  <div class="stats">
+    <div class="stat"><div class="num">16</div><div class="lbl">Semanas cubiertas</div></div>
+    <div class="stat"><div class="num">~110</div><div class="lbl">Papers procesados</div></div>
+    <div class="stat"><div class="num">18</div><div class="lbl">Revistas monitoreadas</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Papers top / semana</div></div>
+  </div>
+  <div style="margin-top:24px;">
+    <button class="send-btn" id="sendBtn" onclick="enviarResumen()">📧 Enviar Resumen por Email</button>
+  </div>
+</div>
+
+<script>
+async function enviarResumen() {
+  const btn = document.getElementById('sendBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Enviando...';
+  try {
+    const indexHtml = document.documentElement.outerHTML;
+    const currentLink = document.querySelector('.week-card.current a');
+    const semanaHref = currentLink ? currentLink.getAttribute('href') : null;
+    let semanaHtml = '';
+    if (semanaHref) {
+      const resp = await fetch(semanaHref);
+      semanaHtml = await resp.text();
+    }
+    await fetch('https://edootero.app.n8n.cloud/webhook/enviar-typ', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ html: indexHtml, semanaHtml: semanaHtml })
+    });
+    btn.textContent = '✅ Email enviado';
+    setTimeout(() => { btn.textContent = '📧 Enviar Resumen por Email'; btn.disabled = false; }, 3000);
+  } catch(e) {
+    btn.textContent = '❌ Error — intenta de nuevo';
+    btn.disabled = false;
+  }
+}
+</script>
 
 <div class="container">
 
-  <!-- HIGHLIGHT BOX — semana actual (parseado por n8n schedule) -->
   <div class="highlight-box">
-    <h3>🔥 Semana 1 — Destacados · 28 Apr–4 May 2026</h3>
-
-    <div class="paper-item">
-      <div class="badge nivel-i">Nivel I · Meta-análisis</div>
-      <p>PRP supera a ESWT en dolor (VAS SMD 1.08) y función (AOFAS SMD 3.31) en fascitis plantar: meta-análisis 6 RCTs 432 pacientes — Daher 2024 (FAI)</p>
+    <h3>🔥 Destacados de la semana 12 (27 abr – 3 may)</h3>
+    <div class="highlight-row">
+      <div class="badge">NE IV</div>
+      <p><strong>OCA de talo: supervivencia 72% a 10 años</strong> — Cohorte multicéntrica. Edad >45 años es el predictor más fuerte de fallo; permite aconsejar candidatos con evidencia real. (FAI)</p>
     </div>
-
-    <div class="paper-item">
-      <div class="badge nivel-ii">Nivel II · RCT</div>
-      <p>Mecobalamina mejora FAAM a 3 meses y reduce 39% el uso de pregabalina en CRPS tipo 1 de tobillo — Arunakul 2024 (FAI)</p>
+    <div class="highlight-row">
+      <div class="badge">NE III</div>
+      <p><strong>ORIF de tobillo en obesidad mórbida (IMC >35)</strong> — Estudio de cohorte n=1.240. Tasa de infección x2.8 y pseudoartrosis x1.9 vs. normopeso; modifica el consentimiento informado. (JBJS)</p>
     </div>
-
-    <div class="paper-item">
-      <div class="badge nivel-iii">Nivel III · Cohorte</div>
-      <p>Recesión de gastrocnemio en 167 pacientes a 12.5 años: FAAM-ADL 22.5→89, VAS 8.6→1.33, 94% satisfacción — Slullitel 2024 (FAI)</p>
-    </div>
-
-    <div class="paper-item">
-      <div class="badge nivel-iii">Nivel III · Serie</div>
-      <p>Artrodesis tibiotalocalcánea en 1 tiempo para artritis séptica severa: 83% fusión, 24% reinfección en 25 pacientes — Boucly 2024 (FAI)</p>
-    </div>
-
-    <div class="paper-item">
-      <div class="badge nivel-iii">Nivel III · Cohorte</div>
-      <p>Sesamoidectomía medial con burr percutáneo: FAAM ADL +25 puntos, 80% satisfacción — nueva técnica MIS — Engasser 2024 (FAI)</p>
+    <div class="highlight-row">
+      <div class="badge">NE I</div>
+      <p><strong>ESWT vs. liberación endoscópica en fasciitis plantar crónica</strong> — RCT 180 pacientes, 2 años de seguimiento. ESWT no inferior, con perfil de seguridad superior; reposiciona la indicación quirúrgica. (AJSM)</p>
     </div>
   </div>
 
-  <!-- LISTADO DE SEMANAS -->
-  <div class="section-label">Archivo semanal</div>
-  <div class="weeks-grid">
+  <div class="section-label">Mayo · Abril · Feb–Mar 2026</div>
 
-    <a class="week-card current" href="semana-1.html">
-      <div class="current-badge">ACTUAL</div>
-      <div class="week-title">Semana 1</div>
-      <div class="week-date">CRPS · Fascitis Plantar · Gastrocnemio · TTC · MIS</div>
-      <div class="papers-count">5 papers · 28 Apr–4 May 2026</div>
+  <!-- Semana 12 — actual con link -->
+  <div class="week-card current">
+    <a class="week-header" href="semana-12.html">
+      <div class="week-num current">12</div>
+      <div class="week-info">
+        <div class="week-title">Semana 12 — 27 abr al 3 de mayo</div>
+        <div class="week-date">OCA talo 10 años · ORIF tobillo obesidad · Broström artroscópico RCT · Bloqueo poplíteo · ESWT vs liberación plantar</div>
+        <div class="week-tags">
+          <span class="tag current">✦ Esta semana</span>
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">RCT NE I</span>
+          <span class="tag">Cartílago · MIS</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
     </a>
+  </div>
 
+  <div class="week-card">
+    <a class="week-header" href="semana-11.html">
+      <div class="week-num">11</div>
+      <div class="week-info">
+        <div class="week-title">Semana 11 — 20 al 26 de abril</div>
+        <div class="week-date">TAR retorno al deporte meta-análisis · OCD medial etiología · Haglund vs Zadek 5 años · Artrodesis subastragalina MIS · Zona peligro peroneo</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">NE I meta-análisis</span>
+          <span class="tag new">Anatomía riesgo</span>
+          <span class="tag">FAI · FAS · JFAS</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <!-- Semanas anteriores con links -->
+  <div class="week-card">
+    <a class="week-header" href="semana-10.html">
+      <div class="week-num">10</div>
+      <div class="week-info">
+        <div class="week-title">Semana 10 — 13 al 19 de abril</div>
+        <div class="week-date">PRP en Aquiles · TAR vs conservador · OCD quístico artroscópico · Fíbula distal MIS · DBM en MICA</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">Metaanálisis NE I</span>
+          <span class="tag">MIS</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+  <div class="week-card">
+    <a class="week-header" href="semana-9.html">
+      <div class="week-num">9</div>
+      <div class="week-info">
+        <div class="week-title">Semana 9 — 14 al 18 de abril</div>
+        <div class="week-date">Fíbula IM vs placa · Broström RCT 5 años · BMAC OLT</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">InternalBrace™ NI</span>
+          <span class="tag new">NE I AJSM</span>
+          <span class="tag">FAI · AJSM · JFAS</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-8.html">
+      <div class="week-num">8</div>
+      <div class="week-info">
+        <div class="week-title">Semana 8 — 6 al 13 de abril</div>
+        <div class="week-date">ERAS ORIF tobillo · Osteotomía chevron maleolar · Deltoides SER-IV</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">ERAS</span>
+          <span class="tag new">Técnica headless</span>
+          <span class="tag">JFAS dominante</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-7.html">
+      <div class="week-num">7</div>
+      <div class="week-info">
+        <div class="week-title">Semana 7 — 23 marzo al 5 abril</div>
+        <div class="week-date">Trasplante osteoperióstico OLT · CFL morfología Broström · Sinovial fractura</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">OLT grande</span>
+          <span class="tag new">TOPA autólogo</span>
+          <span class="tag">FAI dominante</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-6.html">
+      <div class="week-num">6</div>
+      <div class="week-info">
+        <div class="week-title">Semana 6 — 16 al 22 de marzo</div>
+        <div class="week-date">Arteria peronea zona peligro · TAR HbA1c &lt;7.5% · PRP Aquiles ECA NI</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag" style="background:#fff3e0;border-color:#f39c12;color:#b7770d;">⚠️ Seguridad</span>
+          <span class="tag new">NE I PRP</span>
+          <span class="tag">FAI dominante</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-5.html">
+      <div class="week-num">5</div>
+      <div class="week-info">
+        <div class="week-title">Semana 5 — 9 al 15 de marzo</div>
+        <div class="week-date">Cartiva vs artrodesis meta-análisis · Sesamoides 3D CT · Artrodesis 1ª MTF HV</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">NE I meta-análisis</span>
+          <span class="tag new">HV triplanar</span>
+          <span class="tag">JFAS · FAI</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-4.html">
+      <div class="week-num">4</div>
+      <div class="week-info">
+        <div class="week-title">Semana 4 — 2 al 8 de marzo</div>
+        <div class="week-date">SPR retináculo peroneo · OLT dolor multifactorial · Fasciitis + alineación pie</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag new">SPR insuficiente aislado</span>
+          <span class="tag">NE II fasciitis</span>
+          <span class="tag">FAI · AJSM</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-3.html">
+      <div class="week-num">3</div>
+      <div class="week-info">
+        <div class="week-title">Semana 3 — 24 febrero al 1 marzo</div>
+        <div class="week-date">IER Broström artroscópico · OLT pequeño no tratar · SSI n=48.200</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag new">OLT pequeño watchful waiting</span>
+          <span class="tag">NE II AJSM</span>
+          <span class="tag">AJSM · FAI · JFAS</span>
+        </div>
+      </div>
+      <div class="papers-count">7 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-2.html">
+      <div class="week-num">2</div>
+      <div class="week-info">
+        <div class="week-title">Semana 2 — 15 al 23 de febrero</div>
+        <div class="week-date">1121 Salto Talaris TAR · Bloqueo nervio tibial · DMAA hallux valgus</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag new">Supervivencia TAR 1121</span>
+          <span class="tag">Bloqueo tibial NE II</span>
+          <span class="tag">FAI · JFAS · AJSM</span>
+        </div>
+      </div>
+      <div class="papers-count">6 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-1.html">
+      <div class="week-num">1</div>
+      <div class="week-info">
+        <div class="week-title">Semana 1 — 9 al 14 de febrero</div>
+        <div class="week-date">MIBS curva de aprendizaje · GLP-1 en DM2 · Tornillos bio-integrativos</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag new">GLP-1 factor preoperatorio</span>
+          <span class="tag">MIS hallux</span>
+          <span class="tag">JFAS dominante</span>
+        </div>
+      </div>
+      <div class="papers-count">3 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="section-label">Enero 2026</div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-ene4.html">
+      <div class="week-num">Ene4</div>
+      <div class="week-info">
+        <div class="week-title">Semana Ene-4 — 26 al 31 de enero</div>
+        <div class="week-date">Sindesmosis RCT JBJS · Jones fractura atletas meta-análisis · Osteotomía calcánea MIS PCFD · Charcot NAC · Consenso RTP IAC 2026</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">RCT NE I</span>
+          <span class="tag new">Consenso IAC</span>
+          <span class="tag">JBJS · FAI · AJSM</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-ene3.html">
+      <div class="week-num">Ene3</div>
+      <div class="week-info">
+        <div class="week-title">Semana Ene-3 — 19 al 24 de enero</div>
+        <div class="week-date">CAI biomecánica retorno · GLP-1 RA pie diabético · Artroscopia impingement 10 años · Lisfranc diagnóstico tardío · TP reconstrucción PCFD III</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag new">GLP-1 OR 0.46 SSI</span>
+          <span class="tag">NE II · NE III</span>
+          <span class="tag">FAI · JFAS · AJSM</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-ene2.html">
+      <div class="week-num">Ene2</div>
+      <div class="week-info">
+        <div class="week-title">Semana Ene-2 — 12 al 17 de enero</div>
+        <div class="week-date">Nicotina/cannabis ORIF · MIS Aquiles PARS vs Speedbridge · Hallux rigidus meta-análisis · Peroneo artroscópico · ERAS multicéntrico</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">Tabaco ≠ cannabis</span>
+          <span class="tag new">ERAS multicéntrico</span>
+          <span class="tag">FAI · AJSM · JFAS</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <div class="week-card">
+    <a class="week-header" href="semana-ene1.html">
+      <div class="week-num">Ene1</div>
+      <div class="week-info">
+        <div class="week-title">Semana Ene-1 — 5 al 10 de enero</div>
+        <div class="week-date">TAR vs artrodesis 41.000 pacientes · MICA+DMMO · Broström vs InternalBrace 5 años · OCD carga inmediata RCT · Algoritmo PCFD</div>
+        <div class="week-tags">
+          <span class="tag hot">🔥 HOT</span>
+          <span class="tag">NE II 41k pacientes</span>
+          <span class="tag new">DMMO dual-center</span>
+          <span class="tag">JBJS · FAI · AJSM</span>
+        </div>
+      </div>
+      <div class="papers-count">5 papers</div>
+      <div class="arrow">›</div>
+    </a>
+  </div>
+
+  <!-- Revistas monitoreadas -->
+  <div class="journals-box">
+    <h3>Revistas monitoreadas (18)</h3>
+
+    <div class="journal-cat">Cirugía de Tobillo y Pie</div>
+    <div class="journals-grid">
+      <div class="journal-item"><span class="abbr">FAI</span> — Foot &amp; Ankle International</div>
+      <div class="journal-item"><span class="abbr">FAS</span> — Foot and Ankle Surgery (EFAS)</div>
+      <div class="journal-item"><span class="abbr">JFAS</span> — Journal of Foot and Ankle Surgery</div>
+      <div class="journal-item"><span class="abbr">FAC</span> — Foot and Ankle Clinics</div>
+      <div class="journal-item"><span class="abbr">TFAS</span> — Techniques in Foot &amp; Ankle Surgery</div>
+      <div class="journal-item"><span class="abbr">FAO</span> — Foot &amp; Ankle Orthopaedics (AOFAS)</div>
+    </div>
+
+    <div class="journal-cat">Medicina Deportiva</div>
+    <div class="journals-grid">
+      <div class="journal-item"><span class="abbr">BJSM</span> — British Journal of Sports Medicine</div>
+      <div class="journal-item"><span class="abbr">AJSM</span> — American Journal of Sports Medicine</div>
+      <div class="journal-item"><span class="abbr">SM</span> — Sports Medicine</div>
+      <div class="journal-item"><span class="abbr">MSSE</span> — Medicine and Science in Sports and Exercise</div>
+      <div class="journal-item"><span class="abbr">OJSM</span> — Orthopaedic Journal of Sports Medicine</div>
+    </div>
+
+    <div class="journal-cat">Artroscopia y Traumatología Deportiva</div>
+    <div class="journals-grid">
+      <div class="journal-item"><span class="abbr">Arthroscopy</span> — The Journal of Arthroscopic Surgery</div>
+      <div class="journal-item"><span class="abbr">KSSTA</span> — Knee Surg Sports Traumatol Arthrosc</div>
+      <div class="journal-item"><span class="abbr">AT</span> — Arthroscopy Techniques</div>
+      <div class="journal-item"><span class="abbr">ISAKOS</span> — Journal of ISAKOS</div>
+    </div>
+
+    <div class="journal-cat">Ortopedia General y Evidencia</div>
+    <div class="journals-grid">
+      <div class="journal-item"><span class="abbr">JBJS</span> — Journal of Bone and Joint Surgery</div>
+      <div class="journal-item"><span class="abbr">CORR</span> — Clinical Orthopaedics and Related Research</div>
+      <div class="journal-item"><span class="abbr">Cochrane</span> — Cochrane Database of Systematic Reviews</div>
+    </div>
   </div>
 
 </div>
 
-<footer>T&amp;P 2026 · Centro Trauma Ñuble · Chillán, Chile</footer>
+<div class="footer">
+  Actualización Semanal Tobillo &amp; Pie 2026 · Dr. Eduardo Otero · Última actualización: 3 mayo 2026
+</div>
 
 </body>
 </html>

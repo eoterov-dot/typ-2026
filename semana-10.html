@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 10 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);margin-bottom:20px;overflow:hidden;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .card-body{padding:20px 22px;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:4px;}
+  .app-card{background:linear-gradient(135deg,#f0f9f4,#e4f4ea);border-radius:10px;padding:16px 18px;font-size:0.84rem;line-height:1.65;color:#1a2e1a;}
+  .app-card h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:var(--green);font-weight:700;margin-bottom:10px;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+  .glos-item{background:#f5f0ff;border-left:4px solid #7c5cbf;border-radius:8px;padding:14px 16px;}
+  .glos-term{font-weight:700;font-size:0.83rem;color:#4a3580;margin-bottom:6px;}
+  .glos-def{font-size:0.80rem;line-height:1.6;color:#2a2a3e;}
+  .disrupt-item{background:#fff5f5;border-left:4px solid var(--red);border-radius:8px;padding:14px 18px;margin-bottom:12px;font-size:0.84rem;line-height:1.65;}
+  .disrupt-label{font-weight:700;color:var(--red);margin-bottom:8px;font-size:0.85rem;}
+  .verdict{background:#fff0f0;border-radius:6px;padding:8px 12px;margin-top:10px;font-size:0.80rem;color:#5a1010;font-style:italic;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 10 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 13 – 19 de abril, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · JFAS · Foot Ankle Surg · Arthroscopy</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Platelet-Rich Plasma vs. Placebo Injections in Achilles Tendinopathy: A Systematic Review and Meta-analysis of Randomized Controlled Trials</div>
+        <div class="paper-meta">
+          <strong>Assi A, Hamyeh A, Mohanna R, Boutros M, Boueri W, Sebaaly A</strong><br>
+          The Journal of Foot and Ankle Surgery · 15 abril 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Metaanálisis RCTs</span>
+      <span class="tag">Tendón de Aquiles</span>
+      <span class="tag">PRP · Biológicos</span>
+      <span class="tag">Conservador</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Metaanálisis de RCTs que compara infiltración con PRP vs. placebo (suero fisiológico) en tendinopatía de Aquiles. Analiza cambios en VISA-A, dolor en EVA y retorno deportivo. Al incluir solo RCTs con grupo control activo, entrega la estimación de efecto más robusta disponible sobre esta práctica ampliamente difundida.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El PRP no demostró beneficio clínico ni radiológico significativo frente a placebo en tendinopatía de Aquiles — la evidencia de mayor nivel disponible cierra el debate a favor del placebo. <strong>Conclusión operativa: retirar el PRP de la indicación rutinaria en tendinopatía aquílea. Informar al paciente que el efecto esperado no supera al suero fisiológico. El uso compasivo o en protocolo de investigación es la única justificación pendiente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Total Ankle Replacement Versus Nonoperative Management for End-Stage Ankle Osteoarthritis: A Comparative Analysis</div>
+        <div class="paper-meta">
+          <strong>Schwagten K, Michels F, Scholes C, Wines A</strong><br>
+          Foot and Ankle Surgery (EFAS) · 27 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artrosis de Tobillo</span>
+      <span class="tag">Artroplastia Total de Tobillo</span>
+      <span class="tag">Conservador vs Quirúrgico</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis comparativo TAR vs. manejo no operatorio en artrosis de tobillo terminal. Evalúa outcomes funcionales (FAOS, SF-36), dolor y satisfacción. La artrosis postraumática representa el 70–80% de las indicaciones. La comparación directa TAR vs. conservador tiene escasa representación en la literatura europea.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La TAR superó consistentemente al manejo conservador en outcomes funcionales (FAOS, SF-36) y dolor en artrosis terminal de tobillo. El conservador prolongado no es una alternativa equivalente — es un retraso de la cirugía con deterioro funcional acumulado. <strong>Conclusión operativa: artrosis terminal sintomática con fracaso conservador documentado tiene indicación quirúrgica clara. Usar este estudio para fundamentar la conversación con el paciente que duda entre operar y seguir en kinesioterapia.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">All-Arthroscopic Autologous Cancellous Bone Transplantation Achieves Favorable Functional Improvements and Radiographic Recovery in Large Cystic Osteochondral Lesions of the Talus at Minimum 12-Month Follow-Up</div>
+        <div class="paper-meta">
+          <strong>Hu F, Yang S, Shao Q, Zhang K, Xiong S, Lian C, Liu Z, Shi W, Guo Q</strong><br>
+          Arthroscopy: The Journal of Arthroscopic and Related Surgery · 13 abril 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">OCD del Talo</span>
+      <span class="tag">Artroscopía</span>
+      <span class="tag">Lesión quística grande</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos (mín. 12 meses) que evalúa trasplante artroscópico de hueso esponjoso autólogo para OCD quísticas grandes del talo. Técnica completamente artroscópica, sin osteotomía maleolar ni acceso abierto. Reporta mejoría funcional y recuperación radiográfica del defecto. Alternativa menos invasiva a OATS o aloinjerto para lesiones que superan el umbral de microfractura.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El trasplante artroscópico de hueso esponjoso autólogo logró mejoría funcional significativa y recuperación radiográfica del defecto óseo a mínimo 12 meses en OCD quísticas grandes — sin osteotomía maleolar ni acceso abierto. La microfractura en lesiones &gt;1.5 cm² con quiste subcondral tiene alta tasa de fracaso: este estudio entrega una alternativa concreta. <strong>Conclusión operativa: OCD quística grande con microfractura fallida o de entrada no candidata → trasplante artroscópico esponjoso autólogo como primera opción antes de OATS o aloinjerto. Requiere artroscopía de tobillo avanzada.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Minimally Invasive Intramedullary Fixation vs Plate Fixation of Distal Fibular Fractures in Elderly Patients: A Natural Experiment</div>
+        <div class="paper-meta">
+          <strong>Tas DB, Smeeing DPJ, Verleisdonk EJMM, Keizer J, van der Velde D, Houwert RM, Emmink BL</strong><br>
+          Foot &amp; Ankle International · 16 abril 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fracturas y Trauma</span>
+      <span class="tag">MIS · Clavo Intramedular</span>
+      <span class="tag">Fíbula Distal</span>
+      <span class="tag">Adulto Mayor</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Experimento natural que compara clavo intramedular MIS vs. placa lateral convencional en fracturas de fíbula distal en pacientes mayores. El diseño explota diferencias entre cirujanos/centros para reducir sesgos sin randomización directa. Evalúa complicaciones de herida, tiempo quirúrgico y función a seguimiento corto-mediano.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El clavo intramedular MIS redujo significativamente las complicaciones cutáneas frente a la placa lateral en fracturas de fíbula distal en adultos mayores, con estabilidad equivalente. En piel comprometida — diabetes, insuficiencia venosa, edema crónico — la placa lateral tiene una tasa de dehiscencia e infección inaceptable que este estudio confirma numéricamente. <strong>Conclusión operativa: adulto mayor con piel de riesgo y fractura de fíbula distal → clavo IM MIS de entrada, no placa. Cambio de algoritmo en el paciente más frecuente de la guardia de tobillo.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Demineralized Bone Matrix Fiber Allograft Augmentation in Minimally Invasive Hallux Valgus Surgery</div>
+        <div class="paper-meta">
+          <strong>Lewis TL, Fletcher L, Watt C, Murphy E, Chua MJ, Toepfer A, Lam P</strong><br>
+          Foot &amp; Ankle International · 15 abril 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Hallux Valgus</span>
+      <span class="tag">Cirugía MIS / MICA</span>
+      <span class="tag">DBM · Biológicos</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Describe la aumentación con aloinjerto de fibras de matriz ósea desmineralizada (DBM) en osteotomía percutánea de hallux valgus (técnica MICA/MIS). El DBM actúa como andamio osteoinductor para mejorar la consolidación del sitio de osteotomía. Evalúa tasas de consolidación y corrección angular, especialmente en pacientes con factores de riesgo para retardo de consolidación.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La augmentación con DBM en osteotomía MICA mostró tasas de consolidación adecuadas en pacientes con factores de riesgo metabólico — el grupo donde la MICA genera más incertidumbre. El retardo de consolidación es el talón de Aquiles de toda osteotomía percutánea; el DBM lo aborda con un gesto técnico menor y sin morbilidad de sitio donante. <strong>Conclusión operativa: paciente diabético, osteoporótico o con hueso de baja densidad que va a MICA → agregar DBM de rutina. Nivel IV, pero riesgo mínimo y beneficio biológico concreto en el subgrupo de mayor riesgo.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — PRP no Supera al Placebo en Tendinopatía Aquílea</div>
+        <p>El metaanálisis de RCTs (JFAS, Abr 15) con grupo control activo cierra el debate: <strong>no hay diferencia estadísticamente significativa</strong> en VISA-A, dolor ni retorno deportivo entre PRP e infiltración de suero fisiológico en tendinopatía aquílea. Esto contradice las recomendaciones de múltiples centros que incluían el PRP como segunda línea estándar post-fisioterapia y está en tensión con guías que lo categorizaban como "opción con evidencia moderada".</p>
+        <div class="verdict">⚖️ Veredicto: Suspender el PRP como indicación rutinaria en tendinopatía aquílea — media e insertional. Reforzar protocolo excéntrico, ondas de choque y carga progresiva como primera línea real. El PRP queda reservado para protocolos de investigación con consentimiento informado explícito.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — TAR Superior al Conservador en Artrosis Terminal</div>
+        <p>El estudio comparativo (Foot Ankle Surg, Mar 27) demuestra que el manejo conservador prolongado en artrosis terminal de tobillo <strong>no es equivalente a la cirugía</strong>: la TAR supera en outcomes funcionales (FAOS, SF-36) y control del dolor. Prolonga innecesariamente el sufrimiento del paciente sin modificar la historia natural de la enfermedad.</p>
+        <div class="verdict">⚖️ Veredicto: El conservador en artrosis terminal no es una alternativa equivalente — es un retraso de la cirugía con deterioro funcional acumulado. Usar este estudio para estructurar la conversación con el paciente que duda entre operar y continuar en kinesioterapia.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — Clavo IM vs Placa en Fíbula Distal (Adulto Mayor)</div>
+        <p>El experimento natural (FAI, Abr 16) consolida una práctica emergente: el clavo IM MIS <strong>reduce significativamente las complicaciones cutáneas</strong> frente a la placa lateral en fracturas de fíbula distal en adultos mayores. Esto tensiona el estándar AO de placa lateral como gold standard universal, particularmente en el perfil del paciente más frecuente de la guardia de tobillo.</p>
+        <div class="verdict">⚖️ Veredicto: Cambiar el algoritmo para adultos mayores con piel de riesgo (diabetes, insuficiencia venosa, edema crónico). El clavo IM MIS debe ser la primera opción — no la alternativa — en ese subgrupo específico.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="card-body">
+      <div class="app-grid">
+        <div class="app-card">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>MICA + DBM en hallux:</strong> en pacientes diabéticos u osteoporóticos que van a osteotomía percutánea, agregar DBM de rutina — gesto técnico menor, beneficio biológico concreto en el subgrupo de mayor riesgo de retardo de consolidación.<br><br><strong>Clavo IM fíbula distal:</strong> incorporar como primera opción en adulto mayor con Weber B y piel comprometida, no como alternativa de rescate.<br><br><strong>OCD quística grande:</strong> trasplante artroscópico de esponjosa autóloga antes de OATS si lesión &gt;1.5 cm² con quiste subcondral confirmado en RMN.</p>
+        </div>
+        <div class="app-card">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Abandono del PRP:</strong> eliminar de la pauta de indicación en tendinopatía aquílea media e insertional. Redirigir presupuesto de biológicos hacia ondas de choque focal y protocolo excéntrico supervisado.<br><br><strong>Post-TAR:</strong> carga parcial precoz a las 2-3 semanas en TAR primaria sin deformidad en varo/valgo residual. Protocolo de fisioterapia propioceptiva desde la semana 4.<br><br><strong>Post-MICA:</strong> zapato de descarga 6 semanas, no yeso. Evaluar consolidación radiológica a las 8 semanas antes de calzado normal.</p>
+        </div>
+        <div class="app-card">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo metabólico pre-MICA:</strong> HbA1c y densitometría antes de osteotomía percutánea en &gt;55 años o DM. Si HbA1c &gt;7.5% → optimizar antes de operar + agregar DBM.<br><br><strong>Screening piel pre-fíbula:</strong> checklist dermatológico (edema, várices, micosis, friabilidad) en toda fractura de tobillo en adulto mayor. Resultado positivo → clavo IM de entrada, documentado en protocolo.<br><br><strong>Registro de OCD:</strong> base de datos propia de lesiones condrales con clasificación Ferkel-Sgaglione y outcome funcional a 12 meses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">PRP — Platelet-Rich Plasma</div>
+          <div class="glos-def">Concentrado de plasma con alta concentración plaquetaria (3–5× valor basal) obtenido por centrifugación de sangre autóloga. Rico en factores de crecimiento (PDGF, TGF-β, VEGF). En tendinopatía aquílea, el metaanálisis de RCTs 2026 no demuestra superioridad sobre placebo (suero fisiológico). El efecto es equiparable al de la punción sola, no al contenido biológico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">DBM — Demineralized Bone Matrix</div>
+          <div class="glos-def">Matriz ósea desmineralizada que conserva BMPs (proteínas morfogenéticas) y colágeno tipo I. Osteoinductora y osteocondu ctora. En formato fibra (DBM fiber allograft) se aplica en el sitio de osteotomía percutánea (MICA) como andamio biológico. Sin morbilidad de sitio donante. Costo: USD 300–600 por aplicación. Evidencia actual: nivel IV, pero biología sólida.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MICA — Minimally Invasive Chevron Akin</div>
+          <div class="glos-def">Osteotomía percutánea de hallux valgus con dos componentes: osteotomía tipo chevron en 1er metatarsiano (corrección angular) + osteotomía de Akin en falange proximal (corrección de hallux valgus interfalángico). Técnica MIS con fresas percutáneas bajo fluoroscopía. Ventaja: menor daño de partes blandas. Riesgo principal: retardo de consolidación, especialmente en DM u osteoporosis.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">OCD/OLT — Osteochondral Lesion of the Talus</div>
+          <div class="glos-def">Lesión del cartílago articular y hueso subcondral de la cúpula talar. Clasificación artroscópica de Ferkel-Sgaglione: estadio I (cartílago intacto, señal anormal) a IV (fragmento libre). El tamaño determina el manejo: &lt;1.5 cm² → microfractura ± BMAC; 1.5–2.5 cm² → trasplante esponjoso artroscópico o OATS; &gt;2.5 cm² → aloinjerto osteocondral. Lesión quística = peor pronóstico sin manejo del componente óseo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">TAR — Total Ankle Replacement (Artroplastia Total de Tobillo)</div>
+          <div class="glos-def">Implante tricomponente que reemplaza la superficie articular tibiotalar. Diseños actuales de 3ª generación: STAR, Hintegra, Salto Talaris, INBONE II. Indicación principal: artrosis terminal con alineamiento aceptable y hueso de buena calidad. Contraindicaciones: neuroartropatía de Charcot, déficit vascular severo, HbA1c &gt;7.5% sin control. Preserva movilidad vs artrodesis, pero mayor tasa de revisión a largo plazo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">IM Nail — Clavo Intramedular (Peroné Distal)</div>
+          <div class="glos-def">Dispositivo de fijación intramedular para fracturas de peroné distal (Weber A/B). Inserción percutánea desde punta del peroné, sin necesidad de disección extensa de partes blandas. Ventaja clave: mínimo compromiso de la envoltura cutánea, crítico en pacientes con piel frágil (edad &gt;70 años, DM, insuficiencia venosa). Permite carga parcial más precoz que la placa lateral convencional.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Biz C.</strong> Rethinking surgical strategy in the diabetic forefoot — <em>FAI</em>, 17 abr</li>
+      <li><strong>Muri T et al.</strong> Transmetatarsal 1st ray vs hallux amputation in diabetic foot cohort — <em>FAI</em>, 17 abr</li>
+      <li><strong>Kim JY et al.</strong> Deltoid release in varus ankle deformity: outcomes after total ankle arthroplasty — <em>JFAS</em>, 14 abr</li>
+      <li><strong>Han H et al.</strong> All-endoscopic semitendinosus/gracilis autograft for insertional chronic Achilles rupture — <em>Int Orthop</em>, 14 abr</li>
+      <li><strong>Golden O et al.</strong> Topography and morphology of ankle ligaments: surgical anatomy reference — <em>Foot Ankle Surg</em>, 12 abr</li>
+      <li><strong>Sun N et al.</strong> Fusion vs excision for painful type II accessory navicular: matched cohort — <em>Foot Ankle Surg</em>, 12 abr</li>
+      <li><strong>Genuth G et al.</strong> Surgical decision-making for hallux valgus and hallux rigidus in Switzerland — <em>Foot Ankle Surg</em>, 10 abr</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
+
+</body>
+</html>

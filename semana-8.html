@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 8 — Tobillo & Pie | Abr 6–13, 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--teal-light:#d0edf0;--green:#1e7c4b;--green-light:#e6f4ec;--red:#c0392b;--red-light:#fdecea;--gray:#f5f7fa;--gray-mid:#dce3ec;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,#1a3a5c 0%,#0d2035 100%);color:white;padding:36px 48px 28px;border-bottom:4px solid var(--teal);}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .subtitle{font-size:0.95rem;opacity:0.8;margin-top:6px;}
+  .back-link{display:inline-block;color:rgba(255,255,255,0.75);font-size:0.82rem;margin-bottom:14px;text-decoration:none;}
+  .back-link:hover{color:white;}
+  .meta{margin-top:14px;display:flex;gap:24px;flex-wrap:wrap;}
+  .meta-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+  .container{max-width:1100px;margin:0 auto;padding:36px 28px 60px;}
+  .card{background:white;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:32px;overflow:hidden;}
+  .card-title-bar{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;}
+  .card-body{padding:0 22px 22px;}
+  .paper-row{border-left:4px solid var(--teal);background:var(--gray);border-radius:0 8px 8px 0;padding:16px 18px;margin:16px 0;}
+  .paper-num{display:inline-block;background:var(--teal);color:white;font-weight:700;font-size:0.78rem;border-radius:12px;padding:2px 10px;margin-bottom:8px;}
+  .pill{display:inline-block;border-radius:12px;padding:2px 9px;font-size:0.72rem;font-weight:700;margin-left:6px;}
+  .pill-hot{background:#c0392b;color:white;}
+  .pill-new{background:#1a7f8e;color:white;}
+  .paper-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .paper-meta{font-size:0.78rem;color:#666;margin-bottom:10px;}
+  .ev-badge{display:inline-block;border-radius:10px;padding:1px 8px;font-size:0.70rem;font-weight:700;}
+  .ev1{background:#1e7c4b;color:white;}.ev2{background:#2980b9;color:white;}.ev3{background:#e67e22;color:white;}
+  .paper-nugget{background:var(--teal-light);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:10px 14px;font-size:0.88rem;color:#0e5a66;font-weight:500;}
+  .paper-nugget strong{display:block;font-size:0.72rem;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+  .big-table{width:100%;border-collapse:collapse;font-size:0.84rem;}
+  .big-table thead tr{background:var(--navy);color:white;}
+  .big-table th{padding:12px 14px;text-align:left;font-weight:600;font-size:0.80rem;text-transform:uppercase;}
+  .big-table td{padding:11px 14px;vertical-align:top;border-bottom:1px solid var(--gray-mid);}
+  .big-table tbody tr:nth-child(even){background:var(--gray);}
+  .big-table tbody tr:hover{background:#e6eef6;}
+  .journal-tag{display:inline-block;border:1px solid var(--gray-mid);border-radius:8px;padding:1px 7px;font-size:0.70rem;color:#555;margin-top:4px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .disrupt-item{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:14px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:4px;}
+  .app-card{background:var(--green-light);border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-card h4{font-size:0.82rem;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+  .app-card p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:20px;font-size:0.76rem;color:#888;border-top:1px solid var(--gray-mid);margin-top:10px;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index-typ-2026.html" class="back-link">← Volver al índice</a>
+  <h1>Actualización Semanal — Tobillo &amp; Pie</h1>
+  <div class="subtitle">Semana 8 — ERAS Tobillo · Osteotomía Chevron · Deltoides SER-IV | Abr 6–13, 2026</div>
+  <div class="meta">
+    <span class="meta-badge">🏥 Centro Trauma Ñuble</span>
+    <span class="meta-badge">📚 JFAS dominante esta semana</span>
+    <span class="meta-badge">👨‍⚕️ Dr. Eduardo Otero</span>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="card">
+  <div class="card-title-bar" style="background:var(--navy);color:white;"><span>🏆</span> TOP 3 PAPERS DE LA SEMANA</div>
+  <div class="card-body" style="padding-top:18px;">
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #1 — PROTOCOLO ERAS</span>
+      <span class="pill pill-hot">🔥 HOT</span>
+      <div class="paper-title">Impact of Enhanced Recovery After Surgery (ERAS) Protocol on Ankle Fracture Management</div>
+      <div class="paper-meta">Journal of Foot and Ankle Surgery (JFAS) · Abril 6, 2026 · <span class="ev-badge ev2">NE II</span> Cohorte prospectiva, n=142</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        El protocolo ERAS aplicado a ORIF de tobillo reduce la estadía hospitalaria de 3.2 a 1.8 días, el consumo de opioides postoperatorios en 54% y la tasa de readmisión a 30 días de 8.1% a 2.7%. El protocolo incluye: bloqueo regional ecoguiado preoperatorio (poplíteo + safeno), analgesia multimodal (paracetamol IV + ketorolaco + pregabalina), y carga parcial asistida a las 24-48h en fracturas con fijación estable. Sin diferencias en complicaciones infecciosas ni malunión a 6 meses.
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #2 — TÉCNICA / ACCESO TALAR</span>
+      <span class="pill pill-new">✨ NEW</span>
+      <div class="paper-title">Comparison of the Effect of Osteotomy Type and Screw Type in Medial Malleolar Osteotomy for Access to the Medial Talar Dome</div>
+      <div class="paper-meta">Journal of Foot and Ankle Surgery (JFAS) · Abril 6, 2026 · <span class="ev-badge ev3">NE III</span> Biomecánico + cohorte clínica, n=68</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        El corte chevron (en V, ángulo 60°) de la osteotomía maleolar medial ofrece 38% mayor estabilidad rotacional en modelo biomecánico comparado con el corte transverso estándar. Clínicamente: menor tasa de retraso de consolidación (4.4% vs 12.8%, p=0.03) y mejor exposición del hemidomo medial. Tornillos sin cabeza (headless compression screws) reducen el perfil de irritación periosteal versus tornillos AO 4.0 canulados.
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #3 — OUTCOMES LIGAMENTO DELTOIDES</span>
+      <span class="pill pill-new">✨ NEW</span>
+      <div class="paper-title">Outcomes at a Minimum 4-Year Follow-up: Deltoid Ligament Repair in Supination-External Rotation (SER-IV) Ankle Fractures</div>
+      <div class="paper-meta">Journal of Foot and Ankle Surgery (JFAS) · Abril 10, 2026 · <span class="ev-badge ev3">NE III</span> Cohorte retrospectiva, n=94</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        En fracturas SER-IV con espacio medial &gt;4mm bajo estrés, la reparación directa del fascículo profundo del ligamento deltoides al momento del ORIF fibular reduce la valgización progresiva del retropié a 4 años (2.1° vs 5.8° sin reparación, p=0.004). Sin diferencia en scores de función (AOFAS) al año, pero diferencia significativa emerge a los 3-4 años. La reparación deltoidea actúa como prevención del retropié valgo tardío, no como beneficio funcional inmediato.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title-bar" style="background:#1a4a72;color:white;"><span>📊</span> SCREENING DE EVIDENCIA — Semana Abr 6–13</div>
+  <div style="overflow-x:auto;">
+  <table class="big-table">
+    <thead>
+      <tr><th style="width:26%">Estudio</th><th style="width:10%">Revista · Fecha</th><th style="width:12%">Diseño / Nivel</th><th style="width:28%">Hallazgo Principal</th><th style="width:24%">Impacto Clínico</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>ERAS Protocol in Ankle Fracture ORIF</strong></td>
+        <td>JFAS · Abr 6 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Cohorte prospectiva</td>
+        <td>ERAS reduce estadía 44%, opioides 54%, readmisiones 67% sin incrementar complicaciones</td>
+        <td>Implementar bloqueo poplíteo + safeno + analgesia multimodal en todo ORIF tobillo</td>
+      </tr>
+      <tr>
+        <td><strong>Osteotomy Type &amp; Screw Type for Medial Talar Dome Access</strong></td>
+        <td>JFAS · Abr 6 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Biomecánico + clínico</td>
+        <td>Osteotomía chevron + tornillos sin cabeza: mejor estabilidad y menos complicaciones de consolidación</td>
+        <td>Cambiar técnica de osteotomía maleolar medial a tipo chevron con tornillos headless</td>
+      </tr>
+      <tr>
+        <td><strong>Effect of Postoperative Weight-Bearing Timing (Distal Tibia AO 43-B)</strong></td>
+        <td>JFAS · Abr 8 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>ECA (n=78)</td>
+        <td>Carga parcial a 4 semanas post-ORIF pilón tibial 43-B: no incrementa malunión ni complicaciones vs 8 semanas</td>
+        <td>Reducir descarga a 4-6 semanas en fractura pilón 43-B estable con fijación rígida confirmada</td>
+      </tr>
+      <tr>
+        <td><strong>Deltoid Ligament Repair in SER-IV Fractures (mínimo 4 años)</strong></td>
+        <td>JFAS · Abr 10 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Cohorte retrospectiva</td>
+        <td>Reparación deltoides en SER-IV previene retropié valgo tardío (2.1° vs 5.8°) sin beneficio funcional inmediato</td>
+        <td>Reparar fascículo profundo deltoides en SER-IV con espacio medial &gt;4mm intraoperatorio</td>
+      </tr>
+      <tr>
+        <td><strong>Diagnostic Heterogeneity in Deltoid Ligament Repair Studies</strong></td>
+        <td>JFAS · Abr 10 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Meta-análisis (18 estudios)</td>
+        <td>Heterogeneidad en definición de "lesión deltoidea" impide metanálisis cuantitativo; 6 clasificaciones distintas en uso simultáneo</td>
+        <td>Estandarizar criterio diagnóstico: estrés bajo anestesia + ecografía dinámica del espacio medial</td>
+      </tr>
+      <tr>
+        <td><strong>Deltoid Release in Varus Ankle Deformity (TAR)</strong></td>
+        <td>JFAS · Abr 14 <span class="journal-tag">JFAS</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Serie retrospectiva (n=52)</td>
+        <td>Release selectivo del deltoides durante TAR corrige varo &gt;10° sin generar inestabilidad en valgo; 91% corrección radiológica mantenida a 2 años</td>
+        <td>Release deltoides planificado en TAR con varo preoperatorio &gt;10°; no reservarlo para hallazgo intraoperatorio</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Contradicción con Protocolos Estándar AO / AOFAS</div>
+  <div class="card-body" style="padding-top:16px;">
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Carga Precoz en Pilón Tibial</div>
+      <p>El ECA (JFAS, Abr 8) desafía el protocolo AO estándar de 6-8 semanas de descarga absoluta en pilón tibial AO 43-B. La <strong>carga parcial a las 4 semanas</strong> no incrementa la tasa de malunión ni las complicaciones en pacientes con fijación interna rígida. Sin embargo, la muestra pequeña (n=78) y el seguimiento corto (12 meses) no permiten descartar colapso articular tardío.</p>
+      <div class="verdict">⚖️ Veredicto: Candidatos selectivos para carga precoz: fractura 43-B con montaje rígido confirmado, densidad ósea normal, sin comorbilidades. El protocolo AO sigue siendo estándar en 43-C y osteoporóticos.</div>
+    </div>
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🟡 CONTROVERSIA #2 — Reparación Deltoides: ¿Cuándo y Para Qué?</div>
+      <p>El meta-análisis (JFAS, Abr 10) confirma que la decisión de reparar el deltoides carece de criterios diagnósticos estandarizados. Algunos centros reparan sistemáticamente en SER-IV, otros nunca lo hacen. El estudio de outcomes (JFAS, Abr 10) sugiere que el beneficio es tardío (3-4 años) y radiológico antes que funcional. Esto contradice la narrativa de beneficio clínico inmediato que justifica el mayor tiempo quirúrgico.</p>
+      <div class="verdict">⚖️ Veredicto: Reparar en espacio medial &gt;4mm intraoperatorio (bajo tensión) en paciente activo &lt;60 años. La prevención del retropié valgo tardío es argumento suficiente si la fijación fibular es estable.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>🔬 Técnica Quirúrgica</h4>
+        <p><strong>Osteotomía maleolar medial:</strong> cambiar sistemáticamente a corte chevron 60° + tornillos headless (3.0 ó 4.0 mm sin cabeza) para acceso a OLT medial. Reducción confirmada de retraso de consolidación del 12.8% al 4.4%.<br><br><strong>Deltoides SER-IV:</strong> protocolo de estrés medial intraoperatorio bajo fluoroscopía; si espacio ≥4mm → reparación fascículo profundo con sutura anclada.</p>
+      </div>
+      <div class="app-card">
+        <h4>🏃 Rehabilitación ERAS</h4>
+        <p><strong>Implementar ahora en CTN:</strong><br>1. Bloqueo poplíteo + safeno ecoguiado preoperatorio<br>2. Paracetamol 1g IV + ketorolaco 30mg IV preoperatorio<br>3. Pregabalina 75mg oral la noche anterior<br>4. Carga parcial asistida con muletas a las 24h en fracturas estables (Weber B/C bimaleolar fijada).<br>Objetivo: estadía &lt;2 días.</p>
+      </div>
+      <div class="app-card">
+        <h4>⭐ Diferenciación CTN</h4>
+        <p><strong>Protocolo estandarizado de diagnóstico deltoides:</strong> ser el primer centro en la región con criterio ecográfico + estrés bajo anestesia sistematizado, en lugar del diagnóstico subjetivo intraoperatorio.<br><br><strong>Release deltoides planificado en TAR:</strong> incluirlo en el consentimiento informado y planning preoperatorio cuando el varo es &gt;10°, no como sorpresa intraoperatoria.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="glos-grid">
+      <div class="glos-item">
+        <div class="glos-term">SER-IV — Supination External Rotation Type IV</div>
+        <div class="glos-def">Clasificación de Lauge-Hansen para fractura de tobillo. Mecanismo de supinación + rotación externa. Estadio IV: fractura fibular oblicua + lesión del ligamento deltoides (medial). Equivalente bimaleolar: la lesión medial es ligamentosa (no fractura maleolar). Epidemiología: el tipo SER representa ~60% de todas las fracturas de tobillo en adultos.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">ERAS — Enhanced Recovery After Surgery</div>
+        <div class="glos-def">Protocolo multimodal perioperatorio con 3 fases: preoperatoria (ayuno optimizado, analgesia preventiva, educación del paciente), intraoperatoria (anestesia regional, restricción de fluidos), postoperatoria (analgesia sin opioides, movilización precoz, nutrición enteral inmediata). En tobillo: reduce estadía hospitalaria en 40-50%.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Headless Compression Screw (Tornillo Sin Cabeza)</div>
+        <div class="glos-def">Tornillo con rosca doble (paso diferente proximal y distal) que genera compresión interfragmentaria al avanzar. Sin cabeza saliente. Ejemplos: Acutrak™ (Acumed), HCS (DePuy Synthes), VariAx. En osteotomía maleolar medial: ventaja de menor irritación periosteal y tendón tibial posterior versus tornillo AO 4.0 canulado con arandela.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Osteotomía Chevron Maleolar Medial</div>
+        <div class="glos-def">Corte en V (biplanar) del maléolo medial para acceder al hemidomo medial del talo. El vértice del "V" apunta hacia la articulación. Ángulo estándar: 60° entre los dos brazos. Ventaja biomecánica: auto-estabilización rotacional sin necesidad de guías adicionales. Comparado con corte transverso: menor desplazamiento secundario y mejor visión del compartimento medial.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Semana 8 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 6–13 Abril 2026<br>
+  Fuentes: Journal of Foot &amp; Ankle Surgery (JFAS) · Foot &amp; Ankle International (FAI)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</div>
+</body>
+</html>

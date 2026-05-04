@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 2 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 2 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 15 – 23 de febrero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 6 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI + JFAS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 3 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">1121 Salto Talaris Total Ankle Arthroplasties by a Single Surgeon: Outcomes and Survivorship at Up to 20 Years</div>
+        <div class="paper-meta">
+          <strong>Serie de casos, cirujano único, n=1.121, seguimiento hasta 20 años</strong><br>
+          Foot &amp; Ankle International · 21 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artroplastia Total de Tobillo</span>
+      <span class="tag">Supervivencia real a 20 años</span>
+      <span class="tag">Serie mono-cirujano</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Mayor serie mono-cirujano publicada de TAR. Supervivencia del Salto Talaris®: 85.4% a 10 años y 74.2% a 15 años. Causas de fallo: subsidencia del componente tibial (38%), osteólisis perimplante (28%), infección (16%). Predictores de supervivencia superior: edad &gt;60 al implante, etiología osteoartrítica (vs postraumática), y corrección del eje de carga coronal preoperatorio.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Incluir en el consentimiento informado: <strong>"La probabilidad de que la prótesis dure más de 15 años es del 74%"</strong>. Comparar con artrodesis (duración indefinida, restricción funcional). El paciente debe entender el trade-off real. La curva de aprendizaje del cirujano es el factor más determinante no reportado en ensayos multicéntricos.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Ultrasound-Guided Tibial Nerve Block vs. Local Corticosteroid Injection for Recalcitrant Plantar Fasciitis</div>
+        <div class="paper-meta">
+          <strong>ECA, n=120, seguimiento 6 meses</strong><br>
+          Journal of Foot and Ankle Surgery · 17 febrero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fasciitis plantar</span>
+      <span class="tag">Bloqueo nervioso ecoguiado</span>
+      <span class="tag">Tratamiento conservador</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>En fasciitis plantar refractaria (&gt;6 meses de tratamiento conservador), el bloqueo ecoguiado del nervio tibial posterior con triamcinolona + lidocaína es equivalente a la infiltración local a las 6 semanas, pero significativamente superior a los 3 y 6 meses (FHSQ 72.4 vs 58.1, p=0.01). El bloqueo cubre la fascia insertional completa sin el riesgo de atrofia de almohadilla grasa plantar.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Agregar el bloqueo tibial ecoguiado como segunda línea en fasciitis refractaria <strong>antes</strong> de escalar a ondas de choque o cirugía. Evita la atrofia de almohadilla grasa que es la principal complicación de infiltraciones locales repetidas. Técnica: 20mg triamcinolona + 5ml lidocaína perinevro tibial posterior ecoguiado a nivel maleolar medial.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Distal Metatarsal Articular Angle (DMAA) and First Metatarsal Rotation in Hallux Valgus Correction</div>
+        <div class="paper-meta">
+          <strong>Cohorte retrospectiva, n=184 pies</strong><br>
+          Foot &amp; Ankle International · 19 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus</span>
+      <span class="tag">DMAA · Planning</span>
+      <span class="tag">Osteotomía biplanar</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>DMAA elevado (&gt;15°) en hallux valgus predice recurrencia post-osteotomía en el 31% de casos si no se corrige específicamente. La osteotomía biplanar reduce la recurrencia al 8%. El DMAA refleja desviación intrínseca de la cabeza metatarsiana en valgus, invisible en radiografías planares convencionales. Debe medirse preoperatoriamente en todo HV moderado-severo.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Medir DMAA preoperatoriamente de forma rutinaria. Si &gt;15°: <strong>osteotomía biplanar obligatoria</strong>. Las osteotomías clásicas (chevron estándar) que no corrigen el DMAA dejan el 31% de recurrencia a pesar de corrección angular aparentemente exitosa en radiografía.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+
+  <div class="section-card" style="box-shadow:0 2px 14px rgba(0,0,0,0.07);">
+    <div class="section-card-body" style="padding:16px 22px;">
+      <ul style="padding-left:18px;font-size:0.84rem;line-height:2;color:#444;">
+        <li><strong>Weightbearing Radiographic Predictors of Middle Facet Coalition</strong> — Signo del "anteater" + signo "C": sensibilidad 82%, especificidad 91% para coalición. <em>FAI</em></li>
+        <li><strong>MTPJ Ratio in HV Planning</strong> — Ratio MTPJ/metatarsal &lt;0.65 predice indicación de Lapidus vs osteotomía diafisaria. <em>JFAS</em></li>
+        <li><strong>Pain Assessment in HV Surgery</strong> — Pico de dolor a 48h; predictores de dolor prolongado: catastrofismo, EVA preop &gt;7, tabaco. <em>JFAS</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Disrupciones de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚠️ Hallazgos que cambian el estándar de práctica</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 DATO CRÍTICO — Supervivencia TAR: la honestidad con el paciente es imperativa</div>
+        <p>La serie de 1121 Salto Talaris con seguimiento real a 20 años muestra que el 25.8% de los implantes fallan antes de los 15 años. Los estudios de industria presentados a la FDA típicamente muestran seguimientos de 2–5 años con supervivencias del 95%+, creando expectativas irreales. Esta serie establece el verdadero "techo" de la supervivencia del implante con máxima experiencia técnica.</p>
+        <div class="verdict">⚖️ Veredicto — Incluir en el consentimiento informado: "La probabilidad de que la prótesis dure más de 15 años es del 74%". El paciente debe conocer el trade-off real frente a la artrodesis.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Bloqueo tibial superior a infiltración local en fasciitis refractaria</div>
+        <p>La mayoría de los protocolos de fasciitis plantar refractaria escalan de: ortesis → fisioterapia → infiltración local → ondas de choque → cirugía. El ECA (JFAS, Feb 17) añade un escalón de mayor efectividad y menor morbilidad: bloqueo ecoguiado del nervio tibial como segunda línea. Evita la atrofia de la almohadilla grasa plantar y cubre mejor la zona insertional completa.</p>
+        <div class="verdict">⚖️ Veredicto — Actualizar el algoritmo de fasciitis plantar refractaria: después de 6 semanas sin respuesta conservadora, ofrecer bloqueo tibial ecoguiado antes de escalar a ondas de choque o cirugía.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Aplicación clínica — Centro Trauma Ñuble</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">🏥 Implementación práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica quirúrgica</h4>
+          <p><strong>Hallux valgus:</strong> medición rutinaria del DMAA preoperatorio. Si &gt;15°: osteotomía biplanar obligatoria.<br><br><strong>MTPJ ratio:</strong> incorporar al planning radiológico de HV para decidir Lapidus vs osteotomía diafisaria.<br><br><strong>Coalición tarsal:</strong> revisar signo del anteater y signo C en pie plano adolescente antes de solicitar TC.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Tratamiento conservador</h4>
+          <p><strong>Fasciitis plantar refractaria (&gt;6 sem):</strong> escalar a bloqueo ecoguiado del nervio tibial antes de cirugía o ESWT. Técnica: 20mg triamcinolona + 5ml lidocaína peri-nervio tibial posterior ecoguiado a nivel maleolar medial.<br><br><strong>Consentimiento TAR:</strong> informar supervivencia real: 85% a 10 años, 74% a 15 años.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Eco-bloqueos diagnóstico-terapéuticos:</strong> desarrollar capacidad de bloqueos ecoguiados del nervio tibial como parte de la consulta T&amp;P (actualmente no disponible en la mayoría de centros regionales).<br><br><strong>Planning digital HV:</strong> software de planning digital para medición sistemática de IMA, HVA, DMAA y ratio MTPJ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Glosario técnico</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📚 Siglas y conceptos de la semana</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">DMAA — Distal Metatarsal Articular Angle</div>
+          <div class="glos-def">Ángulo de la superficie articular distal del 1° metatarsiano respecto al eje longitudinal del hueso. Normal: &lt;7–8°. Valor &gt;15° indica que la cabeza está intrínsecamente desviada en valgus. Una corrección del IMA sin corrección del DMAA elevado deja el hallux desviado a pesar de una "corrección angular" aparentemente exitosa en la radiografía.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Salto Talaris® — Prótesis Total de Tobillo</div>
+          <div class="glos-def">Implante TAR de 2ª generación (fijo, no móvil) fabricado por Tornier/Wright Medical. Diseño: componente tibial plano con quilla de anclaje, polietileno fijo, componente talar anatómico. Aprobado FDA 2006. La serie de 1121 casos (FAI Feb 21) es la mayor publicada con seguimiento a 20 años. Actualmente en competencia con implantes de 3ª generación (INFINITY, STAR, HINTEGRA).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MTPJ Ratio — Metatarsophalangeal Joint Ratio</div>
+          <div class="glos-def">Nuevo parámetro de planning radiológico en hallux valgus. Cociente entre longitud de la 1ª articulación MTF / longitud total del primer metatarsiano. Valor &lt;0.65: articulación situada distalmente, deformidad con mayor componente en la base → favorece Lapidus. Valor ≥0.65: deformidad más distal → puede tratarse con osteotomía diafisaria (Scarf) o distal (chevron).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Bloqueo del Nervio Tibial Posterior Ecoguiado</div>
+          <div class="glos-def">El nervio tibial posterior se localiza con ecografía a nivel del retromaleolo medial (anterior al tendón de Aquiles, posterior a la arteria tibial posterior). Se inyectan 15–20ml de anestésico/corticoide peri-nervio. Ventaja sobre infiltración plantar directa: cubre toda la distribución del nervio plantar medial y lateral sin contacto con la almohadilla grasa. Indicación terapéutica: fasciitis plantar refractaria, síndrome del túnel tarsiano.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
+
+</body>
+</html>

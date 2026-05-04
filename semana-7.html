@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 7 — Tobillo & Pie | Mar 23 – Abr 5, 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--teal-light:#d0edf0;--green:#1e7c4b;--green-light:#e6f4ec;--red:#c0392b;--red-light:#fdecea;--gray:#f5f7fa;--gray-mid:#dce3ec;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,#1a3a5c 0%,#0d2035 100%);color:white;padding:36px 48px 28px;border-bottom:4px solid var(--teal);}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .subtitle{font-size:0.95rem;opacity:0.8;margin-top:6px;}
+  .back-link{display:inline-block;color:rgba(255,255,255,0.75);font-size:0.82rem;margin-bottom:14px;text-decoration:none;}
+  .back-link:hover{color:white;}
+  .meta{margin-top:14px;display:flex;gap:24px;flex-wrap:wrap;}
+  .meta-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:600;}
+  .container{max-width:1100px;margin:0 auto;padding:36px 28px 60px;}
+  .card{background:white;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:32px;overflow:hidden;}
+  .card-title-bar{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;}
+  .card-body{padding:0 22px 22px;}
+  .paper-row{border-left:4px solid var(--teal);background:var(--gray);border-radius:0 8px 8px 0;padding:16px 18px;margin:16px 0;}
+  .paper-num{display:inline-block;background:var(--teal);color:white;font-weight:700;font-size:0.78rem;border-radius:12px;padding:2px 10px;margin-bottom:8px;}
+  .pill{display:inline-block;border-radius:12px;padding:2px 9px;font-size:0.72rem;font-weight:700;margin-left:6px;}
+  .pill-hot{background:#c0392b;color:white;}
+  .pill-new{background:#1a7f8e;color:white;}
+  .paper-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .paper-meta{font-size:0.78rem;color:#666;margin-bottom:10px;}
+  .ev-badge{display:inline-block;border-radius:10px;padding:1px 8px;font-size:0.70rem;font-weight:700;}
+  .ev1{background:#1e7c4b;color:white;}.ev2{background:#2980b9;color:white;}.ev3{background:#e67e22;color:white;}
+  .paper-nugget{background:var(--teal-light);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:10px 14px;font-size:0.88rem;color:#0e5a66;font-weight:500;}
+  .paper-nugget strong{display:block;font-size:0.72rem;text-transform:uppercase;color:var(--teal);margin-bottom:4px;}
+  .big-table{width:100%;border-collapse:collapse;font-size:0.84rem;}
+  .big-table thead tr{background:var(--navy);color:white;}
+  .big-table th{padding:12px 14px;text-align:left;font-weight:600;font-size:0.80rem;text-transform:uppercase;}
+  .big-table td{padding:11px 14px;vertical-align:top;border-bottom:1px solid var(--gray-mid);}
+  .big-table tbody tr:nth-child(even){background:var(--gray);}
+  .big-table tbody tr:hover{background:#e6eef6;}
+  .journal-tag{display:inline-block;border:1px solid var(--gray-mid);border-radius:8px;padding:1px 7px;font-size:0.70rem;color:#555;margin-top:4px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .disrupt-item{background:var(--red-light);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:14px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:4px;}
+  .app-card{background:var(--green-light);border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-card h4{font-size:0.82rem;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+  .app-card p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:20px;font-size:0.76rem;color:#888;border-top:1px solid var(--gray-mid);margin-top:10px;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index-typ-2026.html" class="back-link">← Volver al índice</a>
+  <h1>Actualización Semanal — Tobillo &amp; Pie</h1>
+  <div class="subtitle">Semana 7 — OLT Trasplante · CFL Morfología · Sinovial Fractura | Mar 23 – Abr 5, 2026</div>
+  <div class="meta">
+    <span class="meta-badge">🏥 Centro Trauma Ñuble</span>
+    <span class="meta-badge">📚 FAI dominante esta semana</span>
+    <span class="meta-badge">👨‍⚕️ Dr. Eduardo Otero</span>
+  </div>
+</div>
+
+<div class="container">
+
+<div class="card">
+  <div class="card-title-bar" style="background:var(--navy);color:white;"><span>🏆</span> TOP 3 PAPERS DE LA SEMANA</div>
+  <div class="card-body" style="padding-top:18px;">
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #1 — BIOLÓGICOS / OLT</span>
+      <span class="pill pill-hot">🔥 HOT</span>
+      <div class="paper-title">Autologous Osteoperiosteal Transplantation Provides Reliable Outcomes for Large Osteochondral Lesions of the Talus</div>
+      <div class="paper-meta">Foot &amp; Ankle International (FAI) · Marzo 30, 2026 · <span class="ev-badge ev2">NE II</span> Cohorte prospectiva, n=61, seguimiento 2 años</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        Trasplante osteoperióstico autólogo de la cortical medial de la tibia distal ipsilateral para OLT &gt;150 mm² demuestra integración completa en 94% de casos a 12 meses (RMN), con AOFAS 82.4 (vs 48.1 preoperatorio). Técnica: injerto cilíndrico de 8-12 mm de diámetro a través de ventana maleolar medial. Sin morbilidad significativa del sitio dador. Ventaja clave sobre el aloinjerto OCA: no requiere banco de hueso ni matching de tamaño, reduciendo costos en ~70%.
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #2 — LIGAMENTO LATERAL</span>
+      <span class="pill pill-hot">🔥 HOT</span>
+      <div class="paper-title">Impact of Calcaneofibular Ligament (CFL) Morphology on Recurrence Rates After Lateral Ankle Ligament Repair</div>
+      <div class="paper-meta">Foot &amp; Ankle International (FAI) · Marzo 28, 2026 · <span class="ev-badge ev2">NE II</span> Cohorte prospectiva, n=112, seguimiento 3 años</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        CFL corto (&lt;20 mm de longitud en RMN sagital oblicua) con ángulo de inserción calcánea &lt;45° predice re-recurrencia de inestabilidad post-Broström en 28% vs 6% en morfología normal (HR 4.7, IC95% 2.1-10.4). Esta morfología CFL desfavorable identifica a priori los casos donde se debe reforzar la técnica: IER augmentation o InternalBrace™ como segunda línea electiva. Impacto directo en el planning preoperatorio con RMN sagital.
+      </div>
+    </div>
+
+    <div class="paper-row">
+      <span class="paper-num">⭐ #3 — BIOLOGÍA / FRACTURA</span>
+      <span class="pill pill-new">✨ NEW</span>
+      <div class="paper-title">The Synovial Fingerprint of Ankle Fractures: A Central Role for Synoviocytes in Early Post-Traumatic Inflammation</div>
+      <div class="paper-meta">Foot &amp; Ankle International (FAI) · Marzo 23, 2026 · <span class="ev-badge ev2">NE II</span> Estudio traslacional, n=40 pacientes + análisis in vitro</div>
+      <div class="paper-nugget">
+        <strong>⚡ Punto Clave Quirúrgico</strong>
+        Análisis del líquido sinovial en fracturas de tobillo agudas (primeras 72h) revela un "fingerprint" inflamatorio dominado por IL-1β y TNF-α de origen sinoviocítico, independiente del cartílago articular dañado. Este perfil inflamatorio predice la progresión a osteoartritis post-traumática mejor que la clasificación radiológica AO. Implicancia futura: marcadores sinoviales agudos podrían guiar la indicación de artrodesis vs artroscopia de lavado post-fractura.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title-bar" style="background:#1a4a72;color:white;"><span>📊</span> SCREENING DE EVIDENCIA — Semana Mar 23 – Abr 5</div>
+  <div style="overflow-x:auto;">
+  <table class="big-table">
+    <thead>
+      <tr><th style="width:26%">Estudio</th><th style="width:10%">Revista</th><th style="width:12%">Diseño/Nivel</th><th style="width:28%">Hallazgo Principal</th><th style="width:24%">Impacto Clínico</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Autologous Osteoperiosteal Transplantation for Large OLT</strong></td>
+        <td>FAI · Mar 30 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Cohorte prospectiva</td>
+        <td>Integración 94% a 12m en OLT &gt;150 mm²; AOFAS 82.4; sin morbilidad donante significativa</td>
+        <td>Alternativa viable al OCA cuando no hay banco de hueso; obtener injerto de tibia distal ipsilateral</td>
+      </tr>
+      <tr>
+        <td><strong>CFL Morphology and Recurrence After Broström Repair</strong></td>
+        <td>FAI · Mar 28 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Cohorte prospectiva</td>
+        <td>CFL corto &lt;20mm + ángulo &lt;45°: tasa recurrencia 28% vs 6%; HR 4.7</td>
+        <td>Medir CFL en RMN preoperatorio; planificar augment si morfología desfavorable</td>
+      </tr>
+      <tr>
+        <td><strong>Periprosthetic Joint Infection in Total Ankle Arthroplasty</strong></td>
+        <td>FAI · Mar 28 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Revisión sistemática</td>
+        <td>Incidencia PJI en TAR: 1.4%; factores de riesgo: DM2, tabaco, revisión; manejo en 2 tiempos con espaciador cementado</td>
+        <td>Algoritmo PJI-TAR: aspiración diagnóstica → DAIR si &lt;4 semanas → 2 tiempos si crónico</td>
+      </tr>
+      <tr>
+        <td><strong>Multiplanar Interactions in the Cavovarus Foot</strong></td>
+        <td>FAI · Mar 24 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev3">Nivel III</span><br>Biomecánico + análisis 3D</td>
+        <td>Cavovaro no es uniplanar: rotación tibial interna y varo hindfoot se potencian sinérgicamente; corrección aislada de un plano transfiere carga a otro</td>
+        <td>Planning 3D obligatorio (EOS o CT weight-bearing) en pie cavovaro antes de cualquier osteotomía</td>
+      </tr>
+      <tr>
+        <td><strong>Synovial Fingerprint of Ankle Fractures</strong></td>
+        <td>FAI · Mar 23 <span class="journal-tag">FAI</span></td>
+        <td><span class="ev-badge ev2">Nivel II</span><br>Estudio traslacional</td>
+        <td>IL-1β y TNF-α sinoviocíticos en primeras 72h predicen progresión OA mejor que clasificación AO</td>
+        <td>Dato básico-traslacional: futura indicación de marcadores sinoviales en fractura compleja</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Semana Mar 23 – Abr 5</div>
+  <div class="card-body" style="padding-top:16px;">
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🔴 DISRUPCIÓN — Trasplante Autólogo como Primera Línea en OLT Grande</div>
+      <p>La AOFAS y las guías de la European Foot and Ankle Society posicionan el aloinjerto osteocondral (OCA) como gold standard en OLT &gt;150 mm². El estudio de FAI (Mar 30) propone el <strong>trasplante osteoperióstico autólogo de tibia distal</strong> como alternativa de primera línea con resultados equivalentes, sin dependencia de banco de tejidos y a menor costo. La evidencia es de nivel II y el seguimiento a 2 años es insuficiente para validarlo completamente (no hay datos de supervivencia del injerto a 5-10 años).</p>
+      <div class="verdict">⚖️ Veredicto: Técnica prometedora para centros sin acceso a banco de hueso (como CTN). Indicado en OLT 150-300 mm² sin lesión condral generalizada. Requiere curva de aprendizaje de técnica de ventana maleolar.</div>
+    </div>
+
+    <div class="disrupt-item">
+      <div class="disrupt-label">🟡 CONTROVERSIA — Clasificación AO No Predice OA Post-Traumática en Fractura de Tobillo</div>
+      <p>El "synovial fingerprint" (FAI, Mar 23) desafía el uso de la clasificación AO como predictor de outcome en fracturas de tobillo. Los marcadores inflamatorios sinoviales agudos (IL-1β) superan a la clasificación radiológica en predicción de OA post-traumática. Esto implica que la complejidad anatomopatológica no se refleja necesariamente en la imagen, y que las clasificaciones actuales sub-estiman el daño biológico articular.</p>
+      <div class="verdict">⚖️ Veredicto: Dato básico-traslacional, sin aplicación clínica inmediata. Vigilar si este grupo desarrolla un score sinovial clínico. Por ahora: mantener clasificación AO para decisión quirúrgica.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>🔬 Técnica Quirúrgica</h4>
+        <p><strong>OLT &gt;150 mm²:</strong> considerar trasplante osteoperióstico autólogo de tibia distal como primera opción si no hay OCA disponible. Técnica: ventana maleolar medial + injerto cilíndrico 8-12mm + tornillo sin cabeza de cierre maleolar.<br><br><strong>Infección periprotésica TAR:</strong> algoritmo claro: aspiración + análisis sinovial (leucocitos &gt;2000/mm³) → DAIR si &lt;4 sem → 2 tiempos con espaciador si crónico.</p>
+      </div>
+      <div class="app-card">
+        <h4>🏃 Planning Preoperatorio</h4>
+        <p><strong>CFL morfológico obligatorio:</strong> incorporar medición de longitud y ángulo CFL en el informe RMN preoperatorio para toda cirugía de inestabilidad lateral. Si CFL &lt;20mm + ángulo &lt;45°: agregar IER augmentation al plan quirúrgico.<br><br><strong>Pie cavovaro:</strong> solicitar EOS (o CT weight-bearing) 3D antes de cualquier cirugía correctora. No operar con radiografía convencional sola.</p>
+      </div>
+      <div class="app-card">
+        <h4>⭐ Diferenciación CTN</h4>
+        <p><strong>Protocolo OLT autólogo:</strong> publicar la primera serie de trasplante osteoperióstico autólogo de tibia distal en Chile como innovación de centro. Técnica económica y accesible sin banco de tejidos.<br><br><strong>PJI en TAR:</strong> crear protocolo escrito de manejo de infección periprotésica TAR (actualmente inexistente en la mayoría de centros de la región).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+  <div class="card-body" style="padding-top:16px;">
+    <div class="glos-grid">
+      <div class="glos-item">
+        <div class="glos-term">OCA — Osteochondral Allograft</div>
+        <div class="glos-def">Aloinjerto osteocondral fresco de donante cadavérico. Gold standard actual en OLT &gt;150-200 mm². Requiere banco de tejidos para matching de tamaño (diámetro talar), disponibilidad de injerto fresco (máximo 28 días post-donación para preservar viabilidad condrocitaria) y compatibilidad de curvatura. Costo elevado. Integración condral: 80-85% a 2 años.</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">Trasplante Osteoperióstico Autólogo (TOPA)</div>
+        <div class="glos-def">Técnica emergente para OLT grande. Injerto compuesto de cortical + periostio de la cara medial de la tibia distal ipsilateral. El periostio aporta células progenitoras mesenquimales para regeneración fibrocartilaginosa. Ventajas: autólogo (sin riesgo de rechazo), disponible en campo quirúrgico, costo mínimo. Limitación: no aporta cartílago hialino maduro (similar al microfracturado avanzado).</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">DAIR — Debridement, Antibiotics, and Implant Retention</div>
+        <div class="glos-def">Protocolo para infección periprotésica aguda (&lt;4 semanas del implante o síntomas agudos). Consiste en desbridamiento artroscópico o abierto + irrigación + antibioticoterapia IV 6 semanas. Indicado en TAR solo si: implante estable, microorganismo sensible, biofilm mínimo. Tasa de éxito en TAR: 60-70% vs 85-90% en cadera/rodilla (menor vascularización).</div>
+      </div>
+      <div class="glos-item">
+        <div class="glos-term">EOS Imaging / CT Weight-Bearing</div>
+        <div class="glos-def">Sistemas de imagen 3D en carga. EOS: sistema biplanar de dosis ultrabaja que captura imagen completa del esqueleto en carga simultáneamente en dos planos. CT Weight-Bearing: tomografía computada con el paciente de pie, captura deformidades reales bajo carga que no son evidentes en decúbito. Fundamentales para planning de pie cavovaro y deformidades del retropié.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Semana 7 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 23 Marzo – 5 Abril 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</div>
+</body>
+</html>

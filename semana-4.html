@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 4 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 4 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 2 – 8 de marzo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 6 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI + JFAS + AJSM</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 3 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Surgical Outcomes After Superior Peroneal Retinaculum Reconstruction for Recurrent Peroneal Tendon Dislocation</div>
+        <div class="paper-meta">
+          <strong>Cohorte retrospectiva, n=74, seguimiento 3 años</strong><br>
+          Journal of Foot and Ankle Surgery · 4 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Tendones peroneos</span>
+      <span class="tag">SPR — Retináculo peroneo</span>
+      <span class="tag">Profundización de surco</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>La reconstrucción del retináculo peroneo superior (SPR) con profundización del surco retromaleoleo fibular vs. SPR aislado muestra diferencias significativas: tasa de re-dislocación 4.2% con surco + SPR vs 18.7% con SPR aislado (p=0.01). RTP en 89% de atletas a 6 meses. Dato clave: evaluar la profundidad del surco con CT preoperatorio (&lt;3mm = profundización mandatoria).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p><strong>CT retromaleoleo preoperatorio obligatorio</strong> en toda dislocación peroneo recurrente. Si surco &lt;3mm de profundidad: profundización mandatoria + SPR. SPR aislado solo si surco &gt;3mm y tejido de calidad. Sin CT preoperatorio, el cirujano no puede seleccionar la técnica correcta.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Understanding Pain in Osteochondral Lesions of the Talus: A Multifactorial Approach</div>
+        <div class="paper-meta">
+          <strong>Revisión sistemática + cohorte, n=112</strong><br>
+          Foot &amp; Ankle International · 4 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">OCD del Talo</span>
+      <span class="tag">Dolor multifactorial</span>
+      <span class="tag">ITCL — Seno del tarso</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El dolor en OLT no se correlaciona directamente con el tamaño de la lesión ni el grado artroscópico. Los factores que mejor predicen el dolor: edema óseo subcondral extendido, lesiones concomitantes del ligamento astragalocalcáneo interóseo (ITCL), e inestabilidad de tobillo no tratada. Hasta el 35% de OLT tienen una causa secundaria de dolor (ligamento, impingement anterior) que al tratarse simultáneamente mejora el outcome.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>No limitar la artroscopia solo a la lesión condral. Protocolo sistemático de revisión intraarticular completa: <strong>ITCL, compartimento anterior e impingement, estabilidad lateral</strong>, independientemente del tamaño de la lesión.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">The Role of Foot Alignment in the Effectiveness of Conservative Treatment for Plantar Fasciitis</div>
+        <div class="paper-meta">
+          <strong>Cohorte prospectiva, n=158</strong><br>
+          Journal of Foot and Ankle Surgery · 2 marzo 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fasciitis plantar</span>
+      <span class="tag">Alineación del pie</span>
+      <span class="tag">Ortesis personalizada</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Los pacientes con fasciitis plantar y pie plano flexible (arch height index &lt;0.34 en carga) responden 2.4× mejor al tratamiento con ortesis de soporte de arco + fisioterapia. En pie cavo, la ortesis de soporte de arco es ineficaz o perjudicial. El subtipo de alineación del pie predice el éxito del tratamiento conservador y debería guiar la selección terapéutica desde la primera consulta.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Clasificar el tipo de pie (plano / neutro / cavo) antes de prescribir ortesis en fasciitis plantar. <strong>Pie plano/neutro: soporte de arco como primera línea. Pie cavo: plantillas de descarga sin soporte de arco medial.</strong> Prescripción indiscriminada puede ser contraproducente.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+
+  <div class="section-card" style="box-shadow:0 2px 14px rgba(0,0,0,0.07);">
+    <div class="section-card-body" style="padding:16px 22px;">
+      <ul style="padding-left:18px;font-size:0.84rem;line-height:2;color:#444;">
+        <li><strong>Lapidus — Serie multicéntrica n=312</strong> — Unión 93.5%; K-wires solos: pseudoartrosis 3×. Placa + tornillo obligatorio. <em>FAI</em></li>
+        <li><strong>OLT del Plafón Tibial — Revisión sistemática</strong> — Peor pronóstico que OLT talar; injerto subcondral si &gt;100mm² (vs &gt;150mm² en talo). <em>AJSM</em></li>
+        <li><strong>Single-Leg Drop Landing y CAI</strong> — Tiempo de estabilización &gt;1.2s en single-leg drop: OR 3.8 de re-esguince. Criterio de RTP. <em>JFAS</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Disrupciones de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚠️ Hallazgos que cambian el estándar de práctica</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — SPR solo es insuficiente: la profundización del surco es mandatoria</div>
+        <p>La práctica habitual de muchos centros es la reparación del SPR como procedimiento único en dislocación de peroneos recurrente. El estudio (JFAS, Mar 4) demuestra que sin profundización del surco retromaleoleo, la tasa de re-dislocación triplica (18.7% vs 4.2%). Las guías AOFAS actuales mencionan la profundización como "opción", no como requisito. Con evidencia Nivel III pero muestra sustancial (n=74), este hallazgo debe cambiar el estándar.</p>
+        <div class="verdict">⚖️ Veredicto — Solicitar CT retromaleoleo preoperatorio en toda dislocación peroneo recurrente. Si surco &lt;3mm: profundización obligatoria con SPR. Si &gt;3mm: SPR aislado puede ser suficiente.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA — Fasciitis plantar: la ortesis puede ser contraproducente en pie cavo</div>
+        <p>El estudio (JFAS, Mar 2) desafía la prescripción indiscriminada de ortesis de soporte de arco en fasciitis plantar. En pie cavo, el soporte adicional puede aumentar la presión plantar medial y empeorar los síntomas. Contradice múltiples guías de práctica clínica que recomiendan ortesis "para todos" como primera línea. Limitación: cohorte prospectiva (Nivel II), no es un ECA.</p>
+        <div class="verdict">⚖️ Veredicto — Clasificar el tipo de pie antes de prescribir ortesis. Pie plano/neutro: soporte de arco primera línea. Pie cavo: plantillas de descarga de presión sin soporte medial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Aplicación clínica — Centro Trauma Ñuble</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">🏥 Implementación práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica quirúrgica</h4>
+          <p><strong>Dislocación peroneo recurrente:</strong> CT preoperatorio del surco retromaleoleo es estándar de ahora en adelante. Técnica: profundización + SPR si surco &lt;3mm. SPR aislado solo si &gt;3mm.<br><br><strong>Lapidus:</strong> placa dorsomedial + tornillo interfragmentario. No usar K-wires como fijación única (pseudoartrosis 3× mayor).<br><br><strong>OLT del plafón:</strong> injerto subcondral si &gt;100mm² (umbral menor que en talo).</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / RTP</h4>
+          <p><strong>Test de RTP post-reconstrucción lateral:</strong> incorporar single-leg drop test en el protocolo de alta deportiva. Criterio: tiempo de estabilización &lt;1.2 segundos antes de autorizar retorno al deporte.<br><br><strong>Artroscopia OLT:</strong> protocolo de revisión intraarticular completa (ITCL, impingement anterior, estabilidad lateral) independientemente del tamaño de la lesión.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo de fasciitis plantar estratificado:</strong> primeros en clasificar tipo de pie (plano/neutro/cavo) antes de prescribir ortesis, con derivación a podología para prescripción personalizada.<br><br><strong>Protocolo peroné dislocado:</strong> CT retromaleoleo como estudio preoperatorio estándar, documentado en el protocolo quirúrgico del centro.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Glosario técnico</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📚 Siglas y conceptos de la semana</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">SPR — Superior Peroneal Retinaculum</div>
+          <div class="glos-def">Retináculo peroneo superior: banda fibrosa que cubre el surco retromaleoleo fibular y mantiene los tendones peroneos (PL y PB) en su posición. Su lesión/laxitud produce dislocación de peroneos. La reconstrucción puede ser directa (reinserción) o con augmentation (fascia crural). Sin profundización del surco, la re-dislocación alcanza el 18.7% (JFAS Mar 4).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ITCL — Interosseous Talocalcaneal Ligament</div>
+          <div class="glos-def">Ligamento astragalocalcáneo interóseo, ubicado en el seno del tarso. Estructura estabilizadora clave de la articulación subastragalina. Su lesión concomitante en OLT explica hasta el 35% de los casos de dolor desproporcionado al tamaño de la lesión condral. Se visualiza en RMN (cortes coronales) y puede diagnosticarse artroscópicamente en el seno del tarso.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Arch Height Index (AHI)</div>
+          <div class="glos-def">Índice de altura del arco plantar: cociente entre la altura del navicular y la longitud del pie en carga. Valores: &lt;0.31 = pie plano; 0.31–0.38 = neutro; &gt;0.38 = pie cavo. Se mide con podoscopio o software de análisis de huella plantar. Útil para prescripción de ortesis personalizada en patología plantar.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Single-Leg Drop Test / Tiempo de Estabilización</div>
+          <div class="glos-def">Test funcional de control postural: el paciente cae desde 30 cm sobre una sola pierna y se mide el tiempo hasta alcanzar estabilidad estática. Tiempo normal: &lt;1.2 segundos en extremidad dominante. Valores &gt;1.2s correlacionan con déficit propioceptivo y predicen re-esguince en CAI (OR 3.8). Fácilmente implementable en cualquier sala de rehabilitación.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
+
+</body>
+</html>

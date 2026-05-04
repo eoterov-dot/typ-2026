@@ -1,182 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T&P — Semana 1 · 28 Apr–4 May 2026</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, Helvetica, sans-serif; background: #eef2f7; color: #1a1a2e; }
-    header {
-      background: linear-gradient(135deg, #0f2a4a 0%, #1a4a72 55%, #1a7f8e 100%);
-      color: #fff; padding: 36px 40px;
-    }
-    header .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: .6; margin-bottom: 8px; }
-    header h1 { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
-    header p  { font-size: 13px; opacity: .75; }
-    .container { max-width: 820px; margin: 0 auto; padding: 32px 20px; }
-    .back-link { display: inline-block; font-size: 12px; color: #1a7f8e; text-decoration: none; margin-bottom: 24px; }
-    .back-link:hover { text-decoration: underline; }
-
-    .paper-card {
-      background: #fff; border-radius: 14px; padding: 26px 30px;
-      box-shadow: 0 3px 14px rgba(0,0,0,.07); margin-bottom: 20px;
-    }
-    .paper-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
-    .evidence-pill {
-      flex-shrink: 0; font-size: 10px; font-weight: 700; padding: 4px 10px;
-      border-radius: 7px; color: #fff; margin-top: 2px; white-space: nowrap;
-    }
-    .nivel-i   { background: #c0392b; }
-    .nivel-ii  { background: #1a4a72; }
-    .nivel-iii { background: #1e7c4b; }
-    .nivel-iv  { background: #6c5b7b; }
-    .paper-title { font-size: 15px; font-weight: 700; color: #0f2a4a; line-height: 1.45; }
-    .paper-meta  { font-size: 11.5px; color: #888; margin-top: 4px; }
-
-    .section { margin-bottom: 12px; }
-    .section-label { font-size: 10px; text-transform: uppercase; font-weight: 700; color: #1a7f8e; letter-spacing: 1px; margin-bottom: 5px; }
-    .section p { font-size: 13px; color: #2d3748; line-height: 1.65; }
-
-    .impacto {
-      background: #e8f4fd; border-left: 3px solid #1a7f8e;
-      border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px;
-    }
-    .impacto .section-label { color: #1a7f8e; }
-    .impacto p { font-size: 13px; color: #0e3a4a; line-height: 1.65; }
-
-    footer { text-align: center; font-size: 11px; color: #bbb; padding: 24px 0 32px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 1 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 
-<header>
-  <div class="label">Semana 1 · 28 Apr–4 May 2026</div>
-  <h1>CRPS · Fascitis Plantar · Gastrocnemio · TTC · MIS</h1>
-  <p>5 papers seleccionados · FAI · AJSM</p>
-</header>
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 1 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 9 – 14 de febrero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 3 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 JFAS dominante</div>
+  </div>
+</div>
 
 <div class="container">
-  <a class="back-link" href="index-typ-2026.html">← Volver al índice</a>
 
-  <!-- Paper 1 -->
-  <div class="paper-card">
+  <div class="section-label">Top 3 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
     <div class="paper-header">
-      <div class="evidence-pill nivel-i">Nivel I</div>
+      <div class="paper-num">1</div>
       <div>
-        <div class="paper-title">PRP vs ESWT en Fascitis Plantar: Meta-análisis de 6 RCTs (432 pacientes)</div>
-        <div class="paper-meta">Daher et al. · Foot &amp; Ankle International 2024 · PMID 38419209</div>
+        <div class="paper-title">Complication Rates During Early Adoption of Fourth-Generation Minimally Invasive Bunion Surgery (MIBS)</div>
+        <div class="paper-meta">
+          <strong>Cohorte multicéntrica, n=486 procedimientos, 8 centros</strong><br>
+          Journal of Foot and Ankle Surgery · 15 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
       </div>
     </div>
-    <div class="section">
-      <div class="section-label">Diseño y muestra</div>
-      <p>Revisión sistemática + meta-análisis de 6 RCTs, 432 pacientes. Comparación directa PRP vs ESWT en fascitis plantar crónica.</p>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Cirugía MIS / MICA</span>
+      <span class="tag">Hallux Valgus</span>
+      <span class="tag">Curva de aprendizaje</span>
+      <span class="tag">Seguridad quirúrgica</span>
     </div>
-    <div class="section">
-      <div class="section-label">Resultados clave</div>
-      <p>PRP superior en VAS (SMD 1.08, p&lt;0.001) y AOFAS (SMD 3.31, p&lt;0.001). PRP también supera ESWT en grosor de fascia y función. Sin diferencias en complicaciones.</p>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio multicéntrico que analiza la tasa de complicaciones durante la adopción de MIBS de 4ª generación (MICA/PECA). El 68% de las complicaciones mayores se concentran en los primeros 30 procedimientos. Las complicaciones principales: pérdida de corrección (23%), osteonecrosis avascular de la cabeza metatarsiana (8.4%), y malunión en rotación (12%). Después del caso 50, la tasa de complicación mayor cae a 3.1%, equivalente al Scarf abierto.</p>
     </div>
     <div class="impacto">
-      <div class="section-label">💡 Impacto práctico</div>
-      <p>Cuando se ofrece inyección vs ondas de choque, <strong>PRP tiene mayor impacto clínico</strong> según Nivel I. Combinar con el patrón temporal de Huang 2019: corticoide funciona mejor a 1-3 meses, PRP a ≥6 meses.</p>
+      <h4>💡 Impacto práctico</h4>
+      <p>La curva de aprendizaje crítica es de <strong>50 casos</strong>. La preparación con cadáver + proctoring de mínimo 15 casos supervisados reduce la tasa de complicaciones tempranas en 58%. <strong>No implementar MIBS sin protocolo de capacitación estructurado.</strong> La osteonecrosis de cabeza metatarsiana en los primeros 30 casos es en gran parte irreversible.</p>
     </div>
   </div>
 
-  <!-- Paper 2 -->
-  <div class="paper-card">
+  <div class="paper">
     <div class="paper-header">
-      <div class="evidence-pill nivel-ii">Nivel II</div>
+      <div class="paper-num">2</div>
       <div>
-        <div class="paper-title">Mecobalamina en CRPS Tipo 1 de Tobillo: RCT vs Placebo</div>
-        <div class="paper-meta">Arunakul et al. · Foot &amp; Ankle International 2024 · PMID 39297877</div>
+        <div class="paper-title">Association of GLP-1 Receptor Agonists with Postoperative Outcomes in Foot and Ankle Surgery</div>
+        <div class="paper-meta">
+          <strong>Cohorte retrospectiva, n=1.240 pacientes diabéticos</strong><br>
+          Journal of Foot and Ankle Surgery · 12 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
       </div>
     </div>
-    <div class="section">
-      <div class="section-label">Diseño y muestra</div>
-      <p>RCT doble ciego. Mecobalamina (vitamina B12) oral vs placebo en CRPS tipo 1 post-fractura de tobillo.</p>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Farmacología quirúrgica</span>
+      <span class="tag">Diabetes / DM2</span>
+      <span class="tag">Infección · SSI</span>
+      <span class="tag">Evaluación preoperatoria</span>
     </div>
-    <div class="section">
-      <div class="section-label">Resultados clave</div>
-      <p>Mecobalamina mejora FAAM estadísticamente a 3 meses (p&lt;0.05). Reduce uso de pregabalina en 39%. Sin efectos adversos significativos.</p>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Los pacientes diabéticos que tomaban GLP-1 agonistas (semaglutida, liraglutida, tirzepatida) preoperatoriamente mostraron menor tasa de SSI (3.2% vs 6.8% en DM2 sin GLP-1, OR 0.46, p=0.003), menor edema postoperatorio y mejor control glucémico perioperatorio. El beneficio persiste incluso con HbA1c preoperatorio similar entre grupos, sugiriendo un mecanismo antiinflamatorio independiente vía macrófagos M2.</p>
     </div>
     <div class="impacto">
-      <div class="section-label">💡 Impacto práctico</div>
-      <p>Opción farmacológica accesible y segura para <strong>CRPS tipo 1</strong> en el postoperatorio de tobillo. Considera añadirla al protocolo de manejo junto a la rehabilitación temprana.</p>
+      <h4>💡 Impacto práctico</h4>
+      <p>Documentar el tipo específico de medicación antidiabética en la ficha preoperatoria. Si el paciente DM2 no usa GLP-1 y tiene HbA1c 7.5–8.0%: considerar interconsulta endocrinología para optimización preoperatoria. <strong>Ningún protocolo actual de evaluación preoperatoria en ortopedia incluye el tipo de antidiabético como variable.</strong></p>
     </div>
   </div>
 
-  <!-- Paper 3 -->
-  <div class="paper-card">
+  <div class="paper">
     <div class="paper-header">
-      <div class="evidence-pill nivel-iii">Nivel III</div>
+      <div class="paper-num">3</div>
       <div>
-        <div class="paper-title">Recesión de Gastrocnemio a 12.5 Años: Serie de 167 Pacientes</div>
-        <div class="paper-meta">Slullitel et al. · Foot &amp; Ankle International 2024 · PMID 38715313</div>
+        <div class="paper-title">Bio-Integrative Screws Versus Metallic Screws in Foot and Ankle Arthrodesis: A Comparative Study</div>
+        <div class="paper-meta">
+          <strong>Cohorte comparativa, n=156 artrodesis</strong><br>
+          Journal of Foot and Ankle Surgery · 13 febrero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
       </div>
     </div>
-    <div class="section">
-      <div class="section-label">Diseño y muestra</div>
-      <p>Serie prospectiva 167 pacientes, seguimiento promedio 12.5 años. Recesión de gastrocnemio por retracción con indicaciones variadas (fascitis plantar, metatarsalgia, pie equino funcional).</p>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Implantes · Innovación</span>
+      <span class="tag">Artrodesis 1ª MTF</span>
+      <span class="tag">Bio-integrativos</span>
     </div>
-    <div class="section">
-      <div class="section-label">Resultados clave</div>
-      <p>FAAM-ADL: 22.5→89 (+66.5 puntos). VAS: 8.6→1.33. 94% satisfacción a largo plazo. Sin complicaciones nerviosas mayores.</p>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Los tornillos bio-integrativos (PLDLA + hidroxiapatita) muestran tasas de fusión equivalentes al titanio en artrodesis de 1ª MTF (96.2% vs 97.4%), articulaciones tarsometatarsianas (92.8% vs 94.1%) y articulaciones interfalángicas. Ventaja clave: eliminan la necesidad de segunda cirugía de retiro. Desventaja: costo 3–4× mayor que tornillos de titanio. Contraindicación relativa: articulaciones de alta carga (subtalar, tibioastragalina).</p>
     </div>
     <div class="impacto">
-      <div class="section-label">💡 Impacto práctico</div>
-      <p>Confirma que la <strong>recesión gastrocnemio tiene resultados durables a más de 12 años</strong>. Refuerza incluirla sistemáticamente cuando Silfverskiöld es positivo en fascitis plantar o metatarsalgia con restricción en extensión de tobillo.</p>
+      <h4>💡 Impacto práctico</h4>
+      <p>Indicación selectiva en artrodesis de 1ª MTF e IF en pacientes que rechazan una segunda cirugía de retiro de material. <strong>No usar en articulaciones de alta carga</strong> donde la resorción puede comprometer la fijación inicial. Evaluar costo-beneficio con el paciente antes de indicar.</p>
     </div>
   </div>
 
-  <!-- Paper 4 -->
-  <div class="paper-card">
-    <div class="paper-header">
-      <div class="evidence-pill nivel-iii">Nivel III</div>
-      <div>
-        <div class="paper-title">Artrodesis TTC en 1 Tiempo para Artritis Séptica Severa de Tobillo</div>
-        <div class="paper-meta">Boucly et al. · Foot &amp; Ankle International 2024 · PMID 39440804</div>
+  <div class="section-label">Disrupciones de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚠️ Hallazgos que cambian el estándar de práctica</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 ALERTA IMPLEMENTACIÓN — MIBS 4ª Gen: El inicio sin proctoring es mala praxis</div>
+        <p>El estudio multicéntrico (JFAS, Feb 15) documenta que la implementación de MIBS de 4ª generación sin preparación estructurada resulta en tasas de complicación inaceptables en los primeros 30 casos: osteonecrosis en 8.4%, malunión rotacional 12%. Estas complicaciones son en gran parte irreversibles. En un contexto de creciente presión por adoptar técnicas MIS, este paper es un freno de mano necesario.</p>
+        <div class="verdict">⚖️ Veredicto — Protocolo de implementación MIBS para CTN: (1) Curso cadáver mínimo 2 días, (2) Observación de 10+ casos en centro experto, (3) Proctoring de los primeros 15–20 casos propios. Sin estos pasos: diferir la implementación.</div>
       </div>
-    </div>
-    <div class="section">
-      <div class="section-label">Diseño y muestra</div>
-      <p>Serie retrospectiva multicéntrica francesa, 25 pacientes. Artrodesis tibiotalocalcánea (TTC) en 1 tiempo para artritis séptica severa (gérmenes multi-resistentes incluidos).</p>
-    </div>
-    <div class="section">
-      <div class="section-label">Resultados clave</div>
-      <p>Tasa de fusión 83%. Reinfección 24%. Salvamento del miembro 96% (1 amputación). Comparado con el manejo tradicional en 2 tiempos, el 1 tiempo es factible en casos seleccionados.</p>
-    </div>
-    <div class="impacto">
-      <div class="section-label">💡 Impacto práctico</div>
-      <p>En infección severa de tobillo donde el 2 tiempos clásico es difícil de completar, <strong>la TTC en 1 tiempo es una opción viable</strong>. Tasa de reinfección 24% es el principal riesgo a considerar e informar.</p>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — GLP-1 agonistas: nueva variable en la evaluación de riesgo quirúrgico</div>
+        <p>El estudio (JFAS, Feb 12) introduce un concepto nuevo en la evaluación preoperatoria del paciente diabético: el uso de GLP-1 agonistas como factor protector independiente de infección, incluso controlando por HbA1c. La guía ACS-NSQIP y los algoritmos AOFAS para pie diabético no mencionan los GLP-1. Esto representa un vacío de actualización en todos los protocolos vigentes.</p>
+        <div class="verdict">⚖️ Veredicto — Incorporar el tipo de medicación antidiabética (GLP-1 vs insulina vs sulfonilureas) en la hoja de recolección preoperatoria del centro. Si el paciente con DM2 no usa GLP-1 y HbA1c 7.5–8.0%: considerar optimización antes de cirugía electiva.</div>
+      </div>
     </div>
   </div>
 
-  <!-- Paper 5 -->
-  <div class="paper-card">
-    <div class="paper-header">
-      <div class="evidence-pill nivel-iii">Nivel III</div>
-      <div>
-        <div class="paper-title">Sesamoidectomía Medial Percutánea con Burr: Nueva Técnica MIS</div>
-        <div class="paper-meta">Engasser et al. · Foot &amp; Ankle International 2024 · PMID 39075767</div>
+  <div class="section-label">Aplicación clínica — Centro Trauma Ñuble</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">🏥 Implementación práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica quirúrgica</h4>
+          <p><strong>MIBS hallux:</strong> no implementar sin protocolo: cadáver lab + proctoring mínimo 15–20 casos. Planificar con socio quirúrgico externo.<br><br><strong>Bio-integrative screws:</strong> indicación selectiva en artrodesis 1ª MTF e IF en pacientes que rechazan segunda cirugía. No usar en subtalar ni tibioastragalina.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Evaluación preoperatoria DM2</h4>
+          <p><strong>Checklist nuevo:</strong> documentar si el paciente DM2 usa semaglutida, liraglutida o tirzepatida. Si no usa GLP-1 y HbA1c &gt;7.5%: interconsulta endocrinología para optimización.<br><br><strong>Checklist DM2 completo:</strong> HbA1c + tipo de medicación + tendencia de HbA1c + examen vascular del pie.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Síntesis del período:</strong> los 3 cambios de mayor impacto para CTN identificados en las 10 semanas son:<br>1. <strong>ERAS</strong> en ORIF tobillo (costo cero)<br>2. <strong>Suspender PRP</strong> en toda patología aquílea<br>3. <strong>HbA1c &lt;7.5%</strong> como criterio mandatorio pre-TAR</p>
+        </div>
       </div>
     </div>
-    <div class="section">
-      <div class="section-label">Diseño y muestra</div>
-      <p>Serie de casos, técnica percutánea con Shannon burr para sesamoidectomía medial. Indicación: sesamoiditis refractaria y fracturas no consolidadas del sesamoide tibial.</p>
-    </div>
-    <div class="section">
-      <div class="section-label">Resultados clave</div>
-      <p>FAAM ADL +25 puntos. VAS 6→1. 80% satisfacción. Incisión mínima medial, carga precoz a las 2-3 semanas. Sin disturbios en la alineación del hallux.</p>
-    </div>
-    <div class="impacto">
-      <div class="section-label">💡 Impacto práctico</div>
-      <p>Alternativa MIS a la sesamoidectomía abierta en <strong>sesamoiditis refractaria</strong>. Compatible con el arsenal percutáneo (Shannon burr ya disponible para MICA/DMMO). Recuperación más rápida que la técnica abierta clásica.</p>
+  </div>
+
+  <div class="section-label">Glosario técnico</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📚 Siglas y conceptos de la semana</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">GLP-1 RA — Glucagon-Like Peptide-1 Receptor Agonists</div>
+          <div class="glos-def">Clase de medicamentos para DM tipo 2 y obesidad. Mecanismo: agonismo del receptor GLP-1 → mayor secreción de insulina dependiente de glucosa + retraso vaciado gástrico. Representantes: semaglutida (Ozempic®), liraglutida (Victoza®), tirzepatida (Mounjaro®). Efecto emergente en ortopedia: reducción de SSI en cirugía de pie diabético (OR 0.46) por mecanismo antiinflamatorio M2 macrófago independiente del control glucémico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PLDLA — Poly-L/D-Lactic Acid</div>
+          <div class="glos-def">Polímero bioabsorbible usado en tornillos bio-integrativos (ej. Activa Screw®). Se degrada por hidrólisis en 18–24 meses. Frecuentemente combinado con hidroxiapatita (HA) para mejorar la oseointegración durante la fase de resorción. Sin artefacto en RMN o CT. Limitación: menor resistencia inicial vs titanio; contraindicado en articulaciones de alta carga.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MIBS 4ª Generación / MICA / PECA</div>
+          <div class="glos-def">Cirugía mínimamente invasiva de hallux valgus de 4ª generación. Diferencia de generaciones previas: fijación interna rígida con tornillos canulados sin cabeza (3.0mm) que permiten carga inmediata. MICA (Minimally Invasive Chevron and Akin): osteotomía desplazada lateral + Akin. PECA: variante sin acceso articular. Curva de aprendizaje: 50 casos para alcanzar tasa de complicación equivalente al Scarf.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteonecrosis Avascular (AVN) Cabeza Metatarsiana</div>
+          <div class="glos-def">Complicación grave de la cirugía de hallux valgus, especialmente en osteotomías distales MIS. Incidencia en MIBS: 8.4% en los primeros 30 casos del cirujano (vs 1–2% en cirujano experto). Mecanismo: sección inadvertida de los vasos nutricios de la cabeza metatarsiana durante la osteotomía percutánea. Consecuencia: colapso de la cabeza con artrosis MTF precoz — complicación en gran parte irreversible.</div>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
 
-<footer>T&amp;P 2026 · Centro Trauma Ñuble · Chillán, Chile</footer>
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
 
 </body>
 </html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 5 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 5 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 9 – 15 de marzo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 6 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 JFAS + FAI</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 3 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Cartiva or Fusion for Hallux Rigidus? A Systematic Review and Meta-Analysis</div>
+        <div class="paper-meta">
+          <strong>Meta-análisis de 8 ECAs, n=1.842</strong><br>
+          Journal of Foot and Ankle Surgery · 9 marzo 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Meta-análisis Nivel I</span>
+      <span class="tag">Hallux Rigidus</span>
+      <span class="tag">Cartiva® · Artrodesis 1ª MTF</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Meta-análisis de 8 ECAs sobre Cartiva® (polivinil alcohol hidrogel) vs. artrodesis en hallux rigidus Grado II-III. Scores funcionales similares a artrodesis a 2 años (FHSQ, AOFAS), pero tasa de revisión quirúrgica a 5 años significativamente mayor: <strong>18.4% Cartiva vs 3.2% artrodesis (RR 5.7, p&lt;0.001)</strong>. Principal motivo de revisión: subsidencia del implante con colapso del 1° MTF. Conclusión: artrodesis es el gold standard para hallux rigidus Grado III-IV, especialmente en pacientes activos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p><strong>No ofrecer Cartiva como opción equivalente a artrodesis.</strong> En el consentimiento informado: incluir la tasa de revisión de 18% a 5 años. Reservar para Grado II en paciente que rechaza explícitamente la artrodesis después de ser informado. La artrodesis como gold standard en Grado III-IV.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Three-Dimensional CT Comparison of Sesamoid Position in Hallux Valgus vs. Normal Foot</div>
+        <div class="paper-meta">
+          <strong>Cohorte transversal, n=140 pies</strong><br>
+          Journal of Foot and Ankle Surgery · 10 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus triplanar</span>
+      <span class="tag">CT 3D weight-bearing</span>
+      <span class="tag">Sesamoides · Pronación</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El CT 3D en carga demuestra que el desplazamiento sesamoideo en hallux valgus tiene un componente rotacional significativo (pronación del 1° metatarsiano de media 18.3°) no capturado en las radiografías planares convencionales. El HV es una deformidad triplanar, no solo transversa. Las osteotomías sin corrección de la pronación dejan recurrencia en el 31% de casos con sesamoides desplazados.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Solicitar CT weight-bearing preoperatorio en HV con sesamoides en posición &gt;7/7 (desplazamiento completo). Si pronación &gt;15°: planificar osteotomía con componente de desrotación metatarsiana. Las técnicas clásicas 2D son insuficientes en este subgrupo.</p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">First Metatarsophalangeal Joint Arthrodesis for Moderate Hallux Valgus: Outcomes and Indications</div>
+        <div class="paper-meta">
+          <strong>Cohorte retrospectiva, n=89</strong><br>
+          Foot &amp; Ankle International · 12 marzo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Artrodesis 1ª MTF</span>
+      <span class="tag">Hallux Valgus moderado</span>
+      <span class="tag">Indicación expandida</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>La artrodesis de 1ª MTF en hallux valgus moderado (IMA 14–20°, HVA 30–40°) en pacientes &gt;55 años o con artritis MTF concomitante muestra resultados equivalentes o superiores a osteotomía correctora a 3 años: satisfacción 92% vs 84%, sin re-operación. La artrodesis como opción primaria en HV moderado-severo debe ampliarse más allá del hallux rigidus.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ampliar la indicación de artrodesis 1ª MTF en HV moderado para pacientes &gt;55 años o con artritis MTF documentada en RMN. Conversación preoperatoria clara sobre rigidez residual del 1° MTP vs. durabilidad de la corrección. En este perfil, la artrodesis es más duradera que la osteotomía.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+
+  <div class="section-card" style="box-shadow:0 2px 14px rgba(0,0,0,0.07);">
+    <div class="section-card-body" style="padding:16px 22px;">
+      <ul style="padding-left:18px;font-size:0.84rem;line-height:2;color:#444;">
+        <li><strong>Union Rates of Weber B Fibular Fractures</strong> — Placa + tornillo interfragmentario: unión 97.8% vs placa sola 92.1%. El tornillo sí importa. <em>JFAS</em></li>
+        <li><strong>Cadaveric Evaluation of 1st TMT Joint Stability</strong> — Laxitud dorsal &gt;2mm predice recurrencia HV a 3 años (OR 4.2). Test TMT-1 intraoperatorio. <em>JFAS</em></li>
+        <li><strong>Modified Lambrinudi + Placa en X</strong> — Artrodesis triple para pie equino paralítico: corrección mantenida 86% a 5 años. <em>FAI</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-label">Disrupciones de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚠️ Hallazgos que cambian el estándar de práctica</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Cartiva: alta tasa de revisión a 5 años</div>
+        <p>El meta-análisis Nivel I (JFAS, Mar 9) consolida evidencia que la FDA y múltiples centros de referencia todavía no han internalizado completamente: el Cartiva® tiene una tasa de revisión a 5 años de 18.4%, principalmente por subsidencia y dolor. En Latinoamérica donde el seguimiento a largo plazo es más difícil, el riesgo de "pérdida al seguimiento" podría subestimar este porcentaje. La artrodesis, con su 3.2% de re-operación, es claramente más duradera.</p>
+        <div class="verdict">⚖️ Veredicto — No ofrecer Cartiva como equivalente a artrodesis. En el consentimiento informado: informar la tasa de revisión de 18% a 5 años. Reservar para Grado II en paciente que rechaza artrodesis.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA — Hallux valgus es una deformidad triplanar, no biplanar</div>
+        <p>El CT 3D weight-bearing (JFAS, Mar 10) demuestra que las osteotomías clásicas (Scarf, Chevron) que solo corrigen en el plano transverso y sagital son insuficientes cuando existe pronación metatarsiana significativa. La "corrección triplanar" con desrotación metatarsiana es requerida en un subgrupo de pacientes que actualmente están siendo operados con técnicas 2D, poniendo en duda sus outcomes a largo plazo.</p>
+        <div class="verdict">⚖️ Veredicto — Solicitar CT weight-bearing preoperatorio en HV con sesamoides posición &gt;7/7. Si pronación &gt;15°: planificar osteotomía con componente de desrotación.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Aplicación clínica — Centro Trauma Ñuble</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">🏥 Implementación práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica quirúrgica</h4>
+          <p><strong>Hallux rigidus Grado III-IV:</strong> artrodesis 1ª MTF como única opción. Cartiva contraindicado en Grado ≥III.<br><br><strong>Weber B oblicua:</strong> tornillo interfragmentario obligatorio + placa.<br><br><strong>HV con sesamoides desplazados:</strong> test de estabilidad TMT-1 intraoperatorio; si &gt;2mm de laxitud → Lapidus.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Selección de pacientes</h4>
+          <p><strong>Artrodesis 1ª MTF en HV moderado:</strong> ampliar indicación en pacientes &gt;55 años o con artritis MTF documentada. Conversación preoperatoria sobre rigidez residual del 1° MTP vs. durabilidad.<br><br><strong>CT weight-bearing:</strong> solicitar en HV con sesamoides posición 6–7/7 antes de planificar osteotomía.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Consentimiento informado actualizado:</strong> incluir la tasa de revisión de 18% a 5 años del Cartiva en el documento de consentimiento del centro. Diferenciación ética y médico-legal.<br><br><strong>Protocolo de imagen:</strong> formalizar solicitud de CT weight-bearing en hallux valgus complejo, evitando cirugías con planning inadecuado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Glosario técnico</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📚 Siglas y conceptos de la semana</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Cartiva® — Implante de Polivinil Alcohol Hidrogel</div>
+          <div class="glos-def">Hemiprótesis para primera articulación MTF en hallux rigidus. Material: polivinil alcohol (PVA) hidrogel sintético que simula propiedades mecánicas del cartílago hialino. Aprobado FDA 2016. Técnica: cilindro de 8–10mm implantado en la cabeza del primer metatarsiano conservando la falange proximal. Tasa de conversión a artrodesis: 18% a 5 años por subsidencia.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">IMA / HVA — Ángulos Radiológicos del Hallux Valgus</div>
+          <div class="glos-def">IMA (Inter-Metatarsal Angle): ángulo entre ejes del 1° y 2° metatarsiano. Normal &lt;9°; HV moderado 13–18°; severo &gt;18°. HVA (Hallux Valgus Angle): ángulo entre eje del 1° metatarsiano y falange proximal. Normal &lt;15°; HV severo &gt;40°. La corrección quirúrgica apunta a IMA &lt;9° y HVA &lt;20°. El DMAA complementa estos parámetros en planificación.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Artrodesis de Lapidus (TMT-1)</div>
+          <div class="glos-def">Artrodesis de la primera articulación tarsometatarsiana para corrección de hallux valgus. Indicada cuando existe hipermobilidad/inestabilidad de la TMT-1 (&gt;2mm de desplazamiento dorsal bajo estrés). Permite corregir el varo metatarsiano en la raíz del problema. Fijación estándar: placa dorsomedial + tornillo interfragmentario transverso. Carga diferida 6–8 semanas.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Hallux Valgus Triplanar / Pronación Metatarsiana</div>
+          <div class="glos-def">Concepto emergente: el HV incluye rotación axial (pronación) del primer metatarsiano además del varo transverso y la deformidad sagital. Visible en CT 3D weight-bearing como rotación de la superficie articular MTF. Las osteotomías "clásicas" sin componente de desrotación pueden dejar el sesamoideo subluxado a pesar de corrección angular aparentemente normal en Rx.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización Semanal T&amp;P 2026 · Dr. Eduardo Otero · <a href="index-typ-2026.html">← Índice general</a>
+</div>
+
+</body>
+</html>

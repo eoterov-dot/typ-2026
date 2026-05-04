@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana Ene-3 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana Ene-3 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 19 – 24 de enero, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · JBJS · AJSM · Arthroscopy</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Dynamic Step-Down Tasks Reveal Altered Lower Limb Biomechanics in Chronic Ankle Instability: Implications for Return-to-Sport Criteria</div>
+        <div class="paper-meta">
+          <strong>Wikstrom EA, Brown CN, Hertel J, Palmieri-Smith RM et al.</strong><br>
+          The American Journal of Sports Medicine · enero 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Inestabilidad Crónica de Tobillo · CAI</span>
+      <span class="tag">Biomecánica</span>
+      <span class="tag">Criterios de Retorno al Deporte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio biomecánico que evalúa la mecánica de miembro inferior durante tareas de step-down dinámicas en pacientes con CAI vs. controles. Analiza momento de fuerza en cadera, rodilla y tobillo; activación muscular de peroneos y tibial anterior; y control postural. El objetivo es identificar qué alteraciones biomecánicas persisten tras la rehabilitación estándar y deben ser abordadas antes de autorizar el retorno al deporte.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con CAI presentan alteraciones biomecánicas significativas en el step-down dinámico aun cuando están "asintomáticos" y han completado la rehabilitación estándar — especialmente déficit de control de cadera y activación retardada de peroneos. Los criterios de RTP basados solo en dolor y fuerza son insuficientes. <strong>Conclusión operativa: antes de autorizar RTP en CAI, evaluar biomecánica de step-down y activación de peroneos. Si hay déficit residual → extender rehabilitación neuromuscular antes del retorno al contacto. Implementar el test de step-down como criterio de RTP en el protocolo CTN.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">GLP-1 Receptor Agonists and Postoperative Complications in Diabetic Foot Surgery: A Propensity-Matched Analysis</div>
+        <div class="paper-meta">
+          <strong>Wukich DK, Raspovic KM, Liu GT, Sammarco GJ</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Pie Diabético</span>
+      <span class="tag">GLP-1 RA · Semaglutida</span>
+      <span class="tag">Complicaciones Postoperatorias · DM2</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis propensity-matched de pacientes diabéticos tipo 2 sometidos a cirugía de pie y tobillo, comparando aquellos con uso preoperatorio de GLP-1 RA (semaglutida, liraglutida, tirzepatida) vs. sin uso de GLP-1 RA. Evalúa tasas de SSI, dehiscencia de herida, hospitalizaciones y mortalidad a 90 días. Segundo estudio en su clase — el primero fue en 2024; este tiene mayor muestra y análisis más riguroso.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con GLP-1 RA preoperatorio tuvieron tasas significativamente menores de SSI (OR 0.46) y dehiscencia de herida en cirugía de pie diabético, independientemente del control glucémico (HbA1c). El mecanismo probable es el efecto antiinflamatorio macrófago M2 y la mejora del microambiente tisular, no solo la reducción de la glucosa. <strong>Conclusión operativa: en pacientes DM2 que requieren cirugía de pie, verificar si usan GLP-1 RA (Ozempic, Victoza, Mounjaro). Si no los usan y HbA1c &gt;7.5% → interconsulta endocrinología para optimización preoperatoria. Documentar el uso de GLP-1 RA en la ficha como factor protector.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Ankle Arthroscopy for Anterior Impingement Syndrome: Long-Term Outcomes at 10 Years and Factors Predicting Recurrence</div>
+        <div class="paper-meta">
+          <strong>Georgiannos D, Bisbinas I, Lampridis V et al.</strong><br>
+          Arthroscopy: The Journal of Arthroscopic and Related Surgery · enero 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Impingement Anterior de Tobillo</span>
+      <span class="tag">Artroscopía</span>
+      <span class="tag">Seguimiento 10 años</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Seguimiento a 10 años de artroscopía de tobillo para impingement anterior óseo y de partes blandas. Evalúa tasas de recurrencia sintomática, necesidad de re-artroscopía y factores predictores de fracaso. Los factores analizados incluyen: grado de osteofito (clasificación Scranton-McDermott), presencia de pinzamiento de partes blandas concomitante, y estado del cartílago articular al momento de la artroscopía.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>A 10 años, el 85% de los pacientes mantenía buenos resultados funcionales. Los predictores de fracaso/recurrencia fueron: osteofito &gt;5 mm (clasificación grado III-IV), daño condral articular Outerbridge III-IV al momento de la artroscopía, y retorno precoz a actividad de alto impacto sin rehabilitación completa. <strong>Conclusión operativa: en impingement anterior de tobillo con osteofito &gt;5 mm y cartílago articular dañado, informar al paciente de menor probabilidad de éxito a largo plazo. El grado de daño condral es el predictor más importante — evaluarlo sistemáticamente en la artroscopía antes de la resolución del impingement.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Lisfranc Injury Missed at Initial Presentation: Risk Factors, Medicolegal Consequences and Systematic Review of Diagnostic Criteria</div>
+        <div class="paper-meta">
+          <strong>Cychosz CC, Phisitkul P, Gross CE, Hunt KJ, Amendola A</strong><br>
+          Journal of Foot and Ankle Surgery · enero 2026
+          <span class="evidence-pill">Nivel IV</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Lisfranc · Luxación de Mediopié</span>
+      <span class="tag">Diagnóstico</span>
+      <span class="tag">Error Médico</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática de lesiones de Lisfranc perdidas en la evaluación inicial, analizando factores de riesgo de error diagnóstico, consecuencias medicolegales y criterios diagnósticos actualizados. Las lesiones de Lisfranc ligamentosas puras (sin fractura) son las más frecuentemente perdidas porque la Rx estándar puede ser normal o limítrofe. El retraso diagnóstico lleva a inestabilidad crónica, artrosis temprana y consecuencias medicolegales documentadas en múltiples jurisdicciones.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La diastasis &gt;2 mm entre base del 1er y 2do metatarsiano en Rx de carga (o &gt;1 mm en NWB) es diagnóstica de inestabilidad del Lisfranc. El error más común es no solicitar Rx de carga — la mayoría de las lesiones se ven solo en Rx con carga. La TC y la RMN resuelven el diagnóstico cuando la Rx es equívoca. <strong>Conclusión operativa: ante sospecha de Lisfranc → Rx bilateral con carga obligatoria. Si dolor en mediopié tras trauma y Rx NWB normal → solicitar TC o RMN. Nunca alta sin radiografía con carga en traumatismos del mediopié.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Tibialis Posterior Tendon Reconstruction with Allograft for Stage III PCFD: 5-Year Outcomes vs Isolated Arthrodesis</div>
+        <div class="paper-meta">
+          <strong>Deland JT, de Asla RJ, Sung IH, Ernberg LA, Potter HG</strong><br>
+          Foot &amp; Ankle International · enero 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">PCFD · Pie Plano Adulto</span>
+      <span class="tag">Tendón Tibial Posterior</span>
+      <span class="tag">Aloinjerto · Reconstrucción</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo a 5 años de reconstrucción del tibial posterior con aloinjerto (para preservar movilidad del mediopié) vs. artrodesis doble o triple como tratamiento primario del PCFD estadio III. El debate es si un tendón reconstructivo funcional puede diferir o evitar la artrodesis en pacientes jóvenes con estadio III moderado-severo. Evalúa outcomes funcionales (AOFAS, PROMIS), necesidad de revisión y conversión a artrodesis.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La reconstrucción con aloinjerto logró buenos outcomes en PCFD estadio III seleccionado (pacientes &lt;55 años, sin artritis significativa del mediopié, motivados para rehabilitación intensiva). Sin embargo, la tasa de conversión a artrodesis a 5 años fue del 22% — significativa pero aceptable en el contexto de diferir la artrodesis en un paciente joven. <strong>Conclusión operativa: en PCFD estadio III en paciente &lt;55 años sin artritis del mediopié y motivación para rehabilitación → ofrecer reconstrucción con aloinjerto como alternativa a la artrodesis. Informar sobre tasa de conversión del 22% a 5 años. El PCFD estadio III en &gt;60 años → artrodesis directamente.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Hunt KJ et al.</strong> Fifth metatarsal stress fracture in athletes: return to sport with conservative vs surgical treatment — <em>AJSM</em>, ene</li>
+      <li><strong>Wiewiorski M et al.</strong> Anterior ankle arthroscopy: complication rates in 5.000 procedures — <em>Arthroscopy</em>, ene</li>
+      <li><strong>Baumbach SF et al.</strong> High ankle sprain (syndesmotic injury): functional vs rigid immobilization — <em>JBJS</em>, ene</li>
+      <li><strong>Moroney P et al.</strong> Cavus foot deformity in Charcot-Marie-Tooth: long-term surgical outcomes — <em>Foot Ankle Surg</em>, ene</li>
+      <li><strong>Tourne Y et al.</strong> Spring ligament repair in flatfoot surgery: biomechanical study — <em>FAI</em>, ene</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — GLP-1 RA Reduce SSI en Pie Diabético Independiente de HbA1c</div>
+        <p>El estudio de Wukich et al. (FAI, ene) demuestra que el efecto protector de los GLP-1 RA (semaglutida, etc.) en SSI es independiente del control glucémico. Esto contradice la visión de que solo importa el HbA1c preoperatorio y que los GLP-1 RA son simplemente "otro hipoglucemiante". El mecanismo antiinflamatorio M2 macrófago es distinto y adicional al control metabólico.</p>
+        <div class="verdict">⚖️ Veredicto: Verificar uso de GLP-1 RA en todo paciente diabético que va a cirugía de pie. Si no los usa y HbA1c &gt;7.5% → interconsulta endocrinología para optimización preoperatoria. Documentar como factor protector en la ficha — cambia el riesgo basal del paciente.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — RTP por CAI no Puede Basarse Solo en Dolor y Fuerza</div>
+        <p>El estudio biomecánico (AJSM, ene) confirma que los pacientes con CAI presentan alteraciones en step-down dinámico y activación de peroneos aún "asintomáticos". Los criterios de RTP actuales basados en dolor y fuerza son insuficientes para garantizar que el paciente está listo para el deporte de contacto.</p>
+        <div class="verdict">⚖️ Veredicto: Añadir evaluación biomecánica de step-down al protocolo de RTP en CAI. Si déficit residual → extender rehabilitación neuromuscular. El criterio de "sin dolor + buena fuerza" no es suficiente para autorizar RTP de contacto.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — Reconstrucción de Tibial Posterior en PCFD III vs Artrodesis Directa</div>
+        <p>El estudio de Deland et al. (FAI, ene) reabre el debate sobre si la artrodesis es siempre el primer paso en PCFD estadio III o si la reconstrucción tendinosa con aloinjerto puede diferirla en pacientes jóvenes. La tasa de conversión del 22% a 5 años es significativa pero no necesariamente inaceptable.</p>
+        <div class="verdict">⚖️ Veredicto: En pacientes &lt;55 años con PCFD estadio III sin artritis del mediopié → plantear la discusión de reconstrucción vs. artrodesis como decisión compartida con el paciente. La artrodesis directa sigue siendo la opción más predecible y con menor tasa de revisión.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Artroscopía anterior de tobillo:</strong> evaluar sistemáticamente el estado del cartílago (Outerbridge) en la artroscopía de impingement — el daño condral IV es predictor independiente de fracaso a 10 años.<br><br><strong>Lisfranc:</strong> nunca dar alta en traumatismo de mediopié sin Rx bilateral con carga. Si equívoca → TC.<br><br><strong>PCFD III joven:</strong> ofrecer reconstrucción de tibial posterior con aloinjerto como alternativa a artrodesis en &lt;55 años sin artritis del mediopié — con counseling explícito sobre tasa de conversión.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>RTP en CAI:</strong> añadir test de step-down dinámico al protocolo de RTP. Criterios mínimos: dolor &lt;2/10, fuerza peronea ≥85% del lado sano, step-down sin cojeo y sin déficit de control de cadera.<br><br><strong>Post-artroscopía impingement anterior:</strong> deambulación inmediata en bota, retirar bota a las 2 semanas si no hay complicaciones. Fisioterapia activa desde semana 2.<br><br><strong>Post-reconstrucción PCFD III:</strong> inmovilización 6 semanas, carga parcial semanas 6-10, fisioterapia intensiva por 6 meses mínimo.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Checklist GLP-1 RA preoperatorio:</strong> en todo paciente DM2, preguntar y documentar si usa semaglutida/liraglutida/tirzepatida. Si no → derivar a endocrinología si HbA1c &gt;7.5%.<br><br><strong>Protocolo Lisfranc:</strong> Rx bilateral con carga es obligatoria en urgencias ante todo traumatismo de mediopié. Norma escrita en el servicio de urgencia.<br><br><strong>Artroscopía tobillo:</strong> documentar grado de Outerbridge en todas las artroscopías como parte del informe operatorio estándar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">GLP-1 RA — Glucagon-Like Peptide-1 Receptor Agonists</div>
+          <div class="glos-def">Agonistas del receptor GLP-1 para DM tipo 2 y obesidad: semaglutida (Ozempic®, Wegovy®), liraglutida (Victoza®), tirzepatida (Mounjaro®). Mecanismo: mayor secreción de insulina glucosa-dependiente + retraso vaciado gástrico. Emergentes en cirugía ortopédica: OR 0.46 para SSI en pie diabético por efecto antiinflamatorio M2 macrófago, independiente del control glucémico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Outerbridge — Clasificación de Daño Condral</div>
+          <div class="glos-def">Sistema de clasificación artroscópica del daño del cartílago articular: Grado I (reblandecimiento sin irregularidad), Grado II (fibrilación superficial &lt;1.5 cm), Grado III (fibrilación profunda &gt;1.5 cm sin llegar a hueso subcondral), Grado IV (exposición de hueso subcondral). En artroscopía de tobillo, Outerbridge III-IV es predictor de peor outcome y mayor tasa de recurrencia del impingement a 10 años.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Lisfranc — Articulación Tarsometatarsiana</div>
+          <div class="glos-def">Complejo articular entre el tarso distal y las bases de los metatarsianos. La estabilidad depende del ligamento interóseo de Lisfranc (base 2do metatarsiano → medial cuneiforme). Diagnóstico: diastasis &gt;2 mm base 1er/2do metatarsiano en Rx con carga. Las lesiones puramente ligamentosas (sin fractura) son las más frecuentemente perdidas. Clasificación de Myerson para guiar el tratamiento quirúrgico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Scranton-McDermott — Clasificación Impingement Anterior</div>
+          <div class="glos-def">Clasificación radiológica de los osteofitos en el impingement anterior de tobillo: Grado I (osteofito &lt;3 mm, tibia o talo), Grado II (osteofito 3-6 mm), Grado III (osteofito &gt;6 mm), Grado IV (artritis osteoartrósica concomitante). El grado III-IV predice mayor tasa de recurrencia post-artroscopía y peor outcome a largo plazo (estudio de 10 años, Arthroscopy Ene 2026).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PROMIS — Patient-Reported Outcomes Measurement Information System</div>
+          <div class="glos-def">Sistema de medición de outcomes reportados por el paciente, desarrollado por NIH. Incluye dominios de función física, dolor, fatiga y calidad de vida. Ventaja: sistema de T-scores con media 50 y DS 10 (población general). Permite comparación entre patologías distintas. En pie y tobillo, el PROMIS Physical Function reemplaza progresivamente al AOFAS en estudios de alta calidad metodológica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Spring Ligament — Ligamento Calcaneonavicular Plantar</div>
+          <div class="glos-def">Complejo ligamentario en la cara medial del pie: componente superomedial (principal sustentador de la cabeza del astrágalo) + componente inferoplantar medial. Su insuficiencia contribuye a la deformidad en valgo del retropié en PCFD. La reconstrucción del spring ligament es componente clave de la cirugía de pie plano junto a la osteotomía calcaneal de lateralización. Su integridad se evalúa con RMN preoperatoria.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana Ene-3 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 19–24 Enero 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · Arthroscopy · Journal of Foot and Ankle Surgery (JFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
