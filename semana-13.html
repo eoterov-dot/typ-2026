@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 13 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 13 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 4 – 10 de mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · AJSM · JBJS · FAS · JFAS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">MICA+Akin vs. Lapidus Arthrodesis for Moderate-to-Severe Hallux Valgus (HVA ≥30°): Multicenter RCT at 24 Months</div>
+        <div class="paper-meta">
+          <strong>Baumhauer JF, Dalmau-Pastor M, Coetzee JC, Vernois J, Redfern DJ</strong><br>
+          Foot &amp; Ankle International · 5 mayo 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">RCT multicéntrico · n=284</span>
+      <span class="tag">Hallux Valgus · MIS</span>
+      <span class="tag">Lapidus vs MICA</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT multicéntrico (7 centros, n=284) comparando MICA+Akin vs. Lapidus en hallux valgus moderado-severo (HVA ≥30°, IMA ≥13°). Outcome primario: mantenimiento de la corrección del IMA a 24 meses por radiografía con carga. Secundarios: FAOS, tiempo hasta calzado normal, tasa de complicaciones, recurrencia (HVA >20°). Criterio de exclusión: hipermobilidad de la primera articulación TMT (test de estrés cuneometatarsiano positivo o Beighton ≥5).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>MICA+Akin logró corrección equivalente del IMA a Lapidus a 24 meses para HVA 30–42° sin hipermobilidad (pérdida de corrección 1.8° vs 1.4°, no significativa). La tasa de recurrencia fue comparable (8% vs 6%). Lapidus siguió siendo superior en el subgrupo con hipermobilidad de primer radio (recurrencia 5% vs 22% con MICA). FAOS fue similar a 12 y 24 meses. Calzado normal a 5 semanas con MICA vs 11 semanas con Lapidus (p&lt;0.001). <strong>Conclusión operativa: MICA+Akin es equivalente a Lapidus para HVA 30–42° SIN hipermobilidad del primer radio — con recuperación significativamente más rápida. Antes de elegir la técnica, realizar siempre el test de estrés cuneometatarsiano. Si positivo o Beighton ≥5 → Lapidus obligatorio. El IMA no predice hipermobilidad: HVA severo puede no tener hipermobilidad.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Corticosteroid Injection Volume and Concentration in Ultrasound-Guided Plantar Fasciitis: 3-Arm Randomized Trial — High-Volume vs Low-Volume vs PRP</div>
+        <div class="paper-meta">
+          <strong>DiGiovanni BF, Nawoczenski DA, Lintal ME, Digiovanni CW, Baumhauer JF</strong><br>
+          The American Journal of Sports Medicine · 6 mayo 2026
+          <span class="evidence-pill">Nivel I</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">RCT · 3 brazos · n=192</span>
+      <span class="tag">Fascitis Plantar · CS Inj.</span>
+      <span class="tag">PRP · Volumen vs Concentración</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT de 192 pacientes con fascitis plantar crónica (&gt;3 meses sin respuesta conservadora) asignados a: (A) CS alto-volumen/baja concentración — 2.5 ml metilprednisolona 20 mg/ml bajo ecografía; (B) CS bajo-volumen/alta concentración — 0.5 ml metilprednisolona 40 mg/ml bajo ecografía; (C) PRP 3 ml ecoguiado. Sonoelastografía para control de grosor fascial a 6 semanas y 6 meses. Outcomes: VAS, FAAM-ADL, grosor de fascia, tasa de rotura fascial.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La inyección CS alto-volumen/baja concentración fue superior a las otras opciones en reducción del VAS a 6 semanas. CS bajo-volumen/alta concentración tuvo tasa de rotura fascial del 7.8% vs 1.5% en el grupo de alto volumen (p=0.04). A 6 meses, PRP fue equivalente al CS alto-volumen en VAS y FAAM-ADL. El engrosamiento fascial persistente a 6 semanas predijo mala respuesta a largo plazo. <strong>Conclusión operativa: al inyectar CS en fascitis plantar bajo ecografía, usar SIEMPRE volumen ≥2 ml con concentración ≤20 mg/ml — la inyección concentrada de bajo volumen tiene 5x más riesgo de rotura fascial. Si hay fracaso del CS a 6 semanas → PRP como siguiente paso (resultados equivalentes a largo plazo). Verificar con eco el grosor fascial antes de repetir inyección.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Acute Achilles Tendon Rupture in Competitive Athletes: Surgical Repair vs Accelerated Functional Rehabilitation — Force-Velocity Deficits at 24 Months</div>
+        <div class="paper-meta">
+          <strong>Park YH, Koo WR, Park SH, Kim HJ, Maffulli N</strong><br>
+          The American Journal of Sports Medicine · 5 mayo 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Rotura Aquíles Aguda</span>
+      <span class="tag">Cirugía vs Conservador</span>
+      <span class="tag">Deportistas Competitivos</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva de 118 deportistas competitivos (nivel ≥regional federado) con rotura aguda de Aquíles. Comparación: reparación quirúrgica mínimamente invasiva (PARS) vs. rehabilitación funcional acelerada con carga temprana. Criterio de RTP objetivo: déficit de fuerza isocinético (Cybex) &lt;10% en flexión plantar vs. extremidad contralateral, evaluado a 3, 6, 12 y 24 meses. Outcome primario: tasa de RTP al nivel previo de competición a 12 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La reparación quirúrgica logró RTP al nivel previo de competición en el 91% vs. el 65% del tratamiento conservador a 12 meses (p&lt;0.001). El déficit de fuerza isocinético a 12 meses fue 5.8% (cirugía) vs. 17.3% (conservador) — diferencia clínicamente significativa para deportistas de élite. Tiempo hasta RTP: 23 semanas (cirugía) vs. 29 semanas (conservador). La tasa de re-ruptura fue 2.3% vs. 5.4% (sin diferencia estadística). <strong>Conclusión operativa: en deportista competitivo (nivel regional o superior) con rotura aguda de Aquíles → cirugía de primera elección (PARS o percutánea). El tratamiento conservador es equivalente para deportistas recreacionales pero insuficiente para el nivel de fuerza que exige la competición. Criterio de RTP debe ser isocinético, no solo clínico.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Intramedullary Nail vs. Locking Plate for Distal Third Tibial Shaft Fractures: Systematic Review and Meta-analysis of 1,845 Patients</div>
+        <div class="paper-meta">
+          <strong>Sanders DW, Schemitsch EH, Tieszer C, Zdero R, McKee MD</strong><br>
+          The Journal of Bone and Joint Surgery · 7 mayo 2026
+          <span class="evidence-pill">Nivel II</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag meta">Metaanálisis · n=1.845</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+      <span class="tag">Fíbula Distal · Clavo IM vs Placa</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metaanálisis de 18 estudios (1.845 pacientes) comparando clavo endomedular (IM) vs. placa de bloqueo para fracturas de tercio distal de tibia (AO 42A-C, excluyendo extensión articular). Outcomes: tasa de mala consolidación (angulación &gt;5°), tasa de infección profunda (SSI), tiempo hasta consolidación radiológica y complicaciones mayores que requieren cirugía de revisión.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El clavo IM tuvo menor tasa de mala consolidación vs. placa (6.2% vs 14.1%, RR 2.3) y menor SSI profunda (3.1% vs 8.4%, RR 2.7). El tiempo hasta consolidación fue equivalente. El RR de complicación mayor (revisión quirúrgica) fue 2.1x mayor con placa. La placa fue superior solo en el subgrupo con extensión articular distal que requería reducción directa. <strong>Conclusión operativa: para fracturas de tercio distal de tibia sin extensión articular → clavo IM de primera elección (menor mala consolidación e infección). Placa solo cuando hay extensión articular que requiera reducción directa o cuando el clavo es técnicamente imposible (fractura muy distal &lt;4 cm del plafón). La elección implícita por placa en "fracturas periarticulares" sin base anatómica debe revisarse.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Second Metatarsal Stress Fracture in Professional Dancers: Risk Factors, Bone Density, Hormonal Profile and Return-to-Dance Protocol</div>
+        <div class="paper-meta">
+          <strong>Rouzier PA, Myerson MS, Ledoux WR, Haddad SL, Rosenbaum AJ</strong><br>
+          Foot and Ankle Surgery (EFAS) · 8 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fractura por Estrés · 2° Metatarsiano</span>
+      <span class="tag">Danza Profesional</span>
+      <span class="tag">Tríada Atleta Femenina</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte retrospectiva de 124 bailarines profesionales (102 mujeres, 22 hombres) con fractura por estrés del 2° metatarsiano. Análisis de factores de riesgo: densitometría ósea (DEXA), estado hormonal femenino (ciclo menstrual, estrógenos, hormona luteinizante), horas semanales de trabajo en puntas, índice de disponibilidad energética y protocolo de retorno a la danza. Outcome primario: retorno a trabajo completo en puntas sin dolor.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Las bailarinas con amenorrea secundaria tuvieron 4.5x más recurrencias. La T-score DEXA &lt;–1.5 estuvo presente en el 38% de las bailarinas con fractura recurrente. El retorno promedio a trabajo completo en puntas fue 12.5 semanas. El 28% requirió fijación quirúrgica (fractura completa o fracaso del conservador a 8 semanas). <strong>Conclusión operativa: en bailarina profesional con fractura de estrés del 2° metatarsiano, solicitar DEXA y perfil hormonal. Si amenorrea secundaria → derivar endocrinología/nutrición antes del RTP. Protocolo conservador: 6 semanas sin carga, luego carga progresiva; el criterio de RTP a puntas es ausencia de dolor en relevé + TC confirmando consolidación. No iniciar puntas hasta consolidación confirmada.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Halstead J et al.</strong> Rocker-sole footwear vs standard shoe in plantar fasciitis: RCT 6 months — <em>FAI</em>, 4 may</li>
+      <li><strong>Ho JY, Lam WL et al.</strong> Navicular stress fracture in competitive athletes: CT grading and return-to-sport outcomes — <em>AJSM</em>, 5 may</li>
+      <li><strong>Kauwe M, Vulcano E et al.</strong> Ankle arthrodesis with intramedullary nail: anterior vs. posterior entry portal — <em>JFAS</em>, 6 may</li>
+      <li><strong>Lee CH, Kim TH et al.</strong> Platelet-rich fibrin membrane in OLT ≤150 mm²: 1-year follow-up RCT vs autologous chondrocyte implantation — <em>Arthroscopy</em>, 7 may</li>
+      <li><strong>Meyer SA, Hintermann B et al.</strong> Sinus tarsi syndrome: MRI-based treatment algorithm and surgical outcomes — <em>FAI</em>, 9 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — CS en Fascitis Plantar: El Volumen Importa Más que la Concentración</div>
+        <p>La práctica habitual de inyectar 0.5–1 ml de betametasona o metilprednisolona concentrada (el "método rápido") tiene una tasa de rotura fascial 5x mayor que la inyección de mayor volumen diluida. DiGiovanni et al. (AJSM, may 6) demuestra que la concentración de CS en el punto de inyección, no la dosis total, es el factor de riesgo para rotura fascial. La práctica de usar "la mínima cantidad posible" aumenta el riesgo de complicación grave.</p>
+        <div class="verdict">⚖️ Veredicto: Cambiar de inmediato el protocolo de inyección de fascitis plantar. Siempre bajo ecografía, siempre volumen ≥2 ml, concentración ≤20 mg/ml. La inyección sin ecografía o con jeringa de 1 ml de producto concentrado es una mala práctica con evidencia Nivel I en su contra.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Aquíles en Deportistas Competitivos: El Conservador No Es Suficiente</div>
+        <p>El movimiento hacia tratamiento conservador del Aquíles ha sido apropiado para deportistas recreacionales, pero el estudio de Park et al. (AJSM, may 5) demuestra que en deportistas competitivos (nivel regional o superior) el déficit de fuerza isocinético a 12 meses con tratamiento conservador (17%) supera el umbral aceptable para la competición en la gran mayoría de deportes. El debate "cirugía vs. conservador" debe estratificarse por nivel de actividad.</p>
+        <div class="verdict">⚖️ Veredicto: La decisión cirugía vs. conservador en rotura de Aquíles no debe basarse solo en riesgo anestésico o preferencia del paciente — debe incluir el nivel de actividad deportivo. Deportista competitivo → cirugía de primera elección. El criterio de RTP debe ser isocinético (déficit &lt;10%), no clínico subjetivo.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 CONTROVERSIA #3 — MICA para HV Severo: ¿El Fin del Lapidus Reflexivo?</div>
+        <p>El RCT de Baumhauer et al. (FAI, may 5) reposiciona el Lapidus como técnica específica para HV con hipermobilidad del primer radio, no como la técnica "de elección para HV severo" en términos generales. El IMA elevado (&gt;16°) aislado, sin hipermobilidad demostrada, ya no justifica automáticamente el Lapidus — la falta del test de estrés cuneometatarsiano preoperatorio es ahora una omisión metodológica.</p>
+        <div class="verdict">⚖️ Veredicto: Incorporar el test de estrés cuneometatarsiano como evaluación preoperatoria obligatoria en todo HV moderado-severo. MICA+Akin para HVA 30-42° sin hipermobilidad → mismo resultado quirúrgico con recuperación 2x más rápida. Lapidus reservado para primer radio hipermóvil o HVA &gt;42°.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>HV moderado-severo sin hipermobilidad:</strong> agregar test de estrés cuneometatarsiano en toda evaluación prequirúrgica de HV. Si negativo y HVA ≤42° → MICA+Akin como primera opción (recuperación más rápida).<br><br><strong>Aquíles en deportista competitivo:</strong> reparación percutánea (PARS) o mínimamente invasiva como estándar. Protocolo de carga temprana desde semana 2.<br><br><strong>Fractura tibial distal:</strong> clavo IM de primera elección si no hay extensión articular — revisar indicación de placa en fracturas "periarticulares" sin participación articular real.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>CS fascitis plantar:</strong> inyección ecoguiada con volumen ≥2 ml obligatorio — actualizar protocolo de inyección del departamento.<br><br><strong>Post-PARS Aquíles:</strong> bota funcional con carga parcial desde semana 2; RTP criterios isocinéticos (&lt;10% déficit de flexión plantar) no antes de 20 semanas.<br><br><strong>Fractura de estrés 2° MT en deportistas:</strong> solicitar DEXA y perfil hormonal en mujeres. Protocolo de 6 semanas sin carga, RTP con criterio TC + funcional (relevé sin dolor). No iniciar carrera hasta consolidación confirmada por TC.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo de inyección fascitis:</strong> actualizar protocolo escrito del servicio — CS ecoguiado, volumen ≥2 ml, concentración ≤20 mg/ml. Documentar en ficha la técnica usada.<br><br><strong>Estratificación Aquíles por nivel competitivo:</strong> incluir "nivel deportivo" como campo en la ficha de rotura de Aquíles (recreacional/federado/competitivo) para orientar la decisión terapéutica.<br><br><strong>Test hipermobilidad primer radio:</strong> incorporar como evaluación estándar preoperatoria en HV — hace la indicación quirúrgica más precisa y evita Lapidus innecesarios con mayor morbilidad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">MICA (Minimally Invasive Chevron-Akin)</div>
+          <div class="glos-def">Técnica MIS para HV que combina una osteotomía tipo chevron en el cuello del primer metatarsiano más una osteotomía de Akin en la falange proximal, ambas percutáneas bajo fluoroscopía. Permite corrección tridimensional del HV (corrección del IMA + PASA + rotación del sesamoideo). No fija la articulación TMT1 — indicada cuando la primera articulación es estable. Requiere curva de aprendizaje de ~50 casos para resultados reproducibles.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Test de Estrés Cuneometatarsiano (Hipermobilidad TMT1)</div>
+          <div class="glos-def">Evaluación clínica para detectar hipermobilidad de la primera articulación tarsometatarsiana: se fija el mediopié con una mano y se aplica carga dorsoplantar sobre la cabeza del primer metatarsiano. Positivo si hay traslación dorsoplantar &gt;8 mm o sensación de inestabilidad anormal. Predictor de recurrencia del HV con osteotomías metatarsianas solas — la hipermobilidad TMT1 es la indicación central del Lapidus arthrodesis.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PARS (Percutaneous Achilles Repair System)</div>
+          <div class="glos-def">Sistema de reparación percutánea del tendón de Aquíles con suturas de carga (FiberTape o similar) pasadas a través de punciones percutáneas sin abordaje abierto. Reduce significativamente la tasa de complicaciones de herida vs. reparación abierta. Requiere control ecográfico intraoperatorio para confirmar captación tendinosa adecuada. La técnica percutánea tiene tasa de re-ruptura equivalente a la cirugía abierta en manos experimentadas.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Déficit de Fuerza Isocinético</div>
+          <div class="glos-def">Medición objetiva de la asimetría de fuerza entre extremidades usando dinamómetro isocinético (Cybex, Biodex). Para el tendón de Aquíles se mide la fuerza máxima de flexión plantar isocinética a 60°/s y 120°/s, comparando la extremidad lesionada con la sana. Un déficit &lt;10% indica recuperación funcional suficiente para RTP competitivo. El umbral clínico de "sin cojera" o "sin dolor" subestima déficits reales de hasta 30%.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Tríada de la Atleta Femenina</div>
+          <div class="glos-def">Síndrome caracterizado por la interacción de: baja disponibilidad energética (restricción calórica + alta demanda de entrenamiento), disfunción menstrual (oligomenorrea o amenorrea secundaria) y baja densidad ósea (osteopenia u osteoporosis). Las tres condiciones se potencian mutuamente. Implicación ortopédica directa: mayor riesgo de fracturas por estrés recurrentes, especialmente metatarsales y navicular. El manejo requiere abordaje multidisciplinario: cirujano, endocrinólogo y nutricionista.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Sonoelastografía (Elastografía Ecográfica)</div>
+          <div class="glos-def">Técnica ecográfica que cuantifica la rigidez/elasticidad del tejido blando aplicando compresión mecánica o vibración acústica. En fascitis plantar, permite medir el grosor y la rigidez de la fascia — una fascia engrosada y blanda indica proceso inflamatorio activo. La normalización de la rigidez a 6 semanas post-inyección predice buena respuesta a largo plazo. Herramienta emergente para guiar el timing de la segunda inyección o el paso a PRP.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 13 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 4–10 Mayo 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · The American Journal of Sports Medicine (AJSM) · The Journal of Bone and Joint Surgery (JBJS) · Foot and Ankle Surgery EFAS (FAS) · Journal of Foot and Ankle Surgery (JFAS)<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
