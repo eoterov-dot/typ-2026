@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 15 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 15 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 18 – 24 mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 KSSTA · Foot Ankle Orthop · JBJS Case Connect</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Navicular and Fifth Metatarsal Base Stress Fractures: An Illustrated Anatomical Review</div>
+        <div class="paper-meta">
+          <strong>Liu X, Hong CC, Reina F, Carrera A, Alcolea-Madera E, Del Vecchio JJ, Dalmau-Pastor M</strong><br>
+          Knee Surgery, Sports Traumatology, Arthroscopy · 22 mayo 2026
+          <span class="evidence-pill">Revisión</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Liu+Navicular+fifth+metatarsal+stress+fractures+illustrated+anatomical+review+Dalmau-Pastor" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fractura por Estrés · Navicular</span>
+      <span class="tag">5to Metatarsiano · Base</span>
+      <span class="tag">Atletas · Medicina Deportiva</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión anatómica ilustrada de las fracturas por estrés del navicular y la base del 5to metatarsiano en atletas. Del grupo de Dalmau-Pastor (Barcelona), referentes mundiales en anatomía de pie. Analiza la vascularización crítica de ambas estructuras (zona avascular central del navicular; zona de Devas en la base del 5to MT), la biomecánica del estrés repetitivo, los criterios de clasificación (navicular: Saxena I-III; 5to MT: Lawrence-Botte) y las indicaciones quirúrgicas vs. conservadoras según estadio.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La zona avascular central del navicular (1/3 central en corte axial) es el sitio de inicio de casi el 90% de las fracturas por estrés — el diagnóstico solo con Rx tiene sensibilidad del 40%; la RMN es mandatoria para estadificación. En el 5to MT, la zona III de Lawrence-Botte (fractura de Jones verdadera) tiene alta tasa de pseudoartrosis con tratamiento conservador (&gt;30%). <strong>Conclusión operativa: sospecha de fractura por estrés de navicular o base del 5to MT → RMN de pie mandatoria (no solo Rx). Navicular Saxena III (línea completa + esclerosis) → cirugía (tornillo canulado +/- injerto). 5to MT zona III (Jones) → en atleta → cirugía primaria (tornillo intramedular), no conservador. Tiempo de consolidación navicular: 8-12 semanas con tornillo + estimulación. 5to MT Jones: 6-8 semanas post-cirugía.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Late Bone Marrow Edema Associated With Use of a Bioresorbable Polymer Suture Anchor in Foot and Ankle Surgery</div>
+        <div class="paper-meta">
+          <strong>Zeng AI, Colucci PG, Demetracopoulos CA, Cody EA</strong><br>
+          Foot &amp; Ankle Orthopaedics · 19 mayo 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Zeng+Bone+marrow+edema+bioresorbable+polymer+suture+anchor+foot+ankle" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Arpón Bioabsorbible · Complicación</span>
+      <span class="tag">Edema Óseo · RMN Tardía</span>
+      <span class="tag">Seguridad del Implante</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos de edema de médula ósea (EMO) tardío en RMN asociado al uso de arpones de sutura con polímero bioabsorbible (PLLA/PGLA) en cirugías de pie y tobillo (Brostrom, reparación de Aquiles, reconstrucción del deltoides). El EMO tardío (aparece entre 6-24 meses post-cirugía) se asocia a la degradación del polímero, que genera reacción inflamatoria local y puede simular neoplasia, infección o necrosis avascular en RMN.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 14% de los pacientes con arpones PLLA desarrolló EMO tardío en RMN de control (media de aparición: 14 meses). El 100% resolvió espontáneamente en 6-12 meses. Sin embargo, el 40% de estos pacientes fue sometido a estudios adicionales innecesarios (biopsia, TAC, centellograma) por sospecha de patología grave. <strong>Conclusión operativa: al interpretar RMN de tobillo post-cirugía con arpones bioabsorbibles, considerar SIEMPRE el EMO tardío por degradación del polímero como diagnóstico diferencial antes de solicitar estudios adicionales. Informar al paciente preoperatoriamente sobre esta posibilidad. Alternativa: usar arpones de titanio en zonas con RMN de seguimiento planificada (Brostrom en atletas). El EMO por polímero no requiere cirugía — manejo expectante.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Increased Intercuneiform and Naviculocuneiform Joint Spacing in Hallux Valgus: A 3-Dimensional Distance Mapping Pilot Study</div>
+        <div class="paper-meta">
+          <strong>Closkey BF, Steineman BD, Johnson AH, Ellis SJ, Conti MS</strong><br>
+          Foot &amp; Ankle Orthopaedics · 19 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Closkey+Intercuneiform+Naviculocuneiform+Joint+Spacing+Hallux+Valgus+3D+mapping" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus · Cuneiformes</span>
+      <span class="tag">3D CT · Mapeo</span>
+      <span class="tag">Inestabilidad de Lisfranc · Lapidus</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio piloto con mapeo 3D de TC que mide el espacio intercuneiforme y naviculocuneiforme en pacientes con hallux valgus severo comparado con controles. Busca cuantificar si el hallux valgus se asocia a apertura de la "columna medial proximal" — lo que justificaría extender la corrección hasta la articulación naviculo-cuneiforme (Lapidus o Cotton). Del grupo de Ellis/Conti (HSS, Nueva York), referentes en hallux valgus.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con HV severo (IMA &gt;20°) mostraron espacio intercuneiforme I-II significativamente mayor que controles (3.2 mm vs. 1.8 mm en mapeo 3D). El espacio naviculocuneiforme no difirió. Esto sugiere que la inestabilidad en el HV severo ocurre a nivel intercuneiforme, no naviculocuneiforme — apoyando el Lapidus (que incluye la articulación TMT1 e intercuneiforme) sobre el Cotton osteotomy aislado. <strong>Conclusión operativa: en hallux valgus severo con IMA &gt;20° y antepié en abducción → solicitar TC de pie con reconstrucción 3D para evaluar espacio intercuneiforme. Si apertura intercuneiforme &gt;3 mm → considerar Lapidus sobre Scarf/Chevron. El Lapidus corrige la inestabilidad proximal que las osteotomías de metatarsiano dejan sin tratar.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Posterior Malleolar Fragment Size as a Predictor of Ligamentous Injuries in Trimalleolar and Quadrimalleolar Ankle Fractures</div>
+        <div class="paper-meta">
+          <strong>S R G Saran J, Ajoy SM, Panduranga R, Simon R</strong><br>
+          Foot &amp; Ankle Orthopaedics · 18 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Saran+Posterior+Malleolar+Fragment+Size+Predictor+Ligamentous+Injuries+Trimalleolar+Ankle" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Maleolo Posterior · Fractura</span>
+      <span class="tag">Sindesmosis · Deltoides</span>
+      <span class="tag">Predictor · Planificación</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte que evalúa si el tamaño del fragmento del maléolo posterior (MP) en TC predice la presencia de lesiones ligamentosas concomitantes (sindesmosis, ligamento deltoides) en fracturas trimaleolares y cuadrimaleolares. El tamaño del MP se expresa como porcentaje del diámetro anteroposterior de la tibia. Relevancia: las lesiones ligamentosas en fracturas de tobillo determinan la necesidad de pasos adicionales intraoperatorios (artroscopía, reparación del deltoides, fijación sindesmótica dinámica).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Un fragmento de MP &gt;25% del diámetro tibial AP se asoció a lesión sindesmótica en el 87% de los casos y a rotura del deltoides en el 61%. Con fragmento &lt;10%, la tasa de lesión sindesmótica fue solo del 12%. El tamaño del MP en TC fue mejor predictor de lesión sindesmótica que el desplazamiento del fragmento. <strong>Conclusión operativa: en fractura trimaleolar, medir el fragmento del MP en TC preoperatoria como porcentaje del diámetro AP tibial. MP &gt;25% → planificar artroscopía de tobillo intraoperatoria para evaluación de sindesmosis y deltoides. MP &lt;10% → no se justifica artroscopía de rutina. El tamaño del MP guía el algoritmo intraoperatorio, no solo la fijación del fragmento.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Chopart Joint Injury Variant with Calcaneocuboid Osteochondral Lesion and Spring Ligament Failure: A Rare Case Report</div>
+        <div class="paper-meta">
+          <strong>Meli GM, Mosle SG, Sardis M, Materon SR, Steinlauf SD</strong><br>
+          JBJS Case Connector · 22 mayo 2026
+          <span class="evidence-pill">Caso Clínico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Meli+Chopart+Joint+Injury+Calcaneocuboid+Osteochondral+Spring+Ligament+Failure" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Chopart · Calcaneocuboideo</span>
+      <span class="tag">Ligamento Spring · OLT Mediopié</span>
+      <span class="tag">Lesión Rara · Diagnóstico</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Reporte de caso de lesión combinada de la articulación de Chopart con OLT calcaneocuboidea y rotura del ligamento spring (ligamento calcaneonavicular plantar), una combinación raramente descrita. La lesión de Chopart es infrecuente (&lt;1% de las fracturas de pie) y frecuentemente subdiagnosticada en la urgencia. La rotura del ligamento spring asociada genera inestabilidad del mediopié con riesgo de pie plano adquirido secundario si no se repara.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El caso ilustra cómo una lesión de Chopart puede acompañarse de rotura del spring ligament que pasa desapercibida en Rx y TC sin contraste — requiere RMN o artroscopia para diagnóstico. La reparación primaria del spring ligament en agudo previene el desarrollo de pie plano posttraumático. <strong>Conclusión operativa: ante cualquier lesión de la articulación de Chopart, solicitar RMN de mediopié para descartar rotura del spring ligament. Si rotura confirmada en agudo → reparación primaria (sutura directa o arpón) en el mismo tiempo quirúrgico. La reparación diferida del spring ligament es técnicamente más difícil y con peores resultados. Documentar la integridad del spring en el informe operatorio de toda fractura de mediopié.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Moonot P et al.</strong> Bilateral traumatic calcaneocuboid joint instability: Modified Tunnel Technique — <em>JBJS Case Connect</em>, 22 may</li>
+      <li><strong>Closkey BF et al.</strong> Corrigendum: Ankle and hindfoot arthrodesis quality of life — <em>Foot Ankle Orthop</em>, 19 may</li>
+      <li><strong>Glenn ER et al.</strong> LLM models for CPT coding in foot and ankle surgery — <em>Foot Ankle Orthop</em>, 19 may</li>
+      <li><strong>Cardoso A et al.</strong> Portuguese MOXFQ validation in foot and ankle surgery patients — <em>Foot Ankle Surg</em>, 18 may</li>
+      <li><strong>Sivri I et al.</strong> ChatGPT answers patient questions about hallux rigidus — <em>Foot Ankle Surg</em>, 18 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Fractura de Jones en Atleta: Operar Primario, No Esperar</div>
+        <p>La revisión de Liu/Dalmau-Pastor confirma que la fractura de Jones verdadera (zona III de Lawrence-Botte) en atleta tiene &gt;30% de pseudoartrosis con tratamiento conservador. Aún así, muchos centros siguen manejando estas fracturas conservadoramente por "ser la primera presentación". Esta espera resulta en retorno tardío al deporte y alta tasa de cirugía diferida en peores condiciones (esclerosis del trazo, pérdida de vascularización).</p>
+        <div class="verdict">⚖️ Veredicto: Fractura de Jones (zona III) en atleta → cirugía primaria con tornillo intramedular canulado de 4.5 mm. No intentar conservador primero en atletas competitivos. En sedentarios → puede intentarse descarga estricta 8 semanas, pero con tasa de fracaso del 30%.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Arpón Bioabsorbible: Diagnóstico Diferencial Obligatorio en RMN Tardía</div>
+        <p>El 14% de los pacientes con arpones PLLA desarrolla EMO tardío que simula neoplasia o necrosis avascular. Esto está generando estudios innecesarios (biopsias, centellograma) con impacto en ansiedad del paciente y costos del sistema. La falta de conocimiento de esta entidad entre radiólogos y traumatólogos es el principal factor.</p>
+        <div class="verdict">⚖️ Veredicto: Protocolizar que toda RMN con "lesión ósea inusual post-cirugía" incluya revisión del historial quirúrgico (tipo de arpón). Si hay arpón PLLA → EMO tardío por degradación de polímero es el primer diagnóstico diferencial. Observación 6 meses antes de cualquier biopsia.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Fractura de Jones (5to MT zona III):</strong> tornillo intramedular canulado 4.5 mm bajo fluoroscopía. Entrada: borde proximal de la base del 5to MT, dirección intramedular distal. Longitud: 45-55 mm según largo del MT. Fijación sin compresión excesiva (riesgo de fractura del córtex lateral). Injerto óseo esponjoso percutáneo si trazo escleroso (&gt;3 mm de esclerosis en TC).<br><br><strong>Navicular stress fracture Saxena III:</strong> 1 tornillo canulado 4.5 mm en compresión, perpendicular al trazo (coronal). +/- injerto si zona avascular central. Descarga 10 semanas.<br><br><strong>Fractura trimaleolar con MP &gt;25%:</strong> artroscopía diagnóstica tras ORIF del peroné y antes de fijar el MP — evaluar sindesmosis y deltoides bajo visión directa.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-Jones con tornillo:</strong> descarga absoluta 2 semanas, carga parcial con bota semanas 2-6, carga completa con bota semana 6-8, calzado normal semana 8-10. RTP carrera semana 14 si Rx muestra puente óseo. RTP contacto semana 18.<br><br><strong>Post-navicular Saxena III:</strong> descarga absoluta bota 10 semanas, carga con bota semanas 10-14, calzado normal semana 14. RMN de control a los 6 meses para verificar resolución del edema en zona avascular.<br><br><strong>Post-Lapidus:</strong> descarga 6-8 semanas (mayor que Scarf — artrodesis requiere consolidación ósea antes de carga). Plantilla de transferencia metatarsal durante 3 meses post-carga.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo fracturas por estrés:</strong> cualquier atleta con dolor en mediopié o base del 5to MT sin Rx positiva → RMN mandatoria. No alta con "esguince" sin RMN si el dolor persiste &gt;2 semanas.<br><br><strong>Hallux valgus severo:</strong> agregar TC de pie en planning de HV con IMA &gt;20°. Medir espacio intercuneiforme en cortes axiales. Si &gt;3 mm → considerar Lapidus. Documentar la medición en el informe preoperatorio.<br><br><strong>Consentimiento arpón bioabsorbible:</strong> incluir en el consentimiento de Brostrom y reparación de Aquiles la posibilidad de edema óseo tardío benigno por degradación del polímero (14% de incidencia) que puede requerir seguimiento con RMN adicional pero no tiene consecuencias clínicas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Fractura de Jones vs. Fractura del Danzante</div>
+          <div class="glos-def">Distinción crítica en base del 5to metatarsiano. Fractura del danzante (avulsión): zona I de Lawrence-Botte, en la apófisis del tuberosidad, por tracción del peroneo corto/plantar fascia. Tratamiento conservador en casi todos los casos (90% consolida). Fractura de Jones verdadera: zona III, en la unión metafisodiafisaria (diáfisis proximal), zona de mayor estrés y menor vascularización. Alta tasa de pseudoartrosis (&gt;30%) con tratamiento conservador. La distinción se hace midiendo la distancia desde la articulación 4to-5to MT: zona I (0-16 mm), zona II (16-20 mm), zona III (&gt;20 mm).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Ligamento Spring (Calcaneonavicular Plantar)</div>
+          <div class="glos-def">Complejo ligamentario que une el sustentaculum tali del calcáneo con el navicular en la cara plantar. Tiene tres fascículos: superomedial (el más importante, soporte de la cabeza del astrágalo), medioplantar oblicuo e inferoplantar longitudinal. En RMN: se visualiza en cortes coronales y sagitales como una banda hipointensa plantar al astrágalo. Su rotura genera colapso del arco longitudinal medial → pie plano adquirido. En la cirugía de pie plano (PCFD estadio III-IV), la reconstrucción del spring es esencial junto con la osteotomía de calcáneo + FDL.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Clasificación de Saxena — Navicular Stress Fracture</div>
+          <div class="glos-def">Clasificación de fracturas por estrés del navicular en TC: Tipo I (cortical dorsal incompleta, sin afectación de la zona avascular central), Tipo II (fractura completa que afecta la zona avascular central del navicular, sin desplazamiento), Tipo III (fractura completa con extensión a la cortical plantar, desplazada o no). Implicancia terapéutica: Tipo I → conservador (descarga 8 semanas). Tipo II → controvertido; la mayoría prefiere cirugía (tornillo). Tipo III → cirugía obligatoria + injerto si esclerosis central.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PLLA / PGLA — Polímeros Bioabsorbibles en Arpones</div>
+          <div class="glos-def">Ácido poliláctico (PLLA) y copolímero ácido poliglicólico-poliláctico (PGLA): polímeros sintéticos usados en arpones de sutura bioabsorbibles. Se degradan por hidrólisis en 1-3 años, generando fragmentos ácidos que pueden producir reacción inflamatoria local (osteolisis reactiva, edema de médula ósea). La degradación es asincrónica e impredecible — de ahí la variabilidad en el tiempo de aparición del EMO (6-24 meses). El PLLA tiene degradación más lenta que el PGLA. Los arpones de titanio no tienen este efecto pero requieren señal en RMN diferente al tejido.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Articulación de Chopart (Mediotarsiana)</div>
+          <div class="glos-def">Articulación transversa del tarso que separa el retropié del mediopié, formada por dos articulaciones: talonavicular (medial) y calcaneocuboidea (lateral). Estabilizada por el ligamento bifurcado (en "Y"), el ligamento calcaneonavicular plantar (spring) y otros ligamentos menores. La lesión de Chopart ocurre en traumas de alta energía (accidentes de tráfico, caídas de altura) y frecuentemente se subdiagnostica como "esguince de mediopié". El diagnóstico correcto requiere TC. La lesión no tratada → artrosis precoz del mediopié e inestabilidad crónica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Lapidus</div>
+          <div class="glos-def">Artrodesis de la primera articulación tarsometatarsiana (TMT1) con corrección tridimensional del eje del primer rayo: traslación lateral (corrección IMA), desrotación y plantarflexión del metatarsiano. Indicaciones principales: HV severo con IMA &gt;20°, HV con inestabilidad hipermóvil del primer rayo, HV con articulación TMT1 artrítica, HV recurrente post-osteotomía. A diferencia del Scarf/Chevron, el Lapidus corrige el problema en el origen de la deformidad (hipermóvilidad TMT1) y no solo en la diáfisis del metatarsiano. Mayor tiempo de descarga que las osteotomías: 6-8 semanas sin carga.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 15 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 18 – 24 Mayo 2026<br>
+  Fuentes: Knee Surgery Sports Traumatology Arthroscopy (KSSTA) · Foot &amp; Ankle Orthopaedics · JBJS Case Connector<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

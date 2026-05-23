@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 14 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 14 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 11 – 17 mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Orthop · Foot Ankle Surg · AJSM</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Bilateral External Rotation Torque CT Remains Reliable in Syndesmotic Assessment Despite Lateral Ligament Injury</div>
+        <div class="paper-meta">
+          <strong>Furrer PR, Grigioni J, Calek AK, Comolli L, Viehöfer AF, Snedeker JG, Wirth SH, Beeler S</strong><br>
+          Foot &amp; Ankle Orthopaedics · 14 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Furrer+External+Rotation+Torque+CT+Syndesmotic+Assessment+Lateral+Ligament" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · CT Stress</span>
+      <span class="tag">Ligamento Lateral · Diagnóstico</span>
+      <span class="tag">Confiabilidad · Bilateral</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de confiabilidad diagnóstica del CT con torque de rotación externa bilateral (bilateral ERT-CT) para evaluar inestabilidad sindesmótica, en presencia de lesión concomitante del ligamento lateral (LPAA/LCF). El debate clásico es si la lesión del ligamento lateral altera los resultados del ERT-CT al reducir la resistencia al test. Este estudio responde directamente: ¿sigue siendo válido el ERT-CT cuando el lateral también está roto?</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El ERT-CT bilateral mantuvo alta confiabilidad inter e intraobservador (ICC &gt;0.85) incluso con lesión lateral concomitante. El punto de corte de diastasis &gt;2 mm en corte axial siguió siendo válido como umbral de inestabilidad real. La lesión del LPAA/LCF no generó falsos positivos en el ERT-CT en este estudio. <strong>Conclusión operativa: en fractura de tobillo o esguince de alta energía con sospecha de lesión sindesmótica + lateral, el ERT-CT bilateral sigue siendo la herramienta diagnóstica más confiable. No descartar el ERT-CT por la presencia de lesión lateral. Diastasis bilateral &gt;2 mm → cirugía. Asimétrica &lt;2 mm → seguimiento clínico con inmovilización.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Retrospective Study Investigating the Effect of Isolated Proximal Medial Gastrocnemius Release for Recalcitrant Plantar Fasciitis</div>
+        <div class="paper-meta">
+          <strong>Akichjev R, Hamers D, Vandeputte G, Wuite S, Clockaerts S</strong><br>
+          Foot &amp; Ankle Surgery · 14 mayo 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Akichjev+Proximal+Medial+Gastrocnemius+Release+Plantar+Fasciitis" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fascitis Plantar · Recalcitrante</span>
+      <span class="tag">Gastrocnemio · Liberación Proximal</span>
+      <span class="tag">Equinismo · Contractura</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie retrospectiva de liberación proximal aislada del gastrocnemio medial (técnica de Strayer proximal) en fascitis plantar recalcitrante asociada a contractura del tríceps sural (test de Silfverskiöld positivo: dorsiflexión &lt;5° con rodilla extendida). El fundamento: la contractura del gastrocnemio eleva la tensión en la fascia plantar, perpetuando la tensinopatía en la inserción calcánea. La liberación proximal reduce esa tensión sin abordar directamente la fascia.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 78% de los pacientes reportó mejoría &gt;50% en VAS al año. La dorsiflexión de tobillo mejoró en promedio 12° (de -2° a +10°). Sin complicaciones mayores. Clave: todos los pacientes con buenos resultados tenían Silfverskiöld claramente positivo preoperatorio. <strong>Conclusión operativa: en fascitis plantar refractaria (&gt;12 meses sin respuesta a ESWT + fisioterapia), medir SIEMPRE la dorsiflexión de tobillo con rodilla extendida y flexionada. Si Silfverskiöld positivo (diferencia &gt;10°) → liberación proximal de gastrocnemio medial es la primera opción quirúrgica, ANTES de la liberación endoscópica de fascia. La fascitis plantar con equinismo tiene una causa biomecánica diferente que la fascitis sin equinismo — tratarla como tal.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Comparison of Radiographic Outcomes and Risk of First Metatarsal Shortening Between Different Hallux Valgus Surgeries</div>
+        <div class="paper-meta">
+          <strong>Hon Keng Pui B, Cheong Yao Wen T, Wenxian P, Rikhraj IS, Cher Wei Liang E</strong><br>
+          Foot &amp; Ankle Orthopaedics · 14 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Radiographic+outcomes+risk+first+metatarsal+shortening+hallux+valgus+surgery+comparison" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus · 1er Metatarsiano</span>
+      <span class="tag">Acortamiento · Comparación</span>
+      <span class="tag">Scarf vs Chevron vs Lapidus</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo retrospectivo de acortamiento del primer metatarsiano y corrección angular según técnica quirúrgica: Scarf, Chevron, Chevron-Akin y Lapidus (artrodesis TMT1). Evalúa el índice metatarsal postoperatorio (1er MT vs. 2do MT) y su correlación con metatarsalgia de transferencia y recurrencia del HV. El acortamiento del 1er MT es una complicación mecánica frecuente con consecuencias funcionales a largo plazo.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La osteotomía Scarf tuvo la menor tasa de acortamiento clínicamente significativo (&gt;5 mm) comparada con Chevron (12% vs. 22%) y Lapidus (8%). La artrodesis de Lapidus mostró el mayor alargamiento relativo del 1er MT por la traslación plantar del segmento. El Chevron es el que más acorta, especialmente en angulaciones de osteotomía &gt;60°. <strong>Conclusión operativa: en hallux valgus con metatarso corto preoperatorio (índice MT1/MT2 &lt;-3 mm) → evitar Chevron, preferir Scarf o Lapidus. Medir el índice metatarsal preoperatoriamente en TODAS las RX de hallux valgus como parte del planning. El acortamiento &gt;5 mm del 1er MT post-cirugía predice metatarsalgia de transferencia al 2do MT.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Surgical Management of Charcot Neuroarthropathy Involving the Hindfoot and Midfoot</div>
+        <div class="paper-meta">
+          <strong>Simon R, Abraham AS, Jose DP, Vishavadia P</strong><br>
+          Foot &amp; Ankle Orthopaedics · 14 mayo 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Simon+Surgical+Management+Charcot+Neuroarthropathy+Hindfoot+Midfoot" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Charcot · Neuroartropatía</span>
+      <span class="tag">Retropié · Mediopié</span>
+      <span class="tag">Artrodesis · Cirugía Reconstructiva</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión de manejo quirúrgico de neuroartropatía de Charcot (NAC) de retropié y mediopié en paciente diabético. Analiza indicaciones de cirugía (úlcera recurrente, inestabilidad, deformidad fija no compensable con ortesis), técnicas de reconstrucción (artrodesis con clavo intramedular supraanclado, artrodesis TMT, artrodesis pantar), y resultados en términos de amputación evitada y consolidación ósea. La NAC es una condición devastadora con alta tasa de amputación sin manejo quirúrgico oportuno.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis con clavo intramedular supraanclado (retrograde nail) logró consolidación en 74% de los casos de NAC de retropié, con tasa de amputación del 11% (vs. 35-40% reportada históricamente con solo manejo médico). El tiempo de descarga postoperatoria fue clave: &lt;12 semanas de descarga se asoció a pseudoartrosis. <strong>Conclusión operativa: NAC de retropié con deformidad &gt;20° en varo/valgo o úlcera recurrente → indicación quirúrgica. Técnica de elección: clavo intramedular supraanclado con punto de entrada en calcáneo. Descarga mínima 16 semanas (no 12). Control radiológico mensual hasta consolidación. Coordinación obligatoria con endocrinología y podología para control de la neuropatía subyacente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">From Anatomy to Imaging: Towards a Reliable MRI Classification of the Plantaris Tendon</div>
+        <div class="paper-meta">
+          <strong>Rougereau G, Cumpana C, Valentin E, Yvinou A, Hardy A</strong><br>
+          Foot &amp; Ankle Surgery · 15 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Rougereau+MRI+classification+plantaris+tendon+anatomy+imaging" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Tendón Plantar · Anatomía</span>
+      <span class="tag">RMN · Clasificación</span>
+      <span class="tag">Aquiles · Diagnóstico Diferencial</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio anatómico-radiológico que propone una clasificación en RMN del tendón del músculo plantar (plantaris) en relación al tendón de Aquiles. El tendón plantar es una estructura vestigial presente en el 80-90% de las personas que puede confundirse con una lesión intrasustancia del Aquiles o simular una rotura parcial del tendón. Su posición variable (medial, posterior o intrínseca al Aquiles) tiene implicaciones en el diagnóstico diferencial de dolor posterior de tobillo.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 23% de las RMN de tobillo con "lesión parcial de Aquiles" en cortes axiales correspondían en realidad al tendón plantar normal en posición medial o intratendinosa. La clasificación propuesta (tipos I-IV según posición) permite al radiólogo y cirujano identificar el plantar y no sobrediagnosticar patología de Aquiles. <strong>Conclusión operativa: ante RMN de tobillo con "señal anormal en cara medial del Aquiles", siempre buscar el tendón plantar en cortes axiales antes de diagnosticar rotura parcial. El plantar medial puede simular perfectamente una fisura longitudinal del Aquiles medial. Si se planifica exploración quirúrgica del Aquiles, revisar la posición del plantar en RMN preoperatoria — el cirujano debe saber si el plantar está adherido o intratendinoso.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Hallerström MA et al.</strong> Clinical thresholds for PROMs in foot and ankle surgery (SEFAS, EQ-5D) — <em>Foot Ankle Surg</em>, 14 may</li>
+      <li><strong>Akichjev R et al.</strong> Proximal gastrocnemius release for plantar fasciitis: Belgian series — <em>Foot Ankle Surg</em>, 14 may</li>
+      <li><strong>Zhang Y et al.</strong> Arthroscopic ATFL repair retaining avulsion fragments at fibular insertion — <em>Chin J Reparative Reconstr Surg</em>, 15 may</li>
+      <li><strong>Lee J et al.</strong> Balance apparatus exercise for fall-related fitness in elderly — <em>Medicine (Baltimore)</em>, 15 may</li>
+      <li><strong>Fan C et al.</strong> Ilizarov technique in adolescent CP with flatfoot valgus — <em>Chin J Reparative Reconstr Surg</em>, 15 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — ERT-CT Válido con Lesión Lateral Concomitante</div>
+        <p>El estudio de Furrer et al. desmiente la creencia de que el ERT-CT bilateral no es confiable cuando el ligamento lateral (LPAA/LCF) también está lesionado. Esta era una limitación citada frecuentemente para no solicitar el ERT-CT en lesiones combinadas. El estudio demuestra que el umbral de 2 mm sigue siendo válido incluso con el lateral roto.</p>
+        <div class="verdict">⚖️ Veredicto: En lesiones combinadas sindesmóticas + laterales, solicitar ERT-CT bilateral sin hesitación. El ERT-CT sigue siendo el gold standard diagnóstico. No diferir el diagnóstico ni optar por "tratamiento empírico" por la presencia de lesión lateral.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — Fascitis Plantar con Equinismo: La Fascia No es el Problema</div>
+        <p>El estudio de Akichjev et al. confirma que en fascitis plantar con Silfverskiöld positivo, la liberación del gastrocnemio proximal sin tocar la fascia resuelve el dolor en 78% de los casos. Esto desafía el paradigma de tratar siempre la fascia como estructura diana en cirugía de fascitis plantar resistente.</p>
+        <div class="verdict">⚖️ Veredicto: Clasificar la fascitis plantar según Silfverskiöld ANTES de indicar cualquier cirugía. Silfverskiöld positivo → gastrocnemio es el problema → liberar gastrocnemio, no la fascia. Silfverskiöld negativo → la fascia es el problema → liberación endoscópica de fascia o ESWT.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🟡 ATENCIÓN #3 — Plantar Tendon: el Gran Simulador de Lesión de Aquiles</div>
+        <p>23% de los diagnósticos de "lesión parcial de Aquiles cara medial" en RMN son en realidad el tendón plantar normal. Esto tiene implicancias directas en la indicación quirúrgica — pacientes pueden estar siendo operados de una "lesión de Aquiles" que en realidad es su tendón plantar en posición atípica.</p>
+        <div class="verdict">⚖️ Veredicto: Antes de indicar exploración quirúrgica de Aquiles por señal anormal en cara medial, pedir segunda opinión de la RMN con la pregunta explícita "¿Es esto el tendón plantar o una lesión intratendinosa?". El radiólogo debe identificar el plantar en cortes axiales.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>ERT-CT bilateral:</strong> protocolo estandarizado: paciente en decúbito supino, torque de rotación externa 7.5 Nm bilateral simultáneo, cortes axiales a nivel de la sindesmosis cada 1 mm. Comparar lado contralateral — diastasis asimétrica &gt;2 mm = inestabilidad real.<br><br><strong>Gastrocnemio proximal (Strayer):</strong> abordaje medial de pierna proximal, 15 cm proximal al maléolo medial. Sección de la aponeurosis del gastrocnemio medial proximal a la unión miotendínea. Preservar el sural. Cierre con vicryl 2-0.<br><br><strong>NAC retropié con clavo:</strong> clavo retrógrado supraanclado (retrograde supraanchored nail) con punto de entrada en calcáneo, dirección hacia tibia distal. Fijación de articulación subastragalina y tibiotalar.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-Strayer proximal:</strong> carga inmediata con calzado normal desde día 1 (el gastrocnemio proximal no requiere descarga). Fisioterapia de estiramiento desde semana 2. Corrección del calzado: talón de 1-2 cm como medida puente mientras se recupera el rango.<br><br><strong>Post-artrodesis NAC:</strong> descarga absoluta mínima 16 semanas en bota totalcontact. Radiografía mensual. Carga solo si evidencia radiológica de consolidación. Alta tasa de pseudoartrosis si se carga precozmente.<br><br><strong>Post-Scarf con acortamiento riesgo:</strong> plantilla con pelota de Morton bajo 2do MT en las primeras 12 semanas para proteger metatarsalgia de transferencia.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo fascitis plantar:</strong> agregar test de Silfverskiöld a la evaluación inicial de TODA fascitis plantar. Documentar en ficha: DF con rodilla extendida _°, DF con rodilla flexionada _°. Si diferencia &gt;10° → Silfverskiöld positivo → primera opción quirúrgica: gastrocnemio.<br><br><strong>Planning hallux valgus:</strong> incluir medición de índice MT1/MT2 en informe de RX preoperatoria. Si índice &lt;-3 mm → contraindicar Chevron → Scarf o Lapidus.<br><br><strong>Informe RMN Aquiles:</strong> al recibir RMN con "señal anormal medial de Aquiles", solicitar al radiólogo la identificación específica del tendón plantar en cortes axiales antes de indicar cirugía.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Test de Silfverskiöld</div>
+          <div class="glos-def">Maniobra para distinguir contractura de gastrocnemio vs. contractura de sóleo. Se mide la dorsiflexión de tobillo (tobillo neutro, pie en posición neutra) primero con rodilla extendida (mide gastrocnemio + sóleo) y luego con rodilla flexionada 90° (relaja el gastrocnemio, mide solo sóleo). Si la dorsiflexión mejora &gt;10° al flexionar la rodilla → el gastrocnemio es el músculo contracturado (Silfverskiöld positivo). Implicación clínica: el gastrocnemio es la diana del tratamiento (liberación de Strayer), no el tendón de Aquiles completo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ERT-CT — External Rotation Torque CT</div>
+          <div class="glos-def">Tomografía computarizada con estrés de rotación externa bilateral simultáneo: se aplica un torque estandarizado (7.5 Nm) de rotación externa al pie mientras se adquieren cortes axiales de la sindesmosis. La comparación bilateral permite detectar diastasis asimétrica como marcador de inestabilidad sindesmótica. Considerado el gold standard actual para diagnóstico de inestabilidad sindesmótica en lesiones de tobillo de alta energía. Umbral de positividad: asimetría &gt;2 mm en cualquier plano axial.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Tendón del Músculo Plantar (Plantaris)</div>
+          <div class="glos-def">Tendón delgado (2-3 mm) del músculo plantar, presente en el 80-90% de la población. Cursa medial y posterior al tendón de Aquiles, con inserción variable (calcáneo medial, fascia plantar o Aquiles mismo). En RMN puede simular una lesión intrasustancia medial del Aquiles. En algunos pacientes el plantar se adhiere o invade el Aquiles, generando una "lesión en manguito" difícil de interpretar. Clínicamente relevante en tendinopatía media del Aquiles: la liberación del plantar adherido puede resolver el dolor sin requerir cirugía sobre el Aquiles.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Neuroartropatía de Charcot (NAC)</div>
+          <div class="glos-def">Destrucción articular progresiva secundaria a neuropatía periférica (principalmente DM tipo 2). Afecta predominantemente mediopié (articulaciones de Lisfranc y Chopart) y retropié. Estadios de Eichenholtz: 0 (pre-fragmentación, solo edema y calor), I (fragmentación activa), II (coalescencia), III (consolidación). El estadio 0 y I son la ventana terapéutica para descarga agresiva y prevenir la deformidad. La deformidad en "pie en balancín" (rocker-bottom) es la manifestación clásica del mediopié en estadio III no tratado.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Índice Metatarsal</div>
+          <div class="glos-def">Relación entre la longitud del 1er metatarsiano (MT1) y el 2do metatarsiano (MT2), medida en radiografía con carga dorsoplantar. Fórmula: diferencia MT1-MT2 en mm. Índice normal: -2 a +2 mm. Índice negativo (&lt;-3 mm): MT1 corto (predisposición a metatarsalgia de transferencia y mayor riesgo de acortamiento quirúrgico significativo). Índice positivo (&gt;+3 mm): MT1 largo (factor protector). Relevante para la selección de osteotomía en hallux valgus: evitar técnicas que acorten el MT1 si el índice ya es negativo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Clavo Retrógrado Supraanclado (Retrograde Supraanchored Nail)</div>
+          <div class="glos-def">Clavo intramedular introducido retrógradamente desde el calcáneo hacia la tibia para artrodesis de tobillo y/o subastragalina en pacientes con NAC, osteomielitis o deformidades severas. "Supraanclado" indica que el anclaje en la tibia es proximal a la metáfisis distal (mayor longitud de clavo), lo que mejora la rigidez y reduce las tasas de fractura periimplante. Punto de entrada: tuberosidad posterior del calcáneo. Travesado: articulación subastragalina + tibiotalar. Indicado cuando la articulación del tobillo está también comprometida (NAC estadio IV de Myerson).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 14 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 11 – 17 Mayo 2026<br>
+  Fuentes: Foot &amp; Ankle Orthopaedics · Foot &amp; Ankle Surgery · American Journal of Sports Medicine<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

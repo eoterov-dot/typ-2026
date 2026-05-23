@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 13 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 13 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 4 – 10 mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · JBJS · JFAS · Foot Ankle Orthop · Acta Orthop</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Return to Sport and Functional Outcomes After Minimally Invasive Zadek Osteotomy for Insertional Achilles Tendinopathy in Young Athletes</div>
+        <div class="paper-meta">
+          <strong>Genuth G, Stavrou P, Brown C, Iselin LD</strong><br>
+          Foot &amp; Ankle Orthopaedics · 4 mayo 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Genuth+Zadek+Osteotomy+Insertional+Achilles+Tendinopathy+Athletes" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Tendón de Aquiles · Inserción</span>
+      <span class="tag">Osteotomía de Zadek · MIS</span>
+      <span class="tag">Deportistas · RTP</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos de osteotomía de Zadek minimamente invasiva (Zadek-MIS) en atletas jóvenes con tendinopatía de Aquiles insertional resistente al tratamiento conservador. La osteotomía de Zadek reduce la presión mecánica del tendón sobre la tuberosidad posterior del calcáneo mediante una cuña de sustracción dorsal sin resección del hueso de Haglund. Se evaluaron retorno al deporte (RTP), VISA-A, AOFAS y complicaciones a mínimo 18 meses. Población: atletas &lt;40 años con deformidad de Haglund sintomática + tendinopatía insertional documentada en ecografía.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 89% de los atletas retornó al deporte previo a una media de 5.2 meses postcirugía, con VISA-A promedio 87/100 al año (vs. 38/100 preoperatorio). La técnica MIS redujo las complicaciones de herida comparadas con las series abiertas históricas (2% vs. 8-12%). La osteotomía de Zadek-MIS no requiere desinserción del tendón — preserva la huella tendínea y reduce el tiempo de recuperación. <strong>Conclusión operativa: en atleta joven con tendinopatía insertional + Haglund, la Zadek-MIS es la técnica de elección sobre la resección abierta. RTP esperado a los 5 meses. La desinserción tendínea no es necesaria si se preserva la inserción con la osteotomía. No usar en pacientes sedentarios — reservar para atletas con alta demanda funcional.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Diagnostic Criteria and Severity Assessment for Syndesmosis Injury Using Magnetic Resonance Imaging: A Systematic Review</div>
+        <div class="paper-meta">
+          <strong>Kennedy OT, Ralph JE, Hodakowski A, Lau BC</strong><br>
+          Foot &amp; Ankle Surgery · 6 mayo 2026
+          <span class="evidence-pill">Nivel II</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kennedy+Diagnostic+criteria+severity+assessment+syndesmosis+injury+MRI+systematic+review" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag meta">Revisión Sistemática</span>
+      <span class="tag">Sindesmosis · RMN</span>
+      <span class="tag">Diagnóstico · Clasificación</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática sobre criterios diagnósticos y clasificación de severidad de la lesión sindesmótica mediante RMN. Analiza los signos de RMN más utilizados: edema de los ligamentos sindesmóticos (TIFL, PITFL, ligamento interóseo), diastasis tibiofibular en cortes axiales, y lesiones concomitantes (deltoides, OLT asociada). El objetivo fue establecer qué hallazgos en RMN se correlacionan mejor con la necesidad de estabilización quirúrgica vs. tratamiento conservador.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La rotura completa del TIFL + PITFL en RMN fue el predictor más consistente de inestabilidad sindesmótica clínica (sensibilidad 91%, especificidad 84%). La lesión aislada del TIFL puede manejarse conservadoramente. La diastasis &gt;2 mm en corte axial en RMN no cargado es el umbral más reproducible entre observadores para indicar cirugía. <strong>Conclusión operativa: en esguince de tobillo de alta energía con sospecha sindesmótica, solicitar RMN con cortes axiales finos a nivel de la sindesmosis. Si TIFL + PITFL rotos → evaluación quirúrgica. Si solo TIFL → protocolo conservador con inmovilización 6 semanas y seguimiento clínico. La RMN reemplaza la radiografía con carga en la toma de decisión quirúrgica en lesiones agudas.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Microfracture Effectively Fills Majority of Talus Osteochondral Lesions at 4–6 Months in Patients with Concomitant Chronic Lateral Ankle Instability</div>
+        <div class="paper-meta">
+          <strong>Zhao Z, Li S, Shi P et al.</strong><br>
+          Journal of Orthopaedic Surgery and Research · 8 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Zhao+Microfracture+talus+osteochondral+lesions+chronic+lateral+ankle+instability" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-degree:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">OLT Talar · Microfractura</span>
+      <span class="tag">CAI · Inestabilidad Lateral</span>
+      <span class="tag">Tratamiento Combinado</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte que evalúa el relleno condral por RMN a 4-6 meses tras microfractura artroscópica de OLT talar en pacientes con inestabilidad lateral crónica (CAI) concomitante. Todos los casos recibieron Brostrom simultáneo. Se evaluó el porcentaje de relleno (MOCART score), correlación entre tamaño del defecto y relleno, y outcomes funcionales (AOFAS, FAAM) a 24 meses. Debate central: ¿la inestabilidad residual sin corregir afecta el relleno condral?</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El relleno condral fue &gt;80% de la lesión en el 76% de los casos a los 4-6 meses (MOCART &gt;60 puntos). Los defectos &lt;1.5 cm² tuvieron mejor relleno que los ≥1.5 cm² (85% vs. 61%). El Brostrom simultáneo no retrasó ni empeoró el relleno condral. <strong>Conclusión operativa: OLT talar + CAI concomitante → tratar ambas en el mismo tiempo quirúrgico. Microfractura + Brostrom artroscópico simultáneo es seguro y efectivo para defectos &lt;1.5 cm². Para defectos ≥1.5 cm² → evaluar técnicas de segunda generación (OATS, ACI). No diferir el Brostrom esperando "curar" el OLT primero.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">1-Year Results After Surgery for Flexible Adult-Acquired Flatfoot Deformity: A Cohort Study Based on 190 Patients from the Swedish Foot and Ankle Surgery Register</div>
+        <div class="paper-meta">
+          <strong>Osbeck IKJ, Cöster M, Atroshi I</strong><br>
+          Acta Orthopaedica · 8 mayo 2026
+          <span class="evidence-pill">Nivel II</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Osbeck+Flatfoot+Deformity+Surgery+Swedish+Foot+Ankle+Register" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Pie Plano Adulto · PCFD</span>
+      <span class="tag">Registro Nacional · Cohorte</span>
+      <span class="tag">Resultados 1 año</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis de registro nacional sueco (190 pacientes) de resultados al año de cirugía para pie plano adquirido del adulto flexible (PCFD) estadio I-II. Evalúa SEFAS (Self-Reported Foot and Ankle Score), EQ-5D, tasa de complicaciones y reoperaciones. Los procedimientos más frecuentes fueron: osteotomía medializante de calcáneo ± transferencia del FDL, con o sin alargamiento de columna lateral. Primer análisis de registro nacional escandinavo en PCFD.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 71% de los pacientes reportó mejoría significativa en SEFAS al año. La tasa de complicaciones mayores fue 9% (infección, no-unión, síndrome compartimental). El alargamiento de columna lateral tuvo mayor tasa de dolor residual en articulación de Chopart (18%) vs. solo osteotomía medializante (7%). <strong>Conclusión operativa: en PCFD estadio II, la osteotomía medializante de calcáneo + FDL es el gold standard — no agregar alargamiento de columna lateral de rutina en estadio II. Reservar el alargamiento para abducción de antepié &gt;30° en carga. Informar al paciente que la recuperación funcional completa es al año, no a los 6 meses.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">K-Wire Versus Screw Fixation in Scarf-Akin Osteotomy for Hallux Valgus: Radiographic and Functional Outcomes</div>
+        <div class="paper-meta">
+          <strong>Qiu Y, Zhao B, Bangura ML et al.</strong><br>
+          Foot &amp; Ankle Surgery · 8 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Qiu+K-wire+screw+fixation+Scarf-Akin+osteotomy+hallux+valgus" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus · Scarf</span>
+      <span class="tag">Fijación · Comparación</span>
+      <span class="tag">K-wire vs Tornillo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo retrospectivo entre fijación con K-wire (2 agujas cruzadas) vs. tornillos de titanio en osteotomía Scarf-Akin para hallux valgus moderado-severo. Analiza corrección del ángulo HV, IMA, pérdida de corrección al año, tiempo de consolidación y necesidad de extracción de material. El K-wire requiere retiro programado a las 6-8 semanas, mientras el tornillo es permanente.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ambas técnicas lograron corrección equivalente del ángulo HV (reducción media 18° vs. 17°) y del IMA (reducción 6° vs. 6.5°). La pérdida de corrección al año fue similar (2.1° vs. 1.8°). El tornillo tuvo mayor rigidez inicial (carga precoz 2 semanas antes) pero mayor costo de implante. El K-wire requirió un segundo procedimiento de extracción en el 100% de los casos. <strong>Conclusión operativa: ambas fijaciones son igualmente efectivas en Scarf-Akin. En contexto público con restricción de recursos → K-wire es válido con protocolo de extracción ambulatoria a las 6 semanas. En contexto privado con paciente que rechaza segundo procedimiento → tornillo de elección. No hay diferencia clínica que justifique preferir uno por corrección o estabilidad.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Díaz-Fernández R et al.</strong> Trephine-based in situ arthrodesis of the central tarsometatarsal joints — <em>Foot Ankle Surg</em>, 8 may</li>
+      <li><strong>Nishizawa G et al.</strong> Reconstruction strategy and outcomes for anterior impaction pilon fractures — <em>Int Orthop</em>, 7 may</li>
+      <li><strong>Jones MA et al.</strong> Peppering injection for plantar heel pain: feasibility RCT — <em>Foot Ankle Orthop</em>, 4 may</li>
+      <li><strong>MacDonald J et al.</strong> Bone graft substitutes in non-spinal arthrodesis: systematic review — <em>JAAOS</em>, 8 may</li>
+      <li><strong>Yee NJ et al.</strong> Subtle ankle malpositioning on sagittal tibiofibular alignment — <em>Foot Ankle Orthop</em>, 8 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Zadek MIS: Fin de la Desinserción Tendínea en Haglund</div>
+        <p>La osteotomía de Zadek minimamente invasiva logra 89% de RTP sin desinsertir el tendón de Aquiles. Esto contradice la práctica tradicional de muchos centros que abordan el Haglund con desinserción completa del tendón (técnica abierta), lo que exige 6-9 meses de recuperación y alto riesgo de reruptura o debilidad residual.</p>
+        <div class="verdict">⚖️ Veredicto: En tendinopatía insertional + Haglund en atleta, la Zadek-MIS es la técnica de primera elección. La desinserción abierta queda reservada para casos con calcificación intratendinosa masiva que no puede abordarse percutáneamente. RTP en 5 meses vs. 9 meses con técnica abierta.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — OLT + CAI: Cirugía Simultánea, No Secuencial</div>
+        <p>El estudio (J Orthop Surg Res, may 8) demuestra que el Brostrom simultáneo no deteriora el relleno condral tras microfractura. Esto contradice la práctica de algunos centros que difieren el Brostrom hasta verificar integración del OLT — generando dos cirugías innecesarias en lugar de una.</p>
+        <div class="verdict">⚖️ Veredicto: OLT talar + CAI → una sola cirugía: microfractura artroscópica + Brostrom simultáneo. No hay justificación para diferir el Brostrom. La inestabilidad lateral sin corregir sí puede deteriorar el relleno a largo plazo.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Zadek-MIS en Haglund:</strong> cuña de sustracción dorsal del calcáneo posterior con fresa percutánea. Ángulo de corrección 8-12° según altura de la deformidad. Fijación con 1 tornillo canulado 4.5 mm. No desinsertir el tendón. Abordaje: portal percutáneo lateral posterior al tendón.<br><br><strong>Scarf-Akin fijación:</strong> en contexto público → K-wire 1.6 mm x 2 cruzados con extracción ambulatoria a 6 semanas. En privado con preferencia del paciente → tornillo titanio de compresión.<br><br><strong>OLT + CAI:</strong> microfractura artroscópica (perforación subcon dral 3-4 mm, separación 3 mm) + Brostrom artroscópico en mismo tiempo quirúrgico.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-Zadek MIS:</strong> bota sin carga 3 semanas, carga parcial semanas 3-6, calzado deportivo semana 8. Fisioterapia excéntrica de Aquiles desde semana 6. RTP carrera semana 20, RTP deporte de contacto semana 24.<br><br><strong>Post-OLT+CAI simultáneo:</strong> descarga absoluta 8 semanas (prioriza integración condral), bota descarga semanas 8-12. RMN de control a los 6 meses para confirmar relleno. No iniciar carga si MOCART &lt;50.<br><br><strong>Post-Scarf con K-wire:</strong> bota rígida 6 semanas hasta extracción de K-wires. Calzado amplio semana 8. Evitar calzado apretado 3 meses.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo Haglund:</strong> clasificar como MIS vs. abierto según presencia de calcificación intratendinosa en RMN sagital. Sin calcificación → Zadek-MIS. Con calcificación →  evaluar resección abierta.<br><br><strong>OLT + CAI:</strong> marcar en ficha el tamaño del OLT y la técnica de estabilización usada. Protocolo de RMN a 6 meses post-cirugía obligatorio para documentar relleno (MOCART).<br><br><strong>Hallux valgus:</strong> consentimiento informado con opción K-wire (2 procedimientos) vs. tornillo (1 procedimiento, mayor costo). Documentar preferencia del paciente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Zadek</div>
+          <div class="glos-def">Osteotomía de cuña de sustracción dorsal del calcáneo posterior, descrita por Zadek en 1939, que reduce el ángulo de inclinación del calcáneo y descomprime mecánicamente la inserción del tendón de Aquiles. La versión MIS se realiza percutáneamente con fresas de alta velocidad sin abordaje abierto. Indicada en tendinopatía insertional con morfología calcánea en "garra" o deformidad de Haglund. Diferencia clave con la resección del hueso de Haglund: la Zadek corrige el eje, no solo extirpa la protuberancia.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Sindesmosis Tibiofibular — Anatomía Ligamentaria</div>
+          <div class="glos-def">Articulación fibrosa entre tibia y peroné distales, estabilizada por 4 ligamentos: TIFL (tibioperoneo anteroinferior), PITFL (tibioperoneo posteroinferior), ligamento interóseo (el más fuerte, no visible en RMN estándar) y ligamento transverso inferior. La lesión aislada del TIFL es la más frecuente (esguince grado I-II); la rotura del TIFL + PITFL implica inestabilidad real que requiere evaluación quirúrgica. En RMN: buscar edema, discontinuidad y diastasis en cortes axiales a nivel de la articulación.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MOCART Score</div>
+          <div class="glos-def">Magnetic resonance Observation of Cartilage Repair Tissue: escala de RMN para evaluar tejido de reparación condral post-microfractura o post-trasplante. Evalúa 9 variables: grado de relleno, integración, superficie, estructura, intensidad de señal, cambios subcondrales, efusión sinovial, adhesiones y cambios de tejidos blandos. Puntaje 0-100. MOCART &gt;60 se correlaciona con buen outcome clínico. Control estándar: 6 meses post-microfractura para documentar relleno.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía Scarf</div>
+          <div class="glos-def">Osteotomía en "Z" longitudinal del primer metatarsiano para corrección de hallux valgus moderado-severo (HV 25-45°, IMA 15-25°). Permite traslación lateral del fragmento capital del metatarsiano, con corrección simultánea del DMAA. La osteotomía de Akin (falange proximal) se combina habitualmente para corregir el componente interfalángico. Estabilidad inherente por la forma en "Z" — permite carga precoz a las 2-3 semanas con calzado postoperatorio amplio.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PCFD — Progressive Collapsing Foot Deformity</div>
+          <div class="glos-def">Nombre actual (antes "pie plano adquirido del adulto") que engloba el colapso progresivo del pie medial incluyendo: insuficiencia del tendón tibial posterior, laxitud del ligamento spring, abducción del antepié y deformidad en valgo del retropié. Estadificación de Bluman-Myerson: I (tenosinovitis sin deformidad), II (deformidad flexible), III (deformidad rígida), IV (articulación del tobillo comprometida). El tratamiento quirúrgico estándar en estadio II: osteotomía medializante calcáneo + transferencia FDL ± alargamiento columna lateral.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">FDL — Tendón Flexor Largo de los Dedos</div>
+          <div class="glos-def">Tendón que pasa por detrás del maléolo medial y se bifurca en el pie para insertar en la base de la falange distal de los dedos 2-5. En cirugía de pie plano adquirido, se transfiere al navicular para sustituir funcionalmente la tracción del tibial posterior insuficiente. La transferencia se realiza a través de un túnel en el navicular (técnica de Cobb) o mediante anclaje en el navicular. Sacrificio: pérdida de flexión del 2-5° dedo (clínicamente irrelevante). Ventaja: eje de tracción similar al tibial posterior en valgo del retropié.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 13 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 4 – 10 Mayo 2026<br>
+  Fuentes: Foot &amp; Ankle Orthopaedics · Foot &amp; Ankle Surgery · Journal of Orthopaedic Surgery and Research · Acta Orthopaedica<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
