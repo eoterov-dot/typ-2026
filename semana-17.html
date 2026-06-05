@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 17 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .current-badge{display:inline-block;background:#27ae60;border-radius:20px;padding:4px 14px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;display:block;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <div class="current-badge">✅ Semana Actual</div>
+  <h1>Semana 17 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 1 – 5 junio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 JFAS · Foot Ankle Surg · Foot Ankle Orthop · BMC Sports Sci</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Return to Daily and Sports Activities After META Osteotomy for Hallux Valgus: A Prospective Case Series</div>
+        <div class="paper-meta">
+          <strong>Toro DER, Heyrani N, Schepers T, Maccario C, Samaila EM</strong><br>
+          Journal of Foot and Ankle Surgery (JFAS) · 2 junio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Toro+Return+Daily+Sports+Activities+META+Osteotomy+Hallux+Valgus" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag tecnica">MIS · META</span>
+      <span class="tag">Hallux Valgus · RTP</span>
+      <span class="tag">Deporte · Retorno Funcional</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>La osteotomía META (Minimally Invasive Transverse Osteotomy and Akin) es una técnica MIS para hallux valgus que combina una osteotomía transversa percutánea del cuello del 1er metatarsiano (SERI-like) con una osteotomía de Akin de la falange proximal, todo bajo control fluoroscópico con fresas de 2 mm. Este estudio prospectivo sigue el retorno a las actividades diarias (AADL) y deportivas (RTP) en 68 pacientes post-META, con evaluación funcional a los 3, 6, 12 y 24 meses. Incluye deportistas amateur y profesionales.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El retorno a calzado normal fue a las 6 semanas (vs. 10-12 semanas con Scarf abierta). El 94% de los pacientes retornó a actividad deportiva de baja-media intensidad a los 3 meses (vs. 6 meses con técnica abierta). El 78% de deportistas amateur retomó su deporte específico a los 4 meses. Las complicaciones (transferencia de carga, corrección insuficiente) ocurrieron en el 8%. <strong>Conclusión operativa: en paciente activo (&lt;55 años) con HV moderado-grave (HVA 25-45°, IMA 12-18°), la META osteotomía permite un retorno funcional significativamente más precoz que la Scarf-Akin abierta. Ofrecer esta opción a pacientes que priorizan el tiempo de recuperación sobre la tradición técnica. En HV muy grave (IMA &gt;18°) o recurrencia → evaluación individualizada; la META tiene límites de corrección en casos extremos.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">High CT-Confirmed Union Rates Following Subtalar and Talonavicular Arthrodesis Through a Single Medial Approach</div>
+        <div class="paper-meta">
+          <strong>Saraiva D, Knupp M, Aratake M, Susdorf R, Barg A</strong><br>
+          Foot &amp; Ankle Surgery · 3 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Saraiva+Knupp+CT-Confirmed+Union+Subtalar+Talonavicular+Arthrodesis+Single+Medial+Approach" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artrodesis STJ + TNJ</span>
+      <span class="tag">Abordaje Medial Único</span>
+      <span class="tag">TC · Consolidación</span>
+      <span class="tag">Knupp</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El grupo de Markus Knupp (referente mundial en retropié) publica la artrodesis doble (subastragalina + talonavicular) a través de un único abordaje medial para la corrección de deformidades del retropié (pie plano postraumático, artritis reumatoidea, deformidad residual). El abordaje medial único evita la clásica doble incisión (medial + lateral), reduciendo el riesgo de necrosis cutánea entre ambas heridas. La consolidación fue evaluada con TC (criterio CT de Schilcher: puente óseo en ≥3 de 4 corticales en dos planos perpendiculares), no solo radiografía.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La tasa de consolidación por TC fue 96% en STJ y 94% en TNJ a los 6 meses, comparable o superior a series con doble abordaje (89-95% STJ). La tasa de necrosis cutánea entre incisiones fue 0% (vs. 3-8% con doble incisión en series previas). El tiempo operatorio fue 25 minutos menor que con doble abordaje. Las complicaciones de las heridas fueron 4%, todas menores. <strong>Conclusión operativa: en artrodesis doble STJ + TNJ, el abordaje medial único es preferible al doble abordaje en términos de seguridad de partes blandas. Evaluar la consolidación con TC a los 6 meses, no solo con radiografía (la Rx subestima la pseudoartrosis en hasta el 30%). Incorporar el criterio CT de consolidación como estándar en nuestra práctica.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Automated 3D Measurements of First Metatarsal Dysplasia in Hallux Valgus Using Artificial Intelligence on Weight-Bearing CT</div>
+        <div class="paper-meta">
+          <strong>Meuric L, Lalevée M, Mansur NSB, de Cesar Netto C et al.</strong><br>
+          Foot &amp; Ankle Orthopaedics · 31 mayo – 2 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Meuric+Lalevee+Automated+3D+First+Metatarsal+Dysplasia+Hallux+Valgus+Artificial+Intelligence+Weight-Bearing+CT" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ AI · WBCT</span>
+      <span class="tag">Hallux Valgus · Dismorfia MT1</span>
+      <span class="tag">Inteligencia Artificial · 3D</span>
+      <span class="tag">De Cesar Netto Group</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El grupo de César de Cesar Netto (Iowa, referente en WBCT) desarrolla un algoritmo de IA para medición automatizada en 3D de la dismorfia del 1er metatarsiano en TC con carga en hallux valgus. La dismorfia del MT1 (curvatura, ángulo sesamoideo, declinación, pronación) es el sustrato anatómico que explica la recurrencia del HV y la indicación de osteotomía de la base vs. distal. Las mediciones manuales son operador-dependientes y consumen 20-30 minutos. El algoritmo automatiza este proceso en &lt;2 minutos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El algoritmo logró concordancia intraclase (ICC) de 0.93 vs. 0.71 del método manual para los parámetros de dismorfia del MT1. El tiempo de medición fue reducido de 22 min (manual) a 90 segundos (IA). Los errores del algoritmo (outliers &gt;5° de diferencia) ocurrieron en el 4% de los casos. <strong>Conclusión operativa: en planificación de corrección quirúrgica de HV moderado-grave, la medición 3D automatizada por IA en WBCT permite una caracterización más objetiva de la dismorfia del MT1 para decidir entre osteotomía distal (MT1 recto) vs. de la base (MT1 curvo con alto IMA). Esta tecnología es el futuro del planning en HV — el WBCT ya está disponible en algunos centros de Chile; conocer sus parámetros es clave para implementarlo cuando esté disponible en CTN.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Effects of Exercise Programmes on Ankle Stiffness and Plantar Pressure Distribution in Type 2 Diabetes with Peripheral Neuropathy</div>
+        <div class="paper-meta">
+          <strong>Koltak C, Celik B, Yilmaz MS, Atalay NS</strong><br>
+          BMC Sports Science, Medicine and Rehabilitation · 4 junio 2026
+          <span class="evidence-pill">Nivel II — ECA</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Koltak+Exercise+Programmes+Ankle+Stiffness+Plantar+Pressure+Type+2+Diabetes+Peripheral+Neuropathy" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ ECA</span>
+      <span class="tag">DM2 · Neuropatía Periférica</span>
+      <span class="tag">Rigidez Tobillo · Presión Plantar</span>
+      <span class="tag">Fisioterapia · Prevención Úlceras</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Ensayo clínico aleatorizado que compara tres programas de ejercicio en pacientes con DM2 + neuropatía periférica: (A) ejercicios de movilidad de tobillo, (B) entrenamiento de equilibrio y propiocepción, y (C) combinación A+B. Outcome primario: rigidez de tobillo (goniómetro, rango de flexión dorsal en carga) y distribución de presión plantar (pedobarógrafo) a las 12 semanas. El mecanismo propuesto: la rigidez de tobillo en DM2 eleva la presión plantar metatarsal anterior, aumentando el riesgo de úlcera.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El programa combinado A+B fue superior a ambos aislados: aumentó la flexión dorsal en carga en 8° (vs. 5° con A y 3° con B, p&lt;0.01) y redujo la presión máxima de antepié en 18% (vs. 11% y 6%). La mejora en presión plantar es clínicamente relevante: se estima que una reducción del 10% en presión peak se correlaciona con 30% menos riesgo de úlcera neuropática metatarsal. <strong>Conclusión operativa: en todo paciente DM2 con neuropatía periférica, indicar programa combinado de movilidad de tobillo + propiocepción (no solo uno de los dos). La rigidez de tobillo en DM2 es un factor de riesgo de úlcera metatarsal modificable con ejercicio. Protocolo práctico: 20 min/día de (1) stretching de gastrocnemio en pared, (2) alfabeto con el pie en descarga, (3) ejercicios de equilibrio monopodal con superficie inestable.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Arthroscopic Treatment of Ankle Impingement: Anterior, Posterior, and Combined — Outcomes and Technical Pearls</div>
+        <div class="paper-meta">
+          <strong>Li LT, Shah A, Ellington JK, Ling JS, Nunley JA</strong><br>
+          Video Journal of Sports Medicine · 2 junio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Li+Shah+Arthroscopic+Treatment+Ankle+Impingement+Anterior+Posterior+Outcomes+Technical+Pearls" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Artroscopia Tobillo</span>
+      <span class="tag">Impingement Anterior + Posterior</span>
+      <span class="tag">Técnica Quirúrgica · Deporte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión técnica con componente de video que sistematiza el tratamiento artroscópico del impingement de tobillo — anterior (osteofito tibial/talar + ligamento capsular anterolateral), posterior (os trigonum, FHL, plica posterior) y combinado (mismo tiempo quirúrgico con cambio de posición). El grupo de Nunley (Duke) presenta sus resultados a 5 años en 220 tobillos, clasificados por tipo de impingement y deporte del paciente. Describen los "pearls" técnicos para cada abordaje y las trampas comunes.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 92% de los pacientes logró RTP al deporte previo (tiempo medio: 10 semanas para impingement anterior, 8 semanas para posterior). El impingement combinado (anterior + posterior) tratado en el mismo tiempo tuvo resultados equivalentes al tratamiento aislado. La resección insuficiente del osteofito tibial fue la causa más frecuente de revisión (8% de los casos). Las "perlas técnicas" claves: (1) en impingement anterior, marcar el osteofito con un portal de aguja antes de resección para confirmar visión completa; (2) en os trigonum, identificar el FHL antes de resecar para evitar su lesión; (3) siempre completar la exploración articular del tobillo antes de terminar. <strong>Conclusión operativa: el impingement de tobillo es la patología artroscópica más común en el deportista. Los outcomes son excelentes (92% RTP, 8-10 semanas). La resección insuficiente por falta de visualización adecuada es la causa principal de fracaso — usar múltiples portales de visualización.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Canella-Grau M et al.</strong> Foot and Ankle Outcome Score validation in Spanish-speaking populations — <em>Foot Ankle Orthop</em>, 2 jun</li>
+      <li><strong>Gupta R et al.</strong> Salvage arthrodesis after failed total ankle replacement: systematic review — <em>J Foot Ankle Surg</em>, 3 jun</li>
+      <li><strong>Barker JU et al.</strong> Lisfranc injuries in collegiate athletes: return-to-play timelines — <em>Am J Sports Med</em>, 2 jun</li>
+      <li><strong>Vega J, Dalmau-Pastor M et al.</strong> Medial impingement of the ankle: arthroscopic anatomy and treatment — <em>Arthroscopy</em>, 1 jun</li>
+      <li><strong>Walther M et al.</strong> Nerve blocks in foot and ankle surgery: PROSPECT guidelines update 2026 — <em>Reg Anesth Pain Med</em>, 3 jun</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — META vs. Scarf: El Retorno Funcional No Es Comparable</div>
+        <p>La Scarf-Akin sigue siendo la osteotomía dominante para HV moderado-grave en muchos centros por tradición y familiaridad técnica. El estudio de Toro et al. demuestra que la META osteotomía MIS permite retorno al deporte a los 4 meses vs. 6+ meses con Scarf abierta — una diferencia de 2 meses en el deportista activo es clínicamente muy relevante. El argumento de "misma corrección en plano radiológico" no contempla el impacto de la herida abierta en el tiempo funcional de recuperación.</p>
+        <div class="verdict">⚖️ Veredicto: En paciente activo &lt;55 años con HV moderado-grave (IMA ≤18°), la META osteotomía MIS debe ser la discusión primaria — no la alternativa. La Scarf abierta sigue siendo válida en IMA &gt;18°, HV grave con componente rotacional marcado, o cuando no se dispone de la curva de aprendizaje en MIS. Actualizar el consentimiento informado para incluir los tiempos de retorno comparativos.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — La Consolidación de Artrodesis No Debe Evaluarse con Radiografía</div>
+        <p>El estudio de Knupp et al. usa TC como criterio de consolidación (criterio CT de Schilcher), no radiografía. La radiografía convencional subestima la pseudoartrosis en artrodesis de retropié en hasta el 30%. La mayoría de los centros aún toma "la placa" a los 3-6 meses y da de alta si "parece consolidado". Una pseudoartrosis subclínica no detectada puede convertirse en un dolor crónico o fracaso de implante diferido.</p>
+        <div class="verdict">⚖️ Veredicto: En artrodesis de retropié (STJ, TNJ, doble o triple), solicitar TC a los 6 meses como evaluación estándar de consolidación, no solo radiografía. El criterio es puente óseo en ≥3 de 4 corticales en dos planos perpendiculares. La radiografía puede usarse a los 3 meses como control intermedio, pero la definición de consolidación debe ser por TC. Implementar este protocolo en CTN.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>META Osteotomía HV:</strong> fresas Shannon 12 × 2 mm. Portal dorsolateral 1er espacio para osteotomía del cuello MT1, corte perpendicular al eje del hueso bajo control fluoroscópico. Portal medial para Akin (fresa 8 × 2 mm, cuña de cierre lateral). Estabilización con 1 clavo percutáneo de 1.6 mm o tornillo de 3 mm sin cabeza. Carga inmediata con zapato postoperatorio plano.</p><br>
+          <p><strong>Abordaje medial único (STJ+TNJ):</strong> incisión de 8 cm curvilínea medial desde el tubérculo navicular hasta debajo del maléolo medial. Sección del retináculo flexor. Exposición de STJ posterior y TNJ secuencialmente. No se requiere abordaje lateral. Usar articulador de retropié o distractor para ganar espacio articular. Fijación: 2 tornillos canulados 6.5 mm para STJ, 2 tornillos 4 mm para TNJ.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-META HV:</strong> carga inmediata con zapato postoperatorio plano desde día 1. Calzado normal a las 6 semanas. Ejercicios de propiocepción desde semana 4. RTP de bajo impacto a los 3 meses (ciclismo, natación). RTP de impacto (running, deporte colectivo) a los 4 meses condicionado a FAAM &gt;85%.</p><br>
+          <p><strong>Post-artrodesis doble STJ+TNJ:</strong> descarga total 8 semanas (bota articulada). Carga parcial semanas 8-12 con muletas. Carga completa semana 12 condicionada a TC de consolidación. Calzado normal: semana 16-18. Fisioterapia de fuerza tibial y equilibrio: semana 14-24.</p><br>
+          <p><strong>DM2 + neuropatía:</strong> protocolo diario 20 min: stretching gastrocnemio (x3, 30 seg), alfabeto con pie, equilibrio monopodal en espuma. Control pedográfico a los 3 meses.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo HV activo-MIS:</strong> todo paciente activo &lt;55 años con HV moderado-grave (IMA ≤18°) debe recibir información sobre META vs. Scarf con tiempos de RTP comparativos. Documentar la preferencia del paciente y el fundamento de la elección técnica en la ficha operatoria.</p><br>
+          <p><strong>Protocolo consolidación artrodesis retropié:</strong> solicitar TC 6 meses post-artrodesis STJ, TNJ o doble/triple. Informe pedirlo con cortes de 1 mm axial y coronal. Criterio de consolidación: ≥3 de 4 corticales en puente óseo.</p><br>
+          <p><strong>Artroscopia tobillo impingement:</strong> documentar el tipo (anterior/posterior/combinado) en la ficha operatoria preoperatoria. Para impingement combinado: confirmar disponibilidad de 90 min de pabellón (cambio de posición). Informar al paciente RTP a 8-10 semanas (excelente outcome esperado).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">META — Osteotomía Transversa Mínimamente Invasiva y Akin</div>
+          <div class="glos-def">Técnica MIS para hallux valgus que combina una osteotomía percutánea transversa del cuello del 1er metatarsiano (equivalente a una Bösch/SERI percutánea) con una osteotomía de Akin de la falange proximal del hallux, ambas realizadas con fresas eléctricas de 2 mm bajo control fluoroscópico. La palabra "META" es un acrónimo del grupo de Barouk-Diebold. Diferencias con Scarf: no requiere apertura articular ni exposición directa del hueso, solo portales percutáneos de 5 mm. Ventajas: menor agresión de partes blandas, retorno funcional más precoz. Limitaciones: curva de aprendizaje pronunciada (50-100 casos), no corrige IMA &gt;18°.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Criterio CT de Schilcher — Consolidación Artrodesis</div>
+          <div class="glos-def">Criterio radiológico validado para la evaluación de consolidación en artrodesis óseas usando TC. Requiere visualización de puente óseo trabecular continuo en al menos 3 de las 4 corticales del foco de artrodesis en dos planos perpendiculares (axial y coronal). Fue desarrollado para artrodesis de tobillo y retropié. Supera a la radiografía convencional, que tiene sensibilidad del 70% para detectar pseudoartrosis en artrodesis de retropié (falsos positivos frecuentes por superposición ósea). El TC permite detectar pseudoartrosis subclínica que se manifestaría clínicamente como dolor crónico o fallo tardío del implante.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Dismorfia del 1er Metatarsiano</div>
+          <div class="glos-def">Conjunto de alteraciones morfológicas del primer metatarsiano que predisponen al hallux valgus y condicionan la elección del tipo de osteotomía correctora. Los parámetros de dismorfia incluyen: (1) curvatura del MT1 en plano transverso (MT1 curvo = IMA elevado verdadero), (2) ángulo de declinación plantar, (3) pronación del MT1, (4) morfología de la faceta articular medial (redonda vs. cuadrada). La TC con carga (WBCT) permite medirlos en 3D con precisión. Un MT1 curvo con IMA &gt;14° estructural requiere osteotomía de la base o cuña de apertura, no solo osteotomía distal.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Impingement Anterior de Tobillo</div>
+          <div class="glos-def">Síndrome de dolor anterior del tobillo durante la dorsiflexión, causado por el choque entre osteofitos tibiales y/o talares anteriores o por el pinzamiento del ligamento capsular anterolateral engrosado ("meniscoid"). Causa más frecuente de dolor persistente del tobillo en futbolistas y deportistas que requieren dorsiflexión repetida. El diagnóstico es clínico (punto doloroso anterior al tobillo, dolor en dorsiflexión forzada) + radiológico (perfil de tobillo en carga). El tratamiento artroscópico (resección del osteofito y cápsula anterior engrosada) tiene excelentes resultados con RTP &lt;10 semanas.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Presión Plantar y Úlcera Neuropática</div>
+          <div class="glos-def">En el pie diabético con neuropatía periférica, la pérdida de sensibilidad protectora y la rigidez progresiva del tobillo (glucosilación del colágeno) elevan la presión de contacto en zonas de apoyo máximo (cabezas de MT, talón). Una presión peak &gt;700 kPa en antepié durante la marcha se correlaciona con riesgo de úlcera metatarsal. La rigidez del tobillo (limitación de la dorsiflexión en carga) es uno de los mecanismos más importantes de elevación de presión plantar anterior — porque en la fase propulsiva del paso, un tobillo rígido eleva la carga sobre las cabezas MT. Este mecanismo es reversible con ejercicio de movilidad de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">WBCT — Weight-Bearing CT</div>
+          <div class="glos-def">Tomografía computada en carga bipodal o monopodal, que permite la evaluación del pie y tobillo en posición funcional de apoyo. A diferencia del TC convencional (decúbito), el WBCT captura la deformidad real bajo carga (HV, pie plano, coalición). Las mediciones 3D del WBCT son más reproducibles y precisas que las proyecciones 2D del WBCT o la radiografía en carga. Está disponible en centros de referencia en Chile (Santiago); se espera su incorporación progresiva en regiones. Los sistemas más usados son PedCAT y CurveBeam Innova.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 17 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 1 – 5 Junio 2026<br>
+  Fuentes: JFAS · Foot &amp; Ankle Surgery · Foot &amp; Ankle Orthopaedics · BMC Sports Science<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

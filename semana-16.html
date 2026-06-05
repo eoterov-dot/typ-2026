@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 16 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 16 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 25 – 31 mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Orthop · Foot Ankle Surg · Orthop J Sports Med</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Percutaneous Fibular Nail for Ankle Fractures: Technique, Outcomes and Comparison With Open Plating</div>
+        <div class="paper-meta">
+          <strong>de Souza MLAT, Michels F, Dressler HB, Catena F, Oliva XM</strong><br>
+          Foot &amp; Ankle Orthopaedics · 31 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=de+Souza+Percutaneous+Fibular+Nail+Ankle+Fractures+Technique+Outcomes+Open+Plating" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag tecnica">MIS · Peroné</span>
+      <span class="tag">Fractura Tobillo · Clavo Percutáneo</span>
+      <span class="tag">vs Placa Lateral</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de clavo fibular percutáneo (fibular nail) vs. placa lateral abierta en fracturas de peroné distal tipos Weber B y C. El clavo fibular intramedular percutáneo se inserta a través de un portal de 5 mm en la punta del peroné, sin exposición directa del foco de fractura. Evalúa reducción radiológica (alineación en carga), tasa de complicaciones de herida, tiempo quirúrgico y outcomes funcionales (FAAM) a 12 meses. Serie de 180 pacientes, 90 por grupo.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El clavo percutáneo logró reducción equivalente a la placa en fracturas Weber B (92% vs. 94% anatómica). Las complicaciones de herida fueron significativamente menores (3% vs. 11%). El tiempo quirúrgico fue 20 minutos menor con el clavo. El FAAM a 12 meses fue equivalente. En Weber C con componente sindesmótico, el clavo requirió tornillo de sindesmosis adicional en el 78% de los casos (similar a la placa). <strong>Conclusión operativa: en fractura Weber B de peroné distal con piel comprometida (edema, flictenas, abrasión), el clavo fibular percutáneo es la técnica de elección sobre la placa abierta — misma reducción, menos complicaciones de herida. En paciente obeso (IMC &gt;35) o diabético → clavo percutáneo de primera línea. Placa lateral solo si patrón multifragmentario que impida el clavo.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Primary Tibiotalocalcaneal Nailing vs Open Reduction Internal Fixation for Complex Ankle Fractures in Elderly Patients with Comorbidities</div>
+        <div class="paper-meta">
+          <strong>Bouras A, Adio AA, Kumar R, Malik A, Yousuf MS et al.</strong><br>
+          Foot &amp; Ankle Orthopaedics · 31 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Bouras+Primary+Tibiotalocalcaneal+Nailing+Open+Reduction+Complex+Ankle+Fractures+Elderly" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Clavo TTC · Anciano</span>
+      <span class="tag">Fractura Compleja Tobillo</span>
+      <span class="tag">Comorbilidades · DM · Osteoporosis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de clavo tibiotalocalcáneo (TTC) primario vs. ORIF convencional en fracturas complejas de tobillo en paciente anciano (&gt;70 años) con comorbilidades (DM, osteoporosis, NAC subclínica). El clavo TTC sacrifica la articulación del tobillo en agudo pero ofrece estabilidad inmediata con una sola cirugía. ORIF convencional preserva la articulación pero tiene alta tasa de fallo de fijación en hueso osteoporótico. Outcome primario: independencia funcional y deambulación al año.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El clavo TTC primario tuvo menor tasa de reoperación (8% vs. 29%) y mejor deambulación independiente al año (71% vs. 52%) en pacientes &gt;70 años con ≥2 comorbilidades. La mortalidad a 12 meses no difirió. El sacrificio de la articulación del tobillo en agudo fue aceptado por los pacientes mayores que priorizaron la movilidad independiente. <strong>Conclusión operativa: en paciente &gt;70 años con fractura trimaleolar compleja o bimaleolar inestable + osteoporosis (T-score &lt;-2.5) + DM o neuropatía → presentar clavo TTC primario como alternativa real al ORIF. El objetivo en este grupo no es preservar la articulación sino recuperar la deambulación. Discutir con el paciente y familia antes de la cirugía.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Nonoperative Treatment of Intra-articular Calcaneus Fractures: Outcomes and Patient Selection Criteria</div>
+        <div class="paper-meta">
+          <strong>McKane AM, Kiritsis NR, Mohr KV, Bariteau JT, Gould GC</strong><br>
+          Foot &amp; Ankle Orthopaedics · 31 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=McKane+Nonoperative+Treatment+Intra-articular+Calcaneus+Fractures+Outcomes+Patient+Selection" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Calcáneo · Fractura Intrarticular</span>
+      <span class="tag">Tratamiento No Quirúrgico</span>
+      <span class="tag">Selección de Pacientes</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión de criterios de selección y outcomes del tratamiento no quirúrgico en fracturas intrarticulares de calcáneo (Sanders II-IV). En un contexto donde el debate quirúrgico vs. conservador lleva décadas sin resolución definitiva (Essex-Lopresti 1952 vs. RCT de Howard 2003), este estudio identifica qué pacientes obtienen buenos resultados sin cirugía. Evalúa ángulo de Böhler, clasificación Sanders, comorbilidades y nivel de actividad como predictores de resultado conservador aceptable.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con Sanders II de un solo fragmento y Böhler &gt;15° tuvieron outcomes funcionales equivalentes a cirugía con tratamiento conservador (FAAM a 24 meses sin diferencia). Sanders III-IV y Böhler &lt;0° mostraron peores outcomes con conservador (dolor crónico 58%, artrosis STJ 72%). El peso del paciente (&gt;100 kg) y la diabetes fueron los predictores más fuertes de complicación quirúrgica mayor. <strong>Conclusión operativa: fractura Sanders II con Böhler &gt;15° en paciente sedentario o con alto riesgo quirúrgico → tratamiento conservador válido con descarga 8-10 semanas. Sanders III-IV o Böhler &lt;0° en paciente activo &lt;60 años → cirugía (ORIF o sinus tarsi approach MIS). La decisión no es solo el patrón radiológico — integrar actividad, comorbilidades y expectativas del paciente.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Comparison of Bone Marrow Stimulation and Particulated Autologous Cartilage Implantation for Osteochondral Lesions of the Talus: 3-Year Outcomes</div>
+        <div class="paper-meta">
+          <strong>Kim BS, Park KH, Yoon YK, Lee JW, Choi WJ</strong><br>
+          Orthopaedic Journal of Sports Medicine · 27 mayo 2026
+          <span class="evidence-pill">Nivel II</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kim+Bone+Marrow+Stimulation+Particulated+Autologous+Cartilage+Implantation+Osteochondral+Lesions+Talus" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">OLT Talar · Cartílago</span>
+      <span class="tag">Microfractura vs PACI</span>
+      <span class="tag">3 años · Cohorte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte prospectivo que compara microfractura (BMS) vs. implantación de cartílago autólogo particulado (PACI — técnica de injerto de condrocitos nativos triturados del reborde no de carga de la rodilla) para OLT talar a 3 años. El PACI es una técnica de segunda generación que no requiere cultivo celular — usa cartílago autólogo fresco triturado en el mismo tiempo quirúrgico. Outcomes: AOFAS, FAAM, MOCART, tasa de revisión.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El PACI fue superior a la microfractura en MOCART a 3 años (74 vs. 58 puntos, p&lt;0.01) y en FAAM (88 vs. 78, p=0.03). La superioridad del PACI fue especialmente marcada en defectos ≥1.5 cm². Para defectos &lt;1 cm², ambas técnicas fueron equivalentes. El PACI no requirió segunda cirugía ni cultivo externo. <strong>Conclusión operativa: OLT talar ≥1.5 cm² → PACI es superior a microfractura a 3 años. OLT &lt;1 cm² → microfractura sigue siendo válida y más simple. El PACI es la técnica de segunda generación más accesible (sin cultivo, misma cirugía, injerto del mismo paciente). Considerar su adopción en casos de OLT medianos-grandes en pacientes activos.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Endoscopic versus Open Flexor Hallucis Longus Tendon Transfer for Chronic Insertional Achilles Tendinopathy</div>
+        <div class="paper-meta">
+          <strong>Afifi AA, Hewaidy AIF, El Shazly OA, Elmorsy AS</strong><br>
+          Foot &amp; Ankle Surgery · 29 mayo 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Afifi+Endoscopic+Open+Flexor+Hallucis+Longus+Tendon+Transfer+Insertional+Achilles+Tendinopathy" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">FHL Transfer · Aquiles Insertional</span>
+      <span class="tag">Endoscópico vs Abierto</span>
+      <span class="tag">MIS · Tendón</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de transferencia del FHL (flexor hallucis longus) para tendinopatía insertional crónica del Aquiles con calcificación masiva: técnica endoscópica (2 portales) vs. técnica abierta. La transferencia del FHL augmenta el Aquiles debilitado/resecado con un tendón motor activo. La versión endoscópica permite la cosecha del FHL y su transferencia al calcáneo sin incisión extensa. Evalúa VISA-A, complicaciones y flexión plantar del 1er dedo (marcador de sacrificio del FHL).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ambas técnicas lograron mejora equivalente en VISA-A al año (82 vs. 80). La técnica endoscópica tuvo menos complicaciones de herida (4% vs. 14%) y retorno a calzado normal 3 semanas antes. La pérdida de flexión del 1er dedo fue similar (leve en ambos grupos, sin impacto funcional). <strong>Conclusión operativa: en tendinopatía insertional grave con calcificación ≥50% del tendón que requiere transferencia FHL, la técnica endoscópica es preferible en centros con experiencia en artroscopia de tobillo. La reducción de complicaciones de herida es clínicamente significativa en esta localización posterior. En centros sin experiencia endoscópica → técnica abierta sigue siendo segura y efectiva.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Meuric L, Lalevée M, Mansur NSB et al.</strong> Automated 3D measurements of first metatarsal dysplasia in hallux valgus — <em>Foot Ankle Orthop</em>, 31 may</li>
+      <li><strong>Lu K et al.</strong> Talar Center of Migration Ratio (TCM-R) for TAR loosening detection — <em>Foot Ankle Orthop</em>, 31 may</li>
+      <li><strong>O'Mara A, Teehan E, Fealy AW et al.</strong> Delays in definitive fixation of ankle fractures: outcomes analysis — <em>Foot Ankle Orthop</em>, 31 may</li>
+      <li><strong>Origo D, Tramontano M et al.</strong> Flatfoot vs pronation: structural and functional dissociation — <em>Foot Ankle Orthop</em>, 30 may</li>
+      <li><strong>de Lima HLN et al.</strong> Footwear effect on orthopedic injury profile in athletes — <em>Acta Ortop Bras</em>, 29 may</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #1 — Anciano con Fractura Compleja de Tobillo: Clavo TTC Primario, No ORIF</div>
+        <p>El estudio de Bouras et al. demuestra que en pacientes &gt;70 años con comorbilidades, el ORIF convencional tiene 29% de reoperación vs. 8% con clavo TTC primario. Aun así, la práctica dominante sigue siendo intentar el ORIF en todos los casos para "preservar la articulación" — en este grupo etario, ese objetivo no es alcanzable con la misma seguridad.</p>
+        <div class="verdict">⚖️ Veredicto: En anciano frágil con fractura trimaleolar compleja, el clavo TTC primario debe ser la discusión de primera línea, no una opción de rescate. El objetivo terapéutico es la deambulación independiente, no la preservación articular. Consentimiento informado con las dos opciones y sus tasas de reoperación reales.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN #2 — PACI Supera a Microfractura en OLT ≥1.5 cm²</div>
+        <p>La microfractura sigue siendo el estándar en muchos centros para OLT de cualquier tamaño. El estudio de Kim et al. demuestra que para defectos ≥1.5 cm², el PACI (cartílago autólogo particulado) es significativamente superior en calidad de reparación (MOCART) y outcome funcional a 3 años. El PACI no requiere segunda cirugía ni cultivo — es accesible en la misma sesión quirúrgica.</p>
+        <div class="verdict">⚖️ Veredicto: Para OLT ≥1.5 cm², la microfractura ya no es el estándar óptimo. El PACI debe ser la técnica de referencia en centros con disponibilidad. En &lt;1 cm² → microfractura sigue siendo válida. Actualizar el protocolo de OLT talar según el tamaño del defecto.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Clavo fibular percutáneo (Weber B):</strong> portal de 5 mm en punta del peroné. Fresado del canal medular bajo fluoroscopía. Clavo 3.5 mm, longitud según peroné (habitualmente 100-120 mm). Fijación proximal con 1 tornillo de bloqueo. En Weber C agregar tornillo de sindesmosis (3.5 mm x 40 mm) a 2 cm sobre la articulación.<br><br><strong>Clavo TTC primario en anciano:</strong> posición en decúbito supino, rodilla flexionada 90°. Reducción fluoroscópica del tobillo en neutro. Clavo retrógrado, punto de entrada: calcáneo posterior. Longitud: 200-240 mm hasta diáfisis tibial.<br><br><strong>PACI (cartílago particulado):</strong> cosecha artroscópica de cartílago no de carga de la cúpula lateral del astrágalo o de la escotadura intercondílea de la rodilla ipsilateral. Triturado y mezcla con fibrina. Implantación en el defecto bajo artroscopia.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-clavo fibular:</strong> carga parcial con bota desde semana 2 (ventaja sobre placa: carga precoz por mayor estabilidad rotacional del clavo). Carga completa semana 6. Fisioterapia de propiocepción semana 8.<br><br><strong>Post-clavo TTC en anciano:</strong> descarga 6-8 semanas (según consolidación radiológica), luego carga progresiva con bota. Objetivo: deambulación con andador a las 10-12 semanas. Fisioterapia domiciliaria desde semana 3 (ejercicios de movilidad de rodilla y MMSS).<br><br><strong>Post-PACI talar:</strong> descarga absoluta 8 semanas (igual que microfractura). Carga parcial con bota semanas 8-12. Calzado normal semana 14. RMN a los 6 meses (MOCART). RTP deporte semana 24-28.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo fractura tobillo en alto riesgo:</strong> checklist preoperatorio: IMC, DM, tabaquismo, estado de la piel. Si ≥2 factores de riesgo → discutir clavo percutáneo vs. placa con el equipo. Documentar la decisión y el fundamento en la ficha.<br><br><strong>OLT talar — protocolo según tamaño:</strong> medir el defecto en RMN (mm²). &lt;100 mm² → microfractura. 100-200 mm² → PACI o BMS + PRP. &gt;200 mm² → PACI, OCA o ACI.<br><br><strong>Anciano con fractura compleja:</strong> solicitar DXA o valorar por T-score si disponible. &gt;70 años + ≥2 comorbilidades → presentar clavo TTC en la discusión preoperatoria como opción primaria con sustento de evidencia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Clavo Fibular Percutáneo (Fibular Nail)</div>
+          <div class="glos-def">Clavo intramedular de pequeño diámetro (3.5 mm) que se inserta percutáneamente a través de la punta del peroné para fijar fracturas de peroné distal sin abordaje abierto. Ventajas sobre la placa: menor exposición de tejidos blandos, menor tasa de complicaciones de herida, posible en piel comprometida. Limitaciones: no permite reducción directa de fragmentos intermedios; técnica aprendizaje curva (&gt;30 casos). Disponible en sistemas como Acumed Fibular Rod o DePuy FibRecon.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Clavo TTC — Tibiotalocalcáneo</div>
+          <div class="glos-def">Clavo retrógrado que cruza las articulaciones subastragalina y tibiotalar, fijando el calcáneo, astrágalo y tibia en una unidad artrodésica. Se usa tanto para artrodesis electiva de retropié como para fractura-artrodesis primaria en paciente anciano de alto riesgo quirúrgico. El sacrificio de la articulación del tobillo permite carga más precoz con mayor estabilidad que un ORIF en hueso osteoporótico. Clavos disponibles: Stryker T2 Ankle Nail, Synthes Expert Hindfoot Nail.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PACI — Particulated Autologous Cartilage Implantation</div>
+          <div class="glos-def">Técnica de reparación condral de segunda generación: cosecha de cartílago autólogo del paciente (zona no de carga del talo o reborde condíleo femoral), trituración en fragmentos de 1-2 mm, mezclado con fibrina autóloga o ácido hialurónico, e implantación en el defecto condral. No requiere cultivo celular externo (a diferencia de ACI clásica), lo que permite realizarla en un solo tiempo quirúrgico. Los condrocitos nativos dentro del cartílago particulado secretan factores tróficos que estimulan la reparación.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Ángulo de Böhler</div>
+          <div class="glos-def">Ángulo formado entre la línea que une la tuberosidad posterior del calcáneo con el borde superior del proceso posterior, y la línea que une ese mismo punto con la cúpula articular subastragalina (faceta posterior). Normal: 25-40°. En fractura intrarticular de calcáneo: se aplana o invierte (&lt;0°). Valor pronóstico: Böhler &lt;0° se asocia a peores outcomes funcionales con tratamiento conservador y mayor indicación quirúrgica. Böhler &gt;15° post-reducción se correlaciona con buenos resultados funcionales.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">FHL — Flexor Hallucis Longus</div>
+          <div class="glos-def">Tendón flexor del hallux que cruza por detrás del maléolo medial en un túnel fibroso (retináculo flexor) antes de insertarse en la falange distal del 1er dedo. Es el "gemelo tendinoso" del Aquiles en términos de dirección y potencia. En cirugía de tendinopatía grave del Aquiles, se transfiere al calcáneo para sustituir la función propulsora del Aquiles resecado/debilitado. El sacrificio del FHL genera pérdida de flexión plantar del 1er dedo en el 10-15% de los casos, sin impacto funcional significativo en pacientes no bailarines.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Clasificación de Sanders — Fractura de Calcáneo</div>
+          <div class="glos-def">Clasificación en TC basada en el número de fragmentos en la faceta posterior del calcáneo (corte coronal): Tipo I (no desplazada), Tipo II (2 fragmentos, una línea de fractura), Tipo III (3 fragmentos, dos líneas), Tipo IV (conminuta, ≥4 fragmentos). Implicancia quirúrgica: Sanders II con un fragmento → buen outcome conservador posible. Sanders III → controversia; cirugía recomendada en activos. Sanders IV → resultado quirúrgico impredecible; algunos autores prefieren artrodesis primaria subastragalina.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 16 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 25 – 31 Mayo 2026<br>
+  Fuentes: Foot &amp; Ankle Orthopaedics · Foot &amp; Ankle Surgery · Orthopaedic Journal of Sports Medicine<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
