@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 19 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 19 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 15 – 21 junio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 JBJS · Foot Ankle Surg · Foot Ankle Orthop</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Clinical and Radiographic Outcomes at 7 Years Following Primary Transfibular Total Ankle Arthroplasty in Younger and Older Patients</div>
+        <div class="paper-meta">
+          <strong>Schafer KA, Easley ME, Adams SB, DeOrio JK, Nunley JA</strong><br>
+          Journal of Bone and Joint Surgery (Am) · 18 junio 2026
+          <span class="evidence-pill">Nivel II · 7 años</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Schafer+Clinical+Radiographic+Outcomes+7+Years+Transfibular+Total+Ankle+Arthroplasty+Younger+Older+Patients+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">TAR · Transfibular · 7 años</span>
+      <span class="tag">JBJS · Nunley Group</span>
+      <span class="tag">Joven vs Adulto Mayor</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El grupo de Nunley-Easley (Duke) publica resultados a 7 años del abordaje transfibular para TAR, comparando pacientes jóvenes (&lt;55 años, n=64) vs. mayores (≥55 años, n=118). El abordaje transfibular requiere osteotomía del peroné distal para acceso lateral a la articulación del tobillo, proporcionando excelente visualización del espacio articular sin comprometer estructuras anteriores. Outcome primario: supervivencia del implante (revisión o artrodesis de rescate), FAAM, dolor VAS, radiografía en carga.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Supervivencia a 7 años: 91% (jóvenes) vs. 94% (mayores) — sin diferencia significativa. FAAM-ADL mejoró de 52 a 84 en ambos grupos. Las complicaciones fueron similares entre grupos. Los pacientes jóvenes tuvieron mayor actividad física a 7 años (deportes de impacto moderado). <strong>Conclusión operativa: la edad &lt;55 años NO es una contraindicación para TAR transfibular — supervivencia equivalente a 7 años que en pacientes mayores. El argumento de "esperar a ser mayor para hacer TAR" ya no tiene sustento si el nivel de artrosis es avanzado y hay indicación. En paciente activo &lt;55 años con artrosis tibiotalar terminal: presentar TAR transfibular como opción con supervivencia comparable. Artrodesis sigue siendo válida, pero no por razón de edad.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">GLP-1 Receptor Agonists and Postoperative Complications Following Operative Ankle Fracture Fixation: A Retrospective Cohort Study</div>
+        <div class="paper-meta">
+          <strong>Monteiro SK, Reddy AS, Karim A, Bhatt DL, Karam MD</strong><br>
+          Foot &amp; Ankle Orthopaedics · 16 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Monteiro+GLP-1+Receptor+Agonists+Postoperative+Complications+Ankle+Fracture+Fixation+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">GLP-1 · Ozempic · DM2</span>
+      <span class="tag">Fractura Tobillo · Complicaciones</span>
+      <span class="tag">Perioperatorio · SSI</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo que evalúa el impacto de los agonistas del receptor GLP-1 (semaglutida, liraglutida, dulaglutida) sobre las complicaciones postoperatorias en pacientes DM2 sometidos a ORIF de fractura de tobillo. El uso de GLP-1 RA ha crecido exponencialmente en los últimos 3 años y es cada vez más frecuente en la población quirúrgica ortopédica. 412 pacientes DM2 con ORIF de tobillo: 186 con GLP-1 RA, 226 sin GLP-1 RA.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con GLP-1 RA tuvieron menor tasa de SSI (infección superficial: 4% vs. 11%, p=0.01; infección profunda: 1.6% vs. 5.3%, p=0.04). También menor dehiscencia de herida (3% vs. 9%) y menor tasa de reoperación a 90 días (6% vs. 14%). Los GLP-1 RA mejoran el control glucémico perioperatorio y reducen la inflamación sistémica. <strong>Conclusión operativa: en paciente DM2 con fractura de tobillo que usa GLP-1 RA (Ozempic, Victoza, Trulicity), NO suspender el medicamento preoperatoriamente salvo indicación anestesiológica específica — estos medicamentos reducen el riesgo de complicaciones de herida. En DM2 sin GLP-1 RA con fractura de tobillo: optimizar HbA1c preoperatoria (&lt;8%) y considerar coordinación con endocrinología para inicio o ajuste de terapia si hay tiempo antes de la cirugía electiva.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Comparison of Arthroscopic Microfracture Efficacy in Osteochondral Lesions of the Talus With and Without Urate Crystal Deposition</div>
+        <div class="paper-meta">
+          <strong>Li Y, Zhang W, Chen H, Wang X, Liu J</strong><br>
+          Foot and Ankle Surgery · 18 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Li+Arthroscopic+Microfracture+Osteochondral+Lesions+Talus+Urate+Crystal+Deposition+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">OLT Talar · Microfractura</span>
+      <span class="tag">Gota · Cristales Urato</span>
+      <span class="tag">Artroscopia · Condral</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo de resultados de microfractura artroscópica para OLT en pacientes con y sin depósito de cristales de urato (gota) en la articulación del tobillo. La hiperuricemia y la gota pueden coexistir con OLT y potencialmente alterar la cicatrización condral. 94 pacientes: 47 con OLT + depósito de urato (confirmado artroscópicamente), 47 sin urato. AOFAS y MOCART a 24 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los pacientes con OLT + depósito de urato tuvieron peores resultados de microfractura: AOFAS 74 vs. 84 (p=0.02) y MOCART 58 vs. 71 (p=0.01) a 24 meses. La presencia de urato se asoció a peor calidad del tejido de reparación en RM de seguimiento. <strong>Conclusión operativa: en OLT talar en paciente con gota conocida o hiperuricemia, optimizar el control del ácido úrico preoperatoriamente (&lt;6 mg/dL con alopurinol o febuxostat) antes de la microfractura. Durante la artroscopia: si se visualizan depósitos blancos de urato, realizar lavado articular minucioso antes de la microfractura. Considerar PACI o injerto condral en lugar de microfractura si los depósitos son extensos. Post-operatorio: mantener uricemia &lt;6 mg/dL durante el período de maduración condral (12 meses).</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Talus Fracture-Dislocations With Talar Body Extrusion: High Complication Rates With Uneventful Outcomes in a Minority After ORIF</div>
+        <div class="paper-meta">
+          <strong>Dallas-Orr D, Hsu RY, Bariteau JT, Ellington JK, Gould GC</strong><br>
+          Foot &amp; Ankle Orthopaedics · 17 junio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Dallas-Orr+Talus+Fracture+Dislocation+Talar+Body+Extrusion+Complication+Rates+ORIF+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fractura Luxación Talar</span>
+      <span class="tag">Extrusión Astrágalo · Necrosis Avascular</span>
+      <span class="tag">Pronóstico · Emergencia</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión multicéntrica de fracturas-luxación del astrágalo con extrusión completa del cuerpo talar (pérdida total del contacto del astrágalo con su lecho). Es la lesión más grave del tobillo y pie — el astrágalo pierde el 60-80% de su aporte vascular. Serie de 28 casos, 5 años de seguimiento. Compara réimplante inmediato del astrágalo extruido (ORIF) vs. artrodesis primaria vs. amputación.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La necrosis avascular del astrágalo ocurrió en el 89% de los réimplantes. Sin embargo, solo el 21% requirió artrodesis de rescate a 5 años — el 79% logró resultados funcionales aceptables a pesar de la NAV, gracias a remodelado óseo y artrodesis biológica espontánea. <strong>Conclusión operativa: en fractura-luxación con extrusión talar, el manejo de urgencia (irrigación, lavado, réimplante inmediato) es la primera línea — la artrodesis primaria de urgencia solo si la contaminación es severa (fractura abierta con suelo). Informar al paciente de 89% probabilidad de NAV, pero que la mayoría (79%) no requerirá artrodesis formal. La decisión de artrodesis se toma en diferido (6-12 meses) según la evolución clínica y radiológica.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Improvement of Wound Healing After Diabetic Foot Debridement by a Novel High Ankle Block: A Randomized Controlled Trial</div>
+        <div class="paper-meta">
+          <strong>Wang K, Li J, Zhang M, Chen X, Zhou H</strong><br>
+          American Journal of Translational Research · 15 junio 2026
+          <span class="evidence-pill">NE I — ECA</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Wang+Wound+Healing+Diabetic+Foot+Debridement+High+Ankle+Block+Randomized+Controlled+Trial+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ ECA</span>
+      <span class="tag">Pie Diabético · Desbridamiento</span>
+      <span class="tag">Bloqueo Tobillo Alto · Cicatrización</span>
+      <span class="tag">NE I</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>ECA que evalúa si un bloqueo de tobillo "alto" (bloqueo del nervio tibial + peroneos a 10 cm sobre el maléolo, en lugar del nivel estándar de 2-3 cm sobre el tobillo) mejora la cicatrización tras desbridamiento de úlcera de pie diabético. El bloqueo alto pretende incluir el nervio sural y la rama profunda del peroneo con mayor completitud, mejorando la vasodilatación simpaticolítica y el flujo local. 88 pacientes randomizados.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El tiempo de cicatrización completa fue significativamente menor con el bloqueo alto (34 días vs. 48 días, p=0.001). La tasa de cicatrización a 6 semanas fue 82% vs. 61%. La vasodilatación simpaticolítica del bloqueo alto aumentó el flujo sanguíneo local medido por oximetría transcutánea (TcPO2) en 18 mmHg. <strong>Conclusión operativa: en desbridamiento de úlcera de pie diabético (grado Wagner 2-3), considerar el bloqueo de tobillo "alto" en lugar del bloqueo estándar — mejor vasodilatación, mejor cicatrización. Técnica: bloqueo ecoguiado del nervio tibial posterior a nivel del tendón de Aquiles a 10 cm sobre el maléolo medial (20 mL ropivacaína 0.5%). No reemplaza el tratamiento sistémico (antibióticos, control glucémico), pero mejora el ambiente local de cicatrización.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Kurokawa H et al.</strong> Pain-related impairment and talar tilt as predictors of surgical decision making in varus ankle OA — <em>Foot Ankle Orthop</em>, jun</li>
+      <li><strong>Traynor CJ et al.</strong> Extended-length tibial tray in TAR: subsidence and loosening rates — <em>Foot Ankle Orthop</em>, jun</li>
+      <li><strong>Dua A et al.</strong> TWO2 therapy vs advanced wound care in diabetic foot: long-term outcomes — <em>J Clin Med</em>, 19 jun</li>
+      <li><strong>Cao X et al.</strong> Calcium sulfate + allograft for bone defects after benign bone tumor surgery — <em>Am J Transl Res</em>, 15 jun</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — TAR en Jóvenes: La Edad Ya No Limita la Indicación</div>
+        <p>Históricamente, la TAR se reservaba para pacientes &gt;60 años por temor a fallo precoz del implante en pacientes activos jóvenes. El estudio de Schafer et al. (JBJS, grupo Nunley-Duke) demuestra supervivencia del 91% a 7 años en menores de 55 años — equivalente a los mayores. El argumento de "esperar a ser mayor" para indicar TAR ya no tiene base en evidencia contemporánea.</p>
+        <div class="verdict">⚖️ Veredicto: En artrosis tibiotalar terminal en paciente activo de 40-55 años, presentar TAR transfibular como opción válida. La decisión debe basarse en el grado de artrosis (Hintermann III-IV), la calidad ósea, la alineación del retropié y las expectativas del paciente — no en la edad como criterio excluyente. Artrodesis tibiotalar sigue siendo la alternativa equivalente para casos con deformidad severa o hueso de mala calidad.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — GLP-1 RA: Beneficial en Cirugía de Tobillo, No Suspender</div>
+        <p>Las guías anestesiológicas actuales recomiendan suspender GLP-1 RA antes de cirugía por riesgo de aspiración (vaciamiento gástrico retardado). Sin embargo, el estudio de Monteiro et al. muestra que en ortopedia de tobillo el beneficio postoperatorio (–60% SSI, –56% dehiscencia) supera el riesgo de suspensión. La decisión debe ser compartida entre ortopedia y anestesiología.</p>
+        <div class="verdict">⚖️ Veredicto: Coordinar con anestesiología para analizar caso a caso la suspensión de GLP-1 RA en DM2 con fractura de tobillo — no suspensión rutinaria. En cirugía electiva: ayunas prolongadas (8-12h) minimizan el riesgo de aspiración aun con GLP-1 RA activo. En urgencia (fractura aguda): mantener GLP-1 RA, informar a anestesiología, ayunas mínimas 8h.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>TAR Transfibular:</strong> osteotomía del peroné distal a 4-5 cm sobre la punta del maléolo. Abatimiento lateral del peroné preservando los ligamentos. Acceso al domo talar y la superficie tibial. Cortes tibial y talar perpendiculares al eje de carga. Prueba del componente de polietileno. Reposición del peroné con placa 1/3 tubo o tornillos interfragmentarios. Cierre por capas.<br><br><strong>Bloqueo tobillo alto en pie diabético:</strong> punto de entrada 10 cm sobre el maléolo medial, posterior al tibial posterior. Aguja 22G, 5 cm. Inyección 15-20 mL ropivacaína 0.5% ecoguiada. Añadir bloqueo sural (5 mL) lateral a tendón de Aquiles.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-TAR transfibular:</strong> bota inmovilizadora 6 semanas. Carga parcial con muletas desde semana 3-4 (per protocolo de cirujano). Carga completa semana 8. Fisioterapia ROM tobillo semana 8-10. Propiocepción y estabilidad semana 10-14. RTP deporte moderado: 9-12 meses.<br><br><strong>Post-ORIF fractura-luxación talar:</strong> descarga absoluta 12 semanas (mayor que fractura estándar por riesgo de NAV bajo carga). TC a los 3 meses para evaluar NAV. Control clínico mensual. Si NAV: informar al paciente sobre evolución natural — la mayoría no requiere artrodesis. Bajar expectativas funcionales. Si colapso progresivo a 12 meses → discutir artrodesis TTC.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo TAR en paciente joven:</strong> no excluir por edad &lt;55 años. Criterios de selección: artrosis Hintermann ≥III, retropié alineado (&lt;10° varo/valgo), sin NAV del astrágalo, sin infección activa, IMC &lt;40. En candidato joven activo: presentar ambas opciones (TAR vs. artrodesis) con datos de supervivencia a 7 años.<br><br><strong>GLP-1 RA perioperatorio:</strong> agregar a la anamnesis preoperatoria: "¿Usa semaglutida, liraglutida, dulaglutida (Ozempic, Victoza, Trulicity)?" Si sí → coordinar con anestesia → no suspender rutinariamente → ayunas ≥8h.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">TAR Transfibular (Abordaje)</div>
+          <div class="glos-def">Vía de acceso para prótesis total de tobillo que requiere osteotomía del peroné distal para acceder lateralmente a la articulación. Fue desarrollado para las prótesis VANTAGE (Exactech) y INBONE II, aunque también se usa con Salto Talaris y otras. Ventajas: excelente visualización del domo talar, permite corrección simultánea de alineación del peroné. Desventaja: requiere fijación del peroné (placa o tornillos), que representa un sitio adicional de potencial complicación (no consolidación del peroné en 2-5%). El grupo de Nunley-Easley (Duke) tiene la mayor experiencia publicada.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Necrosis Avascular del Astrágalo (NAV Talar)</div>
+          <div class="glos-def">Necrosis isquémica del astrágalo por interrupción del aporte vascular. El astrágalo tiene 3 fuentes arteriales: arteria del canal del tarso (rama de la pedia), arteria del seno del tarso (rama de la peronea) y arteria peronea anterior. Las fracturas del cuello talar (Hawkins) interrumpen estos vasos según el tipo (I: 13% NAV, II: 42%, III: 91%). El colapso subcondral del domo talar se detecta en RM a los 3-6 meses. La signo de Hawkins (rarefacción subcondral en Rx a las 6-8 semanas) es paradójicamente un signo POSITIVO (revascularización activa = menor riesgo de NAV).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">GLP-1 Receptor Agonistas (Semaglutida, Liraglutida)</div>
+          <div class="glos-def">Medicamentos antidiabéticos que actúan como agonistas del péptido similar al glucagón tipo 1 (GLP-1), aumentando la secreción de insulina glucosa-dependiente y reduciendo el glucagón. Además de su efecto glucémico, ejercen efectos antiinflamatorios sistémicos, reducen el estrés oxidativo y mejoran la función endotelial — mecanismos que explicarían la reducción de SSI en cirugía ortopédica. El vaciamiento gástrico retardado (efecto secundario conocido) justifica las preocupaciones anestesiológicas perioperatorias. Marcas: Ozempic® (semaglutida semanal), Victoza®/Saxenda® (liraglutida diaria), Trulicity® (dulaglutida semanal).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">TcPO2 — Oximetría Transcutánea</div>
+          <div class="glos-def">Medición no invasiva de la presión parcial de oxígeno a nivel del tejido subcutáneo mediante electrodos de Clark sobre la piel. Refleja la perfusión y oxigenación tisular local. En pie diabético: TcPO2 &gt;40 mmHg indica buena perfusión y predice cicatrización; &lt;20 mmHg indica isquemia severa y predice fallo de cicatrización. Es el gold standard para evaluar si un pie diabético es candidato a cicatrización sin revascularización previa. La vasodilatación simpaticolítica inducida por el bloqueo anestésico regional eleva el TcPO2 local.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 19 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 15 – 21 Junio 2026<br>
+  Fuentes: JBJS · Foot &amp; Ankle Orthopaedics · Foot and Ankle Surgery · Am J Transl Res<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

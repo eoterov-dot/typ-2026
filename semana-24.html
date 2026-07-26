@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 24 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 24 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 20 – 25 julio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Specialist · OJSM · J Foot Ankle Surg</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Endoscopic Flexor Hallucis Longus Transfer for Chronic Achilles Tendon Rupture: Technique and Outcomes at Minimum 2-Year Follow-up</div>
+        <div class="paper-meta">
+          <strong>Serrano R, Cychosz C, Femino JE, Phisitkul P, Amendola A</strong><br>
+          Foot &amp; Ankle Specialist · 25 julio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Serrano+Endoscopic+Flexor+Hallucis+Longus+Transfer+Chronic+Achilles+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Aquiles Crónico · FHL Endoscópico</span>
+      <span class="tag">Transferencia Tendinosa MIS</span>
+      <span class="tag">Iowa Group · Amendola</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El grupo de Iowa (Amendola, Phisitkul, Femino) describe la técnica de transferencia endoscópica del FHL para rotura crónica de Aquiles (&gt;6 semanas) con seguimiento mínimo de 2 años. La técnica endoscópica utiliza 2-3 portales posteromediales: uno proximal para la tenotomía del FHL en el túnel del tarso, uno distal para la tunelización del calcáneo. El músculo FHL tiene la mayor excursión entre los flexores plantares (5-8 cm), su vascularización intramuscular es excelente y su ausencia no genera déficit funcional clínico relevante en el hallux. Alternativa a la transferencia abierta clásica de Wapner-Haddad.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>AOFAS final: 82 ± 7 puntos vs. 46 ± 12 preop. RTP deportes de impacto: 78%. Complicaciones: 1 lesión del nervio plantar medial (2%), ninguna infección profunda, ninguna re-rotura. Debilidad de flexión del hallux: 100% de los pacientes en el primer año, resolución parcial al año 2. <strong>Conclusión operativa: la transferencia FHL endoscópica para Aquiles crónico ofrece resultados equivalentes a la técnica abierta con menor morbilidad de herida y menor riesgo de complicación cutánea (zona de pobre vascularización posterolateral del calcáneo). Técnica de elección en rotura crónica de Aquiles (&gt;6-8 semanas) en CTN cuando no hay defecto masivo (&gt;6 cm de brecha). Para defectos masivos: considerar FHL + plastia de V-Y del gastrocnemio.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Weightbearing CT and AI-Assisted Analysis After MIS Hallux Valgus Correction: Residual Deformity Detection and Alignment Precision</div>
+        <div class="paper-meta">
+          <strong>Reddy SC, de Cesar Netto C, Latt LD, Baumhauer JF, Deland JT</strong><br>
+          Foot &amp; Ankle Specialist · 22 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Reddy+Weightbearing+CT+AI+MIS+Hallux+Valgus+Correction+Alignment+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">WBCT · IA · HV MIS</span>
+      <span class="tag">Deformidad Residual · Precisión</span>
+      <span class="tag">De Cesar Netto · Deland</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>De Cesar Netto, Deland y colaboradores aplican análisis por IA sobre WBCT (TAC con carga) post-cirugía MIS de hallux valgus para detectar deformidad residual en 3D que no era visible en la Rx convencional. El WBCT permite ver la rotación del primer metatarsiano (pronación del MT1) y la alineación en el plano sagital y axial — dimensiones que la Rx en 2D pierde. La IA segmenta automáticamente los huesos y calcula ángulos en los 3 planos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 31% de los HV con resultado "satisfactorio" en Rx convencional tenía deformidad residual en WBCT-IA (principalmente rotación del MT1 &gt;15° y deformidad en plano sagital). Estos pacientes tuvieron mayor tasa de dolor residual y menor satisfacción a 2 años. La IA redujo el tiempo de análisis de 45 min (manual) a 2.3 min por caso. <strong>Conclusión operativa: el WBCT con análisis de IA es el gold standard postoperatorio para HV — detecta la deformidad 3D residual que la Rx no muestra y que explica los "resultados raros" tras corrección aparentemente correcta en Rx. No disponible en CTN actualmente. Referencia para derivación: solicitar WBCT en paciente con HV postoperado con dolor residual y Rx con ángulos normales.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Return to Sport After Combined Suture-Button Syndesmosis Repair and Brostrom-Gould Reconstruction in Elite Athletes: Prospective Cohort</div>
+        <div class="paper-meta">
+          <strong>Wang C, Shi Z, Liu X, Chen H, Jiang T, Zhao J</strong><br>
+          Orthopaedic Journal of Sports Medicine · 20 julio 2026
+          <span class="evidence-pill">Nivel II</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Wang+Shi+Suture+Button+Syndesmosis+Brostrom+Return+Sport+Elite+Athletes+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Suture Button Sindesmosis + Broström</span>
+      <span class="tag">RTP · Atleta Élite</span>
+      <span class="tag">Cohorte Prospectiva</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva en atletas de élite (fútbol, baloncesto, atletismo) con luxación sindesmótica grado 2-3 + inestabilidad lateral crónica del tobillo (CLAI), manejados con reparación simultánea: suture button para la sindesmosis + Broström-Gould reforzado con suture tape para el CLAI. El manejo combinado de ambas lesiones en un solo tiempo es técnicamente desafiante porque los parámetros de reducción de la sindesmosis y la tensión del Broström deben coordinarse bajo artroscopia de tobillo.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>RTP al deporte de competición: 94% a 9.2 meses (promedio). ATFL re-rotura 0%. Sindesmosis widening residual: 3% de los casos. FAAM-Sport 91 ± 6 a 2 años. Comparado con cohortes históricas de reparación separada en 2 tiempos (RTP 82%, 14 meses): la reparación simultánea aceleró 5 meses el RTP. <strong>Conclusión operativa: la reparación simultánea de sindesmosis + CLAI en tiempo único es segura y reduce el tiempo de recuperación en atletas de élite. Indicación en CTN: atleta de alto rendimiento con luxación sindesmótica + CLAI documentada (prueba de cajón artroscópico &gt;4 mm, estrés Rx positivo). Técnica: artroscopia de tobillo primero para reducción de sindesmosis con suture button bajo visión directa + Broström anatómico con arpón y augmentación con suture tape.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Orthobiologics for Osteochondral Lesions of the Ankle: International Consensus Statement on Indications, Platelet-Rich Plasma, Bone Marrow Aspirate and Allograft</div>
+        <div class="paper-meta">
+          <strong>Tham R, Haleem AM, Murawski CD, Hogan MV, Kennedy JG</strong><br>
+          Foot &amp; Ankle Specialist · 24 julio 2026
+          <span class="evidence-pill">Consenso Internacional</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Tham+Orthobiologics+Osteochondral+Lesions+Ankle+Consensus+PRP+BMAC+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Ortobiológicos · OLT Tobillo</span>
+      <span class="tag">PRP · BMAC · Aloinjerto</span>
+      <span class="tag">Kennedy Group · Consenso</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Consenso internacional liderado por el grupo Kennedy (Hospital for Special Surgery / NYU) sobre el uso de ortobiológicos en lesiones osteocondrales del tobillo (OLT). Evalúa: PRP (plasma rico en plaquetas), BMAC (concentrado de aspirado de médula ósea), y aloinjerto osteocondral (OATS alloinjerto). Define indicaciones por tamaño de lesión, tipo de defecto (parcial vs. completo), y estado del cartílago circundante. Incluye 28 expertos internacionales, metodología Delphi.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Consenso: PRP autólogo como adyuvante en microfractura (no como monoterapia) — evidencia moderada. BMAC: indicado en defectos &gt;1 cm² donde la microfractura fracasó — alta recomendación. Aloinjerto osteocondral: indicado en defectos cyst-forming &gt;1.5 cm² y lesiones con compromiso óseo subcondral &gt;5 mm. PRP solo (inyección): evidencia insuficiente para reemplazar cirugía en OLT grado III-IV. <strong>Conclusión operativa: protocolizar el uso de ortobiológicos en OLT del tobillo en CTN según el algoritmo del consenso: (1) OLT &lt;1 cm²: microfractura sola o + PRP. (2) OLT 1-1.5 cm²: microfractura + BMAC. (3) OLT &gt;1.5 cm² con compromiso subcondral: aloinjerto osteocondral. Documentar la indicación en el protocolo operatorio.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Course of the Flexor Hallucis Longus Tendon in Hallux Valgus Deformity Versus Normal Foot: Implications for First Metatarsophalangeal Joint Biomechanics</div>
+        <div class="paper-meta">
+          <strong>Hamada D, Tsuji T, Kato Y, Yoshikawa H, Enomoto N, Inoue M</strong><br>
+          Journal of Foot &amp; Ankle Surgery · 24 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Hamada+Flexor+Hallucis+Longus+Course+Hallux+Valgus+Normal+Foot+Biomechanics+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">FHL · Hallux Valgus · Biomecánica</span>
+      <span class="tag">WBCT 3D · Primer MTF</span>
+      <span class="tag">Grupo Japonés</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio anatómico-funcional del grupo japonés que analiza el trayecto del FHL en el pie con HV versus el pie normal, utilizando WBCT en carga. En el HV, el primer metatarsiano pronado y desplazado en varo altera el vector de tracción del FHL: en lugar de actuar como flexor estabilizador de la articulación MTF1, el FHL desplazado lateralmente genera una fuerza de pronación adicional sobre el hallux — reforzando el mecanismo patológico del HV. Esto explica parcialmente la dificultad de corregir completamente el HV sin abordar la rotación del MT1.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>En HV severo (HVA &gt;35°), el FHL se desplaza 7.2 mm lateral al eje del primer rayo (vs. 0.8 mm en pie normal), generando un momento de pronación de 4.3 N·m durante la fase propulsiva de la marcha. La corrección quirúrgica del HV restauró el trayecto normal del FHL en el 89% de los casos con corrección del IMA. <strong>Conclusión operativa: este estudio explica por qué la corrección del IMA (ángulo intermetatarsal) sin corrección de la rotación del MT1 deja al FHL actuando como un vector de recidiva. En osteotomía de HV: verificar siempre la corrección de la pronación del MT1 además del IMA. En HV severo con MT1 pronado, añadir desrotación del MT1 (técnica Lapidus o osteotomía rotatoria) para restaurar el vector del FHL.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Caolo K et al.</strong> Medial column instability in PCFD: CT-based classification — <em>Foot Ankle Int</em>, 21 jul</li>
+      <li><strong>Shi Z et al.</strong> Anatomic Broström vs InternalBrace for CLAI in young adults: 3-year RCT — <em>OJSM</em>, 20 jul</li>
+      <li><strong>Gonzalez T et al.</strong> Custom-made total ankle arthroplasty for failed primary TAR — <em>Foot Ankle Orthop</em>, 22 jul</li>
+      <li><strong>Nakasa T et al.</strong> Peroneal spastic flatfoot secondary to tarsal coalition: classification and outcomes — <em>JFAS</em>, 23 jul</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — El FHL Como Agente de Recidiva en HV: La Rotación es el Problema Oculto</div>
+        <p>Hamada et al. demuestran que en HV severo, el FHL actúa como un vector de pronación del hallux — reforzando la deformidad en lugar de estabilizarla — a causa del desplazamiento lateral de su trayecto. Si el cirujano corrige el IMA pero no la pronación del MT1, el FHL sigue tirando en la dirección deformante. Este mecanismo explica un porcentaje importante de las recidivas de HV.</p>
+        <div class="verdict">⚖️ Veredicto: Añadir la evaluación de la rotación del MT1 (pronación) a todos los protocolos preoperatorios de HV. En HV con MT1 pronado (&gt;15° en WBCT o pronación clínica visible): indicar osteotomía rotatoria (Lapidus o Scarf desrotatorio) en lugar de osteotomía de traslación simple. Documentar la corrección de la pronación en el parte operatorio.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — WBCT + IA Identifica Falla Técnica en 1 de Cada 3 HV "Exitosos" en Rx</div>
+        <p>Reddy et al. (De Cesar Netto, Deland) demuestran que el 31% de las cirugías de HV con resultado radiológico convencional satisfactorio tiene deformidad residual 3D detectable sólo en WBCT con análisis IA. Esta deformidad silenciosa en Rx explica el dolor crónico residual y la menor satisfacción del paciente. La Rx convencional es insuficiente para evaluar el resultado de la cirugía de HV en el siglo XXI.</p>
+        <div class="verdict">⚖️ Veredicto: Incluir WBCT en el algoritmo diagnóstico del HV postoperado con dolor residual y Rx normal. Derivar a centro con WBCT (Santiago) para evaluación 3D antes de concluir que "la cirugía fue correcta y el dolor es del paciente". La IA hace el análisis en &lt;3 min — no es una evaluación compleja.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>FHL endoscópico para Aquiles crónico:</strong> posición decúbito prono. Portal posteromedial proximal: 2 cm sobre el maléolo medial, identificar FHL con EMED. Portal posteromedial distal: 1 cm distal al tubérculo posterointerno del calcáneo. Tenotomía del FHL en el túnel del tarso con tijera de Metzenbaum artroscópica. Tunelización del calcáneo: aguja de Beath de medial a lateral, 20 mm sobre la tuberosidad. Fijación con tenodesis screw de 7 mm en el calcáneo.<br><br><strong>Reparación simultánea sindesmosis + Broström:</strong> artroscopia de tobillo primero. Suture button (Tightrope, Arthrex) bajo visión artroscópica directa para confirmar reducción fisuraria. Luego: Broström con 2 arpones óseos en el peroné distal + augmentación con suture tape de IATF anterior.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación</h4>
+          <p><strong>FHL endoscópico (Aquiles crónico):</strong> Bota de yeso posterior 3 semanas. Transición a bota articulada semana 3-6. Fisioterapia excéntrica de Aquiles y FHL semana 6-12. RTP tenis/fútbol: 9-12 meses. El déficit de flexión del hallux se recupera parcialmente al año — informar al paciente antes de la cirugía.<br><br><strong>Reparación simultánea sindesmosis+CLAI:</strong> descarga 6 semanas (importancia de cumplir la descarga: la sindesmosis consolida su tejido fibroso en este período). Bota Walker hasta semana 8. Propiocepción y refuerzo peroneal desde semana 6. RTP: 4-6 meses según deporte (más tiempo en fútbol con giro y sprinting). Control artroscópico opcional a las 6 semanas para verificar suture button.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Protocolos CTN</h4>
+          <p><strong>OLT — algoritmo ortobiológicos:</strong> documentar siempre el tamaño de la lesión y el compromiso subcondral en la indicación quirúrgica. Protocolo: OLT &lt;1 cm² → microfractura ± PRP. OLT 1-1.5 cm² → microfractura + BMAC (solicitar kit de BMAC — disponible en CTN). OLT &gt;1.5 cm² con cyst óseo → aloinjerto osteocondral (derivar si no disponible en CTN).<br><br><strong>Evaluación preoperatoria HV:</strong> agregar evaluación clínica de pronación del MT1 a todo HV severo. Signo: la plantar crease lateral de la base del hallux visible dorsalmente cuando la articulación está reducida. Fotografiar el pie con carga preoperatorio (frente, lateral, dorsal) — documentar pronación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">BMAC — Bone Marrow Aspirate Concentrate</div>
+          <div class="glos-def">Concentrado de aspirado de médula ósea: se obtiene por punción de la cresta ilíaca posterosuperior bajo anestesia local, se concentra mediante centrifugación (600-900 rpm, 15 min) y se obtiene una capa buffy coat rica en células mesenquimales, células progenitoras osteogénicas, plaquetas y factores de crecimiento (TGF-β, BMP-2, VEGF, IGF-1). A diferencia del PRP (solo plaquetas y plasma), el BMAC aporta células capaces de diferenciarse en condrocitos y osteoblastos — lo que lo hace más potente para lesiones osteocondrales con compromiso subcondral. Su uso en OLT está regulado (COFEPRIS/ISP como producto autólogo) y la evidencia lo respalda para lesiones medianas (&gt;1 cm²) como adyuvante a la microfractura.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Suture Button (Tight Rope / Endobutton)</div>
+          <div class="glos-def">Implante de fijación sindesmótica consistente en dos botones metálicos (titanio o PEEK) unidos por un cordón de alta resistencia (FiberTape o FiberWire). Se instala con una aguja de Beath a través de peroné y tibia (sin tornillo) — el botón medial se apoya en la cortical interna de la tibia y el botón lateral en la cortical externa del peroné, manteniendo la reducción de la sindesmosis a la distancia correcta. Ventaja principal sobre el tornillo de sindesmosis: permite la dinámica fisiológica de la sindesmosis en carga (hasta 1.5 mm de movimiento) sin romperse (los tornillos se rompen en 4-8% de los casos). No requiere retiro de implante en la mayoría de los casos. La reducción debe verificarse artroscópicamente: la brecha normal es 4-5 mm en visión directa.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Aloinjerto Osteocondral (OATS Alogénico)</div>
+          <div class="glos-def">Transplante de cartílago articular con hueso subcondral obtenido de donante cadavérico (banco de tejidos). A diferencia del autoinjerto (OATS autólogo, obtenido del cóndilo femoral del mismo paciente), el aloinjerto no genera morbilidad del sitio donante y permite cubrir defectos más grandes (hasta 3-4 cm²). El cartílago del aloinjerto debe procesarse dentro de las 24-48h del fallecimiento del donante y se mantiene en solución de cultivo a 4°C por máximo 28 días — el tiempo limita la disponibilidad y logística. La inmunogenicidad del cartílago alogénico es baja (cartílago avascular, condrocitos protegidos por la matriz). Indicado en OLT &gt;1.5-2 cm², fracasos de microfractura con defecto cyst-forming, o lesiones con pérdida ósea subcondral &gt;5-8 mm.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Pronación del Primer Metatarsiano en HV</div>
+          <div class="glos-def">Rotación axial del primer metatarsiano sobre su eje longitudinal en sentido medial (pronación), de forma que la faceta plantar del MT1 rota hacia medial. En el pie normal la faceta plantar del MT1 mira directamente hacia abajo; en el HV severo puede rotar hasta 20-30°, exponiendo la faceta plantar en posición medial. Esto desplaza el FHL lateralmente y genera la fuerza de pronación adicional sobre el hallux descrita por Hamada et al. Evaluación clínica: la plantar crease (pliegue de piel) lateral del hallux es visible en la cara dorsal del pie (signo de pronación). Evaluación instrumental: WBCT con medición del ángulo de rotación del MT1. Corrección quirúrgica: osteotomía Lapidus (con desrotación) u osteotomía Scarf con maniobra de desrotación del fragmento plantar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 24 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 20 – 25 Julio 2026<br>
+  Fuentes: Foot &amp; Ankle Specialist · Orthopaedic Journal of Sports Medicine · Journal of Foot &amp; Ankle Surgery<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 22 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 22 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 6 – 12 julio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Surg · CORR · JAPMA</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">What Is a Symptomatic Flexible Flatfoot in Children? A Systematic Review on Its Definition and Diagnostic Criteria</div>
+        <div class="paper-meta">
+          <strong>De Pellegrin M, Marcucci L, Helmers A, Pfeiffer M, Moreira Rodrigues S</strong><br>
+          Foot and Ankle Surgery · 10 julio 2026
+          <span class="evidence-pill">Revisión Sistemática</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=De+Pellegrin+Symptomatic+Flexible+Flatfoot+Children+Systematic+Review+Definition+Diagnostic+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Pie Plano Pediátrico</span>
+      <span class="tag">Diagnóstico · Definición</span>
+      <span class="tag">Ortopedia Infantil</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática que analiza las definiciones usadas en la literatura para "pie plano flexible sintomático" en pediatría. La falta de consenso en la definición genera heterogeneidad enorme: algunos estudios exigen dolor, otros solo incluyen parámetros radiológicos (ángulo astrágalo-calcáneo, índice del arco), y otros requieren alteración funcional. Esta heterogeneidad hace imposible comparar estudios de intervención (plantillas, cirugía, ejercicio) entre sí.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ninguno de los 47 estudios incluidos usó una definición idéntica de "pie plano sintomático". Solo el 34% exigió dolor como criterio obligatorio. Los criterios radiológicos más usados fueron: ángulo de Costa-Bartani &gt;130°, ángulo astrágalo-1er MT &gt;4° y ángulo de Kite &gt;30°. <strong>Conclusión operativa: el pie plano flexible asintomático en niño &lt;8 años NO requiere tratamiento — es fisiológico hasta los 8 años. El "pie plano sintomático" que justifica intervención debe incluir obligatoriamente: (1) dolor en la marcha o actividad, (2) fatigabilidad anormal, Y (3) parámetros radiológicos alterados (ángulo Costa-Bartani &gt;130° en bipedestación). Solo con los 3 criterios → indicar tratamiento (plantilla ortopodia o cirugía según severidad y edad). Sin dolor → no tratar, no operar.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Foot Shape Changes During Pregnancy and Postpartum Are Associated With Patient Pain and Function</div>
+        <div class="paper-meta">
+          <strong>Meyers M, Russo D, Zawel M, Ho BS, Bariteau JT, Gould GC</strong><br>
+          Clinical Orthopaedics and Related Research · 10 julio 2026
+          <span class="evidence-pill">Nivel II — Prospectivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Meyers+Foot+Shape+Changes+Pregnancy+Postpartum+Pain+Function+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Embarazo · Pie</span>
+      <span class="tag">Cambios Morfológicos · CORR</span>
+      <span class="tag">Dolor · Función</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo que mide los cambios morfológicos del pie (longitud, ancho, altura del arco, ángulo de pronación) durante el embarazo y el postparto en 104 primigestas y multíparas, correlacionándolos con dolor del pie (VAS) y función (FAAM). Los cambios del pie durante el embarazo son conocidos clínicamente pero escasamente documentados con medición objetiva hasta este estudio.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 68% de las pacientes presentó aumento permanente de longitud del pie (media: +4.3 mm) a los 12 meses postparto. La altura del arco disminuyó en el 82% (media: -3.2 mm). Estos cambios morfológicos se correlacionaron con dolor del pie (r=0.61) y menor FAAM (r=0.58). Las multíparas tuvieron mayor cambio que las primigestas. <strong>Conclusión operativa: el aumento de talla del calzado y el aplanamiento del arco del pie son cambios esperables tras el embarazo, no una patología. Informar a las pacientes. Sin embargo, cuando estos cambios producen dolor persistente &gt;3 meses postparto → indicar plantilla de soporte del arco y calzado de talla adecuada. La fascitis plantar postparto en paciente sin tratamiento podría estar infradiagnosticada. Preguntar activamente por cambios en el pie en la consulta postparto.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Patient-Reported Outcomes Following Surgical Reconstruction of Acquired Charcot Foot Deformity</div>
+        <div class="paper-meta">
+          <strong>Cho E, Hodkiewicz V, Huang NW, Jeng CL, Myerson MS, Brodsky JW</strong><br>
+          Foot and Ankle Surgery · 10 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Cho+Hodkiewicz+Patient+Reported+Outcomes+Surgical+Reconstruction+Charcot+Foot+Deformity+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Charcot · NAC</span>
+      <span class="tag">Reconstrucción Quirúrgica</span>
+      <span class="tag">Myerson · Brodsky · PROMIS</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte multicéntrica de reconstrucción quirúrgica de pie de Charcot (NAC) adquirida con deformidad severa (rocker bottom, ulceración plantar, prolapso del mediopié). Autores: Myerson, Brodsky (referentes mundiales en Charcot). 156 pacientes, seguimiento 3 años. Outcomes: PROMIS-PF, tasa de amputación, consolidación, complicaciones. La cirugía en NAC es de muy alta complejidad — artrodesis de retropié y mediopié con clavo TTC o placa supraconstruida.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>PROMIS-PF mejoró de 25 a 38 a 3 años (mejora modesta pero significativa). Tasa de amputación mayor: 8% (vs. 20-30% reportado en series históricas de tratamiento conservador para el mismo estadio). Tasa de consolidación: 78% a 2 años. Pseudoartrosis resuelta con revisión + injerto en el 85% de los casos. <strong>Conclusión operativa: la reconstrucción de Charcot avanzado en manos expertas puede rescatar el miembro en el 92% y mejorar la función medida por PROMIS. En nuestro contexto (CTN/Hospital Ñuble), el Charcot avanzado con rocker bottom y ulceración debe ser derivado a centros de referencia con experiencia en cirugía supraconstruida. En Charcot inicial (fase aguda, sin deformidad estructural): inmovilización total en bota total de contacto hasta quiescencia — la cirugía en fase activa tiene resultados catastróficos.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Extracorporeal Magnetotransduction Therapy (EMTT) for Midfoot Osteoarthritis: A Pilot Study</div>
+        <div class="paper-meta">
+          <strong>Charles R, Vlasak A, Bondi E, Conti SF</strong><br>
+          Journal of the American Podiatric Medical Association · 10 julio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Charles+Extracorporeal+Magnetotransduction+Therapy+EMTT+Midfoot+Osteoarthritis+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NUEVO TRATAMIENTO</span>
+      <span class="tag">EMTT · Campo Magnético</span>
+      <span class="tag">Artritis Mediopié · No Quirúrgico</span>
+      <span class="tag">Piloto</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio piloto de terapia de magnetotransducción extracorpórea (EMTT — Extracorporeal Magnetotransduction Therapy) para artrosis del mediopié. La EMTT utiliza campos magnéticos pulsados de alta intensidad (Tesla-range, ≥100 mT) que estimulan la regeneración condral y reducen la inflamación sinovial sin cirugía. Es una tecnología emergente distinta a la PEMF (pulsed electromagnetic field) convencional. 28 pacientes con artrosis Lisfranc sintomática tratados con 6 sesiones de EMTT.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>VAS mejoró de 6.8 a 3.2 a los 6 meses. FAAM-ADL: de 52 a 74. Sin efectos adversos. El 71% de los pacientes evitó la artrodesis en el período de seguimiento. <strong>Conclusión operativa: estudio piloto, nivel de evidencia IV, no permite cambiar el estándar de manejo. Sin embargo, la EMTT es una tecnología prometedora para artrosis del mediopié que aún no tiene acceso local. Seguir la evidencia: si se replican resultados en un ECA (ya en curso en Europa), sería una alternativa real entre el tratamiento conservador y la artrodesis. Por ahora: no disponible en CTN, pero conocerla para informar a pacientes que consulten sobre nuevas tecnologías.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Lateral Column Lengthening Effect on Total Subtalar Joint Range of Motion in Progressive Collapsing Foot Deformity</div>
+        <div class="paper-meta">
+          <strong>DeHeer PA, Sten T, Wolfe W, Sorensen P</strong><br>
+          Journal of the American Podiatric Medical Association · 7 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=DeHeer+Lateral+Column+Lengthening+Subtalar+Joint+Range+Motion+PCFD+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">PCFD · Alargamiento Columna Lateral</span>
+      <span class="tag">ROM Subastragalino</span>
+      <span class="tag">Evans · Osteotomía Calcáneo</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Evaluación del efecto de la osteotomía de alargamiento de la columna lateral (Evans) sobre el rango de movimiento total de la articulación subastragalina en PCFD. El alargamiento de la columna lateral corrige el abducto del antepié, pero existe preocupación de que rigidice en exceso la articulación subastragalina. 68 pacientes evaluados con goniometría y podografía pre y postoperatoria a 18 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El ROM subastragalino total se redujo en promedio 8° (de 32° a 24°) post-Evans. Sin embargo, el ROM funcional en la marcha (0-5° inversión/eversión durante el ciclo de la marcha) no se alteró significativamente. Los pacientes no percibieron rigidez subjetiva del retropié en escalas funcionales. <strong>Conclusión operativa: el alargamiento de la columna lateral (Evans) reduce el ROM subastragalino total pero no el ROM funcional durante la marcha — no genera rigidez clínicamente significativa en la mayoría de los pacientes. No hay razón para evitar la osteotomía de Evans por temor a rigidez articular. En PCFD IIB con abducto del antepié &gt;20° → osteotomía de Evans está indicada. Combinar siempre con osteotomía medializante del calcáneo y transferencia del FDL.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Kim YK, Kang C</strong> — Opioid-free pediatric peripheral nerve block for lower extremity surgery — <em>J Foot Ankle Surg</em>, 11 jul</li>
+      <li><strong>Korkmaz T et al.</strong> — Inflammatory biomarkers and re-amputation risk in diabetic transtibial amputation — <em>J Foot Ankle Surg</em>, 11 jul</li>
+      <li><strong>Chiu SH et al.</strong> — Fresh-frozen navicular allograft for navicular osteochondral lesion: case report — <em>Medicine</em>, 10 jul</li>
+      <li><strong>Du Y, Zhou X</strong> — Letter: Manchester-Oxford Foot Questionnaire reliability — <em>Foot Ankle Surg</em>, 6 jul</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Pie Plano Pediátrico: Sin Dolor = Sin Tratamiento</div>
+        <p>El pie plano en niño sigue siendo uno de los diagnósticos más sobretratados en ortopedia. Muchos niños reciben plantillas o incluso cirugía basadas solo en el aspecto radiológico o la apariencia del pie, sin dolor como criterio. La revisión sistemática de De Pellegrin et al. muestra que no existe consenso en la definición y que el tratamiento sin dolor como criterio obligatorio carece de sustento en la evidencia.</p>
+        <div class="verdict">⚖️ Veredicto: Pie plano flexible asintomático en niño → no tratar. El pie plano es fisiológico hasta los 6-8 años. Criterio de tratamiento obligatorio: dolor en la marcha o actividad. Plantilla solo si hay dolor + deformidad medible. Cirugía (artrorisis, osteotomías) solo desde los 8-10 años con dolor persistente refractario a conservador. Informar a los padres con claridad: el pie plano sin dolor no necesita tratamiento.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Evans (alargamiento columna lateral):</strong> abordaje lateral sobre el calcáneo a 1.5 cm proximal a la articulación calcaneocuboidea. Osteotomía perpendicular al eje del calcáneo con sierra. Distracción con cuña de injerto (tricortical de cresta ilíaca o injerto de banco, 8-12 mm). Fijación con placa de ángulo fijo o grapas. Combinar con osteotomía medializante del calcáneo en el mismo tiempo si hay componente de retropié en valgo.<br><br><strong>Reconstrucción Charcot (referencia):</strong> artrodesis con clavo TTC supraconstruido + esponjosa ilíaca + BMP. Descarga en bota total de contacto 12 semanas postoperatorias mínimas. TC a 6 meses para evaluar consolidación.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-Evans (PCFD):</strong> descarga absoluta 8 semanas. Carga parcial con bota semanas 8-12. Carga completa semana 12-14 condicionada a Rx. Plantilla ortopédica de soporte del arco desde el inicio de la carga. Fisioterapia funcional (propiocepción, fortalecimiento tibial posterior) desde semana 14. RTP deporte moderado: 6-8 meses.<br><br><strong>Pie plano postparto:</strong> calzado de talla adecuada (medir el pie con carga). Plantilla ortopodia con soporte del arco y cuña de pronación. Estiramientos de gastrocnemio (Silfverskiöld). Seguimiento a los 3 meses. Si persiste dolor &gt;6 meses: Rx en carga bilateral + evaluación de la deformidad.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo pie plano pediátrico:</strong> en la consulta de pie plano infantil, documentar obligatoriamente: (1) presencia o ausencia de dolor en la marcha/actividad, (2) edad, (3) ángulo Costa-Bartani en Rx de pie en carga. Sin dolor → no indicar plantilla ni cirugía — educación a los padres. Con dolor + deformidad → plantilla + seguimiento. Con dolor + deformidad + fallo de conservador &gt;12 meses + edad ≥8 años → derivar evaluación quirúrgica.<br><br><strong>Cambios del pie postparto:</strong> preguntar activamente por cambios de talla de calzado y dolor del pie en la consulta de seguimiento postparto de pacientes jóvenes referidas por otras especialidades.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Ángulo de Costa-Bartani</div>
+          <div class="glos-def">Ángulo entre la línea tangente a la planta del pie (desde el tubérculo del calcáneo hasta la cabeza del 1er metatarsiano) y la línea tangente al arco longitudinal medial (desde el tubérculo del calcáneo hasta el punto más bajo de la escotadura del escafoides). Valores normales: 120-130°. Mayor de 130° indica pie plano. Se mide en radiografía lateral del pie en bipedestación (carga). Es el parámetro radiológico más reproducible para cuantificar el pie plano en pediatría. También llamado "ángulo de Moreau-Costa-Bartani" o "ángulo del arco longitudinal".</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Evans (Alargamiento Columna Lateral)</div>
+          <div class="glos-def">Osteotomía del calcáneo que inserta una cuña de apertura entre los dos fragmentos del calcáneo, a 1.5 cm proximal a la articulación calcaneocuboidea. El alargamiento de la columna lateral corrige el abducto del antepié y el valgo del retropié en el PCFD al "empujar" el cuboides y los metatarsianos laterales hacia medial. La cuña de injerto puede ser de cresta ilíaca autóloga, banco o injerto sintético. El tamaño de la cuña determina el grado de corrección: cada mm de apertura corrige aproximadamente 1-2° de abducto del antepié. Riesgo: artritis calcaneocuboidea a largo plazo (8-15% de los casos).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">EMTT — Extracorporeal Magnetotransduction Therapy</div>
+          <div class="glos-def">Terapia de campos magnéticos pulsados de alta intensidad (≥100 mT, en el rango de Tesla) administrada externamente sobre la articulación afectada. A diferencia de la PEMF convencional (milliTesla range), la EMTT utiliza campos de mayor intensidad que penetran más profundamente en el tejido y generan corrientes inducidas sobre el cartílago y el hueso subcondral. Los efectos propuestos incluyen: estimulación de condrocitos para síntesis de proteoglicanos, reducción de citoquinas proinflamatorias (IL-1β, TNF-α) y activación de células mesenquimales. Disponible comercialmente en Europa (sistema Magnetolith, Storz Medical). No aprobado por FDA para cartílago articular aún.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Charcot — Neuroartropatía (NAC)</div>
+          <div class="glos-def">Proceso de destrucción articular progresiva en el pie y tobillo secundario a neuropatía periférica (principalmente DM2, pero también siringomielia, lepra, tabes dorsalis). La pérdida de la sensibilidad protectora genera microtraumatismos repetidos no percibidos, resultando en fractura, luxación y colapso articular. El cuadro clínico agudo (fase activa): pie caliente, enrojecido, edematoso, sin dolor proporcionado — simula celulitis. El tratamiento en fase activa es inmovilización total en bota de contacto. La cirugía (reconstrucción) se reserva para la fase crónica estable con deformidad que no puede contenerse en calzado ortopédico.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 22 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 6 – 12 Julio 2026<br>
+  Fuentes: Foot and Ankle Surgery · Clinical Orthopaedics and Related Research · JAPMA<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

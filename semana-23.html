@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 23 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 23 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 13 – 19 julio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Int · Foot Ankle Orthop · J Pediatr Orthop B</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Complications After Minimally Invasive vs Open Calcaneal Osteotomy for Progressive Collapsing Foot Deformity</div>
+        <div class="paper-meta">
+          <strong>Kiriluk AJ, Conti MS, Chan JY, Ellis SJ, Deland JT</strong><br>
+          Foot &amp; Ankle International · 14 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kiriluk+Complications+Minimally+Invasive+Open+Calcaneal+Osteotomy+PCFD+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Calcáneo MIS vs Abierta · PCFD</span>
+      <span class="tag">Nervio Sural · HSS Group</span>
+      <span class="tag">Ellis · Deland</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El grupo del Hospital for Special Surgery (HSS) — Ellis, Deland, Chan — publica la comparación de complicaciones entre osteotomía medializante de calcáneo MIS vs. abierta en PCFD. 186 osteotomías: 94 MIS vs. 92 abiertas. Outcomes: lesión del nervio sural, complicaciones de herida, pérdida de corrección y reoperación a 24 meses. El nervio sural transcurre a 5-15 mm del borde lateral del calcáneo — su lesión en la técnica abierta es la complicación más frecuente y frustrante de esta cirugía.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La MIS redujo la lesión del nervio sural de 11% (abierta) a 2% (MIS), p=0.01. Las complicaciones de herida: 8% (abierta) vs. 1% (MIS). La pérdida de corrección y la tasa de revisión fueron equivalentes. <strong>Conclusión operativa: el grupo HSS confirma que la MIS reduce la lesión del nervio sural en un 82% sin comprometer la corrección. En centros con experiencia percutánea, la osteotomía de calcáneo MIS debe ser la técnica preferida en PCFD. El nervio sural debe identificarse con ecodoppler o marcación clínica preoperatoria antes de la técnica abierta si se usa esa vía.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Randomized Study Comparing WALANT vs Standard Anesthesia in Foot and Ankle Surgery: Pain, Satisfaction and Day-Surgery Rates</div>
+        <div class="paper-meta">
+          <strong>Marcolli D, Barg A, Knupp M, Hintermann B, Usuelli FG</strong><br>
+          Foot &amp; Ankle Orthopaedics · 15 julio 2026
+          <span class="evidence-pill">NE I — ECA</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Marcolli+WALANT+Standard+Anesthesia+Foot+Ankle+Surgery+Randomized+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">WALANT · ECA</span>
+      <span class="tag">Knupp / Hintermann Group</span>
+      <span class="tag">Sin Tourniquet · Cirugía Ambulatoria</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>ECA del grupo suizo de referencia (Knupp, Hintermann, Barg) comparando WALANT — anestesia local con epinefrina, sin tourniquet, paciente despierto y colaborador — versus anestesia regional + tourniquet estándar en cirugía de tobillo y pie (HV, artroscopia, Broström, osteotomías). 112 pacientes randomizados. WALANT permite la evaluación funcional intraoperatoria del resultado (el paciente puede mover activamente el pie para verificar la corrección).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>WALANT fue no inferior en control del dolor intraoperatorio (VAS 1.2 vs. 1.0). Alta el mismo día: 95% (WALANT) vs. 78% (anestesia regional). Satisfacción equivalente. Elimina el dolor de tourniquet (hasta VAS 4 con isquemia &gt;90 min). <strong>Conclusión operativa: WALANT es equivalente en dolor y superior en alta ambulatoria para cirugía de T&P intermedia. Implementar progresivamente en CTN para procedimientos seleccionados (HV MIS, artroscopia diagnóstica). Técnica: infiltrar con lidocaína 1% + epinefrina 1:100.000, esperar 15-20 min antes de incidir (vasoconstrición epinefrina). No usar en pacientes con antecedentes de alergia a epinefrina o cardiopatía grave.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Association of Dementia With Outcomes After Total Ankle Arthroplasty and Ankle Arthrodesis: A National Database Study</div>
+        <div class="paper-meta">
+          <strong>Nixon DC, Lanham NS, Siebert A, Barrington JW, Prissel MA</strong><br>
+          Foot &amp; Ankle Orthopaedics · 16 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Nixon+Dementia+Total+Ankle+Arthroplasty+Arthrodesis+Outcomes+National+Database+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">TAR · Artrodesis Tobillo</span>
+      <span class="tag">Demencia · Riesgo Quirúrgico</span>
+      <span class="tag">n=18.240 · Base Nacional</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis de base de datos nacional (18.240 procedimientos de tobillo mayor) evaluando el impacto del diagnóstico previo de demencia sobre complicaciones postoperatorias, hospitalización prolongada, reingreso y resultados de TAR vs. artrodesis de tobillo. La demencia impacta la adherencia al protocolo de descarga postoperatoria, la comprensión de las restricciones de actividad y la capacidad de comunicar complicaciones.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Demencia: OR 2.8 para hospitalización prolongada, OR 2.1 para reingreso a 90 días, OR 1.9 para complicaciones mayores. Para TAR específicamente: luxación protésica 4% en demencia vs. 0.8% sin demencia. La artrodesis fue más segura que la TAR en este grupo. <strong>Conclusión operativa: demencia es contraindicación relativa para TAR — mayor riesgo de luxación por incumplimiento de restricciones. En paciente con deterioro cognitivo: preferir artrodesis de tobillo sobre TAR. Antes de cualquier cirugía mayor de tobillo en adulto mayor: evaluar estado cognitivo (test MMSE o similar) y disponibilidad de cuidador para supervisar la descarga postoperatoria. Documentar en la ficha.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Clinical and Radiological Outcomes of Pediatric Distal Tibial Physeal Fractures: Long-Term Growth Disturbance by Salter-Harris Type</div>
+        <div class="paper-meta">
+          <strong>Kar A, Singh D, Jain S, Vaidya SV, Gupta N</strong><br>
+          Journal of Pediatric Orthopaedics B · 17 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kar+Pediatric+Distal+Tibial+Physeal+Fractures+Growth+Disturbance+Salter-Harris+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fractura Fisis Tibia Distal</span>
+      <span class="tag">Salter-Harris · Puente Óseo</span>
+      <span class="tag">Pediátrica · Seguimiento</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva de fracturas fisarias de tibia distal (Salter-Harris I-IV) en niños 6-14 años, seguimiento hasta cierre fisario (media 3.2 años). El puente fisario óseo (bar formation) es la complicación tardía más importante: genera acortamiento y/o deformidad angular progresiva. Se analizó el impacto del tipo de fractura, el tiempo hasta la reducción y la calidad de la reducción sobre la incidencia de bar formation.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Bar formation: SH-I 4%, SH-II 8%, SH-III 22%, SH-IV 38%. Reducción dentro de 6h: OR 0.3 de bar formation vs. reducción &gt;24h. Desplazamiento residual &lt;2 mm: significativamente menor incidencia de puente. <strong>Conclusión operativa: fractura fisaria de tibia distal en niño → urgencia de reducción en &lt;6 horas reduce riesgo de puente óseo. SH-III y IV: ORIF con tornillos paralelos a la fisis (nunca perpendiculares — atravesar la fisis con tornillo aumenta el riesgo). Seguimiento radiológico hasta cierre fisario: Rx cada 3 meses. Si aparece deformidad angular progresiva → derivar para resección del bar (puente óseo) y corrección de eje.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Pulsed Radiofrequency for Chronic Foot and Ankle Pain: Duration-Dependent Outcomes and Patient Selection</div>
+        <div class="paper-meta">
+          <strong>Lei H, Zhang W, Chen M, Liu J, Wang X, Zhao Y</strong><br>
+          Journal of Pain Research · 16 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Lei+Pulsed+Radiofrequency+Chronic+Foot+Ankle+Pain+Duration+Outcomes+Patient+Selection+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Radiofrecuencia Pulsada · Dolor Crónico</span>
+      <span class="tag">Tobillo Pie · No Invasivo</span>
+      <span class="tag">Selección de Pacientes</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión de los resultados de radiofrecuencia pulsada (PRF) para dolor crónico de pie y tobillo (fascitis plantar, neuroma de Morton, neuropatía del nervio tibial, síndrome del seno del tarso). La PRF aplica pulsos de corriente de alta frecuencia en el nervio o punto gatillo bajo control ecográfico, generando modulación neurológica sin neuroablación. Es una técnica intervencionista de dolor de baja morbilidad entre el tratamiento conservador y la cirugía.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La PRF de 8-12 minutos de duración fue superior a la PRF de 4 minutos (VAS 2.1 vs. 3.8 a 6 meses, p=0.02). Los mejores candidatos: fascitis plantar crónica (&gt;12 meses, sin respuesta a ESWT), neuroma de Morton recurrente post-infiltración. Menor eficacia en neuropatía diabética avanzada. <strong>Conclusión operativa: la PRF es una técnica de intervencionismo del dolor que puede ofrecer alivio en fascitis plantar refractaria a ESWT y neuroma de Morton recurrente antes de indicar cirugía. No disponible en CTN actualmente, pero conocerla para derivación a unidades de dolor. Derivar a pacientes con fascitis plantar &gt;12 meses sin respuesta a ESWT + plantilla + stretching.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Abootalebi A et al.</strong> MIS vs open lateralizing calcaneal osteotomy: displacement in cadaveric model — <em>Foot Ankle Orthop</em>, 15 jul</li>
+      <li><strong>El Masry MA et al.</strong> Stable long-term PROMIS after deep peroneal nerve neurectomy for midfoot arthritis — <em>Foot Ankle Orthop</em>, 15 jul</li>
+      <li><strong>Raimondi PL et al.</strong> Simplified percutaneous single-suture technique for CLAI — <em>Foot Ankle Orthop</em>, 16 jul</li>
+      <li><strong>El-Adly MA et al.</strong> Radiographic evaluation vertical distance between malleoli in ankle — <em>The Foot</em>, 15 jul</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — WALANT: Cirugía de Pie Sin Anestesiología Es Segura y Equivalente</div>
+        <p>El ECA de Marcolli et al. (grupo Knupp-Hintermann) demuestra que WALANT es no inferior a la anestesia regional para cirugía de T&P intermedia. En muchos centros latinoamericanos y chilenos, la disponibilidad de anestesiología limita el volumen de cirugía electiva de pie y tobillo. WALANT elimina esa limitación para procedimientos seleccionados.</p>
+        <div class="verdict">⚖️ Veredicto: Implementar WALANT en CTN para procedimientos seleccionados que no requieran anestesia regional: HV MIS, artroscopia diagnóstica/terapéutica simple, Broström percutáneo, liberaciones tendinosas, neurectomía. Requisito: preparación adecuada del campo con lidocaína + epinefrina y espera de 15-20 min. Contraindicaciones: antecedente de alergia a epinefrina, cardiopatía isquémica grave, procedimientos de &gt;90 min de campo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>WALANT — preparación del campo:</strong> mezcla: lidocaína 1% 20 mL + epinefrina 1:100.000 (1 mL de 1:1000 en 100 mL SS) + bicarbonato 2 mL (reduce ardor). Infiltrar 15-20 min antes de incidir. Volumen según la zona: HV 15-20 mL sobre el 1er radio + espacio entre la cabeza del MT1 y la piel. Artroscopia: 10 mL portal anterior + 5 mL portal posterior. No usar torniquete — la epinefrina mantiene el campo seco.<br><br><strong>Fractura fisaria SH-III/IV tibia distal:</strong> ORIF con tornillos de 3.5 mm paralelos a la fisis (nunca perpendiculares). Radioscopia intraoperatoria para confirmar paralelismo. Fijación mínima (evitar exceso de metal sobre la fisis).</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-WALANT (cirugía ambulatoria):</strong> alta el mismo día en el 95% de los casos. Curaciones por enfermería o el propio paciente. Calzado postoperatorio plano desde el día 1 (en HV MIS). Control a los 7 días. Sin necesidad de hospitalización para la gran mayoría de procedimientos intermedios.<br><br><strong>Fractura fisaria tibial (pediátrica):</strong> yeso corto de pierna 6 semanas. Descarga durante el yeso. Retiro de yeso y Rx de control a las 6 semanas. Si no hay puente fisario → carga gradual. Seguimiento Rx cada 3 meses hasta cierre de la fisis (2-4 años según la edad).</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo WALANT CTN:</strong> identificar procedimientos aptos para WALANT (HV MIS, artroscopia simple, liberaciones, neurectomía). Preparar el kit WALANT: lidocaína 1% + epinefrina + bicarbonato en jeringa de 20 mL. Documentar en el parte operatorio que se usó WALANT. El paciente debe recibir instrucciones claras de que estará despierto y puede colaborar activamente durante la cirugía.<br><br><strong>Paciente con demencia + artrosis tobillo:</strong> agregar mini-MMSE a la evaluación preoperatoria de todo paciente &gt;70 años. Si deterioro cognitivo → preferir artrodesis sobre TAR. Documentar evaluación cognitiva y disponibilidad de cuidador en la ficha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">WALANT — Wide-Awake Local Anesthesia No Tourniquet</div>
+          <div class="glos-def">Técnica anestésica para cirugía de mano y extremidades distales que usa anestesia local con adrenalina (epinefrina 1:100.000) para lograr hemostasia local sin tourniquet (la vasoconstricción de la epinefrina reemplaza la isquemia del manguito). El paciente permanece despierto y colabora durante la cirugía — puede flexionar/extender activamente el dedo o el pie para evaluar la corrección intraoperatoria. Desarrollada originalmente por Lalonde para cirugía de la mano; adaptada a pie y tobillo en los últimos 5 años. Elimina el dolor de tourniquet, reduce la necesidad de anestesiología, facilita la cirugía ambulatoria. Requiere infiltración 15-20 min antes de incidir para que la epinefrina haga efecto vasoconstrictor.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Bar Formation — Puente Fisario Óseo</div>
+          <div class="glos-def">Complicación de las fracturas fisarias en pediatría: formación de un puente óseo que fusiona prematuramente la zona cartilaginosa de la fisis (placa de crecimiento). El puente tethers el crecimiento en esa zona, generando acortamiento (si el puente es central) o deformidad angular progresiva (si el puente es periférico — el lado libre de la fisis sigue creciendo, el lado del puente no). En la fisis distal de la tibia, un puente anterior puede producir equinismo progresivo; uno medial puede generar varo del tobillo. Detectable con RMN antes de que sea visible en Rx. La resección del puente (bar resection) con interposición de grasa es posible si el puente ocupa &lt;50% del área fisaria.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Radiofrecuencia Pulsada (PRF)</div>
+          <div class="glos-def">Técnica intervencionista de dolor que aplica corriente de radiofrecuencia en pulsos cortos (20 ms de actividad / 480 ms de reposo) sobre el nervio o ganglio objetivo, bajo control ecográfico o fluoroscópico. A diferencia de la radiofrecuencia continua (que genera calor y neurolisis), la PRF modula la transmisión nociceptiva sin destruir el nervio (temperatura máxima ≤42°C). El mecanismo exacto no está completamente comprendido, pero involucra cambios en la expresión génica de las neuronas del ganglio dorsal. En pie y tobillo se usa para fascitis plantar crónica, neuroma de Morton recurrente y síndrome del seno del tarso. Duración del efecto: 3-12 meses; puede repetirse.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Nervio Sural</div>
+          <div class="glos-def">Nervio sensitivo puro formado por la unión de ramas del nervio tibial (sural medial) y del peroneo común (sural lateral comunicante). Transcurre por la cara posterolateral de la pierna, rodea el maléolo externo a 1.5-2 cm posterior al peroné y continúa por el borde externo del pie hasta el 5° dedo. Inerva la piel del tercio distal de la cara lateral de la pierna, el maléolo externo, el borde lateral del pie y el 5° dedo. Es el nervio más frecuentemente lesionado en cirugía del calcáneo lateral (abierta) y en la artroscopia posterior del tobillo. Su lesión produce parestesia/dolor en el borde lateral del pie — complicación que el paciente percibe claramente y que puede ser muy molesta a largo plazo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 23 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 13 – 19 Julio 2026<br>
+  Fuentes: Foot &amp; Ankle International · Foot &amp; Ankle Orthopaedics · Journal of Pediatric Orthopaedics B · J Pain Research<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

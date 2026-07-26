@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 18 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;display:block;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 18 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 8 – 14 junio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Surgery · Foot Ankle Orthop · Cureus</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Dynamic Versus Stable Fixation of Distal Tibiofibular Joint Injuries: A Meta-Analysis Comparing Functional Outcomes</div>
+        <div class="paper-meta">
+          <strong>Liu L, Chen W, Zhang H, Wang Y, Li X</strong><br>
+          Cureus · 10 junio 2026
+          <span class="evidence-pill">Meta-análisis NE I</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Liu+Dynamic+Stable+Fixation+Distal+Tibiofibular+Joint+Injuries+Meta-Analysis+Functional+Outcomes+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · Tornillo vs Suture Button</span>
+      <span class="tag">Meta-análisis · Fijación Dinámica</span>
+      <span class="tag">NE I</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Meta-análisis que compara fijación estable (tornillo de sindesmosis con extracción programada a 6-12 semanas) vs. fijación dinámica (suture button o dispositivos de fijación elástica) para lesiones de la sindesmosis tibiofibular distal. Incluye 18 estudios, 1.847 pacientes, seguimiento mínimo 12 meses. Outcomes: AOFAS, FAAM, rango de movimiento, tasa de malreducción, complicaciones y reoperación.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La fijación dinámica (suture button) fue superior en FAAM a 12 meses (diferencia media: 6.2 puntos, p=0.01), menor tasa de malreducción (6% vs. 14%, p&lt;0.001) y menor necesidad de reoperación por hardware (2% vs. 18%). No hubo diferencia en complicaciones mayores. La extracción rutinaria del tornillo de sindesmosis ya no tiene justificación en los casos donde se puede usar un dispositivo dinámico. <strong>Conclusión operativa: en lesión sindesmótica Weber C o sindesmosis aislada estable tratada quirúrgicamente, el suture button es hoy la fijación de primera línea frente al tornillo convencional — menor tasa de malreducción, menor reoperación, mejor outcome funcional. El tornillo de sindesmosis con extracción programada debe reservarse para casos donde el suture button no esté disponible o en lesiones con gran inestabilidad rotacional que requieran rigidez estable temporal.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">CT-Confirmed Union Rates Following Ankle and Hindfoot Arthrodesis With and Without Biological Augmentation</div>
+        <div class="paper-meta">
+          <strong>Matheron G, Villet L, Peyron C, Lindahl J, Besse JL</strong><br>
+          Foot and Ankle Surgery · 12 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Matheron+CT-Confirmed+Union+Rates+Ankle+Hindfoot+Arthrodesis+Biological+Augmentation+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artrodesis · TC Consolidación</span>
+      <span class="tag">Augmentación Biológica · PRP · BMP</span>
+      <span class="tag">Pseudoartrosis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva multicéntrica que evalúa la tasa de consolidación por TC (criterio Schilcher) en artrodesis de tobillo y retropié con y sin augmentación biológica (BMP-7, PRP, injerto óseo autólogo o alogénico). 248 artrodesis evaluadas: tibiotalar (n=112), subastragalina (n=76), talonavicular (n=38), triple (n=22). TC a los 3 y 6 meses post-operatorio.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La augmentación con injerto óseo autólogo (cresta ilíaca) mejoró la consolidación a 3 meses en artrodesis de tobillo (76% vs. 58% sin augmentación, p=0.04). El PRP y la BMP-7 no mejoraron significativamente la consolidación vs. cirugía estándar. La pseudoartrosis fue más frecuente en tabaquismo activo (OR 4.2) y revisión de artrodesis (OR 3.8). <strong>Conclusión operativa: en artrodesis de tobillo y retropié, el injerto óseo autólogo (cresta ilíaca o acceso local) mejora la consolidación a 3 meses. El PRP intraoperatorio no aporta beneficio adicional demostrable. En factores de riesgo (tabaquismo, revisión, DM): reforzar con injerto autólogo, optimizar control metabólico preoperatorio. Evaluar consolidación con TC a los 3 meses — si pseudoartrosis evidente, actuar temprano (injerto + revisión) antes de los 6 meses.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Patient-Reported Outcomes Following Lisfranc Fixation Via Articular Bridge Plating Combined With Suture Tape Ligament Reconstruction</div>
+        <div class="paper-meta">
+          <strong>Sun M, Li Y, Chen J, Zhang W, Gu G</strong><br>
+          Foot &amp; Ankle Orthopaedics · 10 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Sun+Patient+Reported+Outcomes+Lisfranc+Fixation+Articular+Bridge+Plating+Suture+Tape+Ligament+Reconstruction+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Lisfranc · Placa Puente</span>
+      <span class="tag">Suture Tape · Reconstrucción Ligamentosa</span>
+      <span class="tag">PROMIS · FAAM</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Evaluación funcional de la fijación de Lisfranc mediante placa puente articular (bridge plate) combinada con reconstrucción del ligamento de Lisfranc con suture tape (InternalBrace®). La técnica combina estabilización del 1er espacio con placa dorsal no artrodésica y refuerzo ligamentoso del eje medial con cinta de sutura. 52 pacientes, 18 meses de seguimiento. Outcomes: PROMIS Physical Function, FAAM actividades diarias y deportivas.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>PROMIS-PF mejoró de 32 a 48 puntos a 18 meses. FAAM-ADL 84% y FAAM-Sports 71% a 18 meses. Tasa de artrodesis secundaria requerida: 6% (3 pacientes). Comparado con series de artrodesis primaria (Lisfranc), los resultados funcionales fueron equivalentes pero con preservación articular. <strong>Conclusión operativa: en lesión de Lisfranc predominantemente ligamentosa (sin fragmento óseo &gt;2 mm) en paciente activo, la combinación bridge plate + suture tape Lisfranc reconstrucción es una alternativa válida a la artrodesis primaria — preserva la articulación con buenos outcomes funcionales y baja tasa de conversión. Artrodesis de rescate disponible si falla. En Lisfranc con fragmento óseo → ORIF tradicional sigue siendo el gold standard.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Postural Control After Total Ankle Arthroplasty: Correlation With Patient-Reported Outcomes at One Year</div>
+        <div class="paper-meta">
+          <strong>Kim SJ, Park YJ, Lee HJ, Choi WJ, Lee JW</strong><br>
+          Journal of Clinical Medicine · 9 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Kim+Postural+Control+Total+Ankle+Arthroplasty+Patient+Reported+Outcomes+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </:div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">TAR · Control Postural</span>
+      <span class="tag">Equilibrio · Propiocepción</span>
+      <span class="tag">Outcome · 1 año</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo que evalúa la recuperación del control postural (plataforma de fuerza, límites de estabilidad, test de equilibrio monopodal) en pacientes sometidos a TAR, y su correlación con outcomes reportados (FAAM, VAS dolor) al año. El control postural es uno de los mecanismos menos estudiados en la recuperación funcional tras TAR — la prótesis restaura el movimiento pero no necesariamente la propiocepción articular.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El control postural mejoró significativamente a los 6 y 12 meses post-TAR, pero no alcanzó niveles de la extremidad contralateral sana al año (déficit de equilibrio monopodal del 18% persistente). El control postural al año se correlacionó fuertemente con FAAM-Sports (r=0.72). Pacientes con mejor control postural tuvieron mayor retorno a actividad deportiva. <strong>Conclusión operativa: el programa de rehabilitación post-TAR debe incluir entrenamiento de propiocepción y equilibrio desde la semana 6 — no solo fortalecimiento y movilidad. El déficit de control postural persistente al año es predictor de peor outcome deportivo. En nuestro protocolo post-TAR: agregar ejercicios de plataforma inestable y equilibrio monopodal como componente estructurado desde la fase de descarga parcial.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Surgical Level Selection in Checkrein Syndrome: A Pathology-Oriented Approach to Flexor Hallucis Longus Lengthening</div>
+        <div class="paper-meta">
+          <strong>Toyoshima Y, Kato H, Nishida J, Yamashiro T</strong><br>
+          Cureus · 8 junio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Toyoshima+Surgical+Level+Selection+Checkrein+Syndrome+Flexor+Hallucis+Longus+Lengthening+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Checkrein Syndrome · FHL</span>
+      <span class="tag">Alargamiento Tendinoso · Hallux</span>
+      <span class="tag">Técnica Quirúrgica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El checkrein syndrome es la flexión en garra del hallux secundaria a retracción o adherencia del FHL proximal tras fractura de tibia distal o cirugía del tobillo. El nivel de alargamiento óptimo (musculotendinoso proximal vs. tenotomía en canal del tobillo vs. tenotomía en planta) depende del sitio de la adherencia. Este estudio propone un algoritmo diagnóstico basado en la localización de la patología (adherencia proximal vs. distal) para guiar el nivel de intervención quirúrgica.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La adherencia proximal (nivel tibial) requiere liberación y alargamiento musculotendinoso. La adherencia distal (canal retromaleolar) → tenotomía endoscópica del FHL en el túnel. El algoritmo propuesto (test de Hicks modificado + imagen RM) permitió seleccionar correctamente el nivel en el 94% de los casos. <strong>Conclusión operativa: ante un hallux en garra post-fractura de tobillo o cirugía del retropié, diagnosticar el nivel de la adherencia del FHL antes de operar. Test clínico: con tobillo en neutro, si el hallux se puede extender → adherencia distal (tenotomía distal). Con tobillo en flexión plantar máxima, si el hallux no se extiende → adherencia proximal (alargamiento musculotendinoso proximal). La RM confirma el nivel. No hacer tenotomía distal si la adherencia es proximal — resultado insatisfactorio garantizado.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Zafar L et al.</strong> Nitinol compression staple fixation for midfoot and Chopart arthrodeses — <em>Cureus</em>, 9 jun</li>
+      <li><strong>Filip CI et al.</strong> Free vs pedicled flaps for leg/ankle/heel reconstruction: outcomes analysis — <em>Medical Sciences</em>, 10 jun</li>
+      <li><strong>Pogliacomi F et al.</strong> Accessory soleus muscle and persistent posterior ankle pain: 3 cases — <em>Ann Ital Chir</em>, 8 jun</li>
+      <li><strong>Buedts K et al.</strong> Raising the standard for systematic reviews in foot and ankle surgery — <em>Foot Ankle Surg</em>, 11 jun</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Tornillo de Sindesmosis: Ya No Es el Estándar</div>
+        <p>Este meta-análisis de 1.847 pacientes consolida lo que los datos venían sugiriendo: el tornillo de sindesmosis con extracción programada tiene 3 veces más reoperaciones y el doble de malreducciones que el suture button dinámico. Sin embargo, el tornillo sigue siendo el implante dominante en muchos centros de Chile y Latinoamérica por disponibilidad y costo.</p>
+        <div class="verdict">⚖️ Veredicto: Actualizar el protocolo de sindesmosis quirúrgica. En Weber C o sindesmosis aislada con indicación quirúrgica → presentar suture button como primera opción. Si no hay disponibilidad de suture button → tornillo de 3.5 mm (no 4.5 mm) sin extracción rutinaria programada (extraer solo si sintomático). Documentar la elección técnica y su fundamento.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Suture Button Sindesmosis:</strong> 1 dispositivo a 2.5-3 cm sobre la articulación (no más alto). Aguja guía de 2.4 mm en eje 30° anterior al coronal. Reducción con clamp de reducción antes de insertar. El button debe quedar en cara lateral del peroné y medial de la tibia (no enterrado en tejido blando). Verificar reducción con RX AP y mortaja — el espacio medial del tobillo (medial clear space) debe ser ≤4 mm.<br><br><strong>Injerto óseo en artrodesis:</strong> obtener injerto de cresta ilíaca anterosuperior (incisión 3 cm). Usar cureta o trefina. Cantidad mínima: 5-8 cc. Mezclar con plasma del campo. Colocar en bordes del foco de artrodesis antes del cierre capsular.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-Lisfranc bridge plate + suture tape:</strong> descarga absoluta 6 semanas. Carga parcial con bota semanas 6-10. Calzado normal semana 12-14 con plantilla de soporte del arco. RTP de bajo impacto: semana 16. RTP deporte de contacto: semana 24.<br><br><strong>Post-TAR — protocolo propiocepción:</strong> semana 6-8: ejercicios de tobillo sobre colchoneta de espuma (sentado). Semana 8-12: equilibrio monopodal con apoyo. Semana 12-16: balance board, tabla de Freeman. Semana 16+: superficies inestables dinámicas. Objetivo al año: equilibrio monopodal &gt;15 seg ojos cerrados.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo sindesmosis:</strong> en toda lesión sindesmótica quirúrgica documentar disponibilidad de suture button. Si disponible → primera opción. Si no → tornillo 3.5 mm × 40 mm, sin extracción programada. Informar al paciente que el tornillo es retirado "solo si produce molestia" (no protocolo rutinario).<br><br><strong>Checkrein syndrome:</strong> en todo post-quirúrgico de tobillo/retropié con garra del hallux → aplicar test clínico diferencial antes de solicitar RM o programar cirugía. El nivel de la intervención cambia el resultado. Documentar el test en la ficha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Suture Button / Fijación Dinámica Sindesmosis</div>
+          <div class="glos-def">Dispositivo de fijación elástica de la sindesmosis tibiofibular compuesto por dos botones metálicos (uno fibular, uno tibial) conectados por una cinta de polietileno trenzado de alta resistencia. Al ser elástico, permite el movimiento fisiológico de la sindesmosis durante la dorsiflexión (separación de 1-2 mm entre tibia y peroné), evitando la rigidez del tornillo. Sistemas disponibles: Arthrex TightRope, Stryker Syndesmosis Button. La fijación dinámica demostró menor malreducción y menor tasa de reoperación que el tornillo en múltiples meta-análisis.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Checkrein Syndrome</div>
+          <div class="glos-def">Deformidad en flexión del hallux causada por retracción o adherencia cicatricial del FHL (flexor hallucis longus) tras fractura de tibia distal, cirugía del tobillo o lesión del compartimento posterior de la pierna. El FHL adherido impide la extensión pasiva del hallux cuando el tobillo está en dorsiflexión (o incluso en neutro). El diagnóstico diferencial del sitio de la adherencia (proximal = nivel tibial vs. distal = canal retromaleolar) determina el nivel de la intervención quirúrgica: alargamiento musculotendinoso vs. tenotomía en el túnel del tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Articular Bridge Plate — Lisfranc</div>
+          <div class="glos-def">Placa de fijación dorsal para lesiones de Lisfranc que estabiliza el 1er espacio tarsometatarsiano (cuneiforme medial - 1er MT) sin artrodesar la articulación. La placa "puente" cruza la articulación como un exofijador interno, neutralizando las fuerzas de cizallamiento mientras el ligamento de Lisfranc cicatriza. Se usa sola o combinada con suture tape (reconstrucción ligamentosa). Ventaja sobre artrodesis: preserva el movimiento articular residual. La placa se retira a los 3-4 meses. Indicada en lesiones predominantemente ligamentosas sin fragmento óseo significativo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Criterio de Consolidación por TC (Artrodesis)</div>
+          <div class="glos-def">Estándar radiológico validado: puente óseo trabecular continuo en ≥3 de 4 corticales en dos planos perpendiculares (axial y coronal). La radiografía convencional sobreestima la consolidación en hasta el 30% de los casos en artrodesis de retropié — apariencia de "consolidación aparente" con puente cortical superficial pero espacio intertrabecular persistente. El TC identifica pseudoartrosis subclínica que se manifestará como dolor o fallo de implante diferido. Se recomienda TC rutinario a los 3 y 6 meses en artrodesis de retropié.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 18 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 8 – 14 Junio 2026<br>
+  Fuentes: Foot &amp; Ankle Surgery · Foot &amp; Ankle Orthopaedics · Journal of Clinical Medicine · Cureus<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

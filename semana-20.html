@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 20 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 20 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 22 – 28 junio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Orthop · Front Surg · Mayo Clin Proc</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Percutaneous Debridement and Double-Row Repair for Insertional Achilles Tendinopathy: Technique and Outcomes</div>
+        <div class="paper-meta">
+          <strong>Martin RL, Wychowski MK, Carreira DS, Nunley JA</strong><br>
+          Foot &amp; Ankle Orthopaedics · 28 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Martin+Percutaneous+Debridement+Double-Row+Repair+Insertional+Achilles+Tendinopathy+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Aquiles Insertional · MIS</span>
+      <span class="tag">Doble Fila · Percutáneo</span>
+      <span class="tag">Técnica Quirúrgica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Descripción técnica y resultados de desbridamiento percutáneo con reparación en doble fila para tendinopatía insertional del Aquiles (TIA) con degeneración del 30-60% del tendón. La técnica combina: (1) desbridamiento endoscópico del tendón degenerado y resección del Haglund percutánea, (2) reparación en doble fila del remanente tendinoso con 2 arpones mediales y 2 laterales en el calcáneo. Evita la apertura del tendón por detrás y la necesidad de transferencia del FHL en grados intermedios. Serie de 48 pacientes, 24 meses de seguimiento.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>VISA-A mejoró de 28 a 87 a los 24 meses. El 92% de los pacientes retornó al calzado normal. No hubo rupturas del Aquiles ni complicaciones mayores. El tiempo quirúrgico fue 45 min (vs. 80 min del abordaje abierto con FHL transfer). <strong>Conclusión operativa: en TIA con degeneración del 30-60% del tendón (no apta para solo endoscopia, pero sin degeneración &gt;60% que requiere FHL transfer), esta técnica percutánea de doble fila es una opción intermedia válida. Paciente activo con calcificación central + degeneración moderada → evaluar esta técnica antes de indicar FHL transfer abierto. Requiere sistema de reparación con arpones doble fila (Arthrex SpeedBridge o similar).</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Comparison of Endoscopic Plantar Fasciotomy and Endoscopic Partial Fascia Release for Chronic Plantar Fasciitis: A Prospective Study</div>
+        <div class="paper-meta">
+          <strong>Hu J, Wang Y, Li X, Zhang W, Chen G</strong><br>
+          Frontiers in Surgery · 24 junio 2026
+          <span class="evidence-pill">Nivel II — Prospectivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Hu+Endoscopic+Plantar+Fasciotomy+Partial+Fascia+Release+Chronic+Plantar+Fasciitis+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fasciitis Plantar · Endoscópica</span>
+      <span class="tag">Fasciotomía Total vs Parcial</span>
+      <span class="tag">Arco Longitudinal</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo que compara fasciotomía plantar endoscópica total (sección de todo el espesor de la fascia medial) vs. liberación parcial endoscópica (sección del 50% medial de la fascia), en fasciitis plantar crónica refractaria a tratamiento conservador &gt;6 meses. El debate entre fasciotomía total y parcial existe porque la sección completa puede destabilizar el arco longitudinal medial a largo plazo. 86 pacientes, 18 meses de seguimiento. AOFAS, VAS, arquitectura del arco por radiografía en carga.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Ambas técnicas lograron mejora similar en dolor VAS (reducción de 7.2 a 1.8 con total, 7.0 a 2.1 con parcial). La fasciotomía total tuvo mayor pérdida del arco longitudinal a 18 meses (aplanamiento de 3.2 mm vs. 0.8 mm, p=0.01). La liberación parcial (50%) tuvo equivalente alivio del dolor con menor impacto en la arquitectura del pie. <strong>Conclusión operativa: en fasciotomía plantar endoscópica, la liberación parcial (50% medial) es preferible a la total — misma mejoría sintomática, menor riesgo de colapso del arco. Técnica: seccionar solo la porción medial de la fascia plantar (la más tensa) bajo control endoscópico, preservar el fascículo central y lateral. En paciente con arco ya bajo (pie plano) → ser especialmente conservador.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Depth of the Dorsalis Pedis Artery Distal to the First and Second Tarsometatarsal Joints: Anatomical Implications for MIS Foot Surgery</div>
+        <div class="paper-meta">
+          <strong>Fujimaki Y, Tanaka S, Ogawa H, Kato T, Yamada S</strong><br>
+          Foot &amp; Ankle Orthopaedics · 25 junio 2026
+          <span class="evidence-pill">Estudio Anatómico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Fujimaki+Depth+Dorsalis+Pedis+Artery+First+Second+Tarsometatarsal+Joints+MIS+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ Anatomía</span>
+      <span class="tag">Arteria Dorsal del Pie · Pedia</span>
+      <span class="tag">Seguridad MIS · TMT</span>
+      <span class="tag">Zona Peligro</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio anatómico cadavérico que mide la profundidad de la arteria dorsal del pie (arteria pedia) a nivel de los espacios 1° y 2° tarsometatarsianos, relevante para la seguridad de la cirugía MIS de antepié (fresas percutáneas, portales artroscópicos, MICA). La arteria pedia cruza el 1er espacio TMT a profundidades variables — el riesgo de lesión vascular durante procedimientos percutáneos sobre el dorso del pie es real pero no bien cuantificado.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La profundidad media de la arteria pedia al nivel del 1er espacio TMT fue 8.2 mm (rango 4-14 mm) y al nivel del 2° espacio 11.4 mm (rango 7-18 mm). En pies con deformidad MHV (metatarsus primus varus), la arteria fue 2.3 mm más superficial en promedio. <strong>Conclusión operativa: en MIS de antepié (MICA, osteotomía de Scarf percutánea, corrección TMT), el portal dorsal del 1er espacio debe realizarse con fresas de máx. 6 mm de profundidad de penetración en la 1ª pasada. Si hay resistencia, preferir guía fluoroscópica antes de avanzar. En pacientes con deformidad marcada (MHV severo), el riesgo de lesión vascular es mayor — considerar ecodoppler preoperatorio de la arteria pedia si hay planificación de cirugía percutánea sobre el 1er espacio.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Implications of Size and Gender for Implant Fit and Coverage in Total Ankle Arthroplasty</div>
+        <div class="paper-meta">
+          <strong>Wesorick PA, Hsu RY, Blankenhorn BD, Flemister AS, Penner MJ</strong><br>
+          Foot &amp; Ankle Orthopaedics · 23 junio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Wesorick+Size+Gender+Implant+Fit+Coverage+Total+Ankle+Arthroplasty+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">TAR · Talla Implante</span>
+      <span class="tag">Género · Cobertura Tibial</span>
+      <span class="tag">Planificación Preoperatoria</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis de la cobertura ósea tibial y talar por el implante de TAR según el tamaño y el género del paciente. El overhang (prolapso del implante sobre el hueso) y el notching (cobertura incompleta) son problemas de planificación de talla que afectan la distribución de carga y la supervivencia del implante. Los pies femeninos tienen geometrías diferentes que los masculinos en relación al índice de talla disponible en los sistemas comerciales. 248 TAR analizados por TC preoperatoria.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Las pacientes femeninas tuvieron mayor tasa de "poor fit" con los sistemas estándar (32% vs. 14% en hombres). El notching tibial fue más frecuente en mujeres con tamaño XS (cobertura incompleta del borde medial de la tibia en 28%). El overhang anterior fue más frecuente en hombres talla L. <strong>Conclusión operativa: en planificación de TAR femenina, considerar la posible incompatibilidad de talla — algunos sistemas tienen tallas específicas para anatomía femenina (Zimmer Trabecular Metal, Exactech Vantage). Solicitar plantillas digitales y verificar la cobertura tibial en los dos planos antes de la cirugía. En duda de talla → prefiere el notching anterior (menos perjudicial) sobre el overhang medial o lateral.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Hidden Burden of Entheseal Pathology in Lower-Limb Pain: A Systematic Review of Overlooked Diagnosis</div>
+        <div class="paper-meta">
+          <strong>Poboży T, Domżalski M, Wojciechowski P, Kotela A</strong><br>
+          Mayo Clinic Proceedings: Innovations, Quality &amp; Outcomes · 23 junio 2026
+          <span class="evidence-pill">Revisión Sistemática</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Pobozy+Hidden+Burden+Entheseal+Pathology+Lower+Limb+Pain+Systematic+Review+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Entesopatía · Dolor MMII</span>
+      <span class="tag">Diagnóstico Diferencial</span>
+      <span class="tag">Espondiloartropatía · Psoriasis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática sobre la patología enteseal (inflamación de la inserción tendinosa/ligamentosa en el hueso) del miembro inferior como diagnóstico frecuentemente confundido con patología ortopédica degenerativa. En el pie y tobillo, la entesopatía del Aquiles, plantar y de los peroneos puede ser la manifestación de espondiloartropatía seronegativa (artritis psoriásica, espondilitis anquilosante, artritis reactiva) en lugar de patología mecánica pura.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 18-24% de los pacientes con "tendinopatía del Aquiles" refractaria tienen subyacente una espondiloartropatía no diagnosticada. Los marcadores de sospecha: bilateral, joven, sin trauma previo, compromiso axial asociado (lumbalgia matutina), lesiones dérmicas (psoriasis). El tratamiento ortopédico local fracasa sistemáticamente en este grupo. <strong>Conclusión operativa: en tendinopatía del Aquiles o fascitis plantar bilateral, refractaria a tratamiento, en paciente joven sin factores mecánicos claros → investigar entesopatía inflamatoria. Solicitar: PCR, VHS, HLA-B27, FR, anti-CCP. Derivar a reumatología antes de indicar cirugía. La ESWT y los corticoides pueden enmascarar temporalmente pero no curan la causa. La cirugía en entesopatía inflamatoria tiene malos resultados.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Luijten MNE et al.</strong> PROMIS Computerized Adaptive Testing in foot/ankle: convergent validity with FAAM — <em>Foot Ankle Orthop</em>, 28 jun</li>
+      <li><strong>Shrirang et al.</strong> Letter: Effects of exercise combined with diet on diabetic foot — <em>Foot Ankle Surg</em>, 26 jun</li>
+      <li><strong>Zhu et al.</strong> Response letter on endoscopic hindfoot techniques — <em>Foot Ankle Surg</em>, 25 jun</li>
+      <li><strong>Li et al.</strong> Elliptical defects in OLT: adverse biomechanical environment simulation — <em>Front Bioeng Biotechnol</em>, 23 jun</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Fasciotomía Plantar: Parcial es Mejor que Total</div>
+        <p>La fasciotomía plantar endoscópica completa ha sido el estándar quirúrgico de muchos centros en fasciitis refractaria. El estudio prospectivo de Hu et al. demuestra que la liberación parcial (50% medial) logra la misma mejoría sintomática con 4 veces menos pérdida del arco longitudinal a 18 meses. La fasciotomía total innecesariamente desestabiliza el arco.</p>
+        <div class="verdict">⚖️ Veredicto: Cambiar la técnica de fasciotomía endoscópica a liberación parcial (50% medial) como estándar. Preservar el fascículo central y lateral. Documentar en el informe operatorio el porcentaje de liberación realizado. Solo en casos de calcificación total que englobe todo el espesor → sección más amplia justificada.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Tendinopatía Bilateral Refractaria: Descartar Entesopatía Inflamatoria Primero</div>
+        <p>El 18-24% de los pacientes con tendinopatía del Aquiles bilateral refractaria tienen una espondiloartropatía subyacente no diagnosticada. Operar a estos pacientes (liberación, debridamiento, transfer FHL) en ausencia de diagnóstico reumatológico resulta en fracasos sistemáticos y pacientes con múltiples cirugías fallidas.</p>
+        <div class="verdict">⚖️ Veredicto: Protocolo obligatorio antes de cirugía en tendinopatía del Aquiles o fascitis plantar refractaria: (1) verificar unilateral vs. bilateral, (2) edad &lt;45 años sin trauma, (3) historia de lumbalgia matutina, psoriasis u ojo rojo. Si ≥2 criterios → derivar a reumatología ANTES de indicar cirugía.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Reparación Aquiles doble fila percutánea (30-60% degeneración):</strong> portal posteromedial y posterolateral para debridamiento con fresa 4 mm. Resección Haglund percutánea. Inserción de 2 arpones mediales (SpeedBridge o TightRope) + 2 laterales en calcáneo, convergentes. Sutura de tensión cruzada sobre el dorso del tendón. Sin tourniquet (WALANT posible).<br><br><strong>Fasciotomía plantar parcial endoscópica:</strong> portal medial (1 cm anterior y distal al tubérculo plantar). Guía de bisturí endoscópico bajo visualización. Sección 50% medial de la fascia. Confirmar con visualización directa. Portal proximal para la cámara.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-reparación Aquiles doble fila percutánea:</strong> bota en equino 30° por 4 semanas. Semana 4: bota en neutro con carga parcial. Semana 8: calzado normal con talonera. RTP deporte impacto: 5-6 meses (más precoz que técnica abierta por menor trauma de partes blandas).<br><br><strong>Post-fasciotomía plantar parcial:</strong> carga inmediata con calzado de suela rígida. Plantilla de soporte del arco desde semana 2. Fisioterapia de estiramientos de fascia y gastrocnemio desde semana 1. RTP deporte: 6-8 semanas. Control a los 6 meses con Rx en carga (evaluar altura del arco).</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>MIS antepié — seguridad vascular:</strong> agregar a protocolo de cirugía percutánea del dorso del pie: profundidad máxima de fresa en 1ª pasada 6 mm sobre el 1er espacio TMT. Si hay resistencia o dolor no esperado → parar y verificar con fluoroscopía. En planeación preoperatoria MICA o Scarf percutánea: marcar con eco la arteria pedia si es palpable y superficial.<br><br><strong>Entesopatía inflamatoria:</strong> agregar a la ficha preoperatoria de tendinopatía refractaria: checklist de criterios inflamatorios (bilateral / joven / lumbalgia / psoriasis). Si ≥2 → solicitar HLA-B27 y FR antes de indicar cirugía.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Reparación en Doble Fila (Tendón)</div>
+          <div class="glos-def">Técnica de reinserción tendinosa con dos filas de arpones de sutura en el hueso receptor, dispuestos en configuración convergente o paralela. La fila medial ancla el tendón en su borde interno; la fila lateral ancla el borde externo. Las suturas se cruzan o entrelazan entre sí, creando una "malla" que distribuye mejor la tensión sobre el área de huella (footprint) del tendón. Comparada con la técnica de simple fila, la doble fila aumenta el contacto tendón-hueso, mejora la resistencia a la arrancadura y favorece la cicatrización biológica. Se usa en reparaciones del manguito rotador, del Aquiles insertional y de la fascia plantar.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Entesopatía / Entesopatía Inflamatoria</div>
+          <div class="glos-def">Inflamación de la entesis — zona de inserción de tendones, ligamentos y cápsulas en el hueso. La entesopatía mecánica (degenerativa) es la causa más frecuente (sobrecarga repetitiva, microtraumatismos). La entesopatía inflamatoria es la manifestación articular de las espondiloartropatías seronegativas: artritis psoriásica (entesopatía del Aquiles y plantar en el 30-40%), espondilitis anquilosante, artritis reactiva, artropatía de Crohn. Características diferenciales: bilateral, inicio insidioso, responde a AINE sistémicos, no responde a infiltración local a largo plazo, se asocia a lumbalgia inflamatoria matutina (&gt;30 min), uveítis o lesiones cutáneas.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PROMIS CAT — Adaptive Testing</div>
+          <div class="glos-def">Patient-Reported Outcomes Measurement Information System — Computerized Adaptive Testing. Sistema de medición de outcomes reportados por el paciente basado en teoría de respuesta al ítem (IRT) y administración computarizada adaptativa: el sistema selecciona las preguntas siguientes basándose en las respuestas previas, logrando precisión equivalente a cuestionarios completos en solo 4-6 preguntas. Dominio de función física (PROMIS-PF) está calibrado para detectar cambios en todo el espectro funcional (desde pacientes severamente limitados hasta atletas). Superiores a AOFAS en sensibilidad al cambio y comparabilidad entre estudios. Están siendo adoptados progresivamente en cirugía de tobillo y pie.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Overhanging / Notching — TAR</div>
+          <div class="glos-def">Términos de planificación de talla en prótesis total de tobillo. Overhang: el componente tibial o talar sobresale más allá del borde cortical del hueso — puede causar impingement de partes blandas y dolor periprotésico. Notching: el componente no cubre completamente la superficie ósea articular — deja hueso expuesto al borde, concentrando carga en el borde cortical y aumentando el riesgo de subsiding y aflojamiento. El balance entre overhang y notching define la "talla óptima": en caso de duda entre dos tallas, generalmente se prefiere el notching mínimo anterior sobre el overhang medial o lateral.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 20 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 22 – 28 Junio 2026<br>
+  Fuentes: Foot &amp; Ankle Orthopaedics · Frontiers in Surgery · Mayo Clin Proc Innov<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 21 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 21 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 29 junio – 5 julio, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Orthop · OJSM · JAPMA</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Displacement Following Minimally Invasive vs Open Lateralizing Calcaneal Osteotomy: A Direct Comparison in a Cadaveric Model</div>
+        <div class="paper-meta">
+          <strong>Abootalebi A, Mayer W, Bigney E, Alugo O, Urquhart R, Matz J</strong><br>
+          Foot &amp; Ankle Orthopaedics · 1 julio 2026
+          <span class="evidence-pill">Estudio Cadavérico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Abootalebi+Displacement+Minimally+Invasive+Open+Lateralizing+Calcaneal+Osteotomy+Cadaveric+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Osteotomía Calcáneo · MIS vs Abierta</span>
+      <span class="tag">Lateralización · PCFD</span>
+      <span class="tag">Cadavérico</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Comparación directa en modelo cadavérico de osteotomía de calcáneo lateralizante (Dwyer / Koutsogiannis) por vía MIS percutánea vs. abordaje abierto lateral. La osteotomía lateralizante del calcáneo es componente central de la corrección del pie plano adquirido (PCFD) — traslada el calcáneo medialmente para restaurar el valgo fisiológico del retropié. La versión MIS se realiza con sierra percutánea y control fluoroscópico. Se midió el desplazamiento real obtenido (mm de lateralización) con cada técnica.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La técnica MIS logró un desplazamiento medio de 9.2 mm vs. 10.8 mm con la técnica abierta (diferencia no significativa, p=0.18). La controlabilidad del desplazamiento (capacidad de ajustar en mm) fue equivalente. Las complicaciones del nervio sural fueron menores con MIS (0% vs. 12% en abierta en este modelo). <strong>Conclusión operativa: la osteotomía lateralizante de calcáneo MIS logra desplazamiento equivalente a la técnica abierta — no hay sacrificio de corrección por el abordaje percutáneo. En cirugía de PCFD, la osteotomía de calcáneo MIS es la evolución natural del procedimiento abierto cuando se tiene curva de aprendizaje. Menor daño del nervio sural es una ventaja adicional clinicamente relevante (el nervio sural es la complicación neurológica más frecuente en la cirugía lateral del calcáneo).</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Return-to-Sport Outcomes After Suture Button Fixation for Syndesmotic Injury in Elite Athletes With Chronic Lateral Ankle Instability</div>
+        <div class="paper-meta">
+          <strong>Wang C, Chen C, Fu S, Wang J, Wu C, Zhang J, Ma X, Shi Z</strong><br>
+          Orthopaedic Journal of Sports Medicine · 2 julio 2026
+          <span class="evidence-pill">Nivel III — Serie Prospectiva</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Wang+Return+Sport+Suture+Button+Syndesmotic+Injury+Elite+Athletes+Chronic+Lateral+Ankle+Instability+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · Suture Button</span>
+      <span class="tag">CLAI · Atleta Élite · RTP</span>
+      <span class="tag">Deporte · Alta Demanda</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie prospectiva de atletas élite con lesión sindesmótica combinada con inestabilidad lateral crónica (CLAI) tratados con suture button sindesmótico + Broström-Gould artroscópico simultáneo. El escenario clínico es frecuente en deportes de contacto y pivote: el esguince de alta energía lesiona tanto el complejo ATFL-CFL como la sindesmosis. El retorno al deporte de élite es el outcome primario.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 88% de los atletas retornó a su deporte de élite previo (mediana 16 semanas). El 6% no retornó por dolor residual. El 6% requirió reintervención (1 malreducción, 1 ruptura del suture button). Los atletas de fútbol tuvieron menor tiempo de RTP (14 semanas) que los de baloncesto (18 semanas). <strong>Conclusión operativa: en lesión sindesmótica + CLAI en atleta activo, el tratamiento combinado simultáneo (suture button + Broström artroscópico) en una sola cirugía es seguro y eficaz — evita dos tiempos quirúrgicos. RTP esperado: 16 semanas. Protocolo de retorno al deporte: semana 8-10 carrera en línea recta, semana 12 cambios de dirección, semana 14-16 entrenamiento específico de deporte.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Stable Long-term PROMIS Outcomes After Deep Peroneal Nerve Neurectomy for Midfoot Arthritis: A Longitudinal Study</div>
+        <div class="paper-meta">
+          <strong>El Masry MA, Ramirez CA, Meli GM, Jenkins BM, Haupt ET, Shi GG</strong><br>
+          Foot &amp; Ankle Orthopaedics · 3 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=El+Masry+PROMIS+Outcomes+Deep+Peroneal+Nerve+Neurectomy+Midfoot+Arthritis+Longitudinal+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Artritis Mediopié · Neurectomía</span>
+      <span class="tag">Nervio Peroneo Profundo · PROMIS</span>
+      <span class="tag">Alternativa a Artrodesis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio longitudinal de neurectomía del nervio peroneo profundo (rama articular del 1er espacio interdigital que inerva las articulaciones TMT mediales) como alternativa a la artrodesis en artritis del mediopié. La neurectomía elimina el componente neurógeno del dolor artrítico sin artrodesar la articulación. Indicada en artritis mediopié sin deformidad significativa. 68 pacientes, seguimiento medio 5.2 años. PROMIS-PF como outcome principal.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>PROMIS-PF estable a los 5 años (mejora de 34 a 46, p&lt;0.001; sin deterioro entre año 1 y año 5). El 74% de los pacientes no requirió artrodesis durante el seguimiento. El 26% progresó a artrodesis (por deformidad progresiva o dolor recurrente). <strong>Conclusión operativa: en artritis del mediopié sin deformidad (Lisfranc artrítico post-esguince, artritis reumatoidea del mediopié), la neurectomía del peroneo profundo es una alternativa real a la artrodesis que mantiene el movimiento articular y retrasa o evita la fusión en el 74% a 5 años. Técnica: incisión 3 cm en el 1er espacio interdigital dorsal, identificar el nervio peroneo profundo, sección y neurectomía de 1 cm. Procedimiento de baja morbilidad. Alternativa a discutir antes de artrodesis TMT en paciente sin deformidad severa.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">A Simplified Percutaneous Single-Suture Technique for Chronic Lateral Ankle Instability</div>
+        <div class="paper-meta">
+          <strong>Raimondi PL, Pérez Lloveras GO, Díaz Peccinetti I, Insua J, Yañez Arauz JM, Massetti S</strong><br>
+          Foot &amp; Ankle Orthopaedics · 4 julio 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Raimondi+Simplified+Percutaneous+Single-Suture+Technique+Chronic+Lateral+Ankle+Instability+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ MIS · Latinoamérica</span>
+      <span class="tag">CLAI · Broström Percutáneo</span>
+      <span class="tag">Sutura Única · Técnica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Grupo latinoamericano (Argentina) describe una técnica percutánea simplificada de sutura única para inestabilidad lateral crónica del tobillo (CLAI), como alternativa al Broström-Gould abierto o artroscópico. La técnica utiliza un arpón de sutura de carga 2.0 mm insertado percutáneamente en el maléolo peroneo, con tensión del ATFL mediante sutura pasada con aguja a través de la piel, sin artroscopia. Requiere solo anestesia local.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>AOFAS mejoró de 64 a 89 a 12 meses. Tasa de recurrencia de inestabilidad: 8% (vs. 5-10% del Broström artroscópico). El procedimiento fue realizado en consulta bajo anestesia local en el 60% de los casos. Tiempo operatorio: 22 minutos. <strong>Conclusión operativa: técnica de interés para centros con recursos limitados o para CLAI sin componente artroscópico adicional (sin OLT, sin impingement). La tasa de recurrencia del 8% es comparable al Broström artroscópico. En paciente con CLAI aislada, sin OLT, sin artroscopia planificada → esta técnica percutánea bajo anestesia local es válida y significativamente más accesible. En CLAI con OLT o impingement → artroscopia + Broström artroscópico siguen siendo el gold standard.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Post-Surgical Pyoderma Gangrenosum Following Foot and Ankle Surgery: A Systematic Review</div>
+        <div class="paper-meta">
+          <strong>Zhang K, Obradovic K, Greenberg R, Adegboyega S</strong><br>
+          Journal of the American Podiatric Medical Association · 1 julio 2026
+          <span class="evidence-pill">Revisión Sistemática</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Zhang+Post-Surgical+Pyoderma+Gangrenosum+Foot+Ankle+Surgery+Systematic+Review+2026" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ Alerta Clínica</span>
+      <span class="tag">Pioderma Gangrenoso</span>
+      <span class="tag">Complicación Herida · Diagnóstico Diferencial</span>
+      <span class="tag">Dermatología</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática de pioderma gangrenoso (PG) postquirúrgico en cirugía de pie y tobillo. El PG es una ulceración cutánea autoinflamatoria que puede simular perfectamente una infección o dehiscencia de herida postquirúrgica. El tratamiento es radicalmente opuesto: la infección requiere desbridamiento quirúrgico agresivo; el PG empeora con el desbridamiento (fenómeno de patergia). 34 casos identificados en la literatura de T&P.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El PG postquirúrgico en T&P se presentó en promedio a los 7 días postoperatorios como úlcera dolorosa de bordes violáceos socavados, con fondo necrótico sin exudado purulento. El 82% de los casos fue sometido a desbridamiento inicial (diagnóstico erróneo de infección), lo que empeoró la lesión. El tratamiento correcto: corticoides sistémicos ± inmunosupresores, NO desbridamiento. <strong>Conclusión operativa: en dehiscencia de herida postoperatoria con bordes violáceos, socavados, muy dolorosa, sin fiebre ni leucocitosis → sospechar pioderma gangrenoso antes de operar. Signos distintivos: borde violáceo con halo eritematoso, base hemorrágica, dolor desproporcionado al aspecto, empeora con el desbridamiento. Conducta: biopsia del borde (no del centro), suspender desbridamiento, iniciar prednisona 1 mg/kg/día. Derivar a dermatología.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Li X et al.</strong> Mendelian randomization: causal relationship between hallux valgus and serum metabolites — <em>Food Sci Nutr</em>, jul</li>
+      <li><strong>Lim J et al.</strong> Deep learning anatomical segmentation of foot/ankle from multi-view radiographs — <em>Yonsei Med J</em>, jul</li>
+      <li><strong>Farrington et al.</strong> Foot and ankle contributions to non-contact ACL injury risk: systematic review — <em>OJSM</em>, jul</li>
+      <li><strong>Hossain et al.</strong> Deep vein arterialization for limb salvage in critical ischemia — <em>J Am Podiatr Med Assoc</em>, 1 jul</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Pioderma Gangrenoso: No Operar la "Infección de Herida"</div>
+        <p>El 82% de los PG postquirúrgicos en T&P fue sometido a desbridamiento quirúrgico inicial por diagnóstico erróneo de infección. El desbridamiento activa el fenómeno de patergia (el trauma mecánico exacerba el PG) y resulta en ulceraciones cada vez más extensas. Esta es una complicación rara pero catastrófica si se maneja incorrectamente.</p>
+        <div class="verdict">⚖️ Veredicto: Ante dehiscencia de herida con bordes violáceos + dolor desproporcionado + sin signos sistémicos de infección (sin fiebre, sin leucocitosis, sin CRP elevada), NO operar. Solicitar biopsia del borde, derivar a dermatología e iniciar prednisona empírica mientras se espera el resultado. Un PG tratado como infección puede terminar en amputación.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Osteotomía calcáneo lateralizante MIS:</strong> incisión percutánea 1 cm en cara lateral del calcáneo, 1 cm bajo el borde inferior de la articulación subastragalina. Sierra oscilante de fresa 10 mm bajo fluoroscopía. Osteotomía oblicua de atrás-adelante y de lateral-medial. Desplazamiento con osteotomo. Fijación con 2 tornillos canulados percutáneos de 6.5 mm.<br><br><strong>Neurectomía peroneo profundo (mediopié):</strong> incisión 3 cm dorsal, 1er espacio interdigital. Identificar nervio (ramo terminal del peroneo profundo, 1-3 mm). Sección y resección de 1.5 cm. Verificar con bupivacaína preoperatoria (bloqueo diagnóstico: si 80% alivio con bloqueo → neurectomía indicada).</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación / ERAS</h4>
+          <p><strong>Post-sindesmosis + Broström simultáneo (atleta):</strong> bota articulada 6 semanas. Carga parcial desde semana 2. Carga completa semana 6. Carrera en línea recta: semana 8-10. Cambios de dirección: semana 12. Entrenamiento específico deporte: semana 14. RTP élite: semana 16 (condicionado a FAAM &gt;90% y fuerza eversión &gt;85% del lado sano).<br><br><strong>Post-neurectomía peroneo profundo mediopié:</strong> carga inmediata con calzado normal desde día 1. Plantilla de soporte del arco. Retorno a actividad laboral: 1 semana. RTP: 3-4 semanas. Sin inmovilización prolongada.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Diferenciación CTN</h4>
+          <p><strong>Protocolo PG postquirúrgico:</strong> crear ficha de "Alerta de dehiscencia atípica" para el equipo de enfermería: si la herida tiene bordes violáceos + dolor desproporcionado al examen → no desbridar, llamar al cirujano para evaluación antes de cualquier curetaje o desbridamiento. La detección precoz evita desbridamientos innecesarios.<br><br><strong>Bloqueo diagnóstico peroneo profundo:</strong> antes de indicar neurectomía del mediopié, realizar bloqueo diagnóstico en consulta (2 mL bupivacaína 0.5% en 1er espacio interdigital dorsal). Si alivio ≥80% del dolor → neurectomía indicada. Si alivio &lt;50% → la patología es de otro origen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Pioderma Gangrenoso (PG)</div>
+          <div class="glos-def">Dermatosis neutrofílica autoinflamatoria caracterizada por ulceraciones cutáneas dolorosas de progresión rápida. El PG postquirúrgico ("surgical site PG" o "pathergia-triggered PG") se desarrolla sobre la herida quirúrgica días después de la cirugía, simulando una infección. Características: bordes violáceos socavados, halo eritematoso perilesional, fondo hemorrágico o fibrinoso (no purulento), dolor severo desproporcionado, sin fiebre ni leucocitosis significativa. Patogenia: respuesta inflamatoria neutrofílica exagerada ante el trauma quirúrgico. Tratamiento: corticoides sistémicos (prednisona 1 mg/kg/día), ciclosporina o infliximab en casos refractarios. El desbridamiento empeora la lesión (fenómeno de patergia). Asociado a enfermedad inflamatoria intestinal, artritis reumatoidea, mieloma.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PCFD — Progressive Collapsing Foot Deformity</div>
+          <div class="glos-def">Nomenclatura actual para el "pie plano adquirido del adulto" o "insuficiencia del tibial posterior". El PCFD es una deformidad progresiva multiplanar del pie y tobillo que resulta de la combinación de insuficiencia del tendón tibial posterior, contractura del gastrocnemio, colapso del arco medial y eventual deformidad del retropié en valgo. La corrección quirúrgica es escalonada según el estadio: transferencia del FDL (tibial posterior) + osteotomía medializante del calcáneo (estadio IIa-b), con osteotomía de columna lateral o artrodesis de columna medial según la deformidad (estadio IIc). El término "PCFD" reemplaza al antiguo "síndrome del tibial posterior" porque reconoce que la patología involucra múltiples estructuras.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Nervio Peroneo Profundo — Rama Articular</div>
+          <div class="glos-def">El nervio peroneo profundo (rama del peroneo común) inerva el dorso del pie y emite ramas articulares para las articulaciones TMT mediales (1º, 2º y 3er espacio). La rama articular terminal se convierte en el nervio cutáneo dorsal del 1er espacio interdigital. En artritis del mediopié, estas ramas articulares conducen el dolor artrítico al sistema nervioso central. La neurectomía de las ramas articulares del peroneo profundo puede eliminar hasta el 80% del componente de dolor del mediopié sin afectar la función motora ni sensitiva del pie (la sensibilidad del 1er espacio interdigital puede reducirse levemente).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fenómeno de Patergia</div>
+          <div class="glos-def">Respuesta inflamatoria exagerada de la piel ante un trauma mínimo (pinchazo, incisión, desbridamiento) que resulta en ulceración o ampliación de la lesión existente. Es característico de la enfermedad de Behçet (criterio diagnóstico: reacción positiva al pinchazo intradérmico) y del pioderma gangrenoso. En el contexto quirúrgico ortopédico, es crítico reconocer que el desbridamiento de un PG activa el fenómeno de patergia y puede convertir una úlcera manejable en una necrosis extensa. Por este motivo, la regla clínica ante sospecha de PG es: "si la herida empeora después del desbridamiento, pensar en PG".</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 21 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 29 Junio – 5 Julio 2026<br>
+  Fuentes: Foot &amp; Ankle Orthopaedics · Orthopaedic Journal of Sports Medicine · JAPMA<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
