@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 25 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 25 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 26 julio – 1 agosto, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Surg · Foot Ankle Specialist · Foot Ankle Int · J Foot Ankle Surg</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Decompressive First Metatarsal Osteotomy for the Treatment of Hallux Rigidus: A Systematic Review</div>
+        <div class="paper-meta">
+          <strong>Lewis TL, Dellis S, Matheron G, Akinfala M, Nouri A, Lam P, Patel S, Cullen N, Malhotra K, Welck M</strong><br>
+          Foot and Ankle Surgery (EFAS) · 29 julio 2026
+          <span class="evidence-pill">Nivel IV — Revisión Sistemática</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42532698/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Hallux Rigidus · Osteotomía Descompresiva</span>
+      <span class="tag">Youngswick · Cheilectomía · MTP1</span>
+      <span class="tag">RNOH London · Welck</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>La osteotomía descompresiva (DCO — Dorsiflexory/Decompressive osteotomy) del primer metatarsiano busca mejorar la biomecánica de la articulación MTF1 preservando el movimiento, como alternativa intermedia entre la queilectomía y la artrodesis MTF1 en hallux rigidus grado II-III. La revisión sistemática PRISMA del grupo RNOH (Royal National Orthopaedic Hospital, Londres — Welck, Malhotra, Cullen) incluyó 30 estudios (n=1.293 pies), seguimiento promedio 44 meses. La osteotomía de Youngswick (fragmento plantar + acortamiento) fue la más utilizada (33.3%); el 76.7% incluía queilectomía concomitante. Mejorías promedio: AOFAS +41 puntos, VAS –5 puntos, ROM +26°. La mayoría de los estudios tenían riesgo de sesgo moderado a grave. La queilectomía concomitante confunde el beneficio independiente de la osteotomía — los resultados son comparables a series de queilectomía sola.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La DCO + queilectomía puede mejorar los outcomes en hallux rigidus grado II-III seleccionado, especialmente cuando hay MT1 largo/elevado o functional hallux limitus. No hay evidencia de calidad alta que la diferencie de la queilectomía sola en grado II. En grado III con MT1 largo y paciente activo joven: la DCO puede diferir la artrodesis años. <strong>Conclusión operativa para CTN: la osteotomía de Youngswick (acortamiento + dorsiflexión 2-3 mm del fragmento distal) es técnicamente sencilla y se puede agregar a la queilectomía en el mismo tiempo. Indicación: hallux rigidus grado II-III, MT1 largo (MT1 ≥ MT2 + 2 mm en peso) o hallux functional limitus en EF. Contraindicación relativa: grado IV, pérdida articular &gt;50% en radiografía oblicua. La artrodesis MTF1 sigue siendo el gold standard para grado IV — esta osteotomía no sustituye la artrodesis cuando está indicada.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Surgical Intervention for Moderate-to-Large OLT (1–2.9 cm²): Proceedings of the International Consensus Meetings on Cartilage Repair of the Ankle (ICCRA)</div>
+        <div class="paper-meta">
+          <strong>Rubin J, Tham A, Butler JJ, Kennedy JG et al. (100+ expertos internacionales)</strong><br>
+          Foot &amp; Ankle Specialist · 29 julio 2026
+          <span class="evidence-pill">Consenso Internacional — Delphi</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42522736/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">OLT Moderado-Grande · 1–2.9 cm²</span>
+      <span class="tag">AOT · OCA · Scaffold · ECMA</span>
+      <span class="tag">Kennedy Group · ICCRA · Delphi</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>El ICCRA (International Congress on Cartilage Repair of the Ankle, 2017 y 2025) publicó el consenso para OLT moderados a grandes (1-2.9 cm²) usando metodología Delphi con más de 100 expertos mundiales (Kennedy group NYU + Kerkhoffs Amsterdam + Nunley Duke + Hintermann Liestal + todos los grandes centros de T&amp;P). Esta es la franja más difícil: la microfractura ya no es suficiente pero las indicaciones de trasplante son controvertidas. El consenso define 4 estrategias: (1) Autologous Osteochondral Transplantation (AOT/OATS autólogo — preferido en lesiones cist-forming, no contenidas y revisiones); (2) Osteochondral Allograft (OCA — en lesiones grandes o contraindicación de autoinjerto); (3) Scaffold-based (alternativo válido en primera línea y revisión, no superior a AOT en grandes); (4) ECMA/PJCAT emergentes (extracellular matrix allograft y juvenile cartilage allograft — potenciadores de restauración, no remplazos solos).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Algoritmo del consenso para OLT 1-2.9 cm²: (A) OLT 1-1.5 cm² sin cyst → microfractura + BMAC o scaffold (MaioRegen, AMIC) como primera línea. (B) OLT 1-1.5 cm² con cyst o no contenido → AOT (OATS autólogo del cóndilo femoral ipsilateral, 1 o 2 plug de 10-12 mm). (C) OLT &gt;1.5 cm² o contraindicación de AOT → OCA (aloinjerto fresco en 28 días). (D) ECMA/PJCAT: adyuvante, no sustituto. La indicación de AOT requiere artroscopia + fluoroscopia para confirmar el acceso sin maleolotomía — evaluar siempre si el acceso permite instalar el plug correctamente antes de decidir la técnica. <strong>Conclusión operativa CTN: en OLT 1-2 cm² con cyst subcondral documentado en RMN (secuencia T2 con supresión grasa): indicar AOT en lugar de microfractura. Documentar el cyst en el protocolo quirúrgico. Coordinar banco de aloinjertos si OLT &gt;1.5 cm² — el fresco debe usarse en ≤28 días del fallecimiento del donante.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Augmented Anterior Inferior Tibiofibular Ligament Repair and Its Short-Term Postoperative Effects on 3D Syndesmotic Volumes: A Randomized Clinical Pilot Study</div>
+        <div class="paper-meta">
+          <strong>Suttmiller AMB, Snyder BA, Singh S, Moore BE</strong><br>
+          Journal of Foot &amp; Ankle Surgery · 30 julio 2026
+          <span class="evidence-pill">Nivel II — RCT Piloto</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42532332/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · Reparación AITFL · TightRope</span>
+      <span class="tag">WBCT Volumétrico 3D · RCT</span>
+      <span class="tag">CurveBeam AI · Old Dominion University</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>RCT piloto (n=20) que compara Tight Rope solo vs. Tight Rope + reparación del AITFL (augmentation) en lesiones sindesmóticas. Evaluación primaria: volumen 3D de la sindesmosis por WBCT (CurveBeam AI) a 6 semanas y 3 meses. Los volúmenes sindesmóticos se midieron como una relación entre el espacio tibioperoneal en 3D — una métrica más sensible que la simple medición de la "brecha" en Rx o TAC axial, que depende del nivel de corte. Secundarios: FAOS y RAND-36 hasta 1 año. Grupo TightRope solo: n=11 (50.5 ± 13.3 años). Grupo TightRope + AITFL: n=9 (55.9 ± 19.3 años).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Resultado principal: no hubo diferencias significativas en los volúmenes sindesmóticos 3D entre los grupos a 6 semanas ni a 3 meses (p &gt; 0.05). Ambos grupos mejoraron igualmente en FAOS y RAND-36. Hallazgo secundario interesante: los Weber C tuvieron aumento del volumen entre 6 semanas y 3 meses (ligera apertura de la sindesmosis en el tiempo — sugiere consolidación tardía del ligamento). No hubo correlación entre el volumen sindesmótico y los outcomes clínicos. <strong>Conclusión operativa: la reparación augmentada del AITFL añadida al suture button NO mejora la reducción 3D ni los outcomes a corto plazo vs. suture button solo. Este resultado desafía la hipótesis de que añadir reparación ligamentaria mejora la anatomía. Limitación importante: n=20 es insuficiente para descartar efecto (estudio piloto). Postura actual CTN: no cambiar la técnica estándar (suture button sin reparación AITFL) hasta disponer de un RCT con mayor potencia. Seguir verificando la reducción sindesmótica bajo artroscopia antes de instalar el suture button.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Minimal Clinically Important Difference for the FAAM-ADL Following Total Ankle Arthroplasty: Initial Estimates and Predictors of Achievement</div>
+        <div class="paper-meta">
+          <strong>Thomas GM, Green WA, Sommi C, West T, Simonson H, Hsu A, Pedowitz DI, Parekh SG</strong><br>
+          Foot &amp; Ankle International · 28 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42522326/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">FAAM-ADL · MCID · TAR</span>
+      <span class="tag">Resultados PRO · Outcome Measurement</span>
+      <span class="tag">Rothman Institute · Parekh</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Primera estimación del MCID (Minimal Clinically Important Difference) para el FAAM-ADL (Foot and Ankle Ability Measure — Activities of Daily Living) después de TAR primario. El Rothman Institute (Parekh, Pedowitz) analizó 164 TAR con FAAM-ADL pre y &gt;1 año postoperatorio. El MCID es el cambio mínimo en un score PRO que el paciente percibe como significativo — sin él, no es posible saber si una mejora estadística es clínicamente relevante. Tres métodos: SD method (12.5 pts), average change (26.0), change difference (32.3). AUC más alta: método change-difference (AUC 0.772, PPV 0.815). Predictor de lograr MCID: solo el FAAM-ADL preoperatorio bajo (OR 0.93 por punto de FAAM preop — cuanto más bajo el preop, mayor probabilidad de lograr MCID).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El 73.2% de los TAR logró MCID por el método SD (umbral 12.5 pts). La edad, sexo, IMC y comorbilidades NO predijeron el logro del MCID — solo el FAAM-ADL preoperatorio. Esto confirma el principio clínico: el paciente con mayor discapacidad preoperatoria tiene más margen para mejorar y más probabilidad de percibir la mejora como significativa. <strong>Conclusión operativa CTN: adoptar MCID de 12.5-26 puntos en FAAM-ADL como benchmark de éxito del TAR. En el consentimiento informado del TAR: explicar al paciente que el objetivo es mejorar el FAAM-ADL en ≥12-26 puntos — no simplemente "tener un número alto". Usar el FAAM-ADL pre y postoperatorio para documentar resultados en todos los TAR del CTN. Paciente con FAAM-ADL preop &lt;40/100: alta probabilidad de lograr MCID. Paciente con FAAM-ADL preop &gt;70: menor margen de mejora — discutir expectativas.</strong></p>
+    </div>
+  </div>
+
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Sex Differences in Osteochondral Lesions of the Talus: Lesion Size Reflects Patient Dimensions, Whereas Morphology Differs Between Sexes</div>
+        <div class="paper-meta">
+          <strong>Gianakos AL, Pijnacker JHM, Sierevelt IN, Geurts EJ, Dahmen J, Hemke R, Stufkens SAS, Kerkhoffs GMMJ</strong><br>
+          Foot and Ankle Surgery (EFAS) · 26 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42521545/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">OLT · Diferencias de Sexo · Morfología</span>
+      <span class="tag">CT · Tipo Crater · Amsterdam UMC</span>
+      <span class="tag">Kerkhoffs · Gianakos (Yale)</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio transversal del grupo de Kerkhoffs (Amsterdam UMC) con Gianakos (Yale) sobre 250 pacientes (94 mujeres, 156 hombres) con OLT primarios sintomáticos. Las lesiones en hombres eran más grandes en todas las dimensiones (p ≤ 0.01) — pero al ajustar por altura del paciente, la diferencia desaparecía (no significativa). Esto implica que el tamaño del OLT refleja principalmente las dimensiones físicas del paciente (talar size), no una diferencia biológica intrínseca de sexo. Sin embargo, la morfología del OLT sí difería: las mujeres tenían mayor probabilidad de lesión tipo "crater" (OR 2.5, IC 95% 1.1-5.9) — un defecto de pared vertical y fondo plano, que representa un patrón de comportamiento biológico distinto del tipo "shoulder" o "slope" más frecuente en hombres.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La morfología tipo "crater" en mujeres tiene implicaciones técnicas: el crater requiere curetaje del fondo del cráter y preparación ósea más extensa antes de la microfractura o el AOT para lograr integración del implante. Las lesiones shoulder/slope en hombres permiten acceso artroscópico más directo. El ajuste por altura del paciente en la planificación del AOT es crítico: no usar el diámetro del lesión bruto sin normalizar por talar size. <strong>Conclusión operativa CTN: al planificar un AOT en una mujer con OLT, anticipar: (1) morfología crater (más frecuente), (2) tamaño del talo más pequeño (menor espacio para el plug — verificar que el plug de 10 mm quepa sin comprometer el reborde subcondral lateral o medial), (3) curetaje más agresivo del cráter. En el formulario de planificación preoperatoria de OLT: documentar sexo, altura del paciente, morfología (crater/shoulder/slope) y tamaño normalizado (área/talar height ratio). Permite seleccionar mejor el tamaño del plug y anticipar la dificultad técnica.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Jean-Charles G et al.</strong> Reconstrucción artroscópica de ligamento lateral de tobillo con autoinjerto de isquiotibiales: sin déficit de salto a 6 meses — <em>JFAS</em>, 28 jul (n=49, ALALR vs controles sanos, tests DJ/SNH/SDH: sin diferencia, p&gt;0.05)</li>
+      <li><strong>Suttmiller AMB et al.</strong> AITFL augmentada en sindesmosis: sin diferencia volumétrica 3D vs TightRope solo — <em>JFAS</em>, 30 jul (RCT piloto, n=20)</li>
+      <li><strong>Tetsworth K et al.</strong> Restricción de radiografías rutinarias en seguimiento de tobillo y muñeca — <em>JBJS</em>, 29 jul (revisión de práctica — recomiendan protocolo PRN vs. control fijo)</li>
+      <li><strong>Noel-Barker N et al.</strong> Altura del navicular por ecografía bajo carga: herramienta confiable para valorar el arco longitudinal medial — <em>Foot Ankle Orthop</em>, jul 2026</li>
+      <li><strong>Edens G et al.</strong> Osteogénesis distractiva bilateral del cuarto metatarsiano + osteotomías biplanares del primer MT en braqui/metatarsalgias complejas — <em>Foot Ankle Specialist</em>, 30 jul</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Reparación AITFL Aumentada No Mejora la Reducción Sindesmótica 3D</div>
+        <p>Suttmiller et al. demuestran que añadir la reparación del ligamento AITFL al suture button (TightRope) NO produce una mejor reducción volumétrica 3D de la sindesmosis en WBCT a 6 semanas ni a 3 meses. Tampoco mejora los outcomes clínicos. Esto contradice la hipótesis intuitiva de que reconstruir más ligamento produce mejor anatomía. El suture button solo ya logra la reducción tibioperoneal adecuada cuando se instala correctamente con verificación artroscópica.</p>
+        <div class="verdict">⚖️ Veredicto: No agregar reparación rutinaria del AITFL al suture button. El paso crítico es la verificación artroscópica de la reducción antes de instalar el implante — no la cantidad de tejido ligamentario reparado. Aguardar un RCT con mayor potencia (n≥100) antes de cambiar la práctica en el otro sentido. Estudio piloto: no definitivo.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — La DCO para Hallux Rigidus No Supera a la Queilectomía Sola (Revisión RNOH)</div>
+        <p>Lewis et al. confirman que en el 76.7% de los estudios la DCO se realizó junto con queilectomía, haciendo imposible aislar el beneficio de la osteotomía. Los resultados son equivalentes a series de queilectomía sola, cuestionando si la osteotomía agrega valor real. La evidencia es predominantemente observacional con alto riesgo de sesgo — no hay RCTs. El AOFAS mejora en 41 puntos pero la queilectomía sola produce mejoras similares (38-45 puntos según la literatura).</p>
+        <div class="verdict">⚖️ Veredicto: La DCO puede seguir usándose en el subgrupo con MT1 largo/elevado o functional hallux limitus, donde la descompresión tiene una justificación biomecánica clara. En hallux rigidus sin MT1 anómalo: la queilectomía sola tiene la misma evidencia con menor complejidad técnica. No escalar a DCO de rutina en todos los grado II-III — seleccionar el subgrupo con indicación biomecánica.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Osteotomía de Youngswick (DCO para hallux rigidus):</strong> abordaje dorsomedial estándar MTF1. Queilectomía dorsal (extirpación de osteofitos dorsales del 25-33% de la cúpula metatarsal) — verificar ROM intraoperatorio ≥70°. Si MT1 largo ≥2 mm o EF con hallux limitus funcional: Youngswick — osteotomía en V con vértice proximal, corte distal horizontal + corte plantar oblicuo a 15°, desplazamiento plantar+proximal del fragmento distal de 2-3 mm. Fijación con 2 tornillos K-wire o tornillo sin cabeza Herbert. No acortar &gt;3 mm: riesgo de transferencia de carga a MT2.<br><br><strong>AOT para OLT moderado:</strong> artroscopia de tobillo diagnóstica primero — confirmar acceso al OLT sin maleolotomía (la mayoría de los OLT mediales requieren maleolotomía medial para acceso perpendicular al plug). OATS autólogo: extraer plug(s) del cóndilo femoral lateral/medial ipsilateral (portales mini-artrotomía de rodilla lateral, 1 cm). Plug de 8-12 mm según lesión. Inserción retrógrada con impactador ortogonal al cartílago.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación</h4>
+          <p><strong>DCO (Youngswick) + queilectomía:</strong> zapato de antepié (heel-weight bearing) 6 semanas. RTP deporte de impacto: 4-6 meses. El paciente debe saber que la mejoría del ROM puede continuar hasta 12 meses — no juzgar el resultado final antes del año.<br><br><strong>AOT para OLT:</strong> si sin maleolotomía: descarga con bota 6 semanas, apoyo parcial semana 6-8, apoyo total semana 8-10. Si con maleolotomía: descarga 8 semanas (consolidación ósea del osteotomo). RTP: 9-12 meses. Evaluación de integración del plug: RMN a 6 meses (secuencia T2 — buscar edema subcondral persistente y continuidad del cartílago). La integración incompleta al año en RMN no significa fracaso clínico — el cartílago del plug puede verse hipointenso hasta 18 meses.<br><br><strong>TAR — seguimiento con FAAM-ADL:</strong> aplicar FAAM-ADL pre y a 1 año. Benchmarking: mejoría ≥12.5 puntos = éxito mínimo; ≥26 puntos = éxito sólido.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Protocolos CTN</h4>
+          <p><strong>OLT — clasificación morfológica preoperatoria:</strong> en todo OLT, documentar en el informe de RMN/CT: (a) dimensiones de la lesión (largo × ancho × profundidad en mm), (b) tipo morfológico (crater / shoulder / slope), (c) presencia de quiste subcondral (sí/no), (d) grado de edema subcondral. En mujeres: anticipar mayor probabilidad de crater — solicitar TC con cortes finos (1 mm) para evaluar paredes del cráter antes de decidir la técnica.<br><br><strong>Hallux rigidus — evaluación preop extendida:</strong> incluir en la ficha preoperatoria de hallux rigidus: (a) medición MT1 vs MT2 en Rx carga oblicua (MT1 largo si ≥ MT2 + 2 mm), (b) test de Silfverskiöld para equinismo (que agrave el hallux limitus funcional), (c) functional hallux limitus en EF — si presente con MT1 largo: discutir DCO+queilectomía como alternativa a queilectomía sola en grado II-III.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">MCID — Minimal Clinically Important Difference</div>
+          <div class="glos-def">La diferencia mínima en un instrumento de medición de resultados (PRO — Patient-Reported Outcome) que el paciente percibe como clínicamente significativa en su vida diaria. Distingue entre cambio estadísticamente significativo y cambio relevante para el paciente. Para el FAAM-ADL después de TAR: MCID = 12.5-32.3 puntos según el método de cálculo. Sin conocer el MCID, no es posible interpretar si una mejoría de 10 puntos en FAAM-ADL es clínicamente importante o simplemente variabilidad de medición. El MCID depende del contexto clínico (cirugía, patología, tiempo de seguimiento) y varía por instrumento — el MCID del VAS, AOFAS, FAAM y FAOS son diferentes entre sí y no son intercambiables.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Youngswick (Decompressive/DCO)</div>
+          <div class="glos-def">Variante de la osteotomía chevron del primer metatarsiano diseñada para descomprimir la articulación MTF1 en hallux rigidus. Consiste en una osteotomía en V con vértice proximal: el corte distal es horizontal (como el Chevron estándar) y el corte plantar es oblicuo a 15-20° en dirección proximal. El resultado es que el fragmento distal del MT1 puede desplazarse tanto lateralmente (corrección de HV, si existiera) como plantarmente y proximalmente (descompresión/acortamiento). La descompresión plantar-proximal de 2-3 mm reduce la carga dorsal de la articulación MTF1 y restaura el ROM. La diferencia con el Chevron estándar: el Chevron solo desplaza lateralmente; el Youngswick desplaza además en el plano sagital. El acortamiento del MT1 alivia el hallux limitus funcional por reducción de la tensión del aparato sesamoideo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">OLT Tipo Crater vs. Tipo Shoulder</div>
+          <div class="glos-def">Clasificación morfológica de la lesión osteocondral del talo basada en la forma del defecto en TAC o RMN: Tipo Crater (cráter): paredes verticales bien definidas, fondo plano — aspecto similar a un cráter de impacto. Más frecuente en mujeres (OR 2.5 — Gianakos et al. 2026). Sugiere mecanismo de impacto puntual repetido (compresión axial). El cráter requiere curetaje de sus paredes para preparar el lecho receptor en el AOT. Tipo Shoulder (hombro): defecto en la periferia de la cúpula talar con extensión hacia el reborde articular — más amplio y plano. Más frecuente en hombres. Acceso artroscópico más sencillo. Tipo Slope (pendiente): defecto en la superficie articular con morfología inclinada. Estas clasificaciones morfológicas son complementarias a la clasificación por tamaño (cm²) y al grado de quiste subcondral.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Volumen Sindesmótico 3D por WBCT</div>
+          <div class="glos-def">Medición tridimensional del espacio tibioperoneal en la sindesmosis usando TAC bajo carga (WBCT). A diferencia de la distancia tibioperoné en Rx (una medición lineal en un solo plano) o la medición de la brecha en TAC axial (dependiente del nivel del corte), el volumen 3D cuantifica la cantidad total de espacio entre tibia y peroné en toda la sindesmosis — captando la reducción o apertura en todos los ejes simultáneamente. Se calcula segmentando automáticamente los huesos y midiendo el volumen entre sus superficies. Un volumen mayor = mayor apertura sindesmótica. La ratio contralateral (volumen sindesmótico lesionado / contralateral sano) es la métrica más informativa. CurveBeam AI es el sistema de WBCT con análisis volumétrico automatizado que usaron Suttmiller et al. Permite detectar malreducción residual que la Rx y el TAC axial no capturan.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 25 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 26 julio – 1 agosto 2026<br>
+  Fuentes: Foot and Ankle Surgery (EFAS) · Foot &amp; Ankle Specialist · Foot &amp; Ankle International · Journal of Foot &amp; Ankle Surgery<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
