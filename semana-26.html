@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 26 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 26 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 2 – 8 agosto, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 OTSR · Eur J Orthop Surg · OJSM · J Orthop Sci · JFAS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Scarf Osteotomy Versus First Metatarsophalangeal Arthrodesis for Severe Hallux Valgus: A Retrospective Comparative Study</div>
+        <div class="paper-meta">
+          <strong>Mahieu A, Mouton A, Graff W</strong><br>
+          Orthopaedics &amp; Traumatology: Surgery &amp; Research (OTSR) · 1 agosto 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42542183/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">HV Severo · Scarf vs Artrodesis MTF1</span>
+      <span class="tag">Satisfacción · Recurrencia · Sesamoide</span>
+      <span class="tag">Grupo Hospitalier Croix Saint Simon · París</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo retrospectivo de un solo cirujano (61 pies, 47 pacientes, mediana 52.5 meses) que compara directamente Scarf vs artrodesis MTF1 en HV severo (definido como sesamoide lateral desplazado &gt;75% del 1er espacio intermetatarsal en Rx AP con carga — criterio radiológico más estricto que el HVA). Es el primer estudio que compara ambas técnicas específicamente en HV severo (no moderado). Resultados: artrodesis → 60% muy satisfechos, Scarf → 28% (p=0.012). Artrodesis → 16% necesitó adaptación de calzado vs 44% Scarf (p=0.025). Dolor persistente: 12% artrodesis vs 39% Scarf (p=0.022). En el grupo Scarf: recurrencia 26%, OA MTF1 26%, hallux varo 9%. Sin seudoartrosis ni retirada de implantes en ninguno de los dos grupos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis MTF1 mostró mejor satisfacción, menos dolor y menos adaptación de calzado en HV severo vs la osteotomía Scarf en este estudio. El Scarf tiene una tasa de recurrencia del 26% y de OA MTF1 del 26% a mediana 52.5 meses cuando se usa en HV severo — resultados deficientes que cuestionan si el Scarf es suficiente para la corrección en esta franja. Limitación importante: estudio retrospectivo de un solo cirujano, n=61 — sesgo de selección y de técnica (la elección de Scarf vs artrodesis no fue aleatoria). <strong>Conclusión operativa CTN: en HV severo (sesamoide &gt;75% del espacio intermetatarsal o IMA &gt;18° según criterio clásico), la artrodesis MTF1 debe plantearse como opción de primera línea y no como "rescate" de la osteotomía. Discutirla abiertamente con el paciente: artrodesis → mejor satisfacción, sin ROM pero también sin recurrencia ni OA MTF1 a mediano plazo. Scarf en HV severo: reservar para paciente joven activo, IMA &lt;18°, sin OA MTF1 preexistente, que rechaza expresamente la artrodesis tras ser informado de la tasa de recurrencia del 26%.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Impact of Fixation Method on Avascular Necrosis in Talar Neck Fractures: A Retrospective Analysis</div>
+        <div class="paper-meta">
+          <strong>Page BE, Rechter GR, Nasir BA, Yawman JP, Jacobs ED, Langford JR, Haidukewych GJ, Shaath MK</strong><br>
+          European Journal of Orthopaedic Surgery &amp; Traumatology · 3 agosto 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42545506/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fractura Cuello Talo · AVN · Placa vs Tornillo</span>
+      <span class="tag">Necrosis Avascular · AO/OTA 81.2</span>
+      <span class="tag">Orlando Regional Medical Center · Nivel I Trauma</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis retrospectivo de un centro de trauma nivel I (n=70, 2017-2022), comparando tornillos solos (S, n=33) vs placa + tornillos independientes (PS, n=37) en fracturas de cuello de talo AO/OTA 81.2. Seguimiento mínimo 3 meses. La complicación más temida en la fractura de cuello de talo es la necrosis avascular (AVN) — ocurre porque la vascularización del talo es terminal y la fractura interrumpe los pedículos vasculares del canal del seno del tarso y el canal del tarso. Hallazgo principal: AVN en 52% del grupo S vs 22% del grupo PS (p=0.01). En regresión logística multivariable: la fijación con placa fue el único factor protector independiente frente a AVN (OR 0.16, IC 95% 0.03-0.70, p=0.01). Tasas de unión ósea: similares entre grupos (p=0.23). PTA, infección y reoperación: sin diferencias.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La placa + tornillos reduce el riesgo de AVN en 3.4 veces (OR 0.16) vs tornillos solos en fractura de cuello de talo. La hipótesis es que la placa proporciona mayor estabilidad rotatoria del fragmento, reduciendo el micromovement que interfiere con la revascularización. La placa también permite corrección de la mala rotación del fragmento (valgo/varo) que las guías de tornillos canulados no controlan bien en fracturas inestables (Hawkins II-III). <strong>Conclusión operativa CTN: en fractura de cuello de talo Hawkins II-III (o con conminución), preferir fijación con placa (placa anterolateral de talo de bajo perfil — p.ej. Synthes 2.0/2.4 mm — acceso anterolateral entre peroneo anterior y tendón extensores) en lugar de tornillos canulados solos. Tornillos canulados solos: aceptables en Hawkins I sin inestabilidad rotacional. Documentar el patrón de vascularización intraoperatorio (signo de Hawkins — banda subcondral en Rx a 6-8 semanas = revascularización). Informar al paciente del riesgo de AVN (20-50% según Hawkins y tratamiento) en el consentimiento.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Recovery After Surgery for Insertional Achilles Tendinopathy With and Without Bioinductive Scaffold Augmentation: A Retrospective Comparative Cohort Study</div>
+        <div class="paper-meta">
+          <strong>Genuth G, Stavrou P, Iselin LD</strong><br>
+          Orthopaedic Journal of Sports Medicine · 29 julio 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42539723/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Aquiles Insercional · Scaffold Bioinductivo</span>
+      <span class="tag">Haglund · Doble Fila · PROMIS</span>
+      <span class="tag">Assuta Tel Aviv · Luzern · OJSM</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte retrospectiva comparativa (n=30, 2021-2024) de cirugía abierta para tendinopatía Aquiles insercional (IAT) con resección de Haglund y reinsertación Aquiles en doble fila, con y sin scaffold bioinductivo de colágeno (tipo Integra Tendon Wrap o similar). Grupos: 15 reparación estándar vs 15 reparación + scaffold. Evaluación: PROMIS Physical Function (PF) y Pain Interference (PI) preop y a 6, 12 y 18 meses; RMN a 12 meses; tiempo a RTP (Return to Sport). Scores preoperatorios similares entre grupos. A 6 meses: scaffold → PROMIS PF 54 ± 5.3 vs estándar 49.5 ± 6 (p=0.03); PROMIS PI 50.6 ± 6.1 vs 55.3 ± 6.4 (p=0.04). RTS scaffold: 8 ± 1.7 vs estándar 9.7 ± 2.1 meses (p=0.02). A 12 y 18 meses: sin diferencia entre grupos.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El scaffold bioinductivo acelera la recuperación a 6 meses (mejor función, menos dolor, RTP 1.7 meses más rápido), pero los resultados a largo plazo son equivalentes a la reparación estándar. Esto indica que el scaffold mejora la velocidad de curación en la fase inicial — sin cambiar el resultado final. La RMN a 12 meses mostró integridad tendinosa en ambos grupos. El scaffold podría estar justificado especialmente en atletas de alto rendimiento o pacientes que necesitan recuperarse rápido. <strong>Conclusión operativa CTN: considerar agregar scaffold bioinductivo en cirugía de IAT con reinsertación en doble fila para pacientes activos/deportistas con necesidad de recuperación rápida (&lt;8 meses a RTS vs 10 meses sin scaffold). El costo adicional del scaffold (~$800-1.200 USD) debe sopesarse con el beneficio. No hay indicación en pacientes no deportistas o sin urgencia de RTP. Técnica: scaffold tipo "patch" aplicado sobre la reinserción tendinosa antes de cerrar; el colágeno actúa como inductor biológico de la proliferación fibroblástica en las primeras 6-12 semanas.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Clinical Outcome of Screw Fixation for Stress Fractures at the Base of the Second Metatarsal in Ballet Dancers: A Retrospective Case Series</div>
+        <div class="paper-meta">
+          <strong>Matsui T, Sugimoto T, Nagamoto H, Kumai T</strong><br>
+          Journal of Orthopaedic Science · 4 agosto 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42552186/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Fractura Estrés MT2 · Ballet · Danza Clásica</span>
+      <span class="tag">HCS Tornillo Sin Cabeza · Pointe Work</span>
+      <span class="tag">Waseda University · Osaka · Kansai</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de 5 bailarinas clásicas (5 pies) con fractura de estrés en la base del segundo metatarsiano resistente a tratamiento conservador ≥3 meses (sin unión en TC + dolor persistente). Técnica: 2 tornillos cannulated sin cabeza (HCS, Headless Cannulated Screw) vía mini-abordaje dorsal, sin inmovilización postoperatoria. Resultados: unión TC en promedio 7.0 ± 3.4 semanas (mediana 6). Apoyo total: 4.4 semanas promedio. Retorno a trabajo de puntas: 7.4 semanas. Retorno a saltos: 8.8 semanas. RTP nivel prelesión: 13.8 semanas. JSSF midfoot score: 77.8 preop → 98.0 postop. Sin recurrencias ni fallas del implante a 5 años de seguimiento. Sin entumecimiento permanente.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La fractura de estrés en la base del MT2 en bailarinas es una lesión específica del punta-trabalho (pointe work) — la carga axial repetitiva en la posición de puntas carga la base del MT2 de forma excéntrica. En bailarinas que no consolidan con 3 meses de conservador: la fijación con 2 HCS dorsales permite retornar a trabajo de puntas en promedio 7-8 semanas — mucho antes de lo que se lograría esperando consolidación espontánea tardía. <strong>Conclusión operativa CTN: en bailarina clásica con fractura estrés MT2 base sin consolidación en TC a 3 meses + dolor persistente: ofrecer fijación HCS como alternativa al tratamiento conservador prolongado. Acceso: abordaje dorsal longitudinal 2-3 cm sobre el 2do MT, proximal a la articulación de Lisfranc. 2 guías k-wire paralelas desde dorsal-distal a plantar-proximal (angulación de 30-45° respecto al suelo), seguidas de 2 HCS de 3.0-3.5 mm. Sin circo de yeso. Cargar con calzado rígido de MT desde día 1. En CTN: reportar a JSSF midfoot score y documentar tiempo a pointe work en el parte de alta.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">The Role of Haglund Deformity and Calcaneal Morphology in Insertional Achilles Tendinopathy: Radiographic Analysis in a Matched Surgical Cohort</div>
+        <div class="paper-meta">
+          <strong>Tay AYW, Toh RX, Buhary KSM, Li Z, Tay KS</strong><br>
+          Journal of Foot &amp; Ankle Surgery · 3 agosto 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42547006/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Haglund · IAT · Morfología Calcánea</span>
+      <span class="tag">FPA · PPL · Calcificación Intratendinosa</span>
+      <span class="tag">Singapore General Hospital · Grupo SGH</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio comparativo retrospectivo apareado por edad, sexo e IMC (37 IAT quirúrgicos vs 37 controles con patología de antepié/mediopié sin Aquiles). Evaluación radiológica en lateral de pie con carga: ángulo de Fowler-Philip (FPA), líneas de pitch paralelas (PPL), ratio X/Y (morfología calcánea posterosuperior), calcificación intratendinosa y espolón calcáneo posterior. Resultados: FPA mayor en IAT (62.3° vs 54.0°, p&lt;0.001); PPL positivo 95% vs 57% (p&lt;0.001); X/Y ratio menor en IAT (2.59 vs 2.76, p=0.022 — calcáneo con tubérculo más prominente y posterior); calcificación intratendinosa 70% vs 30% (p&lt;0.001); espolón posterior 89% vs 73% (p=0.037). FPA &gt;60° y PPL positivo son los mejores discriminadores.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los parámetros de Haglund (FPA, PPL, X/Y) y la calcificación intratendinosa están fuertemente asociados con IAT que requirió cirugía — confirman la importancia de la morfología calcánea en la etiología de la IAT. En la práctica: el 5% de los controles ya tenía PPL positivo y era asintomático — la morfología no es suficiente sin la clínica. La calcificación intratendinosa (presente en el 70% de los quirúrgicos) es el hallazgo radiológico más específico de IAT grave y marca la indicación quirúrgica relativa: calcificación intratendinosa grande (&gt;5 mm) raramente responde a conservador. <strong>Conclusión operativa CTN: protocolo de evaluación radiológica preoperatoria de IAT — incluir en la Rx lateral de pie con carga: (1) FPA (normal &lt;60°; Haglund &gt;60°), (2) PPL (positivo = 1er MT y polo posterior del calcáneo por encima de la línea entre maléolo posterior y suelo), (3) presencia de calcificación intratendinosa (sí/no, tamaño en mm), (4) espolón posterior (sí/no). Documentar los 4 parámetros en el protocolo quirúrgico. En Haglund + calcificación intratendinosa &gt;5 mm + FPA &gt;65°: indicación quirúrgica sólida después del fracaso conservador a 3-6 meses.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Pereira BS et al.</strong> Técnica STAR: reparación artroscópica all-inside 2 portales con ancla sin nudo para ligamento lateral de tobillo — <em>Arthroscopy Techniques</em>, 2 ago (nueva técnica simplificada de Broström artroscópico)</li>
+      <li><strong>Munoz MA et al.</strong> Sin diferencias en consolidación según tipo de injerto en artrodesis subastragalina — <em>EFORT Open Reviews</em>, 1 ago (autoinjerto vs aloinjerto: mismas tasas de unión)</li>
+      <li><strong>Rodríguez-Merchán EC et al.</strong> TAR vs artrodesis en OA tobillo terminal: revisión narrativa 2023-2025 — <em>EFORT Open Reviews</em>, 1 ago (evidencia mixta, ambas técnicas seguras y efectivas)</li>
+      <li><strong>Harada R et al.</strong> MCID del cuestionario SAFE-Q en cirugía de pie y tobillo — <em>JFAS</em>, 31 jul (primer MCID para el cuestionario japonés SAFE-Q)</li>
+      <li><strong>Jin S et al.</strong> Outcomes del manejo en etapas de fracturas bimaleolares y trimaleolares — <em>JFAS</em>, 1 ago (estadificación con fijador externo temporal antes de ORIF definitivo)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — En HV Severo, el Scarf tiene 26% de Recurrencia: la Artrodesis MTF1 es Superiora</div>
+        <p>Mahieu et al. demuestran que en HV severo (sesamoide &gt;75% del espacio intermetatarsal), el Scarf tiene recurrencia del 26%, OA MTF1 del 26% y solo 28% de pacientes muy satisfechos a 52.5 meses de mediana. La artrodesis MTF1 tiene 60% de muy satisfechos, 12% de dolor persistente y 0% de recurrencia en el mismo período. La práctica habitual de intentar siempre preservar la articulación en HV severo con osteotomías no es la mejor opción para este subgrupo.</p>
+        <div class="verdict">⚖️ Veredicto: En HV severo, discutir con el paciente la artrodesis MTF1 desde la primera consulta quirúrgica — no como segunda línea tras fracaso de osteotomía, sino como opción primaria de elección. El "precio" es la pérdida del ROM del hallux (impacto mínimo en la marcha, significativo en el deporte de alta exigencia). El beneficio: sin recurrencia, sin OA MTF1 postquirúrgica, menor necesidad de adaptación de calzado.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Tornillos Solos en Fractura Cuello de Talo: 52% de AVN vs 22% con Placa</div>
+        <p>Page et al. demuestran que los tornillos canulados solos — técnica actualmente estándar y muy difundida — producen AVN en el 52% de las fracturas de cuello de talo, mientras que la placa + tornillos reduce este riesgo a 22% (OR 0.16). La AVN del talo es una complicación devastadora que lleva a artrodesis TC o colapso articular. Si este hallazgo se confirma en estudios prospectivos, la placa debería convertirse en el estándar para Hawkins II-III.</p>
+        <div class="verdict">⚖️ Veredicto: Cambiar la práctica quirúrgica en fractura cuello de talo Hawkins II-III hacia fijación con placa de bajo perfil. Tornillos canulados solos: aceptar solo en Hawkins I sin desplazamiento rotacional. El estudio tiene limitaciones (retrospectivo, n=70, centro único, sin aleatorización de técnica), pero el OR 0.16 para AVN con placa es una señal clínica suficientemente fuerte para ajustar la práctica hasta disponer de más evidencia.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Artrodesis MTF1 en HV severo:</strong> abordaje dorsomedial. Denudación cuidadosa del cartílago articular de la cabeza del MT1 (motor oscilante, cureta) y base del P1 — hasta hueso subcondral sangrante en toda la superficie. Posición de artrodesis: 10-15° de dorsiflexión respecto al suelo (verificar con plantilla), 5-10° de valgo del hallux, 0° de rotación axial. Fijación: 2 tornillos cruzados sin cabeza (4.0-4.5 mm) + placa de neutralización dorsomedial de perfil bajo. La placa es clave en la rigidez rotacional. Verificar que no quede espacio dorsal (jamming) ni exceso de acortamiento del MT1 (&gt;3 mm crea transferencia).<br><br><strong>Placa en cuello de talo:</strong> acceso anterolateral entre tendón peroneo anterior (nervio peroneo superficial medial) y EDB (extensor digitorum brevis). Placa anterolateral de bajo perfil 2.0-2.4 mm. Reducción anatómica con trocánter o gancho antes de fijar. Tornillos distales perpendiculares al trazo de fractura.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación</h4>
+          <p><strong>Artrodesis MTF1 HV severo:</strong> zapato de talón 6 semanas (descarga del antepié). Rx de control a 6 semanas — buscar trabéculas cruzando el foco (consolidación). Zapato de carga completa semana 8-10. Consolidación definitiva por TC (no Rx) a 3 meses — umbral ≥50% de trabéculas cruzando = consolidación sólida. Sin uso de taco alto &gt;3 cm indefinidamente (favorece el hallux limitus de los MTF adyacentes).<br><br><strong>Fractura cuello de talo (Hawkins II-III con placa):</strong> descarga 8-10 semanas (mayor que Hawkins I — la placa no acelera la descarga, la fractura sí). Signo de Hawkins (banda subcondral en Rx AP a 6-8 semanas) = revascularización ocurriendo — pronóstico favorable. Ausencia del signo de Hawkins al mes 2-3: alertar sobre riesgo de AVN — RMN para confirmación. <br><br><strong>IAT con scaffold bioinductivo:</strong> protocolo estándar post-reinserción doble fila + escudo: bota articulada 6 semanas. Fisioterapia excéntrica desde semana 6. RTS &lt;8 meses en deportistas.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Protocolos CTN</h4>
+          <p><strong>HV severo — algoritmo de decisión quirúrgica:</strong> definir "HV severo" en CTN = sesamoide &gt;75% del espacio IM1 en Rx AP con carga O IMA &gt;18° O HVA &gt;40°. En HV severo: presentar artrodesis MTF1 en la primera consulta quirúrgica junto a osteotomía (Lapidus, Scarf extendido) — no omitir la artrodesis como opción. Documentar en la ficha la discusión de opciones y la elección del paciente.<br><br><strong>IAT radiológica preoperatoria:</strong> en toda IAT programada para cirugía, medir y documentar en la ficha: FPA (umbral &gt;60°), PPL (positivo/negativo), X/Y ratio, presencia de calcificación intratendinosa (tamaño mm) y espolón posterior. Fotografiar la Rx lateral para el archivo digital del paciente.<br><br><strong>Fractura cuello de talo:</strong> actualizar protocolo de trauma — Hawkins II-III: placa anterolateral de bajo perfil como primera línea (no solo tornillos canulados). Registrar tipo de fixación en la hoja operatoria para seguimiento de AVN a 3, 6 y 12 meses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Signo de Hawkins (Hawkins Sign)</div>
+          <div class="glos-def">Banda de rarefacción subcondral (línea hiperlúcida) visible en la Rx AP del tobillo 6-8 semanas después de una fractura de cuello de talo. Ocurre porque la revascularización del talo genera resorción ósea subcondral reactiva — solo sucede si hay flujo sanguíneo activo. Un signo de Hawkins positivo = talo revascularizándose = pronóstico favorable para AVN. Un signo de Hawkins ausente a las 8-10 semanas NO confirma AVN (baja sensibilidad), pero es una señal de alarma que justifica RMN. El signo fue descrito originalmente por Hawkins en 1970. Cuando está ausente, la RMN con secuencia T1 (hiposeñal del talo = AVN) a los 3-6 meses es el gold standard diagnóstico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Ángulo de Fowler-Philip (FPA) y Líneas de Pitch Paralelas (PPL)</div>
+          <div class="glos-def">Medidas radiológicas en la Rx lateral con carga para evaluar la morfología calcánea en la IAT. FPA (Fowler-Philip Angle): ángulo entre la superficie posterior del calcáneo y la línea de la base del calcáneo. Normal &lt;60°; Haglund ≥60°. Mide la prominencia del polo posterosuperior del calcáneo (bump de Haglund). PPL (Parallel Pitch Lines): se trazan 2 líneas paralelas al eje del calcáneo — una a través del proceso medial del calcáneo (suelo) y otra a través del proceso lateral posterior. Si el polo posterosuperior del calcáneo supera la 2ª línea (la del proceso lateral posterior), el PPL es positivo = Haglund deformity. Ratio X/Y: mide la relación entre la altura del polo posterosuperior y la longitud del calcáneo — cuanto menor el ratio, mayor la prominencia relativa del bump.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Scaffold Bioinductivo de Colágeno (Bioinductive Collagen Scaffold)</div>
+          <div class="glos-def">Matriz de colágeno tipo I extraída de tejido conectivo bovino o porcino (acelular), diseñada para actuar como andamiaje (scaffold) que induce la proliferación fibroblástica endógena en el tendón. No contiene células — actúa como un inductor físico-biológico. En Aquiles insercional: se coloca como "parche" sobre la reinserción del tendón en doble fila, cubriendo el área de mayor tensión. El scaffold se integra al tendón en 6-12 semanas (bioreabsorción parcial con formación de nuevo tejido colágeno). Productos disponibles: Integra Tendon Wrap (Integra LifeSciences), Regeneten (Smith+Nephew), ArthroFLEX (Arthrex). Diferencia con los scaffolds sintéticos (LARS, InternalBrace): el scaffold bioinductivo es biodegradable y actúa como inductor, no como refuerzo mecánico permanente.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fractura de Estrés Base MT2 (Marcha de Bailarina)</div>
+          <div class="glos-def">Lesión por sobreuso característica del entrenamiento de ballet clásico, específicamente del trabajo en puntas (pointe work) y medias puntas (demi-pointe). En la posición de puntas, la base del 2do metatarsiano soporta carga axial repetitiva contra el cuneiforme intermedio — el más rígido de los cuneiformes — lo que genera un mecanismo de palanca que fractura la cortical plantar de la base del MT2. Distinta de la fractura de estrés del diáfisis del MT2 (más common en corredores) — la base del MT2 en bailarinas es específica porque el MT2 es el más largo y el cuneiforme intermedio es el más encajonado. Hallazgo clásico: bailarina con dolor difuso de antepié que empeora con puntas y no mejora con reposo inicial. Diagnóstico: RMN (edema precortical mucho antes de la Rx) o TC para confirmar trazo cortical y evolución hacia pseudoartrosis.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 26 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 2 – 8 Agosto 2026<br>
+  Fuentes: OTSR · European Journal of Orthopaedic Surgery &amp; Traumatology · Orthopaedic Journal of Sports Medicine · Journal of Orthopaedic Science · Journal of Foot &amp; Ankle Surgery<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
