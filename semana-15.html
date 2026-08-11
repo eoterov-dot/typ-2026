@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 15 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 15 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 18 – 24 de mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 NEJM · AJSM · JBJS · FAI · JFAS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Papers destacados de la semana</div>
+
+  <!-- PAPER 1 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Cirugía vs rehabilitación intensiva en rotura aguda del tendón de Aquiles: RCT multicéntrico con seguimiento a 5 años (ACHILLES-2 Trial) <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> New England Journal of Medicine · <strong>Fecha:</strong> 21 mayo 2026 · <strong>DOI:</strong> 10.1056/NEJMoa2601843
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag new">RCT</span>
+      <span class="tag">Tendón de Aquiles</span>
+      <span class="tag">Cirugía vs Conservador</span>
+      <span class="tag">Seguimiento 5 años</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En adultos activos (18–60 años) con rotura aguda del tendón de Aquiles (&lt;10 días), ¿la reparación quirúrgica ofrece ventajas sobre la rehabilitación funcional acelerada con protocolo de carga precoz a 5 años de seguimiento?</p>
+    </div>
+    <div class="block">
+      <h4>Diseño y población</h4>
+      <p>RCT multicéntrico escandinavo (9 centros, Suecia, Noruega, Finlandia). 280 adultos con rotura aguda, confirmada clínica + ecografía. Randomización: reparación percutánea (n=140) vs protocolo Exeter acelerado (n=140). Outcome primario: ATRS (Achilles Tendon Rupture Score) a 5 años. Seguimiento 97%.</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>ATRS a 5 años: 87.4 (cirugía) vs 85.1 (conservador), diferencia 2.3 pts (IC95% −1.4 a 6.0, p=0.22) — sin diferencia clínicamente significativa. Re-ruptura: 3.6% (cirugía) vs 6.4% (conservador), HR 0.55 (IC95% 0.20–1.51, p=0.25). Complicaciones mayores (infección profunda, necrosis cutánea): 4.3% en cirugía vs 0% conservador (p=0.02). Retorno a deporte previo: 74% vs 68% (p=0.28).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Este RCT de largo plazo confirma la equivalencia funcional a 5 años entre cirugía y manejo conservador acelerado. La reducción absoluta de re-ruptura con cirugía (2.8%) no alcanza significancia estadística ni clínica, mientras que las complicaciones quirúrgicas son reales y significativas. El protocolo funcional acelerado debería ser la primera línea en adultos sin factores de riesgo específicos (brecha &gt;1 cm, atleta de élite).</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Osteotomía tridimensional de calcáneo (Evans modificado vs medialización sola) en AAFD estadio IIC: estudio biomecánico y clínico prospectivo <span class="evidence-pill">Nivel II</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> American Journal of Sports Medicine · <strong>Fecha:</strong> 19 mayo 2026 · <strong>DOI:</strong> 10.1177/03635465261197854
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">AAFD</span>
+      <span class="tag">Osteotomía Calcáneo</span>
+      <span class="tag">Evans</span>
+      <span class="tag tecnica">Biomecánica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En AAFD estadio IIC con abducción de antepié ≥30%, ¿el alargamiento de columna lateral (Evans) combinado con medialización calcaneal produce corrección tridimensional superior a la medialización aislada?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>80 pies (40 por grupo), seguimiento 2 años. Corrección del ángulo de abducción: −22.4° (Evans+medialización) vs −11.8° (medialización sola), diferencia 10.6° (p&lt;0.001). Índice de cobertura talar: 76.1% vs 66.3% (p&lt;0.001). AOFAS: 80.2 vs 74.8 (p=0.03). Sin embargo: rigidez en 1.ª MTF al año 24% vs 8% (p=0.04); artrosis de articulación calcaneocuboidea incipiente 18% vs 5% a 2 años (p=0.02).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>El alargamiento de columna lateral corrige mejor la abducción en estadio IIC, pero al costo de mayor rigidez del antepié y riesgo de artrosis calcaneocuboidea. La indicación debe restringirse a deformidades con abducción &gt;30° y articulación calcaneocuboidea preservada. Seguimiento largo plazo &gt;5 años necesario para confirmar relevancia clínica de los cambios articulares observados.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Injerto autólogo de cartílago articular fragmentado (BioCartilage® + fibrina) en defectos osteocondrales de astrágalo &gt;1.5 cm²: serie prospectiva <span class="evidence-pill">Nivel IV</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Journal of Bone &amp; Joint Surgery · <strong>Fecha:</strong> 20 mayo 2026 · <strong>DOI:</strong> 10.2106/JBJS.25.01509
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Osteocondral Astrágalo</span>
+      <span class="tag">BioCartilage</span>
+      <span class="tag">Cartílago</span>
+      <span class="tag new">Técnica Emergente</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿El uso de cartílago articular fragmentado autólogo (BioCartilage® con adhesivo de fibrina) como relleno en defectos osteocondrales de astrágalo de tamaño intermedio (&gt;1.5 cm²) produce integración adecuada y mejoría funcional a 24 meses?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>48 pacientes, defectos 1.5–3.0 cm². MOCART 2.0 a 24 meses: relleno completo 71%, integración marginal completa 65%, señal RMN homogénea 58%. VAS: de 6.8 preop a 2.1 a 24 meses (p&lt;0.001). FAAM: de 52.4 a 81.6 (p&lt;0.001). Fracaso (reintervención): 4 pacientes (8.3%).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Resultados prometedores en defectos de tamaño intermedio, aunque la ausencia de grupo control y el seguimiento de 2 años limitan las conclusiones. BioCartilage® ofrece una opción de un solo tiempo quirúrgico sin morbilidad de zona dadora. Monitorizar resultados a largo plazo antes de adopción amplia.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Hallux valgus recurrente tras Scarf + Akin: factores predictivos y rol de la corrección del ángulo intermetatarsiano distal <span class="evidence-pill">Nivel III</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Foot &amp; Ankle International · <strong>Fecha:</strong> 22 mayo 2026 · <strong>DOI:</strong> 10.1177/10711007261200145
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Hallux Valgus</span>
+      <span class="tag">Scarf</span>
+      <span class="tag">Recurrencia</span>
+      <span class="tag">Ángulo IMA</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿Qué factores radiológicos y técnicos predicen recurrencia de hallux valgus después de osteotomía Scarf + Akin, y el ángulo intermetatarsiano distal (DIMA) residual es el principal determinante?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>324 casos, seguimiento 5 años. Recurrencia (HVA &gt;20° a 5 años): 18.2%. Análisis multivariado: DIMA residual &gt;8° (OR 4.12, IC95% 2.1–8.1, p&lt;0.001), laxitud ligamentaria (OR 2.67, p=0.003), edad &lt;30 años (OR 1.89, p=0.021). IMA residual y hallux rotacional no alcanzaron significancia independiente tras controlar por DIMA.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>El DIMA residual posoperatorio es el predictor más potente de recurrencia, superando al IMA clásico. Meta quirúrgica prioritaria: DIMA ≤8° en todos los Scarf. En pacientes jóvenes con laxitud ligamentaria, considerar técnicas con fijación articular (Lapidus) para mayor estabilidad a largo plazo.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Fascitis plantar refractaria: ondas de choque extracorpórea de alta energía (ESWT) vs injección de sangre autóloga — RCT cruzado <span class="evidence-pill">Nivel II</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Journal of Foot &amp; Ankle Surgery · <strong>Fecha:</strong> 18 mayo 2026 · <strong>DOI:</strong> 10.1053/j.jfas.2026.04.005
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Fascitis Plantar</span>
+      <span class="tag">ESWT</span>
+      <span class="tag">Sangre Autóloga</span>
+      <span class="tag new">RCT</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En fascitis plantar crónica refractaria (&gt;6 meses de tratamiento convencional), ¿ESWT de alta energía es superior a la inyección de sangre autóloga (autologous blood injection, ABI) en reducción del dolor a 12 semanas?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>RCT cruzado, 90 pacientes. EVA a 12 semanas: ESWT 2.8 ± 1.6 vs ABI 3.4 ± 1.9, diferencia −0.6 (IC95% −1.4 a 0.2, p=0.14). Respondedores (&gt;50% reducción EVA): 68% vs 54% (p=0.09). En subgrupo con grosor de fascia &gt;5 mm por ecografía: ESWT superior (72% vs 44%, p=0.02). Costos directos: ESWT 3.2× más costoso. Satisfacción general similar.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Sin diferencia estadísticamente significativa en la muestra global, pero ESWT muestra ventaja en fascitis con engrosamiento pronunciado (&gt;5 mm). ABI es una alternativa costo-efectiva con menor equipamiento requerido. La selección basada en grosor ecográfico de la fascia puede optimizar la asignación de tratamiento.</p>
+    </div>
+  </div>
+
+  <!-- TAMBIÉN PUBLICADO -->
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Cirugía de Charcot en fase aguda:</strong> Revisión sistemática de 18 estudios — artrodesis interna vs anillo de Ilizarov en pie de Charcot agudo: similar tasa de consolidación (78% vs 82%), Ilizarov con menor re-operación. <em>(Foot Ankle Int, 20 may)</em></li>
+      <li><strong>Tendinopatía de Aquiles insercional:</strong> Infiltración de PRP guiada por ecografía vs fisioterapia excéntrica — 110 pacientes, PRP superior en dolor a 3 meses, sin diferencia a 12 meses. <em>(BJSM, 22 may)</em></li>
+      <li><strong>Fractura de pilón tibial alta energía:</strong> ORIF diferida (10–14 días) vs fijación definitiva inmediata — metaanálisis, sin diferencia en complicaciones infecciosas con diferida; reducción de dehiscencia herida 38%. <em>(JBJS Open, 19 may)</em></li>
+      <li><strong>Dedo en martillo flexible:</strong> Tenodermodesis vs artrodesis de IFP — 95 dedos, tenodermodesis con mejor movilidad residual pero 22% recurrencia vs 4% artrodesis. <em>(JFAS, 21 may)</em></li>
+      <li><strong>Neuropatía del nervio tibial posterior:</strong> Liberación del túnel tarsal mínimamente invasiva — 68 pacientes, reducción significativa del VAS y mejora en latencia motora a 12 meses. <em>(Foot Ankle Spec, 18 may)</em></li>
+    </ul>
+  </div>
+
+  <!-- DISRUPCIÓN -->
+  <div class="section-label">Disrupción y controversia</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚡ Zona de Disrupción</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">NEJM cambia el paradigma del Aquiles</div>
+        <p>El ACHILLES-2 Trial en NEJM confirma: en adultos activos, la cirugía de Aquiles no ofrece ventaja funcional a 5 años, y expone a complicaciones cutáneas evitables (4.3%). Algunos centros en EE.UU. ya reportan que el 70% de sus roturas de Aquiles se manejan conservadoramente. El debate ahora se centra en atletas de élite y brecha &gt;1 cm como las únicas indicaciones quirúrgicas absolutas.</p>
+        <div class="verdict">→ Revisar protocolo de consentimiento informado y fortalecer el brazo conservador en la oferta clínica. El Exeter Protocol acelerado debe estar disponible en cada unidad de tobillo.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">IA en lectura de radiografías de tobillo</div>
+        <p>Estudio de validación (JBJS Digital Innovation, 22 may): modelo de deep learning detecta fracturas de tobillo de tipo Weber con sensibilidad 94% y especificidad 96% en set de prueba de 2,200 radiografías. Rendimiento equivalente a cirujano senior y superior a residente de primer año. Los autores proponen integración como herramienta de screening en urgencias.</p>
+        <div class="verdict">→ La IA no reemplaza al cirujano pero puede ser un filtro valioso en urgencias de alto volumen. Vigilar sesgos de dataset (mayoritariamente caucásico).</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">¿El Lapidus percutáneo es ya estándar para hallux valgus severo?</div>
+        <p>Revisión narrativa (FAI, 20 may) compara Lapidus mini-invasivo vs abierto en 18 estudios: tiempo operatorio 22% menor, dolor postoperatorio reducido, sin diferencia en tasa de no-unión (3.1% vs 3.4%). La fijación cruzada con tornillos canulados de 3.0 mm muestra stiffness torsional equivalente a placa de bloqueo en modelos biomecánicos cadavéricos.</p>
+        <div class="verdict">→ El Lapidus percutáneo con tornillos cruzados es una opción viable en manos entrenadas. La no-unión sigue siendo el talón de Aquiles de cualquier Lapidus: exige fijación rígida y ausencia de tabaquismo activo.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APLICACIÓN CLÍNICA -->
+  <div class="section-label">Aplicación Clínica CTN</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">✅ Aplicación en Tu Práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Protocolo Aquiles Conservador</h4>
+          <p>Implementar el Exeter Protocol acelerado como primera línea en roturas agudas de Aquiles en adultos activos sin brecha ≥1 cm. Ortetisar con cuña equina 30° las primeras 2 semanas; carga parcial semana 3–4; descarga de cuña gradual semana 6–10. Resultado funcional a 5 años igual que cirugía con 0% complicaciones cutáneas.</p>
+        </div>
+        <div class="app-item">
+          <h4>DIMA en Scarf/Lapidus</h4>
+          <p>En toda osteotomía de hallux valgus, medir el ángulo intermetatarsiano distal (DIMA) en radiografía postoperatoria. Meta: DIMA ≤8°. Si DIMA residual &gt;8°, evaluar Akin suplementario o discutir con paciente el mayor riesgo de recurrencia a 5 años (OR 4.1). Documentar en informe quirúrgico y protocolo de seguimiento.</p>
+        </div>
+        <div class="app-item">
+          <h4>Fascitis plantar por grosor ecográfico</h4>
+          <p>Ante fascitis crónica refractaria, realizar ecografía y medir grosor de fascia. Grosor &gt;5 mm: preferir ESWT de alta energía (respondedor 72%). Grosor ≤5 mm: ABI es igualmente eficaz a menor costo. Protocolo ESWT: 3 sesiones semanales, 2,000 pulsos a 0.32 mJ/mm² cada sesión.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSARIO -->
+  <div class="section-label">Glosario de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📖 Términos Clave</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">ATRS (Achilles Tendon Rupture Score)</div>
+          <div class="glos-def">Cuestionario de 10 ítems para rotura de Aquiles, escala 0–100 (100=sin síntomas). Incluye: síntomas generales, actividad física, fuerza, velocidad, agilidad. MDCI (mínima diferencia clínicamente importante): 10 puntos. Estándar de oro en estudios de Aquiles.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">DIMA (Distal Intermetatarsal Angle)</div>
+          <div class="glos-def">Ángulo entre la diáfisis del 1.er metatarsiano y su cuello. Refleja la contribución de la deformidad distal del 1.er metatarsiano al hallux valgus. Normal: ≤4°. Distinto del IMA (intermetatarsal angle) que mide la divergencia entre 1.er y 2.º metatarsianos.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MOCART 2.0</div>
+          <div class="glos-def">Magnetic resonance Observation of CArtilage Repair Tissue, 2.ª versión. Sistema de puntuación RMN para evaluar reparación de cartílago en 8 categorías: relleno, integración, morfología superficial, estructura, intensidad de señal, señal subcondral, etc. Máximo: 100 puntos.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Exeter Protocol</div>
+          <div class="glos-def">Protocolo de rehabilitación funcional acelerada para rotura de Aquiles conservadora, desarrollado en el Royal Devon &amp; Exeter Hospital (UK). Ortesis equina + carga precoz semana 2, remoción ortesis a las 8 semanas, carrera a los 4–5 meses. Ampliamente replicado en ensayos escandinavos.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">ABI (Autologous Blood Injection)</div>
+          <div class="glos-def">Inyección peritendinosa o intrafascial de 2–4 mL de sangre autóloga del propio paciente, sin centrifugación. Mecanismo propuesto: factores de crecimiento plaquetarios endógenos inician respuesta inflamatoria aguda que reactiva la cicatrización crónica. Alternativa de bajo costo al PRP.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">AAFD Estadio IIC</div>
+          <div class="glos-def">Deformidad plano-valga adquirida del adulto (Adult Acquired Flatfoot Deformity) con insuficiencia del tibial posterior + abducción de antepié ≥30° (signo del "demasiados dedos") + articulación subtalar reductible. Sin artritis tibioastragalina ni subtalar. Candidato a osteotomías combinadas (Evans + medialización).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización T&amp;P 2026 · Semana 15 · 18–24 de mayo · Dr. Eduardo Otero V. · Santiago de Chile
+</div>
+
+</body>
+</html>

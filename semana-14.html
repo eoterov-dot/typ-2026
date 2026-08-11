@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 14 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 14 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 11 – 17 de mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 JBJS · Foot Ankle Int · AJSM · KSSTA · JFAS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Papers destacados de la semana</div>
+
+  <!-- PAPER 1 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Reparación anatómica del ligamento de Spring con ancla de sutura vs plastia tendinosa en pie plano adulto adquirido: RCT con seguimiento a 2 años <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Journal of Bone &amp; Joint Surgery · <strong>Fecha:</strong> 12 mayo 2026 · <strong>DOI:</strong> 10.2106/JBJS.25.01247
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag new">RCT</span>
+      <span class="tag">Pie Plano</span>
+      <span class="tag">Ligamento Spring</span>
+      <span class="tag">AAFD</span>
+      <span class="tag tecnica">Técnica Quirúrgica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En adultos con deformidad plano-valga sintomática estadio II (AAFD), ¿la reparación directa del ligamento calcaneonavicular plantar (spring) con doble ancla de sutura es equivalente o superior a la reconstrucción con injerto tendinoso en términos de corrección radiográfica y función a 2 años?</p>
+    </div>
+    <div class="block">
+      <h4>Diseño y población</h4>
+      <p>RCT multicéntrico (4 centros, EE.UU./Canadá). 96 pacientes con AAFD estadio IIB, sin artritis tibioastragalina ni subtalar. Randomización 1:1: reparación con ancla (n=48) vs plastia con semitendinoso alogénico (n=48). Todos recibieron osteotomía de medialización de calcáneo + alargamiento de columna lateral.</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>AOFAS hindfoot 82.4 ± 9.1 (ancla) vs 80.7 ± 10.3 (plastia), diferencia 1.7 pts (IC95% −2.1 a 5.5, p=0.38) — no inferioridad demostrada. Arch height index recuperado a 0.295 ± 0.022 vs 0.291 ± 0.025 (p=0.44). Tasa de re-ruptura: 4.2% (ancla) vs 2.1% (plastia) (p=0.55). Tiempo quirúrgico 18 min menor con ancla (p=0.001). Complicaciones similares.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>La reparación con ancla de sutura es no-inferior a la plastia tendinosa para restaurar el ligamento spring, con la ventaja de evitar la morbilidad del injerto y reducir el tiempo operatorio. En estadios IIB sin insuficiencia masiva del ligamento, la reparación directa puede considerarse técnica de elección cuando el tejido remanente es de calidad adecuada.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Brostrom-Gould laparoscópico versus abierto en inestabilidad crónica de tobillo: RCT con análisis de retorno al deporte <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> American Journal of Sports Medicine · <strong>Fecha:</strong> 14 mayo 2026 · <strong>DOI:</strong> 10.1177/03635465261182304
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag new">RCT</span>
+      <span class="tag">Inestabilidad Tobillo</span>
+      <span class="tag">Brostrom</span>
+      <span class="tag">Artroscopia</span>
+      <span class="tag">Retorno Deporte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿El Brostrom-Gould asistido artroscópicamente produce retorno al deporte más rápido y resultados funcionales equivalentes al procedimiento abierto en atletas con inestabilidad lateral crónica de tobillo (CLAI)?</p>
+    </div>
+    <div class="block">
+      <h4>Diseño y población</h4>
+      <p>RCT (China, 3 centros). 124 atletas competitivos con CLAI (≥2 esguinces/año, prueba de cajón anterior positiva, Beighton ≤4). Artroscópico (n=62) vs abierto (n=62). Outcome primario: tiempo hasta retorno pleno al deporte. Seguimiento mínimo 18 meses.</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>Retorno al deporte: 14.2 semanas (artroscópico) vs 18.6 semanas (abierto), diferencia −4.4 semanas (IC95% −6.1 a −2.7, p&lt;0.001). FAAM Sport a 12 meses: 91.3 vs 88.7 (p=0.09). Tasa de re-esguince a 18 meses: 3.2% vs 4.8% (p=0.68). Dolor postoperatorio (EVA día 3): significativamente menor en artroscópico (2.1 vs 3.8, p&lt;0.001). Cicatriz 35% menor (p&lt;0.001).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Para atletas con CLAI sin laxitud generalizada, el Brostrom artroscópico ofrece recuperación ~4 semanas más rápida con resultados funcionales equivalentes a largo plazo. La curva de aprendizaje (~30 casos) y el costo de instrumental son la barrera principal. Considerar en centros con volumen suficiente para atletas con presión competitiva de tiempo.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Osteotomía de Weil modificada versus Weil clásica en metatarsalgia por subluxación de 2.º–4.º MTF: cohorte prospectiva a 3 años <span class="evidence-pill">Nivel II</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Foot &amp; Ankle International · <strong>Fecha:</strong> 11 mayo 2026 · <strong>DOI:</strong> 10.1177/10711007261183910
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Metatarsalgia</span>
+      <span class="tag">Osteotomía Weil</span>
+      <span class="tag">MTF</span>
+      <span class="tag tecnica">Técnica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿La modificación de Weil con deslizamiento plantar adicional de 3 mm (para reducir la rigidez en extensión) mejora la función y la satisfacción respecto al Weil clásico en pacientes con metatarsalgia por subluxación MTF?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>125 pies (66 Weil clásico / 59 Weil modificado). Floating toe a 12 meses: 38% (clásico) vs 19% (modificado), RR 0.50 (IC95% 0.28–0.88, p=0.016). FAAM activities 78.4 vs 84.1 (p=0.03). Satisfacción "muy satisfecho": 61% vs 79% (p=0.025). Tasa de recidiva de subluxación similar (8% vs 6%, p=0.62).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>El deslizamiento plantar adicional de 3 mm reduce a la mitad la tasa de floating toe y mejora la satisfacción. Técnicamente sencillo de incorporar. Recomendado cuando hay subluxación MTF grados II–III con plantar plate insuficiente.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Infiltración de plasma rico en plaquetas vs ácido hialurónico intraarticular en artrosis de tobillo: metaanálisis de RCTs (2018–2026) <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Knee Surgery, Sports Traumatology, Arthroscopy · <strong>Fecha:</strong> 15 mayo 2026 · <strong>DOI:</strong> 10.1007/s00167-026-08194-x
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">PRP</span>
+      <span class="tag">Ácido Hialurónico</span>
+      <span class="tag">Artrosis Tobillo</span>
+      <span class="tag meta">Meta-análisis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿El PRP intraarticular es superior al ácido hialurónico (AH) en reducción de dolor y mejora funcional en artrosis de tobillo (Kellgren-Lawrence I–III)?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>8 RCTs incluidos (n=562 tobillos). Dolor (EVA) a 6 meses: diferencia ponderada −1.2 puntos a favor de PRP (IC95% −1.8 a −0.6, p&lt;0.001). AOFAS a 12 meses: +4.8 pts PRP vs AH (IC95% 1.9–7.7, p=0.001). Efecto mayor en KL I–II que KL III (interacción p=0.04). Duración del beneficio PRP superior hasta 18 meses; AH se iguala en pérdida de efecto a 24 meses. I² heterogeneidad: 62% (moderada).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>PRP ofrece superioridad modesta sobre AH, especialmente en estadios tempranos y hasta 18 meses. La heterogeneidad moderada y la variabilidad en preparación del PRP limitan la generalización. En artrosis KL III avanzada, la diferencia clínica es marginal — considerar ambos como puentes hacia cirugía.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Factores de riesgo para conversión a artrodesis después de artroplastia total de tobillo: análisis de registro multicéntrico (n=4,820) <span class="evidence-pill">Nivel III</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Journal of Foot &amp; Ankle Surgery · <strong>Fecha:</strong> 13 mayo 2026 · <strong>DOI:</strong> 10.1053/j.jfas.2026.03.019
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">ATA</span>
+      <span class="tag">Artrodesis</span>
+      <span class="tag">Revisión</span>
+      <span class="tag">Registro</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿Qué factores preoperatorios y perioperatorios predicen la necesidad de conversión de artroplastia total de tobillo (ATA) a artrodesis en seguimiento a 5 años?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>Registro Norteamericano de ATA, 4,820 implantes, seguimiento 5 años. Tasa global de conversión: 5.8%. Factores independientes de conversión: IMC &gt;35 (HR 2.14, p&lt;0.001), historial de infección previa (HR 3.87, p&lt;0.001), deformidad coronal preoperatoria &gt;15° (HR 1.82, p=0.002), cirujano con volumen &lt;10 ATA/año (HR 1.65, p=0.008), y uso de implante no modular (HR 1.44, p=0.031). Depresión y tabaquismo no alcanzaron significancia independiente.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>La selección cuidadosa del paciente es crítica: IMC &gt;35, infección previa y deformidad &gt;15° multiplican el riesgo de conversión. El volumen del cirujano como predictor independiente refuerza la necesidad de centralización en centros de referencia para ATA. Útil para consentimiento informado preoperatorio.</p>
+    </div>
+  </div>
+
+  <!-- TAMBIÉN PUBLICADO -->
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Sindesmosis en deportistas de élite:</strong> Análisis de tiempo de retorno al deporte post-reparación con botón vs tornillo — 186 atletas, retorno 4 semanas antes con botón dinámico. <em>(Orthop J Sports Med, 11 may)</em></li>
+      <li><strong>Tendon tibial posterior ecografía:</strong> Validación de protocolo ecográfico para clasificar insuficiencia del TP (Johnson-Strom) vs hallazgos intraoperatorios — sensibilidad 88%, especificidad 91%. <em>(J Ultrasound Med, 12 may)</em></li>
+      <li><strong>Neuroma de Morton: ablación por radiofrecuencia pulsada</strong> vs corticosteroide — 60 pacientes, RFP superior en dolor a 6 meses, sin diferencia funcional. <em>(Pain Physician, 13 may)</em></li>
+      <li><strong>Osteocondral astrágalo: injerto osteocondral de rodilla (OATS)</strong> — Serie de 45 casos, defectos &gt;150 mm², integración 89% a 2 años por RMN, AOFAS +29 pts. <em>(Cartilage, 15 may)</em></li>
+      <li><strong>Fascitis plantar crónica: litotripsia extracorpórea focalizada</strong> vs radial — metaanálisis 14 RCTs, sin diferencia significativa en dolor a 12 semanas. <em>(Phys Ther Sport, 14 may)</em></li>
+    </ul>
+  </div>
+
+  <!-- DISRUPCIÓN -->
+  <div class="section-label">Disrupción y controversia</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚡ Zona de Disrupción</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">Implantes absorbibles en sindesmosis</div>
+        <p>Un estudio multicéntrico prospectivo (JBJS Open Access, 15 may) reporta 14.3% de falla de implante biodegradable vs 3.1% con tornillo metálico en sindesmosis agudas grado III–IV (p=0.003). La degradación prematura antes de la ligamentización completa es la causa propuesta.</p>
+        <div class="verdict">→ La evidencia actual NO soporta el uso rutinario de implantes completamente biodegradables en sindesmosis de alta energía.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">Bota de yeso vs bota funcional en fractura de Jones aguda</div>
+        <p>RCT español (n=88): bota funcional con apoyo inmediato vs yeso sin apoyo 6 semanas en fracturas de Jones zona II. Tasa de unión a 12 semanas: 91% (bota) vs 88% (yeso), p=0.58. Satisfacción y retorno laboral significativamente mejores con bota. <em>(Foot Ankle Int, 14 may)</em></p>
+        <div class="verdict">→ La bota funcional con apoyo temprano es segura y preferible en fractura de Jones no desplazada sin alta demanda atlética.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">¿Siempre artrodesis subtalar en calcaneopatía postraumática?</div>
+        <p>Revisión sistemática (JFAS, 13 may) de 12 estudios: 30% de los pacientes con artrodesis subtalar por fractura de calcáneo reportan dolor persistente moderado-severo a 5 años. Los autores cuestionan la artrodesis como solución "definitiva" y proponen protocolo de rehabilitación intensiva como alternativa en casos seleccionados.</p>
+        <div class="verdict">→ Evidencia insuficiente para cambiar práctica; la artrodesis subtalar sigue siendo estándar en artrosis postraumática sintomática, pero el manejo conservador intensificado merece evaluación en estadios tempranos.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APLICACIÓN CLÍNICA -->
+  <div class="section-label">Aplicación Clínica CTN</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">✅ Aplicación en Tu Práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Protocolo AAFD Estadio II</h4>
+          <p>Basado en el RCT del ligamento spring: en estadios IIB con ligamento remanente de calidad, intentar reparación directa con ancla antes de recurrir a plastia tendinosa. Evalúa grosor y continuidad ligamentaria bajo imagen intraoperatoria o ecografía preoperatoria.</p>
+        </div>
+        <div class="app-item">
+          <h4>Selección para Brostrom Artroscópico</h4>
+          <p>Atletas con CLAI, Beighton ≤4, sin lesión osteocondral asociada y sin necesidad de exploración de senos del tarso: candidatos ideales para Brostrom artroscópico. Comunicar ventaja de ~4 semanas de retorno y menor dolor postoperatorio vs técnica abierta.</p>
+        </div>
+        <div class="app-item">
+          <h4>Screening ATA de alto riesgo</h4>
+          <p>Antes de indicar ATA: documentar IMC, historia de infección, deformidad coronal y volumen del centro. En IMC &gt;35 + deformidad &gt;15° combinar dos factores de riesgo mayor — sopesar artrodesis primaria vs ATA con expectativas ajustadas en consentimiento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSARIO -->
+  <div class="section-label">Glosario de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📖 Términos Clave</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Ligamento calcaneonavicular plantar (Spring)</div>
+          <div class="glos-def">Complejo ligamentario medial que soporta la cabeza del astrágalo y el arco medial. Su insuficiencia es clave en el AAFD. Comprende fascículo superomedial (más grueso) e inferoplantar.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">FAAM (Foot and Ankle Ability Measure)</div>
+          <div class="glos-def">Cuestionario autoreportado de 29 ítems (21 actividades diarias + 8 deportivas). Escala 0–100. MDCI: 8 pts para actividades, 9 pts para subescala deportiva. Ampliamente usado como outcome primario en estudios de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Floating Toe</div>
+          <div class="glos-def">Complicación de osteotomías metatarsales (especialmente Weil) donde el dedo queda en dorsiflexión permanente sin contacto plantar. Causa: contractura de extensor por descenso excesivo del metatarsiano o cicatriz capsular.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Arch Height Index (AHI)</div>
+          <div class="glos-def">Cociente entre la altura del arco medial y la longitud truncada del pie en carga. AHI normal ~0.310. Valor diagnóstico en pie plano: &lt;0.260. Medida objetiva y reproducible para seguimiento radiográfico del arco.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">CLAI (Chronic Lateral Ankle Instability)</div>
+          <div class="glos-def">Inestabilidad lateral crónica de tobillo definida por ≥2 episodios de "giving way" en 12 meses + prueba de cajón anterior positiva (>10 mm) + síntomas >6 meses a pesar de fisioterapia.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Kellgren-Lawrence (KL)</div>
+          <div class="glos-def">Clasificación radiográfica de artrosis (I–IV). KL I: dudoso; KL II: mínimo (osteofitos definitivos); KL III: moderado (reducción moderada espacio); KL IV: severo (gran reducción + esclerosis). Aplicable a tobillo, rodilla y cadera.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización T&amp;P 2026 · Semana 14 · 11–17 de mayo · Dr. Eduardo Otero V. · Santiago de Chile
+</div>
+
+</body>
+</html>
