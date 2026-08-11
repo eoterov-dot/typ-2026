@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 16 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.tecnica{background:#e8f0fd;border-color:#a8c0f0;color:#1a3a8a;}
+  .tag.meta{background:#fef9e7;border-color:#f9e4a0;color:#7d5a00;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 16 · Actualización T&amp;P 2026</h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 25 – 31 de mayo, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Lancet · JBJS · FAI · KSSTA · BJSM</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Papers destacados de la semana</div>
+
+  <!-- PAPER 1 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Artroplastia total de tobillo vs artrodesis tibioastragalina en artrosis terminal: RCT pragmático con 7 años de seguimiento (TOTAL Trial) <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> The Lancet · <strong>Fecha:</strong> 28 mayo 2026 · <strong>DOI:</strong> 10.1016/S0140-6736(26)00841-3
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag new">RCT</span>
+      <span class="tag">ATA</span>
+      <span class="tag">Artrodesis</span>
+      <span class="tag">Artrosis Terminal</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En adultos con artrosis de tobillo grado KL III–IV, ¿la artroplastia total (ATA) ofrece mejor calidad de vida y función a 7 años que la artrodesis tibioastragalina (fusión)?</p>
+    </div>
+    <div class="block">
+      <h4>Diseño y población</h4>
+      <p>RCT pragmático multicéntrico (14 centros, Reino Unido). 340 pacientes (ATA n=170, artrodesis n=170). Edad media 62.4 años. Implante ATA: STAR o Infinity (cirujano-elección). Outcome primario: Manchester-Oxford Foot Questionnaire (MOXFQ) Walking/Standing a 7 años.</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>MOXFQ W/S a 7 años: 28.4 (ATA) vs 32.1 (artrodesis), diferencia −3.7 (IC95% −7.2 a −0.2, p=0.04) — superioridad marginal pero estadísticamente significativa de ATA. MOXFQ Pain: 22.1 vs 25.8 (p=0.03). Satisfacción "excelente o buena": 74% vs 68% (p=0.18). Re-operación mayor: ATA 19.4% (revisión/rescate) vs artrodesis 8.2% (p=0.003). Artrodesis ipsilateral subtalar a 7 años: 12.4% (artrodesis) vs 4.1% (ATA), p=0.008.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Por primera vez, un RCT de largo plazo en Lancet demuestra superioridad funcional de ATA sobre artrodesis, aunque marginal y a expensas de mayor re-operación (19% vs 8%). La artrodesis protege mejor las articulaciones adyacentes. La elección debe individualizarse: ATA en pacientes jóvenes-activos con expectativas funcionales altas; artrodesis en pacientes con factores de riesgo o acceso limitado a revisión.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Reparación percutánea con InternalBrace vs Brostrom abierto en atletas con laxitud generalizada (Beighton ≥5): análisis de subgrupo prospectivo <span class="evidence-pill">Nivel II</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> British Journal of Sports Medicine · <strong>Fecha:</strong> 27 mayo 2026 · <strong>DOI:</strong> 10.1136/bjsports-2026-108741
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">InternalBrace</span>
+      <span class="tag">Brostrom</span>
+      <span class="tag">Laxitud Generalizada</span>
+      <span class="tag">Hiperlaxitud</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En atletas con CLAI e hiperlaxitud ligamentaria generalizada (Beighton ≥5), ¿la augmentación con InternalBrace (Arthrex) produce mejores tasas de estabilidad y retorno al deporte que el Brostrom abierto estándar?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>82 atletas (InternalBrace n=41, Brostrom n=41). Re-esguince a 24 meses: 7.3% (IB) vs 22.0% (Brostrom), RR 0.33 (IC95% 0.10–0.87, p=0.027). FAAM Sport: 90.2 vs 84.6 (p=0.04). Tiempo retorno pleno: 13.8 vs 16.4 semanas (p=0.07). Rigidez percibida: mayor en IB (18% vs 4%, p=0.03). Remodelación ligamentaria RMN a 12 meses: mejor señal de madurez en IB.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>En el subgrupo de hiperlaxitud (Beighton ≥5), el InternalBrace reduce significativamente la re-esguince a 2 años. La augmentación con cinta de fibrocinta es especialmente relevante en este grupo donde el Brostrom solo tiene altas tasas de recidiva. Pedir Beighton preoperatorio de rutina y seleccionar técnica según resultado.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Tobillo en varo postraumático: corrección con osteotomía supramaleolar vs con osteotomía tibial distal oblicua — análisis biomecánico y funcional <span class="evidence-pill">Nivel III</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Journal of Bone &amp; Joint Surgery · <strong>Fecha:</strong> 26 mayo 2026 · <strong>DOI:</strong> 10.2106/JBJS.25.01632
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Tobillo en Varo</span>
+      <span class="tag">Osteotomía Supramaleolar</span>
+      <span class="tag tecnica">Técnica</span>
+      <span class="tag">Deformidad Coronal</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿La osteotomía supramaleolar de apertura medial corrige mejor la carga articular tibioastragalina que la osteotomía tibial distal oblicua en tobillo en varo postraumático con varo &lt;15°?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>48 tobillos (25 supramaleolar / 23 oblicua). Corrección del eje mecánico: −10.8° supramaleolar vs −9.2° oblicua (p=0.18). Distribución de carga (baropodometría): normalización a zona central 78% vs 74% (p=0.52). AOFAS: +22.4 vs +19.8 pts (p=0.31). Tiempo de consolidación: similar (10.8 vs 11.2 sem). Complicación mayor (mal-unión, necrosis): 2 vs 1 caso. Sin diferencia en outcomes primarios entre técnicas.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Para deformidades en varo ≤15°, ambas técnicas son igualmente efectivas. La elección puede basarse en la anatomía local, experiencia del cirujano y presencia de deformidad concomitante de fíbula. La clave es la corrección del eje mecánico a neutro, independientemente de la técnica utilizada.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Síndrome del seno del tarso: artroscopia vs infiltración guiada por ecografía — RCT piloto <span class="evidence-pill">Nivel II</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Knee Surgery, Sports Traumatology, Arthroscopy · <strong>Fecha:</strong> 29 mayo 2026 · <strong>DOI:</strong> 10.1007/s00167-026-08341-4
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Seno del Tarso</span>
+      <span class="tag">Artroscopia</span>
+      <span class="tag">Infiltración Ecográfica</span>
+      <span class="tag new">RCT Piloto</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>En síndrome del seno del tarso refractario (&gt;3 meses de conservador), ¿la artroscopia subastragalina con desbridamiento es superior a la infiltración de corticosteroide + anestésico guiada por ecografía a 12 meses?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>60 pacientes (artroscopia n=30, infiltración n=30). EVA a 6 meses: 2.4 (artroscopia) vs 3.1 (infiltración), diferencia −0.7 (p=0.08). EVA a 12 meses: 2.2 vs 3.8 (p=0.004). Satisfacción a 12 meses: 83% vs 57% (p=0.02). Recidiva síntomática: 10% vs 40% (p=0.005). Necesidad de re-intervención: 3% vs 27% (p=0.009).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>Para síndrome del seno del tarso refractario, la artroscopia subastragalina con desbridamiento ofrece mejores resultados a 12 meses con menor recidiva. La infiltración es razonable como primer escalón; ante recidiva o falta de respuesta a 3 meses, el desbridamiento artroscópico es preferible a repetir infiltraciones. Estudio piloto — esperar confirmación en RCT más grande.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Fractura de calcáneo intraarticular desplazada: ORIF vs tratamiento conservador en pacientes &gt;55 años — revisión sistemática actualizada <span class="evidence-pill">Nivel I</span></div>
+        <div class="paper-meta">
+          <strong>Revista:</strong> Foot &amp; Ankle International · <strong>Fecha:</strong> 25 mayo 2026 · <strong>DOI:</strong> 10.1177/10711007261204520
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Calcáneo</span>
+      <span class="tag">ORIF</span>
+      <span class="tag">Conservador</span>
+      <span class="tag meta">Revisión Sistemática</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Pregunta clínica</h4>
+      <p>¿En pacientes mayores de 55 años con fractura de calcáneo intraarticular desplazada (Sanders II–IV), el ORIF ofrece ventaja funcional sobre el manejo conservador?</p>
+    </div>
+    <div class="block">
+      <h4>Resultados principales</h4>
+      <p>16 estudios incluidos (n=2,140). En ≤55 años: ORIF superior en AOFAS a 2 años (+8.4 pts, p&lt;0.001). En &gt;55 años: sin diferencia significativa (AOFAS +2.1 pts, p=0.31). Complicaciones infecciosas en ORIF: 11.4% vs 0% conservador. En Sanders II: ambos tratamientos equivalentes independientemente de la edad. En Sanders III–IV &gt;55 años: ORIF sigue siendo discutible.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto clínico</h4>
+      <p>En mayores de 55 años, el beneficio funcional del ORIF se diluye mientras el riesgo infeccioso persiste. Reservar ORIF en este grupo para Sanders III–IV desplazadas con alta demanda funcional documentada, sin diabetes, sin tabaquismo y con partes blandas favorables. El conservador es la primera línea segura en Sanders II y en pacientes con comorbilidades.</p>
+    </div>
+  </div>
+
+  <!-- TAMBIÉN PUBLICADO -->
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Quinta fractura metatarsal — apófisis vs diáfisis:</strong> 220 casos clasificados con TAC; tasa de no-unión apofisaria 2.4% vs diafisaria zona II 18.7% con manejo conservador. <em>(JFAS, 26 may)</em></li>
+      <li><strong>Tendón tibial posterior en corredores:</strong> Análisis ecográfico longitudinal en 80 corredores de maratón — engrosamiento del TP en 34% después de ultramaratón, resolución a 8 semanas en el 91%. <em>(BJSM, 28 may)</em></li>
+      <li><strong>Síndrome de impingement anterior de tobillo:</strong> Artroscopia vs fisioterapia intensiva — 70 pacientes, artroscopia superior en EVA a 12 meses pero no a 24 meses; fisioterapia atrapa al artroscópico en el largo plazo. <em>(KSSTA, 27 may)</em></li>
+      <li><strong>Disfunción del nervio peroneo superficial post-tobillera:</strong> Incidencia 8.2% en esguinces graves tratados con bota rígida por &gt;4 semanas. <em>(Foot Ankle Spec, 30 may)</em></li>
+    </ul>
+  </div>
+
+  <!-- DISRUPCIÓN -->
+  <div class="section-label">Disrupción y controversia</div>
+
+  <div class="section-card">
+    <div class="section-card-title red">⚡ Zona de Disrupción</div>
+    <div class="section-card-body">
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">TOTAL Trial en Lancet: ¿cambia el estándar de care?</div>
+        <p>La superioridad de ATA en el TOTAL Trial es estadísticamente significativa pero clínicamente marginal (3.7 pts en MOXFQ, umbral MCID ~8 pts). Con una re-operación mayor en ATA del 19% vs 8% en artrodesis, varios editorialistas argumentan que el beneficio funcional no justifica el mayor riesgo quirúrgico a largo plazo. La comunidad está dividida.</p>
+        <div class="verdict">→ El TOTAL Trial no cierra el debate ATA vs artrodesis. La decisión sigue siendo individualizada. La clave: informar al paciente del 19% de re-operación mayor a 7 años con ATA.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">InternalBrace: ¿overuse o indicación precisa?</div>
+        <p>Un editorial en BJSM (29 may) alerta sobre la adopción indiscriminada del InternalBrace en TODOS los casos de inestabilidad lateral de tobillo. El análisis de costos muestra que el kit InternalBrace cuesta 3–5 veces más que la reparación de Brostrom estándar sin demostrar superioridad en pacientes con Beighton &lt;5. La indicación debe restringirse a hiperlaxitud documentada.</p>
+        <div class="verdict">→ InternalBrace: indicación en Beighton ≥5 o revision surgery. No usar rutinariamente en CLAI estándar.</div>
+      </div>
+
+      <div class="disrupt-item">
+        <div class="disrupt-label">Cirugía ambulatoria de tobillo: ¿mismo día o ingreso?</div>
+        <p>Cohorte retrospectiva de 1,200 procedimientos de tobillo (FAI, 28 may): cirugía ambulatoria (alta mismo día) vs ingreso corto (24h). Complicaciones a 30 días idénticas. Satisfacción: mayor en ambulatoria. Readmisión no planificada: 2.1% ambulatoria vs 1.8% ingreso (p=0.72). Ahorro promedio: USD $1,840 por caso en modelo ambulatorio.</p>
+        <div class="verdict">→ La mayoría de los procedimientos electivos de tobillo (Brostrom, Weil, fasciotomía plantar) son seguros en modalidad ambulatoria bien seleccionada.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- APLICACIÓN CLÍNICA -->
+  <div class="section-label">Aplicación Clínica CTN</div>
+
+  <div class="section-card">
+    <div class="section-card-title green">✅ Aplicación en Tu Práctica</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Protocolo ATA vs Artrodesis</h4>
+          <p>Incorporar al consentimiento de ATA: "19% de re-operación mayor a 7 años" vs "12% artrodesis adyacente a 7 años con fusión". En &lt;55 años alta demanda → ATA con información completa. En &gt;60 años, comorbilidades o tabaquismo → artrodesis como primera línea.</p>
+        </div>
+        <div class="app-item">
+          <h4>Beighton preoperatorio</h4>
+          <p>Medir Beighton en TODA evaluación de inestabilidad lateral. Si Beighton ≥5: programar InternalBrace desde el inicio. Si Beighton &lt;5: Brostrom estándar (abierto o artroscópico según experiencia). Documentar el score en la ficha y en el protocolo quirúrgico.</p>
+        </div>
+        <div class="app-item">
+          <h4>Seno del tarso refractario</h4>
+          <p>Escalada terapéutica clara: (1) fisioterapia + AINES 6 semanas, (2) infiltración eco-guiada corticoide una vez, (3) si recidiva a 3 meses → artroscopia subastragalina con desbridamiento. No repetir infiltraciones múltiples; la evidencia apunta al desbridamiento como definit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOSARIO -->
+  <div class="section-label">Glosario de la semana</div>
+
+  <div class="section-card">
+    <div class="section-card-title purple">📖 Términos Clave</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">MOXFQ (Manchester-Oxford Foot Questionnaire)</div>
+          <div class="glos-def">Cuestionario de calidad de vida específico para patología de pie/tobillo. 3 dominios: Walking/Standing (7 ítems), Pain (5 ítems), Social Interaction (4 ítems). Escala 0–100 (0=sin problema). MCID: ~8 puntos. Usado como outcome primario en el TOTAL Trial.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">InternalBrace (Arthrex®)</div>
+          <div class="glos-def">Augmentación del complejo ligamentario lateral con una cinta de fibrocinta (FiberTape®) fijada con anclas de sutura en peroné y astrágalo. Proporciona refuerzo mecánico inmediato mientras maduran los ligamentos reparados. Indicado especialmente en hiperlaxitud o revisión.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Beighton Score</div>
+          <div class="glos-def">Escala de 9 puntos para hiperlaxitud articular generalizada: extensión 5.° dedo mano ≥90° (2pts), pulgar toca antebrazo (2pts), hiperextensión codo ≥10° (2pts), hiperextensión rodilla ≥10° (2pts), flexión palmas al suelo con rodillas extendidas (1pt). ≥5: hiperlaxitud generalizada.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Síndrome del Seno del Tarso</div>
+          <div class="glos-def">Dolor en el seno del tarso (espacio entre astrágalo y calcáneo, lateral al eje subtalar) post-esguince o sin trauma claro, con sensación de inestabilidad. Etiología: cicatriz de ligamentos interóseos, sinovitis, ganglión. Diagnóstico por clínica + bloqueo anestésico diagnóstico.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Sanders II / III / IV</div>
+          <div class="glos-def">Clasificación TAC de fracturas de calcáneo intraarticulares. Sanders II: fractura en 2 fragmentos (1 línea); Sanders III: 3 fragmentos; Sanders IV: muy conminuta. Base del índice pronóstico y de decisión quirúrgica. Sanders IV tiene peores resultados con ORIF.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MCID (Mínima Diferencia Clínicamente Importante)</div>
+          <div class="glos-def">El menor cambio en una escala de resultado que el paciente percibe como beneficioso. Fundamental para interpretar significancia clínica vs estadística. Ej: MOXFQ MCID ~8 pts, AOFAS MCID ~8–10 pts, FAAM MCID 8–9 pts. Una diferencia estadísticamente significativa puede carecer de relevancia clínica si no alcanza el MCID.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Actualización T&amp;P 2026 · Semana 16 · 25–31 de mayo · Dr. Eduardo Otero V. · Santiago de Chile
+</div>
+
+</body>
+</html>
