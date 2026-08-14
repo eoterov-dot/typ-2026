@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 27 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 27 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 9 – 15 agosto, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 5 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Ann Intern Med · Foot Ankle Int · OJSM · Eur J Orthop Surg · Injury</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 5 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — RCT ESTRELLA -->
+  <div class="paper gold">
+    <div class="rct-box">
+      <p>⭐ PAPER DE LA SEMANA — Primer RCT en la historia de cirugía vs espera vigilante en hallux rigidus. Publicado en Annals of Internal Medicine (IF ~50). Cambia el debate sobre indicación quirúrgica en OA MTF1.</p>
+    </div>
+    <div class="paper-header">
+      <div class="paper-num gold">1</div>
+      <div>
+        <div class="paper-title">Surgery Versus Watchful Waiting for First Metatarsophalangeal Joint Osteoarthritis: A Randomized Controlled Trial</div>
+        <div class="paper-meta">
+          <strong>Miettinen M, Sirola T, Lähdeoja T, Sandelin H, Nummela M, Repo JP, Ponkilainen V, Rämö L</strong><br>
+          Annals of Internal Medicine · 11 agosto 2026
+          <span class="evidence-pill rct">🏆 Nivel I — RCT</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42574728/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag rct">🏆 RCT · Nivel I · Ann Intern Med</span>
+      <span class="tag hot">🔥 PAPER DEL AÑO</span>
+      <span class="tag">Hallux Rigidus · Artrodesis MTF1 vs Espera</span>
+      <span class="tag">Helsinki · FICEBO · NCT04590313</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Primer ensayo clínico aleatorizado en la historia que compara cirugía (artrodesis MTF1 con tornillo de compresión + placa dorsal) versus espera vigilante en hallux rigidus sintomático grado I-III de Coughlin-Shurnas. Diseñado en Finlandia por el grupo FICEBO (Finnish Centre for Evidence-Based Orthopaedics), el mismo grupo que realizó los históricos RCTs de meniscectomía (2013), reparación de supraespinoso (2018) y tenodesis de bíceps (2021) vs cirugía simulada. Criterios de inclusión: ≥40 años, Rx confirmada grado I-III, síntomas &gt;1 año, dolor al caminar NRS ≥4/10. Exclusión: DM1, artritis reumatoide, HVA &gt;15°. n=90 (45 por grupo), seguimiento 12 meses. <strong>Resultado primario:</strong> dolor caminata NRS a 12 meses: artrodesis 1.3 vs espera 5.7 (diferencia ajustada –5.0 puntos, IC 95% –6.1 a –3.9) — supera el MCID prespecificado de 1.7 puntos de forma amplia. 89/90 completaron el seguimiento (99%).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis MTF1 produce una reducción del dolor al caminar clínica y estadísticamente superior a la espera vigilante en hallux rigidus sintomático grado I-III a 12 meses — diferencia de 5 puntos en NRS (escala 0-10) con IC 95% que no cruza el MCID. Este es el primer nivel I de evidencia para la cirugía de hallux rigidus. Limitación: un solo centro, 12 meses de seguimiento (no crónico), no incluye queilectomía (solo artrodesis), excluyó HVA &gt;15°. <strong>Conclusión operativa CTN: la artrodesis MTF1 en hallux rigidus grado I-III con dolor ≥4/10 al caminar y síntomas &gt;1 año tiene ahora respaldo de Nivel I. La indicación quirúrgica es sólida en este perfil. Discutir con el paciente: la artrodesis produce –5 puntos de dolor NRS a 12 meses vs espera — la recuperación natural es infrecuente. Punto de controversia pendiente: ¿qué tan diferente sería la queilectomía vs la artrodesis? Este RCT no lo responde. Próxima pregunta: RCT queilectomía vs artrodesis vs espera en grado I-II.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">The Effect of Flexible Suture Button Fixation on the Reduction of the Syndesmosis: A Cadaver Study</div>
+        <div class="paper-meta">
+          <strong>Roward L, Reynolds Z, Harris J, Jeray K, Adams JD Jr</strong><br>
+          Foot &amp; Ankle International · 13 agosto 2026
+          <span class="evidence-pill">Cadavérico · Biomecánico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42596510/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · Suture Button · TightRope</span>
+      <span class="tag">Reducción · Cuadricortical vs Tricortical · CT Fluoroscópico 3D</span>
+      <span class="tag">Prisma Health-Upstate · Greenville SC</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio cadavérico (n=7 especímenes de extremidad inferior) que evalúa la capacidad del suture button (TightRope, Arthrex) para corregir una malreducción sindesmótica provisional intencional. Se seccionaron los ligamentos sindesmóticos, se indujo malreducción fibular anterior o posterior de 5.10 ± 2.8 mm, y se midió reducción con CT fluoroscópica 3D (Siemens Cios Spin) tras: tornillo 3.5 mm solo → suture button cuadricortical → suture button tricortical (todos por el mismo trayecto de drill). Resultado: el suture button corrigió en promedio 3 mm de traslación (Q: 2.5 mm, T: 3.2 mm, ambos p&lt;0.01) y ~10° de rotación fibular (Q: 8.9°, T: 11.6°, ambos p&lt;0.008). Sin diferencia significativa entre cuadricortical y tricortical (p=0.27 traslación, p=0.227 rotación). La mejora se atribuye al movimiento del suture a través de la apertura de 3.7 mm del drill — no a la posición del botón.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El suture button tiene capacidad real de corregir una reducción sindesmótica subóptima en el momento de la fijación — en promedio ~3 mm y ~10°. Esto confirma que el suture button no es solo un elemento de fijación estática sino que tiene un efecto activo de corrección. La diferencia cuadricortical vs tricortical es clínicamente irrelevante — el cirujano puede elegir el construct según la anatomía sin preocuparse por perder capacidad de reducción. <strong>Conclusión operativa CTN: si tras instalar la guía del suture button se detecta malreducción residual (&lt;5 mm de traslación o &lt;15° de rotación), el suture button puede corregirla parcialmente. Estrategia recomendada: reducción anatómica directa bajo artroscopia PRIMERO (verificar brecha &lt;4-5 mm en visión directa y menos de 2 mm en CT si disponible), luego instalar suture button como complemento. No usar el suture button como "mecanismo de corrección primaria" de una malreducción mayor — para malreducciones &gt;5 mm, reposicionar la reducción antes. La apertura del drill (3.7 mm) es el mecanismo: no cambiar a drill más pequeño pensando en estabilidad.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Achilles Tendon Injuries in Major League Soccer: A 10-Year Analysis of Injury Rate, Return to Play, and Performance Metrics</div>
+        <div class="paper-meta">
+          <strong>Forsythe B, Hand C, Hand F, Eilen H, Varano M, Sasaki J, Giza E, Brophy RH, Mandelbaum B, McCullough K</strong><br>
+          Orthopaedic Journal of Sports Medicine · 10 agosto 2026
+          <span class="evidence-pill">Nivel III</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42582697/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Aquiles · MLS · Fútbol Profesional</span>
+      <span class="tag">RTP 229 días · Rendimiento · Porteros</span>
+      <span class="tag">Rush University · Midwest Orthopaedics · 10 años</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte retrospectiva apareada (2010-2021) de lesiones de Aquiles en la MLS (Major League Soccer) identificadas en la base de datos de vigilancia de lesiones. n=372 lesiones: 20 roturas completas, 352 no-roturas (tendinitis, tendinosis, contusiones, esguinces). Controles no lesionados apareados 2:1. RTP rotura completa: 229 días promedio (no varió entre 2010-2015 y 2016-2021, p=0.718). RTP no-rotura: 14.9 días. Hallazgo sorprendente: jugadores jóvenes (≤26 años) con rotura de Aquiles tuvieron RTP más prolongado que mayores (303 vs 168 días, p=0.017). El tipo de superficie (pasto vs sintético) no afectó el RTP. Los porteros fueron el grupo más afectado en rendimiento: declive en partidos jugados el año del índice (–20.5 vs +1 juegos) y el segundo año (–31 vs –3.5).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El RTP de 229 días (≈7.5 meses) en rotura de Aquiles en fútbol profesional es consistente con la literatura pero sin mejora en 10 años — sugiere que el progreso en rehabilitación y técnica quirúrgica no ha reducido el RTP en MLS. El hallazgo de mayor RTP en jóvenes (≤26 años) es contraintuitivo pero posible: los jugadores jóvenes tienen mayor carga funcional de retorno esperada (exigencia de nivel de partido más alta), lo que retarda la liberación deportiva. Los porteros son los más afectados — el salto, el cambio de dirección y el arranque explosivo son biomecánicamente los más dependientes del Aquiles. <strong>Conclusión operativa CTN: en futbolista competitivo con rotura de Aquiles, establecer RTP realista de 7-9 meses desde el inicio (no de 4-6 meses). Para porteros: advertir que el impacto en rendimiento puede persistir 2 años. El protocolo de rehabilitación debe incluir criterios de fuerza isocinética específicos por posición (no solo clínicos) antes de liberar el retorno a competición. Documentar la posición del jugador en la ficha de seguimiento del Aquiles.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Functional and Quality of Life Outcomes After Tibialis Posterior Transfer for Foot Drop from Peroneal Nerve Injury</div>
+        <div class="paper-meta">
+          <strong>Solano-Pérez RJ, Fombona-Hernández Y, Aguilar-Menéndez CL, Armas-Salazar A, Carrillo-Ruiz JD, González-Morales HF et al.</strong><br>
+          European Journal of Orthopaedic Surgery &amp; Traumatology · 11 agosto 2026
+          <span class="evidence-pill">Nivel IV</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42579056/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Transferencia Tibial Posterior · Pie Caído</span>
+      <span class="tag">Nervio Peroneo · Ruta Circumtibial · AOFAS</span>
+      <span class="tag">IMSS México · n=19 · 12 meses</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie prospectiva ambispectiva de 19 pacientes (15 hombres, edad media 29.5 años) con pie caído (foot drop) por lesión del nervio peroneo común (CPN) tratados con transferencia tendinosa del tibial posterior (TPTT) vía ruta circumtibial. Evaluación funcional con AOFAS a baseline, 1, 3, 6 y 12 meses. AOFAS preop: 46.58 ± 10.2 → 87.1 ± 9.94 a 12 meses (p=1.10×10⁻²², efecto d=3.739 — tamaño del efecto masivo). Los dominios con mayor mejora: marcha en superficies variables (d=10.668), alineación del pie (d=6.009), reducción de limitaciones en actividades diarias (d=4.277). Todos los pacientes mejoraron el clearance del pie en la marcha (steppage gait a marcha con despegue de talón).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La TPTT vía circumtibial produce una mejora funcional masiva (d=3.739) en pie caído por lesión de nervio peroneo — uno de los tamaños del efecto más grandes reportados en cirugía de pie y tobillo. La ruta circumtibial (el tendón rodea la tibia por medial a lateral pasando por un túnel bajo el retináculo extensor) es preferible a la vía interósea porque: menor riesgo de adhesiones al periostio tibial, mejor vector de tracción hacia la línea media, menor restricción del ROM. La principal limitación del estudio es el n=19 y ausencia de grupo control. <strong>Conclusión operativa CTN: la TPTT es el estándar de rescate en pie caído crónico (&gt;12 meses) por lesión del nervio peroneo cuando la recuperación espontánea o la neurolisis no son esperables. Indicación: foot drop sin recuperación de dorsiflexión activa a los 12 meses post-lesión. Técnica: incisión medial del tobillo (2 cm posterior al maléolo medial), disección del tibial posterior en su inserción en el navicular, túnel subcutáneo circumtibial anterior al maleólo medial, reinserción en el cuneiforme intermedio o la cuña lateral con arpón de 5 mm. Inmovilización 6 semanas en posición neutra. AOFAS esperable &gt;80 a 12 meses.</strong></p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">The Evolution of Primary Subtalar Arthrodesis for Displaced Intra-Articular Calcaneal Fractures: A Historical Review</div>
+        <div class="paper-meta">
+          <strong>Schepers T</strong><br>
+          Injury · 6 agosto 2026
+          <span class="evidence-pill">Revisión Histórica</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42579960/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Artrodesis Subastragalina Primaria · Calcáneo</span>
+      <span class="tag">DIACF · 1911-2026 · Selección Paciente</span>
+      <span class="tag">Schepers · Amsterdam UMC · Revisión histórica</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión histórica comprensiva de Schepers (Amsterdam UMC) sobre la artrodesis subastragalina primaria en fracturas calcáneo intraarticulares desplazadas (DIACF) desde 1911 hasta la práctica contemporánea. Cuatro eras: (1) 1911-1940s: artrodesis de salvamento cuando la reconstrucción era imposible (van Stockum 1911 — primer reporte); (2) 1950s-70s: artrodesis reconstructiva primaria con restauración de la morfología calcánea antes de fusionar; (3) 1980-1994: prácticamente desapareció con la CT y la ORIF moderna — renacimiento de la cirugía preservadora; (4) 1990s-presente: reemergencia selectiva para lesiones irreparables de la faceta posterior. La evidencia comparativa contemporánea no muestra diferencia en PROs entre reconstrucción sola vs artrodesis reconstructiva primaria — el éxito depende más de la selección del paciente que de la técnica per se.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis subastragalina primaria tiene más de 100 años de historia y ha oscilado entre el abandono y la reintroducción según la filosofía de cada era. El mensaje contemporáneo es claro: no hay indicación rutinaria — es una opción selectiva para la fractura con faceta posterior severamente conminuta que no es reconstruible. Los estudios comparativos no muestran superioridad de outcomes en favor de artrodesis primaria vs reconstrucción sola cuando la selección no es óptima. <strong>Conclusión operativa CTN: en DIACF, la artrodesis subastragalina primaria solo está indicada cuando en la exploración artroscópica (o evaluación intraoperatoria bajo fluoroscopia) la faceta posterior muestra conminución severa irreparable — no por el patrón TC preoperatorio solamente (el TC sobreestima la conminución en fracturas inestables que se reducen al abrir). Criterios de indicación en CTN: fractura Sanders IV con fragmento articular &lt;25% de la faceta reconocible, o paciente mayor activo con polimorbilidad que no tolerará la larga descarga de la ORIF. Documentar la decisión intraoperatoria.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Brué J et al. (De Cesar Netto)</strong> Optimización de la alineación sagital del talo con artroereisis subastragalina previa a TAR en PCFD clase E: Technical tip — <em>Foot Ankle Orthop</em>, 10 ago (técnica combinada para corregir el talo en equino antes de TAR)</li>
+      <li><strong>Pitts CC Jr et al.</strong> Reparación ligamento lateral de tobillo con dispositivo TEKBRACE — <em>Foot Ankle Specialist</em>, 12 ago (nueva generación de InternalBrace; también reporte de caso de rotura de Aquiles con TEKBRACE — Arndt S et al.)</li>
+      <li><strong>Colò G et al.</strong> Manejo multimodal del dolor en cirugía de pie y tobillo: revisión narrativa — <em>Musculoskeletal Surgery</em>, 13 ago (ERAS, bloqueo nervioso, analgesia multimodal)</li>
+      <li><strong>Leone V et al.</strong> El mito del centro de rotación del tobillo: definiciones, malinterpretaciones e implicaciones clínicas — <em>Musculoskeletal Surgery</em>, 13 ago (artículo de revisión conceptual sobre la cinemática del tobillo)</li>
+      <li><strong>ParK KH et al.</strong> LLMs para soporte clínico en tobillo y pie: evaluación multi-rater — <em>Foot Ankle Surg EFAS</em>, 11 ago (Claude, GPT-4 y otros evaluados para apoyo de decisión clínica en T&amp;P)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Contradicen Protocolos Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Primera Evidencia Nivel I: Artrodesis MTF1 Superior a Espera Vigilante en Hallux Rigidus</div>
+        <p>Miettinen et al. (FICEBO, Annals of Internal Medicine) publican el primer RCT que compara cirugía vs observación en hallux rigidus — y la artrodesis gana con una diferencia de 5 puntos NRS en dolor caminata a 12 meses (IC 95% –6.1 a –3.9). Esto pone fin al debate de si "hay que esperar más" antes de operar el hallux rigidus sintomático. La espera no produce mejoría natural significativa — el dolor a los 12 meses en espera vigilante sigue siendo 5.7/10 en pacientes con síntomas ya &gt;1 año.</p>
+        <div class="verdict">⚖️ Veredicto: En paciente ≥40 años con hallux rigidus grado I-III, dolor ≥4/10 al caminar y síntomas &gt;1 año: indicar cirugía (artrodesis MTF1 o queilectomía según grado). No prolongar la espera indefinidamente esperando mejoría espontánea — este RCT demuestra que no ocurre. Excepciones: DM1, AR activa, HVA &gt;15° (criterios de exclusión del RCT).</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Jugadores de Fútbol Jóvenes (≤26 años) Tienen Más RTP que Mayores en Rotura de Aquiles</div>
+        <p>Forsythe et al. demuestran que los futbolistas ≤26 años con rotura de Aquiles tienen RTP de 303 días vs 168 días en mayores (p=0.017). Esto contradice la asunción de que el jugador joven recupera más rápido. La explicación probable: mayor exigencia de rendimiento de retorno en jugadores jóvenes (mayor carga funcional esperada por el equipo) y criterios de liberación más estrictos en menores de 26 años. No es un problema biológico sino funcional.</p>
+        <div class="verdict">⚖️ Veredicto: En futbolista joven (&lt;26 años) con rotura de Aquiles: establecer timeline de RTP de 9-12 meses desde el inicio. Implementar criterios objetivos de liberación funcional (Limb Symmetry Index ≥90% en fuerza isocométrica del Aquiles, salto single-leg ≥90% del contralateral) — no liberar por tiempo solamente. La presión del entorno deportivo en jugadores jóvenes es un factor de riesgo de retorno prematuro.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>🔬 Técnica Quirúrgica</h4>
+          <p><strong>Artrodesis MTF1 en hallux rigidus (técnica del RCT FICEBO):</strong> abordaje dorsomedial. Denudación completa de ambas superficies articulares. Posición: 10-15° dorsiflexión (con zapato de tacón de 1 cm el hallux queda en posición de marcha normal), 5-10° de valgo, 0° rotación. Fijación: tornillo de compresión lag-screw cruzado (interfragmentario 4.5 mm, técnico de dorsomedial a plantar-lateral) + placa dorsal de neutralización de bajo perfil (titanio, 4-6 orificios). La placa previene el giro rotacional y la pérdida de posición en dorsiflexión. Control intraop: simular marcha con zapato de tacón estándar — el hallux debe estar en contacto suave con el suelo.<br><br><strong>TPTT ruta circumtibial para foot drop:</strong> posición supina. Incisión 1: posteromedial 4 cm sobre maleólo medial — liberación del tibial posterior de su vaina. Incisión 2: anteromedial 3 cm sobre retináculo extensor en tercio distal tibia — crear túnel subcutáneo circumtibial con disector largo. Incisión 3: dorso del mediopié (cuneiforme intermedio o lateral). Pasar el tibial posterior de medial a anterior por el túnel circumtibial. Tensión: tobillo en posición neutra (0° dorsiflexión). Reinserción con arpón bioabsorbible o sutura en cuneiforme.</p>
+        </div>
+        <div class="app-item">
+          <h4>🏃 Rehabilitación</h4>
+          <p><strong>Artrodesis MTF1 (hallux rigidus):</strong> zapato de antepié o bota walker 6 semanas. Rx control 6 semanas: trabéculas cruzando el foco. Carga completa semana 8. TC a 3 meses para confirmar consolidación (&gt;50% trabéculas cruzando). Sin tacón &gt;3 cm permanente. En el seguimiento a 12 meses aplicar NRS de dolor al caminar: meta ≤2/10 (consistente con el resultado del RCT — artrodesis logró NRS 1.3 a 12 meses).<br><br><strong>TPTT foot drop:</strong> bota en equino leve (5-10° plantiflexión) 4 semanas para relajar el tendón transferido. Bota en posición neutra semana 4-8. Fisioterapia de activación del tibial posterior como dorsiflexor desde semana 6 (reeducación neuromuscular — el músculo debe aprender un nuevo vector de acción). RTP laboral: 4-6 meses. RTP deportivo: 6-9 meses.<br><br><strong>Aquiles en futbolistas:</strong> criterios de alta deportiva: (a) LSI &gt;90% en test isocométrico de fuerza plantiflexora, (b) single-leg hop test &gt;90% del contralateral, (c) subjetivo VAS confianza &gt;8/10. No liberar sin los 3 criterios cumplidos.</p>
+        </div>
+        <div class="app-item">
+          <h4>⭐ Protocolos CTN</h4>
+          <p><strong>Hallux rigidus — nueva escala de indicación:</strong> implementar en CTN el NRS de dolor al caminar (0-10) como métrica primaria de seguimiento en hallux rigidus. Indicación quirúrgica sólida: NRS ≥4/10 al caminar, Coughlin-Shurnas grado I-III, síntomas &gt;1 año. Registrar en la ficha el NRS basal y el NRS esperado postoperatorio (meta ≤2/10 a 12 meses según FICEBO RCT). Seguimiento estándar: NRS a 3, 6, y 12 meses post-artrodesis.<br><br><strong>Foot drop crónico — algoritmo CTN:</strong> (1) &lt;6 meses post-lesión: neurolisis + espera. (2) 6-12 meses: RMN del nervio + evaluación EMG (si denervación total → TPTT). (3) &gt;12 meses sin recuperación dorsiflexora activa: TPTT. Documentar en la ficha preop: grado de fuerza tibial posterior (Oxford scale) — debe ser ≥4/5 para candidato a transferencia.<br><br><strong>Sindesmosis — protocolo de reducción:</strong> el suture button permite corregir hasta ~3 mm de malreducción residual. Si tras instalar el suture button la reducción en artroscopia directa sigue siendo inadecuada (&gt;5 mm): retirar el implante, reposicionar y reimplantar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">FICEBO — Finnish Centre for Evidence-Based Orthopaedics</div>
+          <div class="glos-def">Centro de investigación de la Universidad de Helsinki especializado en RCTs de alta calidad en ortopedia, incluyendo ensayos con cirugía simulada (sham surgery) como control. Reconocido mundialmente por sus estudios que cuestionaron la efectividad de procedimientos ortopédicos establecidos: (1) 2013 — meniscectomía parcial vs sham en desgarro meniscal en adulto: sin diferencia (NEJM); (2) 2018 — reparación de rotura de supraespinoso vs sham: sin diferencia a 2 años (BMJ); (3) 2021 — tenodesis de bíceps proximal vs sham: sin diferencia (JAMA). El RCT de Miettinen 2026 (hallux rigidus artrodesis vs espera) representa un giro: aquí la cirugía SÍ supera al control no quirúrgico, lo que fortalece la indicación. El FICEBO produce evidencia que desafía y también que confirma la cirugía.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">NRS — Numerical Rating Scale (Escala Numérica de Dolor)</div>
+          <div class="glos-def">Instrumento de medición del dolor en que el paciente asigna un número del 0 al 10 a su dolor (0=sin dolor, 10=dolor máximo imaginable). Diferente del VAS (Visual Analogue Scale), que es una línea continua de 10 cm que el paciente marca — el VAS es más preciso pero requiere papel y regla; el NRS es verbal y puede aplicarse por teléfono. El NRS se usa frecuentemente para dolor específico (p.ej., "dolor al caminar") o dolor en reposo. En el RCT FICEBO de hallux rigidus: NRS de dolor al caminar preop = 6.8/10 promedio (criterio de entrada ≥4); NRS a 12 meses: artrodesis 1.3 vs espera 5.7. MCID prespecificado: 1.7 puntos — la diferencia observada de 5.0 puntos supera el MCID en casi 3 veces.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Quadricortical vs Tricortical en Suture Button Sindesmosis</div>
+          <div class="glos-def">Describe cuántas corticales óseas atraviesa el suture button: Quadricortical (Q): el trayecto del drill pasa por 4 corticales — cortical lateral del peroné, cortical medial del peroné, cortical lateral de la tibia y cortical medial de la tibia. El botón medial se apoya en la cortical interna de la tibia. Tricortical (T): el trayecto atraviesa 3 corticales — no perfora la cortical medial de la tibia; el suture se fija en el espesor de la tibia. El debate clínico era si el botón medial en la cortical interna de la tibia (Q) mejora la reducción vs la posición intracortical (T). Roward et al. (FAI 2026, cadavérico) resuelven el debate: no hay diferencia — la mejora de reducción depende de la apertura del drill (3.7 mm), no de la posición del botón. Implicación: elegir Q o T según la anatomía del paciente y la longitud disponible, sin efecto en la calidad de la reducción.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Limb Symmetry Index (LSI) en Retorno Deportivo</div>
+          <div class="glos-def">Índice que compara la función de la extremidad lesionada vs la extremidad contralateral sana, expresado como porcentaje: LSI = (resultado extremidad lesionada / resultado extremidad sana) × 100. Se aplica a tests de fuerza muscular (dinamometría isocométrica), salto (single-leg hop, triple hop, crossover hop) o agilidad. Un LSI ≥90% se usa clásicamente como criterio de alta deportiva en lesiones de LCA — y se ha extrapolado a otras lesiones incluyendo Aquiles. En rotura de Aquiles: LSI &lt;90% al alta = mayor riesgo de re-rotura. El LSI 90% como criterio de retorno en Aquiles ha sido cuestionado por ser insuficiente en atletas de élite — algunos autores proponen LSI &gt;95% en fútbol profesional. Su valor es que objetiviza el retorno y reduce la presión del entorno sobre el criterio médico.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 27 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 9 – 15 Agosto 2026<br>
+  Fuentes: Annals of Internal Medicine · Foot &amp; Ankle International · Orthopaedic Journal of Sports Medicine · European Journal of Orthopaedic Surgery &amp; Traumatology · Injury<br>
+  <em>Análisis académico crítico de uso interno.</em>
+</div>
+
+</body>
+</html>
