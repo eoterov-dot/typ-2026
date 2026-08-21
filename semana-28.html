@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 28 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 28 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 11 – 20 agosto, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 6 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Foot Ankle Surg · Foot Ankle Orthop · JFAS · Foot Ankle Spec</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: SINDESMOSIS + MALEOLOS -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Posterior and Anterior Malleolus Fixation Is Associated with Lower Syndesmosis Malreduction Rates</div>
+        <div class="paper-meta">
+          <strong>Janik K, Grzelecki D</strong><br>
+          Foot and Ankle Surgery (EFAS) · 11 agosto 2026
+          <span class="evidence-pill rct">Nivel II — Prospectivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42601264/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Sindesmosis · Maléolo posterior · Maléolo anterior</span>
+      <span class="tag">Malreducción · CT · Nivel II prospectivo</span>
+      <span class="tag">Centro de Posgrado · Varsovia · n=74</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo (n=74 pacientes con fractura de maléolo posterior) dividido en tres grupos según el tratamiento de los maléolos posterior y anterior: Grupo 1 — sin fijación de maléolo posterior ni anterior; Grupo 2 — fijación de maléolo posterior únicamente; Grupo 3 — fijación combinada de maléolo posterior y anterior. La reducción sindesmótica fue evaluada mediante tres parámetros derivados de CT. Los índices de reducción mejoraron progresivamente de los Grupos 1 al 3. <strong>Malreducción sindesmótica:</strong> Grupo 1: 29%; Grupo 2: 10%; Grupo 3: 0%. En el Grupo 3, no se registró ningún caso de malreducción sindesmótica en toda la cohorte. Los autores concluyen que la fijación del maléolo posterior mejoró la reducción sindesmótica, y que la fijación combinada (posterior + anterior) eliminó las malreducciones en esta cohorte.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El estudio demuestra que la malreducción sindesmótica alcanzó 0% en el grupo con fijación combinada de ambos maléolos (posterior + anterior), en comparación con 29% cuando no se fijó ningún maléolo y 10% con fijación solo posterior. La reducción fue evaluada por CT con tres parámetros. Los autores concluyen que la fijación del maléolo posterior se asocia a mejor reducción sindesmótica, y que la fijación combinada eliminó las malreducciones en esta cohorte prospectiva de 74 pacientes. Limitación: estudio unicéntrico, sin aleatorización — la asignación por grupos dependía de la morfología fracturaria. El abstract no describe el tipo de fijación sindesmótica usada en cada grupo.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: INTERNALBRACE VS BROSTROM -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Outcomes of Internal Brace Augmentation Alone vs Broström Repair With Internal Brace for Chronic Lateral Ankle Instability</div>
+        <div class="paper-meta">
+          <strong>Maschhoff C, Bui V, Gauta S, Rosenbaum A</strong><br>
+          Foot &amp; Ankle Orthopaedics · 15 agosto 2026
+          <span class="evidence-pill">Nivel III — Retrospectivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42605261/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Inestabilidad lateral tobillo · InternalBrace</span>
+      <span class="tag">Broström · Suture Tape · CLAI · 1 año</span>
+      <span class="tag">Albany Medical College · n=80</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo unicéntrico (Albany Medical Center, 2017-2020) que comparó inestabilidad lateral crónica (CLAI) tratada con: (1) suture tape augmentation sin reparación ligamentaria formal (ST, n=58, 72.5%) vs. (2) Broström modificado + Internal Brace (n=22, 27.5%), con seguimiento mínimo de 12 meses. Resultados a 12 meses: satisfacción 87.5% (ST) vs. 90.9% (Broström+IB), p=0.67; dolor persistente 32.7% vs. 22.7%, p=0.38; inestabilidad recurrente 6.9% vs. 4.5%, p=0.70; cirugía de revisión 12.1% vs. 4.5%, p=0.32. Ninguna diferencia fue estadísticamente significativa en el tamaño muestral disponible. Los autores concluyen que los hallazgos son <strong>preliminares</strong> y requieren confirmación en estudios prospectivos con mayor poder estadístico.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Con el tamaño muestral disponible (n=80), el estudio no detectó diferencias estadísticamente significativas entre suture tape solo y Broström + Internal Brace en satisfacción, dolor persistente, inestabilidad recurrente ni revisión quirúrgica a 12 meses. Sin embargo, la tasa de revisión fue del 12.1% para ST vs. 4.5% para Broström+IB (p=0.32) — una diferencia clínicamente relevante que el estudio no tuvo poder para confirmar. Los propios autores reconocen que los resultados son preliminares. Limitaciones: retrospectivo, unicéntrico, n insuficiente para conclusiones definitivas, las tasas son descriptivas. El abstract no describe criterios de selección entre técnicas.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — Primary vs Revision MTPJ arthrodesis -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Primary vs Revision and Salvage First Metatarsophalangeal Joint Arthrodesis: A National Database Study of Utilization, Complications, and Cost Analysis</div>
+        <div class="paper-meta">
+          <strong>McDevitt JW, Durudogan EH, Washburn FJ, Patel MS, Kadakia AR, Mutawakkil MY</strong><br>
+          Foot &amp; Ankle Orthopaedics · 13 agosto 2026
+          <span class="evidence-pill">Nivel III — Base de datos nacional</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42602317/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-wound:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Artrodesis MTF1 · Revisión · Primaria</span>
+      <span class="tag">Pseudoartrosis · PearlDiver · Northwestern · n=2099 por grupo</span>
+      <span class="tag">Hallux rigidus · Hallux valgus fallido · Seudoartrosis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo de base de datos nacional (PearlDiver Mariner) de artrodesis MTF1 primaria vs. revisión/salvamento ipsilateral tras procedimientos previos del hallux (corrección HV, queilectomía, artroplastia o fusión previa), con exclusión de trauma, infección y seguimiento &lt;2 años. Tras propensity score matching 1:1, n=2099 pacientes por grupo. <strong>Complicaciones a 30 días:</strong> similares (revisión 3.7% vs. primaria 3.1%, p=0.30). <strong>A 2 años:</strong> cualquier reoperation 12.6% vs. 8.2% (p&lt;0.001); refusión 7.2% vs. 4.4% (p&lt;0.001); remoción de hardware 5.4% vs. 2.1% (RR 2.51, p&lt;0.001); diagnóstico de pseudoartrosis 9.9% vs. 4.1% (p&lt;0.001); complicaciones de herida 6.7% vs. 4.2% (p&lt;0.001). Uso de opioides postoperatorio mayor en revisión en todos los puntos de tiempo evaluados (30 días: 38.7% vs. 34.4%, p=0.003; 1 año: 56.7% vs. 51.5%, p=0.001).</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>La artrodesis MTF1 de revisión tiene riesgo perioperatorio a 30 días similar a la primaria (3.7% vs. 3.1%, p=0.30), pero a 2 años presenta significativamente más pseudoartrosis (9.9% vs. 4.1%), más reoperaciones (12.6% vs. 8.2%) y mayor remoción de hardware (RR 2.51). Esto es relevante para consejería preoperatoria: el paciente que va a revisión de MTF1 tiene aproximadamente el doble de tasa de pseudoartrosis. Los autores señalan que la estrategia de fijación y la suplementación biológica no fueron evaluadas — son variables que podrían impactar el resultado pero no están disponibles en la base de datos administrativa. Limitación: base de datos de claims, sin datos de técnica quirúrgica ni factores biológicos locales.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — Sinus tarsi Sanders IV -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Sinus Tarsi Approach for Sanders Type IV Calcaneal Fractures: Midterm Radiographic, Functional and Complication Outcomes</div>
+        <div class="paper-meta">
+          <strong>Suer O, Eyceyurt RS, Uzakgider M, Tahta M, Kayali C</strong><br>
+          The Journal of Foot and Ankle Surgery (JFAS) · 14 agosto 2026
+          <span class="evidence-pill">Nivel IV — Serie retrospectiva</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42600973/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Calcáneo · Sanders IV · Sinus tarsi</span>
+      <span class="tag">MIS · AOFAS 81 · VAS 2 · 58 meses seguimiento</span>
+      <span class="tag">Izmir City Hospital · n=51 · 2014–2024</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie retrospectiva consecutiva de fractura de calcáneo intraarticular desplazada Sanders tipo IV tratada con abordaje sinus tarsi entre 2014 y 2024. Tras exclusiones predefinidas, n=51 fracturas con seguimiento mínimo 24 meses. Media de seguimiento: 58.2 ± 27.9 meses. Edad media 45.5 ± 16.5 años. <strong>Parámetros radiológicos:</strong> ángulo de Böhler: -6.4 ± 9.8° preop → 22.4 ± 7.3° postop temprano → 20.4 ± 7.4° al final del seguimiento (p&lt;0.001 en todas las mediciones). Ángulo de Gissane, altura y longitud calcaneal mejoraron significativamente (todos p&lt;0.001). <strong>Resultados finales:</strong> VAS mediana 2; AOFAS hindfoot mediano 81. Reoperación: 7 pacientes (14%). Sin infección profunda, sin malunión, sin pseudoartrosis reportadas en la serie.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El abordaje sinus tarsi para fracturas Sanders IV muestra, en esta serie retrospectiva de 51 casos con seguimiento medio de 58 meses, mejoría radiológica sostenida del ángulo de Böhler (de -6.4° a 20.4° al seguimiento final) y resultados funcionales que los autores describen como satisfactorios (AOFAS mediana 81, VAS mediana 2). La tasa de reoperación fue 14%, sin infección profunda ni pseudoartrosis en la cohorte. Los autores concluyen que el abordaje sinus tarsi mostró resultados radiológicos y funcionales satisfactorios a mediano plazo en Sanders IV, y llaman a estudios comparativos prospectivos para definir mejor su rol en este subtipo. Limitación: serie de un solo centro sin grupo control — no compara con abordaje extenso lateral.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — HOT: Timing Achilles revision -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Timing of Achilles Tendon Revision within 2 Months of Primary Repair Affects Incidence of Acute Complications</div>
+        <div class="paper-meta">
+          <strong>Cherelstein RE, Kotapati S, Alkaramany E, Rodriguez-Materon S</strong><br>
+          Foot &amp; Ankle Specialist · 17 agosto 2026
+          <span class="evidence-pill">Nivel III — Base de datos</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42605925/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Aquiles · Revisión quirúrgica · Timing</span>
+      <span class="tag">Dehiscencia · Infección · PearlDiver · n=759</span>
+      <span class="tag">Universidad de Miami · MedStar Union Memorial</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo (PearlDiver M91Ortho) de pacientes sometidos a revisión de reparación de Aquiles dentro de las 8 semanas de la reparación primaria, excluyendo diabetes mellitus. n=759 pacientes, estratificados por intervalo entre operaciones: 0-2 semanas, 2-4 semanas, 4-6 semanas, y 6-8 semanas. Complicaciones evaluadas: TVP, TEP, infección superficial y profunda de sitio quirúrgico (SSI), dehiscencia de herida, desbridamiento y SDRC. <strong>Hallazgo principal:</strong> las tasas de complicación global fueron significativamente más altas en los grupos de 2-4 y 4-6 semanas respecto a los grupos de 0-2 y 6-8 semanas. Dehiscencia de herida fue más frecuente en 2-4 y 4-6 semanas vs. el grupo de 0-2 semanas. SSI superficial ocurrió solo en el grupo de 2-4 semanas. SSI profunda fue mayor en los grupos de 2-4 y 4-6 semanas respecto al grupo de 6-8 semanas.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>Los datos sugieren que la revisión del Aquiles realizada entre 2 y 6 semanas de la reparación primaria se asocia a mayor riesgo de complicaciones agudas (dehiscencia de herida, SSI profunda) en comparación con hacerla antes de las 2 semanas o después de las 6 semanas. Los autores proponen que existe una "ventana de riesgo" entre 2-6 semanas atribuible a la hipovascularidad del tendón y a la biología del proceso de cicatrización. Limitaciones fundamentales: base de datos administrativa, sin datos de causa de revisión, tipo de revisión, ni detalles técnicos. La muestra excluye diabéticos — que son el grupo de mayor riesgo en cirugía de Aquiles. El abstract no permite extraer tasas numéricas por grupo para comparación directa.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — Sesamoid position predicts HV recurrence -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Association Between Sesamoid Position and Long-Term Outcomes Following Triplanar Tarsometatarsal Arthrodesis at 4-Year Follow-up</div>
+        <div class="paper-meta">
+          <strong>Hatch DJ, Chhabra A, Dayton PD, Dayton M, Farber DC, Liu G, McAleer JP, Raissi A, Santrock RD, Taylor RP, White JK, Wukich D</strong><br>
+          The Journal of Foot and Ankle Surgery (JFAS) · 18 agosto 2026
+          <span class="evidence-pill rct">Nivel II — Prospectivo multicéntrico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42612817/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">🔬 Ver estudio en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">✨ NEW</span>
+      <span class="tag">Hallux Valgus · Artrodesis TMT · Recurrencia</span>
+      <span class="tag">Posición del sesamoideo tibial · TSP · 48 meses · Multicéntrico</span>
+      <span class="tag">Lapidus · Corrección triplanar · n=146 a 4 años</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis interino a 48 meses de un estudio prospectivo multicéntrico de 5 años en curso que evalúa la artrodesis triplanar de la primera articulación tarsometatarsiana (1TMT) con corrección instrumentada en hallux valgus. n=173 pacientes enrolados, 146 completaron la visita de 48 meses. Recurrencia radiológica definida como HVA &gt;15° postoperatorio. <strong>Recurrencia a 48 meses:</strong> 12 pacientes (8.2%). Evaluación de la posición del sesamoideo tibial (TSP) a las 6 semanas postoperatorias: TSP ≤3 redujo la probabilidad de recurrencia en 95% respecto a TSP &gt;3. Los autores concluyen que la corrección inicial de la rotación axial y la posición del sesamoideo es importante para mantener la corrección a largo plazo y lograr buenos resultados reportados por el paciente.</p>
+    </div>
+    <div class="impacto">
+      <h4>💡 Impacto práctico</h4>
+      <p>El hallazgo central del estudio es que una posición del sesamoideo tibial ≤3 en la radiografía de control a las 6 semanas postoperatorias reduce la probabilidad de recurrencia radiológica (HVA &gt;15°) en un 95% respecto a TSP &gt;3 a los 4 años de seguimiento. La tasa de recurrencia global fue 8.2% a 48 meses. Los autores enfatizan la importancia de la corrección triplanar — especialmente la desrotación del primer radio — como determinante de la durabilidad de la corrección. Limitación del análisis interino: el estudio completo de 5 años no ha concluido. El abstract no describe los tipos de implante o técnicas de fijación usadas entre centros, ni los scores funcionales por grupo de recurrencia.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Saleh A, Mansur NSB, de Cesar Netto C et al.</strong> El WBCT mide un espacio articular significativamente mayor que la radiografía en hallux rigidus (1.9 mm vs 0.92 mm, p&lt;0.001), con menor pérdida dorsal del espacio articular (22.8% vs 46.6%, p&lt;0.001) — puede explicar por qué la queilectomía funciona incluso con radiografías "avanzadas" — <em>Foot Ankle Orthop</em>, 18 ago (n=21, Level III; DOI: 10.1177/24730114261471159)</li>
+      <li><strong>Madruga LBA, Martinez Salazar EL et al. (BIDMC Harvard)</strong> Meta-análisis del músculo peroneo cuarto (peroneus quartus): prevalencia 11% (IC 95% 8-15%) en imágenes de tobillo (n=17 estudios, 3725 exámenes); su presencia se asocia a 3.4 veces mayor odds de rotura peroneal (IC 95% 2.03-5.68, I²=0%) — <em>Skeletal Radiol</em>, 18 ago (DOI: 10.1007/s00256-026-05343-8)</li>
+      <li><strong>Le Y, Thai S, Aiyer A et al. (Johns Hopkins)</strong> GLP-1 en artrosis de tobillo: usuarios obesos tuvieron menos riesgo de inyección articular (HR=0.8) y de artroplastia total de tobillo (HR=0.5); usuarios diabéticos tuvieron mayor riesgo de artroscopia (HR=1.9) — resultados no uniformes entre las cohortes — <em>Foot Ankle Spec</em>, 17 ago (n=3089+8117 tras matching; DOI: 10.1177/19386400261471652)</li>
+      <li><strong>Anandh N, Linklater J et al. (Sydney)</strong> Revisión de imagen en high ankle sprains: resumen de anatomía, biomecánica, patrones de lesión, hallazgos MRI por ligamento (AITFL falla primero hacia inserción fibular; IIOL falla hacia inserción tibial; PITFL falla en borde inferior-lateral tibial) y apariencias postquirúrgicas — <em>Skeletal Radiol</em>, 17 ago (DOI: 10.1007/s00256-026-05291-3)</li>
+      <li><strong>Guo M, Liu F, Yang F (Shanghai Ninth People's Hospital)</strong> Nuevo concepto: Articular Dislocation Angle (ADA) en hallux valgus — relación HVA = DMAA + DASA + ADA; la contribución del ADA crece con la severidad (leve 43.3%, moderado 52.6%, severo 69.3%) — <em>JBJS Am</em>, 20 ago (n=70 pies; Nivel III; DOI: 10.2106/JBJS.25.00955)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Fijación Combinada de Ambos Maléolos Elimina la Malreducción Sindesmótica (0%)</div>
+        <p>Janik y Grzelecki (Foot and Ankle Surgery, Nivel II prospectivo) demuestran en 74 pacientes con fractura de maléolo posterior que la fijación combinada de maléolo posterior + anterior se asoció a 0% de malreducción sindesmótica evaluada por CT, versus 10% con solo maléolo posterior y 29% sin ninguna fijación adicional. La malreducción sindesmótica es uno de los predictores de peores outcomes a largo plazo en fracturas de tobillo complejas — su eliminación tiene impacto directo en el resultado funcional del paciente.</p>
+        <div class="verdict">⚖️ Veredicto (según los datos del estudio): En las 74 fracturas de maléolo posterior incluidas, el grupo con fijación de ambos maléolos (posterior + anterior) no registró malreducciones sindesmóticas. El diseño es prospectivo pero no aleatorizado — la asignación entre grupos refleja la morfología fracturaria. El abstract no describe el tipo de fijación sindesmótica concomitante usada.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">🔴 DISRUPCIÓN — Revisar el Aquiles entre 2 y 6 Semanas: Ventana de Mayor Riesgo de Complicaciones</div>
+        <p>Cherelstein et al. (PearlDiver, n=759, excluyendo DM) identifican que la revisión del tendón de Aquiles entre 2 y 6 semanas de la reparación primaria se asocia a tasas significativamente más altas de complicaciones agudas — dehiscencia de herida e infección quirúrgica profunda — en comparación con revisar antes de las 2 semanas o después de las 6 semanas. Los autores proponen un concepto de "ventana biológica de riesgo" en este período, relacionado con la hipovascularidad del Aquiles durante la fase de remodelación temprana.</p>
+        <div class="verdict">⚖️ Veredicto (según los datos del estudio): Los grupos de mayor complicación fueron 2-4 y 4-6 semanas. Los grupos con menores complicaciones fueron 0-2 semanas y 6-8 semanas. El estudio es retrospectivo de base de datos, excluye diabéticos, y no cuenta con datos técnicos de la revisión. Las tasas numéricas por grupo no están disponibles en el abstract.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>📊 Sindesmosis y Maléolo Posterior</h4>
+          <p>Janik y Grzelecki (n=74, Nivel II) demuestran que la fijación del maléolo posterior redujo la malreducción sindesmótica de 29% a 10%, y la fijación combinada (posterior + anterior) la llevó a 0% por CT. El dato relevante es que la reducción anatómica del maléolo posterior contribuye directamente a la reducción sindesmótica — un aspecto biomecánico ya descrito pero ahora con evidencia prospectiva en CT. El abstract no describe el tipo de fijación sindesmótica adicional usada en los grupos.</p>
+        </div>
+        <div class="app-item">
+          <h4>📊 Revisión de Artrodesis MTF1</h4>
+          <p>McDevitt et al. (PearlDiver, n=2099 por grupo) muestran que la artrodesis MTF1 de revisión tiene el mismo riesgo a 30 días que la primaria (3.7% vs 3.1%, p=0.30), pero a 2 años duplica la tasa de pseudoartrosis (9.9% vs 4.1%) y de reoperación (12.6% vs 8.2%). Dato para consejería preoperatoria: el paciente en contexto de revisión de hallux debe ser informado del mayor riesgo de pseudoartrosis a 2 años. El estudio no evaluó estrategia de fijación ni suplementación biológica.</p>
+        </div>
+        <div class="app-item">
+          <h4>📊 Sesamoideo tibial y Recurrencia en Lapidus</h4>
+          <p>Hatch et al. (multicéntrico prospectivo, n=146 a 48 meses) reportan que TSP ≤3 a las 6 semanas postop redujo la recurrencia radiológica (HVA&gt;15°) en 95% respecto a TSP&gt;3. Recurrencia global a 4 años: 8.2%. El mensaje es que la corrección de la rotación axial del primer radio — reflejada en la posición del sesamoideo — es determinante para la durabilidad de la corrección. El estudio no detalla criterios funcionales de recurrencia en el abstract.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Abordaje Sinus Tarsi en Calcáneo</div>
+          <div class="glos-def">El sinus tarsi es el corredor anatómico entre el proceso anterior del calcáneo y el cuello del talo, delimitado por los ligamentos interóseos subastragalinos. En la cirugía de fracturas calcáneas, el abordaje sinus tarsi utiliza una incisión de 4-5 cm sobre este corredor — significativamente más pequeña que el abordaje extenso lateral (AEL) tradicional. Su ventaja principal es la menor tasa de complicaciones de herida en comparación con el AEL. Suer et al. (JFAS, 2026) lo aplicaron a fracturas Sanders IV (la clasificación de mayor severidad) y reportaron AOFAS mediana 81, VAS 2 y 0% de infección profunda a mediano plazo (58 meses). La desventaja histórica fue la limitación de visualización de la faceta posterior — especialmente en las fracturas más conminutas — aunque la tecnología de fluoroscopia 3D intraoperatoria y la experiencia del cirujano han atenuado esta limitación.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Tibial Sesamoid Position (TSP) — Clasificación Hardy-Clapham</div>
+          <div class="glos-def">El TSP es una escala radiológica de 1 a 7 que describe la posición del sesamoideo tibial respecto al eje del primer metatarsiano en la radiografía de carga anteroposterior. TSP 1: sesamoideo completamente medial al eje (posición normal). TSP 7: sesamoideo completamente lateral al eje (dislocación máxima). La corrección quirúrgica del hallux valgus busca restituir el sesamoideo a TSP ≤3. En el estudio de Hatch et al. (JFAS, 2026, multicéntrico prospectivo, n=146), un TSP ≤3 a las 6 semanas postoperatorias redujo la probabilidad de recurrencia radiológica (HVA&gt;15°) en un 95% a los 48 meses, frente a TSP&gt;3. Esto convierte al TSP postoperatorio temprano en un marcador predictivo de recurrencia en la artrodesis TMT triplanar.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Peroneus Quartus (Músculo Peroneo Cuarto)</div>
+          <div class="glos-def">Variante anatómica del compartimento lateral de la pierna, presente en aproximadamente el 11% de los tobillos estudiados por imagen (meta-análisis Madruga et al., Skeletal Radiol 2026, n=3725). Se origina generalmente del peroné distal y sigue un trayecto variable — la inserción más común es en el retináculo peroneo superior o la prominencia retrotrochlear. Su relevancia clínica: en estudios con grupo control, su presencia se asoció a 3.4 veces mayor odds de rotura peroneal (IC 95% 2.03-5.68). La hipótesis es un efecto de "crowding" (hacinamiento) en el surco retrotrochlear del peroné — el músculo accesorio ocupa espacio en un canal ya estrecho, aumentando la presión sobre los tendones peroneos. Implicación diagnóstica: al ver un peroneus quartus en la resonancia, aumentar el umbral de sospecha de patología peroneal asociada.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">GLP-1 (Glucagon-Like Peptide-1) Receptor Agonists y Artrosis de Tobillo</div>
+          <div class="glos-def">Los agonistas del receptor GLP-1 (semaglutida, liraglutida, dulaglutida, exenatida, lixisenatida) son fármacos utilizados para diabetes tipo 2 y obesidad con efecto increatínico — estimulan la secreción de insulina dependiente de glucosa y reducen el apetito. Su efecto sobre la articulación del tobillo es motivo de investigación emergente. Le et al. (Johns Hopkins, Foot Ankle Spec 2026, n=3089 obesos + 8117 diabéticos tras matching) reportaron que los usuarios obesos con GLP-1 tuvieron menor riesgo de inyección articular (HR=0.8) y de artroplastia total de tobillo (HR=0.5). Sin embargo, en la cohorte diabética, el uso de GLP-1 se asoció a mayor riesgo de artroscopia (HR=1.9). Los autores concluyen que los efectos no son uniformes entre poblaciones y que la mejoría metabólica no se traduce necesariamente en beneficio musculoesquelético proporcional. Es un campo que irá creciendo en relevancia conforme se consolide el uso de semaglutida.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 28 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 11 – 20 Agosto 2026<br>
+  Fuentes: Foot and Ankle Surgery (EFAS) · Foot &amp; Ankle Orthopaedics · Journal of Foot and Ankle Surgery · Foot &amp; Ankle Specialist · Skeletal Radiology · JBJS<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed.</em>
+</div>
+
+</body>
+</html>
