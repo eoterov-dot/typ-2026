@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 29 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 29 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 21 – 27 agosto, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 6 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · OJSM · JBJS Open Access</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: PJI AFTER TAA -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Prosthetic Joint Infection After Total Ankle Arthroplasty: A Propensity-Matched Analysis of Risk Factors and Outcomes</div>
+        <div class="paper-meta">
+          <strong>McCahon JAS, Thomas GM, Sherman M, Hsu A, O'Neil J, Parekh SG, Pedowitz DI</strong><br>
+          Foot &amp; Ankle International (FAI) · 26 agosto 2026
+          <span class="evidence-pill">Nivel III — Retrospectivo unicéntrico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42644599/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artroplastia total tobillo · Infección periprotésica (PJI)</span>
+      <span class="tag">Osteotomía calcánea concomitante · Factor de riesgo · OR 9.75</span>
+      <span class="tag">Rothman — Thomas Jefferson University · n=1008 · 2010–2023</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo unicéntrico de 1008 artroplastias totales de tobillo (TAA) primarias realizadas entre 2010 y 2023 (Rothman Orthopaedic Institute). Se identificaron 27 infecciones periprotésicas (PJI), para una incidencia global de 2.7%. Para el análisis de factores de riesgo se utilizó regresión logística penalizada (método Firth) con comparación 2:1 mediante propensity score matching por edad y sexo. <strong>Hallazgo principal:</strong> la osteotomía de desplazamiento calcaneal concomitante a la TAA se asoció con 9.75 veces mayor odds de PJI (95% CI 2.5–52.4, p&lt;0.05). El antecedente de cáncer también resultó significativo. El germen más frecuente fue <em>Staphylococcus aureus</em> (36.7%). El 29.6% de las PJI se clasificaron como crónicas (&gt;4 semanas). La estrategia quirúrgica predominante fue la revisión en dos tiempos (59.3%). Al seguimiento medio de 4.07 años: salvamento del miembro 96.2%, retención de la artroplastia 69.2%.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El hallazgo central es que la osteotomía de desplazamiento calcaneal simultánea a la TAA primaria se asoció a OR 9.75 (IC 95% 2.5–52.4) de PJI en este estudio. La incidencia global de PJI fue 2.7% en esta cohorte de 1008 TAA. A largo plazo (mediana 4.07 años), la retención de la artroplastia fue 69.2% y el salvamento del miembro 96.2% con estrategias quirúrgicas contemporáneas. Los autores concluyen que la osteotomía calcaneal concomitante debe ser considerada un factor de riesgo procedural de PJI. Limitaciones del abstract: diseño retrospectivo unicéntrico; el modelo OR 9.75 proviene de un análisis multivariado no descrito en detalle; el n de PJI es pequeño (n=27) para un análisis multivariado robusto. El abstract no especifica el tipo de osteotomía calcaneal ni si fue medial o lateral.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: PREDICTIVE MODEL TAA -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Development and Internal Validation of a Predictive Model for Clinically Meaningful AOS Improvement After Primary Total Ankle Arthroplasty</div>
+        <div class="paper-meta">
+          <strong>Albarrán CF, Koolen M, Trache T, Alharbi SK, Veljkovic A, Gagne O, Penner MJ, Younger A, Wing K</strong><br>
+          Foot &amp; Ankle International (FAI) · 25 agosto 2026
+          <span class="evidence-pill rct">Nivel II — Prospectivo, cohorte</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42638449/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artroplastia total tobillo · Modelo predictivo · AOS</span>
+      <span class="tag">Etiología inestabilidad · AOS basal · AUC 0.76 · n=631</span>
+      <span class="tag">Hospital Clínico U. de Chile + U. British Columbia · 2003–2023</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva de 631 artroplastias totales de tobillo primarias (2003–2023) con registro de datos prospectivo. Mejoría clínicamente significativa definida como diferencia ≥28 puntos en el score AOS (Ankle Osteoarthritis Scale) preoperatorio vs. a 1–2 años. Regresión logística multivariada por método stepwise, con evaluación de sobreajuste mediante bootstrapping de 1000 repeticiones y bondad de ajuste por test de Hosmer-Lemeshow. <strong>Variables retenidas en el modelo final:</strong> (1) AOS basal (OR 1.06, p&lt;0.01, 95% CI 1.05–1.08) y (2) etiología por inestabilidad (OR 5.1, p&lt;0.01, 95% CI 1.69–15.26). AUC del modelo: 0.76. Sin sobreajuste por bootstrapping. Calibración satisfactoria. Un AOS basal mayor de 63 se asoció a alta probabilidad de mejoría clínicamente significativa.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Este estudio aporta un modelo predictivo internamente validado para anticipar qué pacientes obtendrán mejoría clínicamente significativa (≥28 puntos en AOS) con la TAA. Las dos variables independientes son el AOS basal (mayor discapacidad basal → mayor beneficio) y la etiología de inestabilidad (OR 5.1). Un AOS basal &gt;63 se asoció a alta probabilidad de respuesta. El AUC de 0.76 indica discriminación aceptable. La etiología de inestabilidad como predictor positivo es relevante para consejería: el paciente con artrosis de tobillo por inestabilidad crónica tiene más probabilidad de mejoría funcional marcada que otras etiologías. Limitación: validación interna solamente mediante bootstrapping; requiere validación externa en otras instituciones. El abstract no describe las proporciones de cada etiología ni los resultados funcionales absolutos.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: AGE + ARTHROSCOPIC CLAI -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Age-Related Differences in Postoperative Outcomes After Arthroscopic Lateral Ligament Repair for Chronic Lateral Ankle Instability</div>
+        <div class="paper-meta">
+          <strong>Moriwaki D, Yeo SY, Jujo Y, Nakasa T, Adachi N, Takao M</strong><br>
+          Foot &amp; Ankle International (FAI) · 26 agosto 2026
+          <span class="evidence-pill">Nivel III — Retrospectivo, monocéntrico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42644291/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Inestabilidad lateral tobillo · Reparación artroscópica · Edad</span>
+      <span class="tag">SAFE-Q · Lasso-loop stitch · Jujo Hospital, Japón · n=934</span>
+      <span class="tag">Retorno al deporte · Adulto mayor · Cirujano único</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión retrospectiva de 934 pacientes sometidos a reparación artroscópica del ligamento lateral del tobillo por inestabilidad lateral crónica (CLAI) mediante técnica lasso-loop con ancla de sutura, realizados por un único cirujano en Jujo Hospital (Kisarazu, Japón). Los pacientes fueron agrupados en 5 rangos etarios: esqueléticamente inmaduros (SI, &lt;13 años), adolescentes (AD, 13–19), adultos jóvenes (YA, 20–39), adultos medios (MA, 40–59) y adultos mayores (EP, ≥60 años). Los scores SAFE-Q se evaluaron preoperatoriamente y al año. <strong>Resultados:</strong> todos los grupos mejoraron significativamente en todas las subescalas del SAFE-Q (todos p&lt;0.001). Los tiempos hasta deambulación libre (p=0.004), trote (p&lt;0.001) y retorno completo al deporte (p&lt;0.001) fueron significativamente diferentes entre grupos — los pacientes mayores requirieron más tiempo. Los grupos SI, AD y YA mostraron mejores scores postoperatorios que EP en subescalas de función física y social. La subescala de actividad deportiva no mostró diferencias entre grupos.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte de 934 reparaciones artroscópicas de CLAI por un solo cirujano con técnica lasso-loop, todos los grupos etarios — incluidos los pacientes de 60 años o más — mejoraron significativamente en todos los dominios del SAFE-Q al año. Los adultos mayores alcanzaron los mismos umbrales de mejora en actividad deportiva, pero requirieron más tiempo para deambular libremente, trotar y retornar al deporte. Los autores concluyen que la edad avanzada sola no debería considerarse contraindicación para la reparación artroscópica de CLAI. Limitaciones: diseño retrospectivo, monocéntrico, un solo cirujano con una sola técnica (lasso-loop); los criterios de inclusión o comorbilidades por grupo no están descritos en el abstract. El tamaño de cada grupo etario tampoco se especifica.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: SUPERIOR FASCICLE ATFL BIOMECHANICS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">The Superior Fascicle of the Anterior Talofibular Ligament Functions as a Restraint Against Internal Rotation: A Cadaveric Biomechanical Study</div>
+        <div class="paper-meta">
+          <strong>Koyama T, Teramoto A, Mori Y, Murahashi Y, Takahashi K, Ueda N, Watanabe K, Aizawa T</strong><br>
+          Foot &amp; Ankle International (FAI) · 26 agosto 2026
+          <span class="evidence-pill">Biomecánica cadavérica — Estudio de laboratorio controlado</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42644620/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">ATFL · Fascículo superior · Rotación interna · Biomecánica</span>
+      <span class="tag">Lasso-loop · Artroscopia · Cajón anterolateral · n=9 cadáveres</span>
+      <span class="tag">Sapporo Medical University + Tohoku University · Robot FRS2015</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de laboratorio en 9 tobillos cadavéricos usando sistema robótico (FRS2015). El fascículo superior del ATFL fue seccionado artroscópicamente de forma escalonada para simular 3 tipos de lesión: tipo 1 — desprendimiento parcial del margen medial de la inserción fibular; tipo 2 — desprendimiento proximal (acumulativo con tipo 1); tipo 3 — desprendimiento completo. Se midieron traslación talar anterior, rotación interna y ángulo de inversión bajo cargas de cajón anterior, rotación interna e inversión, a 15° de dorsiflexión y a 15° y 30° de plantiflexión. <strong>Hallazgo principal:</strong> la rotación interna a 30° de plantiflexión fue significativamente mayor en tipo 3 vs. tobillo intacto (diferencia media 2.9°, IC 95% 0.6–5.0°, p=0.01), vs. tipo 1 (2.6°, p=0.02) y vs. tipo 2 (2.5°, p=0.02). No se detectaron diferencias significativas entre intacto, tipo 1 y tipo 2. Traslación anterior e inversión no mostraron diferencias significativas en ninguna condición.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El estudio demuestra que la lesión completa del fascículo superior del ATFL (tipo 3) se asocia a mayor laxitud en rotación interna a 30° de plantiflexión en esta preparación cadavérica robótica. La lesión parcial (tipos 1 y 2) no produjo diferencias estadísticamente significativas en ningún parámetro respecto al tobillo intacto. Los autores sostienen que este hallazgo apoya el uso de test de rotación interna — como el cajón anterolateral — en la evaluación clínica de lesión del ATFL. Limitaciones: n=9 tobillos cadavéricos, diferencias absolutas de 2.5–2.9° (fracciones de grado con relevancia clínica incierta), el abstract no especifica la edad de los especímenes ni si había patología previa. Es un estudio de laboratorio — sus implicaciones clínicas requieren confirmación en estudios clínicos.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: 3D CT TALAR BODY FRACTURES -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Three-dimensional Computed Tomography Mapping of Talar Body Fractures</div>
+        <div class="paper-meta">
+          <strong>Roddy E, Engstrom I, Magnusson E, Goldstein S, Jackson M, Telfer S, Githens M</strong><br>
+          JB &amp; JS Open Access (JBJS) · 27 agosto 2026
+          <span class="evidence-pill">Nivel IV — Descriptivo/Pronóstico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42639242/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura cuerpo del talo · Mapeo 3D CT · Patrón oblicuo</span>
+      <span class="tag">Clasificación · Patrón oblicuo 71% · Impacción articular 90%</span>
+      <span class="tag">University of Washington · Trauma center nivel I · n=124 · 2008–2020</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de mapeo 3D de fracturas de cuerpo de talo a partir de 124 casos con CT preoperatorio en un centro de trauma nivel I (University of Washington, 2008–2020). Pacientes esqueléticamente maduros con fractura de tipo shear de cuerpo de talo tratadas quirúrgicamente, con exclusión de fracturas combinadas. Edad media 37 años (rango 17–69), 71% hombres. Las líneas de fractura e impacción se mapearon sobre un modelo de talo común para generar mapas de distribución espacial. <strong>Distribución de patrones:</strong> patrón oblicuo (anteromedial → posterolateral, involucrando cúpula talar y/o faceta posterior en grado variable): 71% de los casos. Patrón de cizalla coronal clásico: 18%. Patrón de cizalla sagital: 8%. El 90% de las fracturas presentaron conminución o impacción articular, localizada predominantemente en la región plantar-medial del talo, involucrando la articulación subastragalina medial.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La clasificación vigente de fracturas de cuerpo de talo se basa en una serie de 51 pacientes con radiografías simples. Este mapeo CT en 124 fracturas quirúrgicas demuestra que el patrón más frecuente (71%) no es el coronal ni el sagital que figuran en las clasificaciones clásicas, sino un patrón oblicuo anteromedial–posterolateral que involucra en grado variable la cúpula talar y la faceta posterior del subastragalino. El 90% presenta impacción o conminución en la zona plantar-medial, que involucra la articulación subastragalina medial — un dato relevante para la planificación del abordaje y la fijación. Los autores sugieren que estos resultados pueden orientar la estrategia quirúrgica. Limitaciones: nivel IV, un solo centro de trauma, no incluye manejo no quirúrgico ni seguimiento funcional.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: CANNABIS + ACHILLES REPAIR -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Cannabis Use and Postoperative Complications After Primary Achilles Tendon Repair: A Propensity Score-Matched Cohort Study</div>
+        <div class="paper-meta">
+          <strong>Kreinces J, Miller P, Vredenburgh Z</strong><br>
+          Orthopaedic Journal of Sports Medicine (OJSM) · 24 agosto 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, base de datos</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42643515/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Tendón de Aquiles · Reparación primaria · Cannabis · Factores de riesgo</span>
+      <span class="tag">Dehiscencia de herida · Revisión · TriNetX · n=1088 pares</span>
+      <span class="tag">SUNY Upstate Medical University, Syracuse · Propensity score matching</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectiva usando la base de datos TriNetX. Tras propensity score matching 1:1 (balanceando demografía y comorbilidades, todas las diferencias estandarizadas &lt;0.10), se analizaron 1088 pares de pacientes con reparación primaria de Aquiles con y sin uso documentado de cannabis. Outcomes primarios: revisión quirúrgica y tasa de re-rotura a 1 y 2 años. Outcomes secundarios: complicaciones a 90 días y 6 meses. <strong>Dehiscencia de herida:</strong> usuarios de cannabis 4.32% vs. controles 2.29% a 90 días (p=0.0075); 5.60% vs. 3.03% a 6 meses (p=0.0149). <strong>Revisión a 1 año:</strong> 1.38% vs. 1.01% (p=0.340). <strong>Revisión a 2 años:</strong> 2.02% vs. 1.01% (p=0.062). Análisis de Kaplan-Meier: sin diferencia significativa en supervivencia libre de revisión a 1 ni 2 años. Los autores concluyen que el cannabis puede afectar la cicatrización temprana de la herida sin comprometer la integridad estructural del tendón a largo plazo.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El hallazgo significativo es el aumento de dehiscencia de herida en usuarios de cannabis a 90 días (4.32% vs. 2.29%, p=0.0075) y a 6 meses (5.60% vs. 3.03%, p=0.0149). Las tasas de revisión y re-rotura a 1 y 2 años no alcanzaron significación estadística, aunque el diferencial a 2 años (2.02% vs. 1.01%, p=0.062) podría no haber tenido poder suficiente. Los autores sugieren considerar el uso de cannabis en la consejería preoperatoria y en la vigilancia postoperatoria de la herida. Limitaciones fundamentales: base de datos administrativa — la exposición a cannabis se registra solo si fue documentada clínicamente (probable subregistro); sin datos de dosis, frecuencia, vía de administración, ni tipo de cannabis (THC/CBD); el abstract no describe el tipo de reparación ni el protocolo postoperatorio.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Carlson MR, Seybold JD, Den Hartog BD et al. (Twin Cities Orthopedics)</strong> Estudio biomecánico cadavérico (n=13) del suture button (SB) para sindesmosis: SB+tails AITFL y SB+augmentación AITFL redujeron significativamente la rotación externa vs. estado seccionado (ambos p&lt;0.001), sin diferencia significativa entre ambos métodos. La reparación deltoidea agregó estabilidad medial en ambos grupos — <em>Foot Ankle Int (FAI)</em>, 25 ago (DOI: 10.1177/10711007261468351)</li>
+      <li><strong>Kim JS, Kim SB, Tai KM (Sejong Sports Medicine, Seoul)</strong> Ángulo de tortuosidad del LCF (C angle) en MRI coronal oblicua para diagnóstico de inestabilidad crónica de tobillo: C angle 76.5° ± 18.3° en CAI vs. 31.9° ± 5.4° en controles (p&lt;0.001). AUC 0.97, punto de corte óptimo 40.9° (sensibilidad 97.6%, especificidad 100%, n=120, 82 CAI + 38 controles) — <em>Foot Ankle Orthop</em>, 21 ago (DOI: 10.1177/24730114261471166)</li>
+      <li><strong>LaMontagne M, Baumann A et al. (Cleveland Clinic Akron)</strong> Revisión sistemática de enclavado TTC sin preparación formal de la articulación en fracturas de tobillo (n=153, edad media 73.8 años, seguimiento 22.2 meses): tasa de unión 85.7%, complicaciones 27.2% (infección 50% de las complicaciones), reoperation 17.4%, solo 1.5% requirió revisión a artrodesis formal — <em>Eur J Orthop Surg Traumatol</em>, 25 ago (DOI: 10.1007/s00590-026-04929-1)</li>
+      <li><strong>Florentino SA, Bui V, Miniaci-Coxhead SL et al. (Case Western Reserve / Albany Medical)</strong> Dependencia de nicotina no tabáquica (NTND) y reparación de Aquiles: NTND vs. controles — dehiscencia OR 1.98, SSI OR 2.01, re-rotura a 2 años OR 1.39; vs. tabaco — dehiscencia OR 1.45, infección OR 1.89, re-rotura OR 1.62 (n=1592 pares por grupo, TriNetX) — <em>Foot Ankle Spec</em>, 24 ago (DOI: 10.1177/19386400261478749)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Osteotomía Calcaneal Concomitante a TAA: OR 9.75 de Infección Periprotésica</div>
+        <p>McCahon et al. (FAI, Rothman Institute, n=1008, Nivel III) identifican que la osteotomía de desplazamiento calcaneal realizada simultáneamente a la TAA primaria se asocia a OR 9.75 (95% CI 2.5–52.4) de PJI en el análisis multivariado ajustado. La incidencia global de PJI fue 2.7% en esta cohorte. Si bien el estudio es retrospectivo y el OR proviene de un subgrupo pequeño (n=27 PJI), el tamaño del efecto es suficientemente relevante para considerar la osteotomía calcaneal concomitante como un factor de riesgo procedimental a comunicar en la consejería preoperatoria.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Resultado retrospectivo unicéntrico con n de PJI pequeño (n=27). El IC 95% amplio (2.5–52.4) refleja imprecisión en el estimado. El abstract no especifica si el riesgo fue diferente según el tipo de osteotomía calcaneal. Requiere confirmación en estudios multicéntricos con mayor poder.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Fractura Cuerpo de Talo: El Patrón Oblicuo (71%) Domina, no el Coronal Clásico (18%)</div>
+        <p>Roddy et al. (JBJS OA, University of Washington, n=124, CT 3D, Nivel IV) demuestran que la distribución de patrones de fractura del cuerpo de talo difiere sustancialmente de lo descrito en las clasificaciones vigentes (basadas en radiografías de 51 casos): el patrón oblicuo anteromedial–posterolateral es el más frecuente (71%), seguido por el coronal (18%) y sagital (8%). Además, el 90% presentó conminución o impacción en la zona plantar-medial del talo, involucrando la articulación subastragalina medial. Estos datos sugieren que la clasificación actual puede no capturar la morfología fracturaria real en la mayoría de los casos.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio descriptivo Nivel IV, un solo centro, sin grupo de comparación ni seguimiento funcional. No establece implicaciones directas sobre outcomes. La utilidad del mapeo 3D para orientar el abordaje y la fijación es la principal contribución — pero las consecuencias técnicas específicas requieren estudios de outcome.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Artroplastia Total de Tobillo — Riesgo de PJI</h4>
+          <p>McCahon et al. (FAI, n=1008) reportan una incidencia de PJI del 2.7% en 1008 TAA primarias. El factor de riesgo procedimental identificado en el análisis multivariado fue la osteotomía calcaneal concomitante (OR 9.75). El staph aureus fue el germen más frecuente (36.7%). A pesar de la severidad de la PJI, el salvamento del miembro fue 96.2% y la retención de la artroplastia 69.2% con manejo contemporáneo. El dato es relevante para la discusión preoperatoria con el paciente que va a TAA con corrección hindfoot simultánea.</p>
+        </div>
+        <div class="app-item">
+          <h4>Fractura Cuerpo de Talo — Planificación CT</h4>
+          <p>Roddy et al. (JBJS OA, n=124) demuestran que el 71% de las fracturas de cuerpo de talo siguen un patrón oblicuo anteromedial–posterolateral, con impacción plantar-medial en el 90%. Este patrón no es el coronal clásico de las clasificaciones existentes. Para planificación quirúrgica, el mensaje práctico es que el CT 3D preoperatorio es indispensable: el patrón dominante tiene línea de fractura en orientación diferente y la zona de impacción subastragalina medial frecuentemente requiere abordaje y reducción directa.</p>
+        </div>
+        <div class="app-item">
+          <h4>TAA — Consejería con Modelo Predictivo</h4>
+          <p>Albarrán et al. (FAI, n=631, Nivel II) validan internamente un modelo predictivo de mejoría significativa (≥28 puntos AOS) tras TAA: dos variables — AOS basal (OR 1.06) y etiología de inestabilidad (OR 5.1). AUC 0.76. Un AOS &gt;63 se asocia a alta probabilidad de respuesta. El paciente con mayor discapacidad basal y etiología de inestabilidad tiene más probabilidad de mejoría clínicamente significativa — dato útil para consejería preoperatoria con pacientes que consultan con duda sobre el beneficio esperado de la TAA.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">AOS (Ankle Osteoarthritis Scale)</div>
+          <div class="glos-def">Escala de reporte del paciente (PROM) diseñada específicamente para artrosis de tobillo. Consta de dos subescalas: dolor (9 ítems) y discapacidad (9 ítems), cada una puntuada de 0 a 100, con puntajes mayores indicando mayor discapacidad. El AOS total es la media de ambas subescalas. La diferencia mínima clínicamente importante (MCID) generalmente utilizada es de 28 puntos, que es el umbral que Albarrán et al. (FAI 2026) emplearon para definir "mejoría clínicamente significativa" en su modelo predictivo de TAA. Un AOS basal &gt;63 se asoció en ese estudio a alta probabilidad de mejoría clínicamente significativa — lo que es concordante con el principio general de que los pacientes con mayor discapacidad basal tienen mayor margen de ganancia.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Infección Periprotésica (PJI) en TAA — Criterios y Contexto</div>
+          <div class="glos-def">La infección periprotésica (PJI) en artroplastia total de tobillo es la complicación más devastadora de este procedimiento. En el estudio de McCahon et al. (FAI 2026, n=1008), la definición de PJI utilizó criterios microbiológicos y clínicos consistentes con la literatura previa. La incidencia fue 2.7% a lo largo de un período de 13 años (2010–2023) en un centro de alto volumen. Se clasifica como aguda (&lt;4 semanas) o crónica (&gt;4 semanas), con implicaciones para el manejo: la revisión en dos tiempos fue la estrategia predominante (59.3%) en esta serie, logrando retención de la artroplastia en 69.2% al mediano plazo. El Staphylococcus aureus es el germen más frecuente, lo que tiene implicaciones para la profilaxis antibiótica y el tratamiento de la infección establecida.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fascículo Superior del ATFL (Ligamento Talofibular Anterior)</div>
+          <div class="glos-def">El ATFL (ligamento talofibular anterior) no es una estructura uniforme: está compuesto por dos fascículos — un fascículo superior y un fascículo inferior. El fascículo superior es más corto y más horizontal, insertándose en la margen medial del polo fibular anterior. El fascículo inferior es más oblicuo. En la mayoría de las reparaciones artroscópicas del ATFL por CLAI, como la técnica lasso-loop descrita por Takao (Jujo Hospital), se apunta a la reinserción de ambos fascículos. El estudio de Koyama et al. (FAI 2026) demuestra en 9 tobillos cadavéricos que la lesión completa del fascículo superior se asocia a mayor laxitud en rotación interna a 30° de plantiflexión, apoyando el uso de test de cajón anterolateral en la evaluación de CLAI. La relevancia clínica de lesiones parciales del fascículo superior no queda establecida en este estudio.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">SAFE-Q (Self-Administered Foot Evaluation Questionnaire)</div>
+          <div class="glos-def">El SAFE-Q es un cuestionario de autoreporte de función del pie y tobillo validado en japonés, ampliamente usado en centros asiáticos especializados. Contiene múltiples subescalas: función física, función social, actividad deportiva, calidad de vida, entre otras. En el estudio de Moriwaki et al. (FAI 2026, n=934) fue el instrumento primario de resultado para evaluar diferencias por grupo etario tras reparación artroscópica de CLAI con técnica lasso-loop. Sus propiedades métricas son similares a otros PROM de pie y tobillo, pero su uso está más concentrado en Japón; en el contexto latinoamericano los instrumentos más usados son el FAAM (Foot and Ankle Ability Measure) y el AOFAS score (con sus limitaciones conocidas). El SAFE-Q no tiene versión validada en español.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 29 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 21 – 27 Agosto 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Orthopaedic Journal of Sports Medicine (OJSM) · JB &amp; JS Open Access · Foot &amp; Ankle Orthopaedics · Foot &amp; Ankle Specialist · Eur J Orthop Surg Traumatol<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed.</em>
+</div>
+
+</body>
+</html>
