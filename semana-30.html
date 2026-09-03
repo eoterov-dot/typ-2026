@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 30 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 30 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 29 agosto – 3 septiembre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 10 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · Foot Ankle Orthop · JFAS · JAAOS</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: COFAS GRADE + INFINITY TAA MULTICENTER -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">COFAS Grade is not Associated with Outcomes following Infinity Total Ankle Arthroplasty: A Multicenter Study with Minimum Five-Year Follow-Up</div>
+        <div class="paper-meta">
+          <strong>Townshend D, Martin R, Bing A, Blundell C, Clough T, Davenport J, Davies H, Davis J, Dhar S, Hepple S, Kakwani R, Karski M, Makwana N, McKinley J, Murty A, Raglan M, Shalaby H, Sharpe I, Smith R, Taylor H, Goldberg A</strong><br>
+          Foot &amp; Ankle International (FAI) · 31 agosto 2026
+          <span class="evidence-pill rct">Nivel II — Prospectivo multicéntrico</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42671057/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artroplastia total tobillo · Infinity TAA · Clasificación COFAS</span>
+      <span class="tag">Sobrevida implante 98.2% · n=502 · 11 centros Reino Unido</span>
+      <span class="tag">Seguimiento mínimo 5 años · PSI · AOS · MOxFQ</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio observacional prospectivo multicéntrico (11 centros del Reino Unido) que incluyó 502 tobillos en 496 pacientes sometidos a TAA primaria de diseño fijo (Infinity). Los pacientes se estratificaron según el grado COFAS (Canadian Orthopaedic Foot and Ankle Society), que clasifica la deformidad intra y extraarticular y la artrosis de articulaciones adyacentes. Se evaluó sobrevida del implante (definida como ausencia de revisión), complicaciones, reoperaciones, revisiones, hallazgos radiográficos y PROMs (Manchester-Oxford Foot Questionnaire, Ankle Osteoarthritis Scale, EuroQol 5D-5L) a los 2 y 5 años. Se registró también el uso de instrumentación específica para el paciente (PSI, 20.1% de los casos). <strong>Hallazgo principal:</strong> la sobrevida del implante a 5 años fue 98.2%, con reoperación sin revisión de 5.8%. No hubo asociación significativa entre grado COFAS y tasas de revisión o reoperación. El análisis radiográfico mostró 5.7% de radiolucencias lineales &gt;2mm y 10.9% de radiolucencias quísticas &gt;5mm, sin correlación con el grado COFAS. Los PROMs mejoraron significativamente en todos los dominios sin diferencias entre grados COFAS. El uso de PSI se asoció a mejores puntajes AOS a 5 años, aunque los efectos de PSI y de centro no pudieron separarse completamente, y no influyó en complicaciones, revisión ni hallazgos radiográficos.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte multicéntrica de 502 TAA Infinity con seguimiento mínimo de 5 años, el grado de deformidad preoperatoria según COFAS no se asoció a peor sobrevida, complicaciones, hallazgos radiográficos ni PROMs. La sobrevida global del implante a 5 años fue 98.2%. Los autores concluyen que, con este diseño de implante de apoyo fijo, los pacientes con deformidad compleja o artrosis de articulaciones adyacentes (grados COFAS más altos) obtuvieron resultados favorables comparables a los de menor grado. Limitaciones del abstract: el efecto del PSI sobre el AOS a 5 años no pudo separarse del efecto de centro; el abstract no detalla la distribución de pacientes por grado COFAS ni describe el manejo de la artrosis adyacente concomitante (p. ej. artrodesis subtalar simultánea).</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: PRP vs CORTICOSTEROID MORTON NEUROMA RCT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Platelet-Rich Plasma vs Corticosteroid Injection for Morton Neuroma: A Prospective Unblinded Randomized Comparative Study</div>
+        <div class="paper-meta">
+          <strong>Genuth G, Stavrou P, Brown C, Iselin LD</strong><br>
+          Foot &amp; Ankle International (FAI) · 30 agosto 2026
+          <span class="evidence-pill rct">Nivel II — RCT no ciego</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42670187/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Neuroma de Morton · PRP vs corticoide · RCT</span>
+      <span class="tag">PROMIS PF/PI · Tamaño de neuroma en MRI · n=60</span>
+      <span class="tag">Assuta / Royal Adelaide / Flinders / Luzern</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo randomizado no ciego que incluyó 60 pacientes con neuroma de Morton confirmado clínica y radiológicamente (MRI), todos con fracaso de ≥6 meses de tratamiento conservador. Se compararon 30 pacientes tratados con una única infiltración de corticoide vs. 30 pacientes tratados con 3 infiltraciones de plasma rico en plaquetas pobre en leucocitos (PRP). Outcomes primarios: PROMIS Physical Function (PF) y Pain Interference (PI) a 3, 6 y 12 meses. Outcomes secundarios: tamaño del neuroma en MRI a 6 meses y complicaciones. <strong>Hallazgo principal:</strong> ambos grupos mejoraron significativamente, pero el PRP se asoció a mejores resultados en todos los tiempos evaluados. A 12 meses: PROMIS PF 61.8±6.2 (PRP) vs 55.2±6.8 (corticoide), p&lt;0.001; PROMIS PI 38.4±6.1 vs 44.2±6.8, p=0.001, ambos a favor de PRP. A 6 meses, el tamaño del neuroma en MRI fue menor con PRP (4.2±1.1 vs 5.8±1.4mm, p&lt;0.001). Las tasas de complicación fueron bajas y comparables entre grupos; las complicaciones menores ocurrieron solo en el grupo corticoide, sin alcanzar significación estadística.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Este RCT muestra que el PRP (3 infiltraciones) superó al corticoide (infiltración única) en función física, interferencia por dolor y reducción del tamaño del neuroma en MRI a 12 y 6 meses respectivamente, en pacientes con neuroma de Morton refractario a tratamiento conservador. Los autores explícitamente señalan que estos hallazgos deben interpretarse con cautela y considerarse generadores de hipótesis, pendientes de confirmación en estudios más grandes y metodológicamente más rigurosos. Limitaciones: diseño no ciego (riesgo de sesgo de expectativa), esquemas de tratamiento distintos entre grupos (1 vs 3 infiltraciones) que complican la comparación directa, y el abstract no especifica el protocolo de preparación del PRP ni la técnica de infiltración.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: ARTHROSCOPIC PRF FOR OLT -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Arthroscopic Treatment of Osteochondral Lesions of the Talus Using Platelet-Rich Fibrin Biological Scaffold</div>
+        <div class="paper-meta">
+          <strong>Baumfeld TS, Kuffner M, Macedo BMG, Junior EAS, Macedo BD, Baumfeld DS</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 1 septiembre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos retrospectiva</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42680059/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Lesión osteocondral del talo · PRF · Andamiaje biológico</span>
+      <span class="tag">AOFAS · FAOS · VAS · n=36 · Seguimiento medio 3.8 años</span>
+      <span class="tag">Universidade Federal de Minas Gerais, Brasil</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos retrospectiva de 36 pacientes (14 mujeres, 22 hombres, edad media 39 años) con lesión osteocondral sintomática del talo (OLT) tratados artroscópicamente con preparación de la lesión y aplicación de un andamiaje autólogo de fibrina rica en plaquetas preparado intraoperatoriamente (A-PRF e i-PRF), con seguimiento clínico mínimo de 8 meses (media 3.8 años). Outcomes: AOFAS, subescalas de FAOS, escala visual análoga (VAS) de dolor, retorno al deporte y complicaciones. <strong>Hallazgo principal:</strong> el AOFAS mejoró de 54.1 a 82.6 (p&lt;0.001) y el VAS de dolor disminuyó de 7.58 a 2.69 (p&lt;0.001) al seguimiento final. Los dominios de FAOS mejoraron sustancialmente, incluyendo calidad de vida (25.2 a 63.9). Más del 80% de los pacientes retornaron al deporte a una media de 7.6 meses. La tasa de complicaciones fue 11%, incluyendo parestesia transitoria, infección superficial de herida y una reoperación.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El tratamiento artroscópico de OLT aumentado con andamiaje autólogo de PRF se asoció a mejoría de dolor y función a mediano plazo (media 3.8 años), con perfil de complicaciones aceptable (11%) en esta serie. Los propios autores concluyen que se necesitan estudios comparativos para determinar el beneficio incremental del PRF sobre la estimulación de médula ósea (microfractura) sola — es decir, este estudio no compara directamente contra el estándar habitual. Limitaciones: serie de casos sin grupo control, diseño retrospectivo, un solo centro; el abstract no especifica el tamaño ni la localización de las lesiones tratadas.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: SESAMOID SUBLUXATION IN HALLUX VALGUS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Sesamoid Subluxation in Hallux Valgus Deformity</div>
+        <div class="paper-meta">
+          <strong>Lama JE, Thompson R, Streeter SR, Jones A, Steineman BD, Ellis SJ, Johnson AH, Conti MS</strong><br>
+          Foot &amp; Ankle International (FAI) · 30 agosto 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, casos y controles</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42670183/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Hallux valgus · Subluxación sesamoidea · Ligamento intermetatarsiano</span>
+      <span class="tag">WBCT · Distancia 2MTLS · n=68 (34 HV + 34 controles)</span>
+      <span class="tag">Hospital for Special Surgery, Nueva York</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectiva con 68 pacientes emparejados en 2 grupos (34 con hallux valgus [HV], 34 controles sin HV), utilizando tomografía computada con carga (WBCT) preoperatoria estandarizada. Se midió la distancia entre la cabeza del segundo metatarsiano y el sesamoideo lateral (2MTLS), utilizada como proxy de la longitud del ligamento intermetatarsiano transverso profundo (DTML), junto con el ángulo de hallux valgus (HVA), el ángulo intermetatarsiano (IMA), la pronación del primer metatarsiano y la estación sesamoidea. <strong>Hallazgo principal:</strong> la distancia 2MTLS fue significativamente mayor en pacientes con HV vs. controles (20.90mm vs 18.56mm, p&lt;0.001). El HVA y el IMA también fueron mayores en HV (p&lt;0.001), así como la pronación del primer metatarsiano y la estación sesamoidea (p&lt;0.001). La distancia 2MTLS se correlacionó moderadamente con la estación sesamoidea (r=0.36), el HVA (r=0.40) y el IMA (r=0.43), pero no con la pronación del primer metatarsiano (r=-0.18). La confiabilidad inter e intraobservador fue alta (ICC 0.911 y 0.958 respectivamente).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El aumento significativo de la distancia 2MTLS en pacientes con HV sugiere que los sesamoideos no permanecen anclados en su posición mientras el primer metatarsiano se desvía medialmente — como sostiene la visión clásica — sino que se subluxan junto con el aumento de la estación sesamoidea. Los autores concluyen que esto resalta el rol del DTML como restrictor de la desviación medial del primer metatarsiano y sugiere no seccionar este ligamento durante la liberación lateral. Limitaciones: diseño retrospectivo de casos y controles emparejados, n moderado (34 por grupo); el abstract no describe la severidad del HV en la muestra ni el tipo de cirugía posteriormente realizada en los casos.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: OPEN VS ARTHROSCOPIC TIBIOTALAR ARTHRODESIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Open vs Arthroscopic Tibiotalar Arthrodesis: A Comparative Cohort Study from an Asian Tertiary Center</div>
+        <div class="paper-meta">
+          <strong>Lim JTE, Tan YCJ, Radhakrishnan R, Vijayaragavan S, Toh RX, Mohamed Buhary KS, Li Z, Tay KS</strong><br>
+          Foot &amp; Ankle Orthopaedics (Foot Ankle Orthop) · 29 agosto 2026
+          <span class="evidence-pill">Nivel III — Cohorte comparativa retrospectiva</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42676790/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artrodesis tibiotalar · Abierta vs artroscópica · Deformidad varo</span>
+      <span class="tag">Tiempo a unión · Reoperación · n=83 · Singapore General Hospital</span>
+      <span class="tag">2004–2024 · Único centro terciario</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte comparativa retrospectiva en un centro terciario único que incluyó 83 pacientes adultos sometidos a artrodesis tibiotalar aislada entre enero 2004 y diciembre 2024, mediante abordaje abierto (n=30) o artroscópico (n=53). Se compararon outcomes perioperatorios, tiempo radiográfico a unión, complicaciones postoperatorias y PROMs a 6 meses. <strong>Hallazgos:</strong> no se detectó diferencia significativa en tiempo a unión radiográfica entre artroscópico y abierto (120.0±99.5 vs 113.1±73.0 días, p=0.734), ni en tasas de complicación global (18.9% vs 23.3%, p=0.778). El grupo abierto presentó mayor deformidad coronal preoperatoria que el artroscópico (15.6°±10.8 vs 8.2°±7.4, p=0.002). La artrodesis artroscópica se asoció a mayor tiempo operatorio (154.7±44.0 vs 130.1±49.5 minutos, p=0.028), pero con menos reoperaciones durante el seguimiento (3.8% vs 20.0%, p=0.024).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte, no hubo diferencias en unión radiográfica ni en complicaciones globales entre artrodesis tibiotalar abierta y artroscópica. La menor tasa de reoperación en el grupo artroscópico coincide con una cohorte con deformidad preoperatoria significativamente menor (8.2° vs 15.6° de deformidad coronal), lo que los propios autores reconocen como un factor de selección de pacientes más que una ventaja técnica per se. Los autores concluyen que ambos abordajes son opciones razonables según severidad de la deformidad y requerimientos quirúrgicos del caso. Limitaciones: diseño retrospectivo, un solo centro, grupos con deformidad de base diferente que limita la comparación directa entre técnicas.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: COST INPATIENT VS OUTPATIENT ANKLE FRACTURE ORIF META-ANALYSIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Evaluating the Costs of Surgically Managed Ankle Fractures Treated in an Inpatient vs Outpatient Setting: A Systematic Review and Meta-analysis</div>
+        <div class="paper-meta">
+          <strong>Anaspure OS, Anaspure AS, Conti M, Henry JK, Anastasio AT</strong><br>
+          Foot &amp; Ankle Orthopaedics (Foot Ankle Orthop) · 31 agosto 2026
+          <span class="evidence-pill">Revisión sistemática y metaanálisis — PROSPERO CRD420251134624</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42682965/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de tobillo · ORIF ambulatorio vs hospitalizado · Costo</span>
+      <span class="tag">7 estudios · n=21,955 · Metaanálisis de efectos aleatorios</span>
+      <span class="tag">PubMed + EMBASE + CINAHL hasta agosto 2025</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metaanálisis registrado en PROSPERO que evaluó diferencias de costo entre el manejo quirúrgico ambulatorio (OP) y hospitalizado (IP) de fracturas de tobillo aisladas. Se consultaron PubMed, EMBASE y CINAHL desde su inicio hasta agosto de 2025. Se incluyeron 7 artículos comparativos, con una muestra total de 21,955 pacientes (edad media 43.50±2.87 años, seguimiento medio 2.5 meses); 53.8% (n=11,813) fueron tratados en modalidad hospitalizada y 46.2% (n=10,142) en modalidad ambulatoria. <strong>Hallazgo principal:</strong> la estancia hospitalaria media para el grupo IP fue 2.27±0.25 días (5 estudios, n=5,718). El costo directo reportado fue significativamente mayor en el manejo hospitalizado que en el ambulatorio (US$11,236.37±2,205.05 vs US$6,990.18±1,670.72; p=0.011; IC 1,654.50–6,920.19). Cualitativamente, los perfiles de seguridad y complicaciones no mostraron diferencias entre las 3 series que evaluaron esta métrica.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El manejo ambulatorio de la osteosíntesis de fracturas de tobillo se asocia a menor carga económica reportada que el manejo hospitalizado, sin evidencia clara de peor seguridad a corto plazo en pacientes apropiadamente seleccionados según los estudios comparativos disponibles. Los autores señalan que estos hallazgos respaldan las vías ambulatorias en pacientes con reducción e inmovilización aceptables, tejidos blandos manejables, comorbilidad limitada, movilidad segura sin apoyo de peso y seguimiento confiable. Limitaciones explícitas de los autores: las definiciones de "costo" fueron heterogéneas entre los estudios incluidos y los datos son observacionales; recomiendan estudios prospectivos con outcomes económicos estandarizados y seguimiento más prolongado.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Herbel C, Lopez R, Rueff M, Tupper Z, Hamad C, Haupt ET (Mayo Clinic Jacksonville / Exactech)</strong> Estudio de laboratorio en 36 especímenes artificiales de tobillo (12 por grupo, cirujano único) comparando navegación asistida por computador (CAN), instrumentación específica del paciente (PSI) y técnica fluoroscópica convencional (SRG) en TAA: CAN fue más precisa en la resección tibial (pendiente tibial, p&lt;0.001 vs ambas); PSI superó a CAN en la resección talar (pendiente p=0.002, altura de corte axial p&lt;0.001); CAN redujo la variabilidad de colocación del implante (±0.47mm/±0.62° vs PSI ±0.63mm/±1.03° vs SRG ±0.73mm/±1.21°) — <em>J Am Acad Orthop Surg (JAAOS)</em>, 1 sept (DOI: 10.5435/JAAOS-D-26-00134)</li>
+      <li><strong>Albright JA, Feldman MW, Martin T, Baker JD, Gunther R, Anderson PA, Kirk KL, Huh J (Brooke Army Medical Center)</strong> Índice del quinto metatarsiano (5MI) en radiografía oblicua de pie como cribado oportunista de baja densidad mineral ósea en 89 pacientes ≥50 años con DXA y radiografía de pie dentro de 1 año: 5MI promedio 52.6% (normal), 44.6% (osteopenia), 35.2% (osteoporosis); punto de corte óptimo 46.8% con AUC 0.977, sensibilidad 93.3%, especificidad 95.0% (p&lt;0.001) — <em>Foot Ankle Int (FAI)</em>, 1 sept (DOI: 10.1177/10711007261471487)</li>
+      <li><strong>Hamre ME, Ræder BW, Molund M (Østfold Hospital Trust / Universidad de Oslo)</strong> Estudio prospectivo de cohorte en 193 pacientes sometidos a osteotomía Chevron por hallux valgus: el MOxFQ preoperatorio predijo de forma independiente la mejoría clínicamente significativa a 1 año (≥15 puntos, OR 1.06/punto, p&lt;0.001); 72% de los pacientes lograron mejoría significativa; AUC 0.70, punto de corte ~42 (sensibilidad 71%, especificidad 65%) — <em>Foot Ankle Int (FAI)</em>, 30 ago (DOI: 10.1177/10711007261473925)</li>
+      <li><strong>Moon H, Baek I, Kim D, Lee WC (Dongguk University / Seoul Metropolitan Seonam Hospital)</strong> Serie retrospectiva de 11 tobillos con deformidad postraumática crónica e incongruencia tibiofibular tratados con osteotomía supramaleolar sin reconstrucción fibular ni sindesmal: mejoría significativa de la congruencia tibiotalar y traslación mediolateral del talo (p&lt;0.05), alineación en valgo del retropié hacia neutro, mejoría de VAS y Foot Function Index (p&lt;0.05); todos los casos lograron unión sin conversión a artrodesis o TAA — <em>Foot Ankle Orthop</em>, 29 ago (DOI: 10.1177/24730114261472452)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Grado COFAS No Predice Peores Resultados en TAA Moderna (n=502, multicéntrico, 5 años)</div>
+        <p>Townshend et al. (FAI, 11 centros del Reino Unido, n=502, Nivel II) demuestran que, con un implante de apoyo fijo contemporáneo (Infinity) y seguimiento mínimo de 5 años, el grado COFAS de deformidad y artrosis adyacente no se asoció a peor sobrevida del implante, mayor tasa de revisión/reoperación, peores hallazgos radiográficos ni peores PROMs. La sobrevida global a 5 años fue 98.2%. Este hallazgo cuestiona la premisa habitual de que la deformidad preoperatoria compleja limita per se el resultado de la TAA primaria.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio prospectivo multicéntrico con buen tamaño muestral y seguimiento a 5 años, lo que da solidez al hallazgo. Sin embargo, el abstract no detalla la distribución de pacientes por grado COFAS ni el manejo concomitante de la artrosis de articulaciones adyacentes (p. ej. artrodesis subtalar simultánea), lo que podría explicar parte de la ausencia de asociación observada.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Los Sesamoideos se Subluxan en el Hallux Valgus, Cuestionando la Sección Rutinaria del DTML</div>
+        <p>Lama et al. (FAI, Hospital for Special Surgery, n=68, Nivel III) demuestran mediante WBCT que la distancia entre la cabeza del segundo metatarsiano y el sesamoideo lateral (2MTLS, proxy de la longitud del ligamento intermetatarsiano transverso profundo) es significativamente mayor en pacientes con hallux valgus que en controles, y que esta distancia se correlaciona con la estación sesamoidea, el HVA y el IMA. Esto contradice la visión clásica de que los sesamoideos permanecen anclados mientras el primer metatarsiano se desvía medialmente, y sugiere que se subluxan junto con la progresión de la deformidad.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Diseño de casos y controles retrospectivo con n moderado (34 por grupo) pero con excelente confiabilidad de medición (ICC &gt;0.91). Los propios autores extraen una implicación técnica directa: no seccionar el DTML durante la liberación lateral. El abstract no reporta el resultado clínico de aplicar esta recomendación, por lo que la validación prospectiva de este cambio técnico queda pendiente.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Neuroma de Morton — Lo que Muestra el Estudio</h4>
+          <p>Genuth et al. (FAI, RCT, n=60) muestran que 3 infiltraciones de PRP superaron a 1 infiltración de corticoide en función física, interferencia por dolor y reducción del tamaño del neuroma en MRI a los 12 y 6 meses respectivamente, tras fracaso de ≥6 meses de tratamiento conservador. Los propios autores piden cautela: los resultados son generadores de hipótesis y requieren confirmación en estudios ciegos de mayor tamaño antes de cambiar la práctica.</p>
+        </div>
+        <div class="app-item">
+          <h4>Artrodesis Tibiotalar — Lo que Muestra el Estudio</h4>
+          <p>Lim et al. (Foot Ankle Orthop, n=83) no encontraron diferencias en tiempo a unión ni en complicaciones globales entre artrodesis tibiotalar abierta y artroscópica. La menor reoperación observada en el grupo artroscópico (3.8% vs 20.0%) coincidió con menor deformidad coronal preoperatoria en ese grupo (8.2° vs 15.6°), lo que sugiere que la elección de abordaje debe seguir basándose en la magnitud de la deformidad más que en una superioridad técnica generalizada.</p>
+        </div>
+        <div class="app-item">
+          <h4>Fracturas de Tobillo — Lo que Muestra el Estudio</h4>
+          <p>Anaspure et al. (Foot Ankle Orthop, metaanálisis, n=21,955) muestran que el manejo ambulatorio de la ORIF de fracturas de tobillo tuvo un costo directo significativamente menor que el manejo hospitalizado (US$6,990 vs US$11,236), sin diferencias de seguridad reportadas en los estudios que evaluaron ese desenlace. Los autores condicionan esta vía a pacientes con reducción e inmovilización estables, tejidos blandos manejables, comorbilidad limitada y seguimiento confiable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Clasificación COFAS (Canadian Orthopaedic Foot and Ankle Society)</div>
+          <div class="glos-def">Sistema que estratifica a los pacientes candidatos a artroplastia total de tobillo según el grado de deformidad intraarticular y extraarticular y la presencia de artrosis en articulaciones adyacentes (subtalar, mediotarsiana). En el estudio de Townshend et al. (FAI 2026, n=502, 11 centros del Reino Unido), el grado COFAS no se asoció con sobrevida del implante, tasas de revisión/reoperación, hallazgos radiográficos ni PROMs a 5 años con el diseño Infinity de apoyo fijo — un hallazgo relevante para la selección de candidatos con deformidad compleja.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Distancia 2MTLS (Second Metatarsal head-to-Lateral Sesamoid)</div>
+          <div class="glos-def">Medición anatómica desde la cabeza del segundo metatarsiano hasta el sesamoideo lateral, propuesta por Lama et al. (FAI 2026) como proxy de la longitud del ligamento intermetatarsiano transverso profundo (DTML). En su cohorte de 68 pacientes (34 HV + 34 controles) mediante WBCT, la distancia 2MTLS fue significativamente mayor en hallux valgus (20.90mm vs 18.56mm) y se correlacionó con la estación sesamoidea, el HVA y el IMA, apoyando la hipótesis de subluxación sesamoidea en esta deformidad.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">MOxFQ (Manchester-Oxford Foot Questionnaire)</div>
+          <div class="glos-def">Cuestionario de resultado reportado por el paciente (PROM) validado para patología de pie y tobillo, con dominios de dolor, caminata/pie y vida social. Fue uno de los PROMs utilizados en el estudio multicéntrico de TAA de Townshend et al. (FAI 2026) y también en el estudio de Hamre et al. (FAI 2026, n=193) sobre osteotomía Chevron, donde el MOxFQ preoperatorio predijo de forma independiente la mejoría clínicamente significativa a 1 año (umbral ≥15 puntos, OR 1.06 por punto), con mejor discriminación en pacientes con mayor carga sintomática basal.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">PRP (Plasma Rico en Plaquetas) vs PRF (Fibrina Rica en Plaquetas)</div>
+          <div class="glos-def">Ambos son concentrados autólogos derivados de sangre periférica centrifugada, pero difieren en su forma final: el PRP es líquido e inyectable, mientras que el PRF forma un coágulo/andamiaje de fibrina que puede aplicarse directamente sobre una superficie tisular. En esta edición, Genuth et al. (FAI 2026) usaron PRP líquido inyectable (leucocito-pobre) para neuroma de Morton, mientras que Baumfeld et al. (JFAS 2026) usaron un andamiaje de PRF (A-PRF e i-PRF) aplicado artroscópicamente sobre lesiones osteocondrales del talo tras su preparación — dos formulaciones y vías de aplicación distintas del mismo concentrado plaquetario, con indicaciones clínicas diferentes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 30 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 29 Agosto – 3 Septiembre 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Foot &amp; Ankle Orthopaedics · Journal of Foot &amp; Ankle Surgery (JFAS) · Journal of the American Academy of Orthopaedic Surgeons (JAAOS)<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
