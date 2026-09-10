@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 31 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 31 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 4 – 10 septiembre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 10 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · Foot Ankle Surg · JFAS · Foot Ankle Spec · Clin Anat</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: HINDFOOT INSTABILITY TEST -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Hindfoot Instability Test — Introduction and Validation of an Intraoperative Diagnostic Test of Hindfoot Instability in Deltoid Ligament Injury Associated With Ankle Fractures</div>
+        <div class="paper-meta">
+          <strong>Mason LW, Philpott MDG, Gomaa AR, Bond AP</strong><br>
+          Clinical Anatomy · 8 septiembre 2026
+          <span class="evidence-pill">Estudio cadavérico de validación — n=10</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42708379/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fractura de tobillo · Ligamento deltoideo · Inestabilidad de retropié</span>
+      <span class="tag">Test intraoperatorio · Estrés en valgo del calcáneo · Fluoroscopia</span>
+      <span class="tag">University of Liverpool / Liverpool Orthopaedic and Trauma Service</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de validación anatómica en 10 especímenes cadavéricos de pierna morfológicamente normales. El complejo ligamentoso deltoideo (DLC) se seccionó de forma escalonada (fibras superficiales y profundas) y se obtuvieron radiografías antes y después de la sección, bajo estrés en valgo del calcáneo con fluoroscopia. Se trazó una línea a lo largo del borde lateral de la fíbula, y se evaluó si la tuberosidad calcánea cruzaba esa línea durante el estrés en valgo del retropié (lo que definiría inestabilidad de retropié), manteniendo un espacio claro medial congruente. <strong>Hallazgo principal:</strong> antes de seccionar el DLC, la tuberosidad calcánea no cruzó la línea fibular lateral pese al estrés en valgo. Tras seccionar ambas capas del DLC (superficial y profunda), la tuberosidad calcánea cruzó la línea fibular lateral en el 100% de los especímenes (10/10) al repetir el estrés en valgo. Tras la reparación del DLC, la tuberosidad calcánea dejó de cruzar la línea durante el estrés repetido.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores proponen el "hindfoot instability test" como un adjunto diagnóstico intraoperatorio simple (radiografía con estrés en valgo del calcáneo bajo fluoroscopia, evaluando si la tuberosidad calcánea cruza la línea lateral de la fíbula) para detectar inestabilidad de retropié secundaria a lesión del DLC durante la fijación de fracturas de tobillo, y para confirmar la restauración de la estabilidad tras la reparación del DLC. En este modelo cadavérico, el test discriminó perfectamente entre DLC íntegro, seccionado y reparado. Limitaciones: estudio anatómico en 10 especímenes cadavéricos sin patología previa ni fractura real asociada; el abstract no reporta la reproducibilidad interobservador del test ni su correlación con desenlaces clínicos en pacientes reales — su validación clínica está pendiente.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: INTERNATIONAL CONSENSUS OLT IMAGING -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Clinical Work-up, Diagnostic Imaging, and Radiographic Classification Systems for Osteochondral Lesions of the Talus: Proceedings of the International Consensus Meetings on Cartilage Repair of the Ankle</div>
+        <div class="paper-meta">
+          <strong>Tham A, Rubin J, Butler JJ, et al. (75 autores/expertos internacionales)</strong><br>
+          Foot &amp; Ankle Specialist · 8 septiembre 2026
+          <span class="evidence-pill">Consenso Delphi internacional — 75 expertos, 19 declaraciones</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42711866/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Lesión osteocondral del talo (OLT) · Consenso internacional · Imagen</span>
+      <span class="tag">WBCT/RM/TC · Grid de 9 zonas · Clasificación radiográfica</span>
+      <span class="tag">Pittsburgh 2017 · Dublín 2019 · Nueva York 2025</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Proceedings de 3 Congresos Internacionales de Consenso sobre Reparación de Cartílago del Tobillo (Pittsburgh 2017, Dublín 2019, Nueva York 2025), con 75 expertos multidisciplinarios de más de 25 países, mediante proceso Delphi estructurado (encuestas ciegas, cuestionarios estructurados y discusión presencial), con revisión de literatura y evidencia graduada (A1-E). Los niveles de consenso se definieron como consenso (51-74%), consenso fuerte (75-99%) o unánime (100%). <strong>Resultados:</strong> se lograron 19 declaraciones de consenso. Hubo acuerdo fuerte sobre el uso de primera línea de radiografías con carga de peso y el uso complementario de RM y TC para caracterizar la lesión. Se respaldó la evaluación estandarizada del tamaño de la lesión en 3 planos y su localización mediante una grilla de 9 zonas. La artroscopia diagnóstica se consideró de valor rutinario limitado cuando se dispone de imagen avanzada. Las recomendaciones de imagen postratamiento clarificaron las indicaciones de radiografía e imagen de corte transversal, enfatizando la correlación limitada entre hallazgos de imagen y función clínica. Los sistemas de clasificación basados en TC se consideraron más útiles para guiar decisiones de tratamiento que los basados en radiografía simple o RM.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Este consenso establece un marco estandarizado para el estudio y clasificación de las OLT: radiografía de carga como primera línea, RM/TC complementarias, medición en 3 planos con grilla de 9 zonas, y clasificación basada en TC como la más útil para decisiones de tratamiento. Un mensaje disruptivo es que la artroscopia diagnóstica aislada tiene valor rutinario limitado cuando ya se dispone de imagen avanzada, y que los hallazgos de imagen postratamiento se correlacionan de forma limitada con la función clínica del paciente. Limitación inherente al diseño: es un documento de consenso de expertos (no evidencia primaria), por lo que su fuerza depende de la solidez de la literatura revisada, graduada de A1 a E según cada declaración —el abstract no detalla el grado de evidencia de cada una individualmente.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: TARSAL COALITION DISTRIBUTION JAPAN -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Distribution and Treatment Patterns of Symptomatic Tarsal Coalition in Japan: A Multicenter Retrospective Study</div>
+        <div class="paper-meta">
+          <strong>Matsui T, Sugimoto K, Miura K, Isomoto S, Samoto N, Kumai T, Kawamura K</strong><br>
+          Foot &amp; Ankle International (FAI) · 7 septiembre 2026
+          <span class="evidence-pill">Nivel IV — Retrospectivo multicéntrico descriptivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42706720/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Coalición tarsiana · Talocalcánea · Naviculocuneiforme · Calcaneonavicular</span>
+      <span class="tag">n=127 coaliciones · 4 centros especializados, Japón · 1997–2025</span>
+      <span class="tag">Resección vs. artrodesis</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo multicéntrico en 4 centros especializados de pie y tobillo de Japón, que incluyó 127 coaliciones tarsianas sintomáticas diagnosticadas entre 1997 y 2025. Se analizaron datos demográficos, lateralidad, tipo de coalición y modalidad de tratamiento. Las coaliciones se categorizaron en talocalcánea (TC), naviculocuneiforme (NC), calcaneonavicular (CN), cubonavicular y cuneometatarsiana. <strong>Hallazgo principal:</strong> la coalición TC fue el tipo más frecuente (56.7%), seguida de NC (22.8%) y CN (16.5%); cubonavicular (3.1%) y cuneometatarsiana (0.8%) fueron infrecuentes. Entre las coaliciones TC, el compromiso de la faceta posterior fue el más frecuente (73.6%), seguido del compromiso combinado medio-posterior (22.2%); el compromiso aislado de faceta media o panfacetal fue infrecuente. El compromiso bilateral se observó en 18.9% de los pacientes. El tratamiento conservador fue exitoso en 33.1% de los casos, mientras que 66.9% requirió tratamiento quirúrgico (resección de la coalición 60.6%, artrodesis 6.3%).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte japonesa sintomática, la coalición talocalcánea (56.7%) fue claramente predominante, con una proporción relativamente alta de coaliciones naviculocuneiformes (22.8%) y calcaneonaviculares (16.5%) — un patrón distinto al reportado tradicionalmente en poblaciones occidentales, donde la coalición calcaneonavicular se describe como la más común. La resección de la coalición fue el procedimiento quirúrgico más frecuente; la artrodesis rara vez fue necesaria (6.3%). Los autores destacan la importancia del diagnóstico basado en TC para caracterizar correctamente la morfología de la coalición. Limitaciones: diseño retrospectivo descriptivo (Nivel IV), el abstract no reporta los resultados funcionales tras cada tipo de tratamiento ni los criterios usados para elegir entre resección y artrodesis.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: ANXIETY/DEPRESSION AND TAA OUTCOMES -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Preoperative Anxiety and/or Depression as a Predictor of Patient-Reported Outcomes After Total Ankle Arthroplasty</div>
+        <div class="paper-meta">
+          <strong>Sundet M, Lund Eriksen M, Storrønning I, Jevnaker A, Husby I, Østerhus I, Sundin U, Lillegraven S</strong><br>
+          Foot &amp; Ankle International (FAI) · 5 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, registro prospectivo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42698339/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artroplastia total tobillo · Ansiedad/depresión preoperatoria · MOxFQ</span>
+      <span class="tag">n=300 · Registro único centro · EQ-5D-3L ítem 5</span>
+      <span class="tag">Diakonhjemmet Hospital, Oslo, Noruega</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis retrospectivo de datos prospectivamente recolectados en un registro único de artroplastia de tobillo (Diakonhjemmet Hospital, Oslo), que incluyó 300 pacientes. La exposición fue ansiedad/depresión preoperatoria autorreportada, definida mediante el ítem 5 del EQ-5D-3L y dicotomizada (síntomas autorreportados, no diagnóstico clínico formal). El outcome primario fue la diferencia ajustada en el score MOxFQ (Manchester-Oxford Foot and Ankle Questionnaire) a los 12 meses postoperatorios, mediante regresión lineal multivariable con imputación múltiple. <strong>Hallazgo principal:</strong> 90 de 300 pacientes (30%) reportaron ansiedad y/o depresión preoperatoria; estos pacientes eran más jóvenes y reportaron peor dolor y función basal. A los 12 meses, el grupo con ansiedad/depresión tuvo peor MOxFQ absoluto (media 30.2 vs 20.1, p&lt;0.001), pero su mejoría desde el basal fue comparable a la de los pacientes sin ansiedad/depresión (ΔMOxFQ 41.3 vs 43.9, p=0.40). En el análisis multivariable ajustado por MOxFQ basal, edad, sexo y diagnóstico, la ansiedad/depresión preoperatoria no se asoció de forma independiente con peor MOxFQ a 12 meses (β=4.3, IC 95% -0.9 a 9.5). Entre los pacientes con ansiedad/depresión basal, aproximadamente dos tercios ya no la reportaban a los 12 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La ansiedad y/o depresión preoperatoria autorreportada fue frecuente (30%) en candidatos a TAA y se asoció a peores síntomas basales, pero no limitó la magnitud de la mejoría postoperatoria en PROMs a 1 año una vez ajustado por el estado basal. Además, la mayoría de los pacientes con síntomas psicológicos preoperatorios dejó de reportarlos tras la cirugía. Este hallazgo es relevante para la consejería preoperatoria: la presencia de ansiedad/depresión autorreportada no debería, por sí sola, ser motivo para desestimar la TAA como opción terapéutica. Limitaciones: la exposición se definió por autorreporte de un solo ítem del EQ-5D-3L, no por diagnóstico clínico formal ni escalas validadas específicas de ansiedad/depresión; diseño retrospectivo de registro, un solo centro.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: PSI/WBCT ACCURACY INBONE PROPHECY -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Accuracy of Implant Positioning in Total Ankle Arthroplasty Using Patient-Specific Instrumentation: A Weightbearing CT Analysis of Landmark-Based Parameters</div>
+        <div class="paper-meta">
+          <strong>Garibaldi R, Lama JE, Henry JK, Lan R, Demetracopoulos CA, Ellis SJ</strong><br>
+          Foot and Ankle Surgery (FAS) · 8 septiembre 2026
+          <span class="evidence-pill">Retrospectivo — análisis de precisión radiográfica, n=54</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42716898/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">TAA · Instrumentación específica del paciente (PSI) · INBONE Prophecy</span>
+      <span class="tag">WBCT postoperatoria · Precisión de posicionamiento · n=54</span>
+      <span class="tag">Hospital for Special Surgery, Nueva York</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión retrospectiva de 54 pacientes sometidos a TAA con sistema INBONE II, con planificación mediante instrumentación específica del paciente (PSI, sistema Prophecy) y tomografía computada con carga de peso (WBCT) postoperatoria disponible. Se comparó la posición planificada vs. la posición postoperatoria real del implante para 3 parámetros: distancia entre el componente tibial medial y el maléolo medial, distancia entre el vástago talar y la articulación subastragalina, y el corte talar respecto al eje horizontal, evaluando la confiabilidad mediante coeficientes de correlación intraclase (ICC). <strong>Hallazgo principal:</strong> las mediciones de distancia mostraron alta precisión, con la mayoría de los casos dentro de 1mm de la planificación. Se observó baja precisión (&gt;2mm de diferencia) en 20% de las mediciones del maléolo medial y en 7.7% de las mediciones subastragalinas. Los ICC oscilaron entre 0.79 y 0.95. La diferencia angular absoluta media para el corte talar fue 2.91°.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El sistema PSI INBONE Prophecy reprodujo con precisión el posicionamiento planificado basado en distancias (la mayoría de las mediciones dentro de 1mm), pero la alineación sagital del corte talar fue más variable (diferencia angular media 2.91°), y hasta 1 de cada 5 mediciones del maléolo medial superó los 2mm de discrepancia respecto a lo planificado. Esto sugiere que, aunque el PSI mejora la reproducibilidad general del posicionamiento del implante, el corte talar en el plano sagital sigue siendo el parámetro más difícil de controlar con esta tecnología. Limitaciones: diseño retrospectivo, un solo centro, un solo sistema de implante/PSI (INBONE Prophecy); el abstract no reporta si la discrepancia de posicionamiento se correlacionó con outcomes clínicos o revisión.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: PLACENTAL-DERIVED INJECTABLES FOR PLANTAR FASCIITIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Placental-Derived Injectable Products for Chronic Plantar Fasciitis: A Systematic Review and Meta-Analysis</div>
+        <div class="paper-meta">
+          <strong>Oesman I, Kohar K, Sanjaya IS</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 7 septiembre 2026
+          <span class="evidence-pill">Revisión sistemática y metaanálisis — GRADE bajo/muy bajo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42705475/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fascitis plantar crónica · Productos placentarios inyectables · Orthobiológicos</span>
+      <span class="tag">6 estudios · n=324 · PRISMA 2020 · GRADE</span>
+      <span class="tag">Universidad de Indonesia / Cipto Mangunkusumo Hospital</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metaanálisis siguiendo PRISMA 2020, con búsqueda en PubMed, Science Direct, Google Scholar, Cochrane y ProQuest, sobre el uso de productos inyectables derivados de placenta (amnios/corion) para fascitis plantar crónica refractaria a tratamiento conservador prolongado. Se incluyeron 6 estudios con 324 adultos. El outcome primario fue reducción del dolor (escala 0-10, armonizada), combinado mediante diferencia de medias (MD); outcomes funcionales y eventos adversos se sintetizaron narrativamente. Certeza de la evidencia evaluada con GRADE. <strong>Hallazgo principal:</strong> en ensayos randomizados controlados con placebo, los productos placentarios se asociaron a mayor reducción del dolor que el control (MD 3.37 puntos, IC 95% 1.13-5.60, p=0.003, I²=92%). Los estudios comparativos no randomizados también favorecieron el tratamiento placentario (MD 1.91 puntos, IC 95% 0.80-3.03, I²=9%, p&lt;0.001). La estimación exploratoria combinando ambos diseños fue MD 2.77 puntos (IC 95% 1.29-4.25, I²=85%). Los outcomes funcionales generalmente mejoraron, aunque la heterogeneidad de instrumentos impidió su combinación cuantitativa. No se reportaron eventos adversos graves relacionados al tratamiento. La certeza de la evidencia fue baja a muy baja.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los productos inyectables derivados de placenta podrían asociarse a mejoría del dolor en fascitis plantar crónica, con un perfil de seguridad favorable en los estudios incluidos (sin eventos adversos graves reportados). Sin embargo, los propios autores señalan que la certeza de la evidencia es limitada por el pequeño tamaño muestral de los estudios, la heterogeneidad sustancial entre ellos (I² hasta 92%) y la variación en la formulación del producto y el protocolo de tratamiento. Concluyen explícitamente que se requieren ensayos randomizados estandarizados adicionales antes de recomendar su uso clínico rutinario. Limitación relevante: solo 6 estudios incluidos con alta heterogeneidad estadística, lo que limita la confiabilidad de la estimación combinada.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Wang Q, Zhang Y, Shen S, Wang J, Wang JH, Zhao HM (Honghui Hospital, Xi'an Jiaotong University)</strong> Cohorte retrospectiva de 83 pacientes con neuroartropatía de Charcot diabética (Eichenholtz III) tratados con artrodesis (2017–2025): sobrevida libre de fracaso 96.0% a 6 meses y 45.3% a 12 meses; mayor duración de diabetes (HR ajustado 1.091, p=0.001) y tabaquismo (HR ajustado 2.579, p=0.026) se asociaron a peor sobrevida libre de fracaso; la HbA1c no se asoció de forma independiente (p=0.085) — <em>Foot Ankle Int (FAI)</em>, 6 sept (DOI: 10.1177/10711007261473606)</li>
+      <li><strong>Rutenberg TF, Atzmon R, Barak U, Luria T, Kossashvili Y, Shemesh S (Rabin Medical Center / Assuta Ashdod / Sheba Medical Center, Israel)</strong> Comparación retrospectiva de fijación mínima (n=27) vs. extensa (n=68) en fracturas de tobillo Weber B/C operadas (2017–2019): tiempo operatorio menor con fijación mínima (58.7 vs 86.6 min, p&lt;0.001); complicaciones y revisión sin diferencia significativa; pérdida de reducción más frecuente con fijación mínima (14.8% vs 2.9%, p=0.053, al límite de la significación) — <em>J Foot Ankle Surg (JFAS)</em>, 6 sept (DOI: 10.1053/j.jfas.2026.09.002)</li>
+      <li><strong>Blaszczyk MG, Zvonar JP, Grotelueschen G, McMillen RL, Li J (Allegheny Health Network)</strong> Estudio retrospectivo de 147 pacientes con fractura de tobillo desplazada (2022–2025): el retraso en la reducción se asoció a mayor compromiso de tejidos blandos preoperatorio (OR 1.601, IC 95% 1.101-2.407, p=0.017), sin asociación independiente con complicaciones postoperatorias, reoperación o estancia hospitalaria; enfermedad vascular periférica y renal se asociaron más fuertemente a peores outcomes postoperatorios (p=0.027 y p=0.014) — <em>J Foot Ankle Surg (JFAS)</em>, 8 sept (DOI: 10.1053/j.jfas.2026.09.003)</li>
+      <li><strong>Lau B, Newton A, Lewis TL, Vignaraja V, Franklin S, Trowbridge S, Ayathamattam J, Lam P, Ray R (King's Foot and Ankle Unit, Reino Unido)</strong> Estudio comparativo de 100 correcciones de hallux valgus mediante cirugía mínimamente invasiva de 4ª generación, realizadas por consultores (n=47 analizados) vs. residentes bajo supervisión directa (n=49 analizados): sin diferencias significativas en HVA, IMA, MOXFQ o EQ-5D-5L postoperatorios entre grupos (p&gt;0.05); complicaciones comparables (12 en cada grupo) — <em>Foot Ankle Surg (FAS)</em>, 1 sept (DOI: 10.1016/j.fas.2026.08.011)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Consenso Internacional Limita el Rol Rutinario de la Artroscopia Diagnóstica en OLT</div>
+        <p>El consenso Delphi de 75 expertos internacionales (Foot Ankle Spec, 3 congresos 2017-2025) concluye que la artroscopia diagnóstica tiene valor rutinario limitado cuando se dispone de imagen avanzada (RM/TC), y que los sistemas de clasificación basados en TC son más útiles para guiar el tratamiento que los basados en radiografía simple o RM. También destaca que los hallazgos de imagen postratamiento se correlacionan de forma limitada con la función clínica del paciente — es decir, "verse bien" en la imagen no garantiza un buen resultado funcional.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Documento de consenso de expertos con proceso Delphi riguroso (75 expertos, >25 países, evidencia graduada A1-E), lo que le da autoridad práctica considerable, aunque sigue siendo opinión experta estructurada y no evidencia primaria comparativa. El abstract no detalla el grado de evidencia individual de cada una de las 19 declaraciones.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Coalición Talocalcánea (no Calcaneonavicular) Domina en Cohorte Japonesa Sintomática</div>
+        <p>Matsui et al. (FAI, 4 centros de Japón, n=127) encuentran que la coalición talocalcánea es el tipo más frecuente en su cohorte sintomática (56.7%), muy por encima de la calcaneonavicular (16.5%) — contrario al patrón descrito tradicionalmente en la literatura occidental, donde la coalición calcaneonavicular se reporta como la más común. Esto podría reflejar diferencias poblacionales reales o diferencias en el umbral/método diagnóstico (uso extendido de TC).</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio descriptivo retrospectivo Nivel IV, multicéntrico pero limitado a Japón; no compara directamente con una cohorte occidental contemporánea evaluada con el mismo protocolo de imagen, por lo que no puede distinguirse con certeza si la diferencia es poblacional o metodológica (dependencia de TC para el diagnóstico).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Fractura de Tobillo con Lesión del Deltoideo — Lo que Muestra el Estudio</h4>
+          <p>Mason et al. (Clin Anat, n=10 cadáveres) validan el "hindfoot instability test": bajo estrés en valgo del calcáneo con fluoroscopia, la tuberosidad calcánea cruzó la línea lateral de la fíbula en el 100% de los especímenes tras seccionar el DLC, y dejó de cruzarla tras su reparación. Es un adjunto intraoperatorio simple para decidir si reparar el ligamento deltoideo durante la fijación de fracturas de tobillo — su validación clínica en pacientes reales aún está pendiente.</p>
+        </div>
+        <div class="app-item">
+          <h4>Lesiones Osteocondrales del Talo — Lo que Muestra el Consenso</h4>
+          <p>El consenso internacional (Foot Ankle Spec, 75 expertos) recomienda radiografía de carga como primera línea, RM/TC complementarias, medición en 3 planos con grilla de 9 zonas, y clasificación basada en TC para guiar el tratamiento — con valor rutinario limitado de la artroscopia diagnóstica aislada cuando ya hay imagen avanzada disponible.</p>
+        </div>
+        <div class="app-item">
+          <h4>Coaliciones Tarsianas — Lo que Muestra el Estudio</h4>
+          <p>Matsui et al. (FAI, n=127, Japón) muestran que la coalición talocalcánea con compromiso de faceta posterior (73.6% de las TC) fue el patrón dominante en su cohorte sintomática, y que la resección de la coalición (60.6%) fue el tratamiento quirúrgico más frecuente, con la artrodesis reservada para una minoría de casos (6.3%). Refuerza la importancia del diagnóstico por TC para caracterizar la morfología exacta antes de decidir el tratamiento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Complejo Ligamentoso Deltoideo (DLC) y Test de Inestabilidad de Retropié</div>
+          <div class="glos-def">El DLC es el estabilizador medial del tobillo, compuesto por fibras superficiales y profundas; a través de sus fibras superficiales también actúa sobre la articulación subastragalina y contribuye al soporte del arco longitudinal medial. Mason et al. (Clin Anat 2026) validaron en 10 cadáveres un test intraoperatorio ("hindfoot instability test") en el que el cruce de la tuberosidad calcánea sobre la línea lateral de la fíbula, bajo estrés en valgo con fluoroscopia, indica lesión completa del DLC (superficial + profundo) tras fractura de tobillo — un hallazgo que desapareció tras la reparación del ligamento en el mismo modelo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Tipos de Coalición Tarsiana (TC, NC, CN)</div>
+          <div class="glos-def">Las coaliciones tarsianas son fusiones congénitas entre 2 o más huesos del tarso. Los tipos principales son la talocalcánea (TC, entre talo y calcáneo, frecuentemente en la faceta posterior o media), la calcaneonavicular (CN, entre calcáneo y navicular) y la naviculocuneiforme (NC, entre navicular y cuneiformes), además de tipos infrecuentes como la cubonavicular y cuneometatarsiana. Matsui et al. (FAI 2026, n=127, Japón) encontraron que la TC fue la más frecuente (56.7%) en su cohorte sintomática, con compromiso predominante de la faceta posterior (73.6% de las TC).</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Grilla de 9 Zonas para Lesiones Osteocondrales del Talo</div>
+          <div class="glos-def">Sistema de localización estandarizado para mapear las lesiones osteocondrales de la cúpula talar, dividiendo la superficie articular del talo en 9 zonas (una cuadrícula de 3x3 en los planos anteroposterior y medial-lateral). El consenso internacional de Reparación de Cartílago del Tobillo (Foot Ankle Spec 2026) respaldó su uso estandarizado junto con la medición del tamaño lesional en 3 planos, como parte del marco de trabajo recomendado para la evaluación por imagen de las OLT.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">EQ-5D (EuroQol 5 Dimensions) — Ítem 5: Ansiedad/Depresión</div>
+          <div class="glos-def">El EQ-5D es un instrumento genérico de calidad de vida relacionada con la salud, con 5 dimensiones: movilidad, cuidado personal, actividades habituales, dolor/malestar y ansiedad/depresión (ítem 5), cada una calificada en niveles de severidad (3 niveles en la versión EQ-5D-3L). Sundet et al. (FAI 2026, n=300) usaron el ítem 5 del EQ-5D-3L, dicotomizado, como proxy de ansiedad/depresión autorreportada preoperatoria en candidatos a TAA — no equivale a un diagnóstico clínico formal, pero permitió identificar que el 30% de los pacientes reportaba síntomas psicológicos preoperatorios significativos, sin que esto limitara la magnitud de su mejoría funcional al año.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 31 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 4 – 10 Septiembre 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Foot and Ankle Surgery (FAS) · Journal of Foot &amp; Ankle Surgery (JFAS) · Foot &amp; Ankle Specialist · Clinical Anatomy<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
