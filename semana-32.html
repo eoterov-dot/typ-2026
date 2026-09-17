@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 32 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 32 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 11 – 17 septiembre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 10 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · Foot Ankle Spec · Arthroscopy · Foot Ankle Surg · Int Orthop</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: BMS PROGNOSTIC FACTORS OLT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Age Greater Than 45, Preop Symptom Duration, and Bone Marrow Edema Depth Negatively Impact Long-Term Outcomes After Bone Marrow Stimulation for Osteochondral Lesions of the Talus</div>
+        <div class="paper-meta">
+          <strong>Xu, Cheng, Li, Pei, Li, Guo, Hu, Wang, Jiao, Jiang</strong><br>
+          Arthroscopy · 16 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=103, seguimiento mínimo 10 años</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42748052/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Lesión osteocondral del talo · Bioestimulación medular · Seguimiento ≥10 años</span>
+      <span class="tag">Factores pronósticos · Edad · Duración de síntomas · Edema óseo</span>
+      <span class="tag">n=103 · MOCART / MOCART 2.0</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo que evaluó el efecto a largo plazo (mínimo 10 años, media 11.8 años) de la edad sobre los resultados clínicos y radiológicos de la bioestimulación medular (BMS) para lesiones osteocondrales del talo (OLT) confirmadas por RM (lesión &lt;150 mm²), tratadas entre 2009 y 2015. Los 103 pacientes se estratificaron en 3 grupos etarios (&lt;30, 30-45 y &gt;45 años). Se evaluaron desenlaces clínicos (FAOS, AOFAS, Tegner, EVA) y reparación cartilaginosa por RM (MOCART, MOCART 2.0). <strong>Hallazgo principal:</strong> todos los grupos mejoraron significativamente respecto al basal, pero los pacientes &lt;30 años lograron los mejores resultados, seguidos por 30-45 y &gt;45 años (todos p&lt;.001). La diferencia mínima clínicamente importante (MCID) de AOFAS se alcanzó en 96.7%, 81.1% y 72.2% respectivamente (p=.032), y la MCID de calidad de vida en 96.7%, 70.3% y 52.8% (p&lt;.001). En pacientes &gt;45 años, una duración de síntomas preoperatoria &gt;25.5 meses (AUC=0.788; sensibilidad 82.4%; especificidad 78.9%) y una profundidad de edema óseo basal &gt;10.5 mm (AUC=0.772; sensibilidad 70.6%; especificidad 84.2%) fueron umbrales predictivos de no alcanzar la MCID de calidad de vida.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La edad influye negativamente en los resultados a largo plazo de la BMS para OLT. En pacientes mayores de 45 años, los propios autores identifican dos umbrales pronósticos concretos de fracaso funcional: duración de síntomas preoperatoria mayor a 25.5 meses y profundidad de edema óseo basal mayor a 10.5 mm en la RM preoperatoria. Estos umbrales podrían usarse como apoyo a la consejería preoperatoria en pacientes mayores de 45 años con estos hallazgos. Limitaciones: diseño retrospectivo Nivel III, sin grupo de comparación con otra técnica quirúrgica; el abstract no reporta si estos pacientes de alto riesgo se beneficiarían de una técnica alternativa a la BMS.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: CONGRESS PROCEEDINGS OLT TERMINOLOGY -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">History, Physical Examination, and Terminology of Osteochondral Lesions of the Talus: Proceedings of the International Congress on Cartilage Repair of the Ankle</div>
+        <div class="paper-meta">
+          <strong>Tham A, Butler JJ, Rubin J, et al. (consorcio internacional de expertos)</strong><br>
+          Foot &amp; Ankle Specialist · 17 septiembre 2026
+          <span class="evidence-pill">Consenso Delphi internacional — Proceedings 2017 y 2019</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42750533/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">OLT · Terminología estandarizada · Historia clínica · Examen físico</span>
+      <span class="tag">Consenso Delphi · Congresos 2017/2019</span>
+      <span class="tag">Continuación del consenso de imagen (semana 31)</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Artículo de proceedings que integra las declaraciones de consenso de los Congresos Internacionales de Consenso sobre Reparación de Cartílago del Tobillo de 2017 y 2019, referidas a terminología, historia clínica y examen físico de las lesiones osteocondrales del talo (OLT), mediante proceso Delphi modificado con expertos internacionales (encuestas ciegas, cuestionarios estructurados, revisión de literatura, discusión presencial y votación anónima final). <strong>Resultados:</strong> se respaldó terminología estandarizada que distingue lesiones óseas subcondrales, lesiones condrales y OLT. La "bioestimulación medular" (bone marrow stimulation) se adoptó como término paraguas para procedimientos de acceso a la médula, y se recomendó terminología estandarizada para trasplante osteocondral autólogo y alogénico. El panel también respaldó el reporte consistente de edema subcondral, quistes subcondrales, área y diámetro de la lesión, profundidad y cronicidad. Para la evaluación clínica, el consenso respaldó documentar nivel de actividad, duración de síntomas, historia de trauma, localización del dolor, síntomas mecánicos, tratamiento previo, edema, alineación, rango de movimiento, estabilidad y dolor a la palpación. El dolor profundo de tobillo relacionado con actividad, con o sin edema, se identificó como el hallazgo clínico más importante sugestivo de una lesión cartilaginosa sintomática.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Este documento estandariza el vocabulario y los elementos de evaluación clínica de las OLT (terminología, anamnesis, examen físico), complementando el consenso de imagen publicado la semana pasada por el mismo grupo de expertos. Establece el dolor profundo relacionado con actividad como el signo clínico más relevante para sospechar una lesión cartilaginosa sintomática del tobillo, y fija terminología común (p. ej. "bioestimulación medular" como término paraguas) que facilita la comparación entre estudios. Limitación inherente: es un documento de consenso de expertos (Delphi), no evidencia primaria comparativa; el abstract no detalla el grado de evidencia individual de cada declaración.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: 3D-PRINTED GUIDE AOPT -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Preoperative Computer Simulation and 3D-Printed Guide Plate of Autologous Transplantation Achieved Favorable Outcomes in Patients With Large Cystic Osteochondral Lesion of the Talus</div>
+        <div class="paper-meta">
+          <strong>Cai B, Cheng X, Su T, Hu Y, Guo Q, Jiao C, Jiang Y</strong><br>
+          Foot &amp; Ankle International (FAI) · 17 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=32</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42750612/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">OLT quística grande · AOPT · Guía de corte 3D personalizada</span>
+      <span class="tag">n=32 (13 personalizado vs 19 convencional)</span>
+      <span class="tag">Peking University Third Hospital</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo comparativo en pacientes con OLT quística medial grande (área &gt;100 mm² y/o profundidad &gt;8 mm) tratados con trasplante osteoperióstico autólogo (AOPT) convencional (n=19) o AOPT asistido por simulación computacional preoperatoria y guías de corte personalizadas impresas en 3D (n=13), entre mayo 2019 y junio 2021. Se compararon escalas MOCART, FAAM y EVA, y complicaciones postoperatorias. <strong>Hallazgo principal:</strong> sin diferencia significativa en el área de la OLT entre grupos. El grupo con guía personalizada tuvo EVA postoperatoria significativamente menor (2.00 vs 3.00, p=.004), FAAM-ADL significativamente mayor (diferencia media 5.75; IC 95% 2.60-8.91, p&lt;.001) y tiempo quirúrgico significativamente menor (diferencia media -0.74 horas; IC 95% -0.98 a -0.50, p&lt;.001). La recurrencia del quiste se redujo significativamente (7.69% vs 47.37%; diferencia -39.68%; IC 95% -66.40% a -12.96%, p=.024). La morbilidad del sitio de osteotomía fue menor pero no alcanzó significación estadística (7.69% vs 42.11%, p=.050). No se detectó diferencia significativa en FAAM-Sports ni MOCART.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La planificación preoperatoria con simulación computacional y guías de corte 3D personalizadas se asoció a menor dolor postoperatorio, mejor función en actividades de la vida diaria, menor tiempo quirúrgico y menor recurrencia del quiste, comparado con la técnica convencional de AOPT para OLT quísticas grandes. Los propios autores señalan que, dado el tamaño muestral limitado (n=32) y el diseño no aleatorizado, estos resultados deben interpretarse con cautela y requieren validación en estudios más grandes. Limitación adicional: un solo centro, período histórico de reclutamiento (2019-2021).</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: PILON 43C ORIF VS TTC NAILING -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Outcomes of AO/OTA 43C Pilon Fractures Treated With Open Reduction Internal Fixation or Tibiotalocalcaneal Nailing</div>
+        <div class="paper-meta">
+          <strong>Litten, Sankey, Harris, McIlwain, Spitler, Johnson, Johnson</strong><br>
+          Foot &amp; Ankle International (FAI) · 16 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, pareada 1:1, n=140 tras pareo</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42747020/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de pilón AO/OTA 43C · ORIF vs. clavo tibiotalocalcáneo (TTC)</span>
+      <span class="tag">n=436 (no pareado) / n=140 (pareado) · Trauma Nivel 1</span>
+      <span class="tag">Salvataje de extremidad</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte retrospectiva de adultos con fracturas de pilón AO/OTA 43C tratados quirúrgicamente en un único centro de trauma Nivel 1 (2020-2025), con al menos 90 días de seguimiento. Los pacientes tratados con clavo tibiotalocalcáneo (TTC) se parearon 1:1 con pacientes tratados con ORIF según fractura abierta/cerrada (y clasificación de Gustilo-Anderson en abiertas). Outcomes primarios: infección relacionada a la fractura (FRI), reoperación, no unión, amputación y estancia hospitalaria. <strong>Hallazgo principal:</strong> en la cohorte no pareada (n=436), los pacientes TTC tenían más fracturas abiertas (58.6% vs 38.8%, p=.002), mayor Injury Severity Score (15.8 vs 11.3, p=.001) y más politrauma (42.9% vs 22.4%, p&lt;.001). Tras el pareo (n=140), los pacientes TTC seguían teniendo mayor ISS, más politrauma, más transfusiones y más ingreso a UCI. Sin embargo, las tasas de FRI, reoperación, no unión y amputación fueron similares entre grupos tras el pareo.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Con los pacientes disponibles, tras parear por gravedad de la fractura, no se detectó diferencia significativa en complicaciones postoperatorias (FRI, reoperación, no unión, amputación) entre TTC y ORIF, a pesar de que los pacientes tratados con TTC partían con mayor gravedad global (ISS, politrauma, transfusiones, UCI). Los autores concluyen que esto respalda el uso del clavo TTC como estrategia viable de salvataje de extremidad en fracturas de pilón con conminución articular severa, mala calidad ósea o tejidos blandos comprometidos que limitan la reconstrucción convencional. Limitaciones: diseño retrospectivo Nivel III, único centro, pareo por severidad pero sin aleatorización — persiste posible sesgo de selección residual.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: LARS VS AUTOGRAFT CAI -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Ligament Advanced Reinforcement System (LARS) Augmented Repair vs Autograft Reconstruction for Chronic Lateral Ankle Instability: A Retrospective Comparative Study</div>
+        <div class="paper-meta">
+          <strong>Wu, Li, Zhao, Hao, Xie, Fu, Jia, Fang</strong><br>
+          Foot &amp; Ankle International (FAI) · 16 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=112, seguimiento 24 meses</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42747027/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Inestabilidad crónica de tobillo · LARS vs. reconstrucción con autoinjerto</span>
+      <span class="tag">n=112 (54 LARS vs 58 autoinjerto) · FAOS-Sport · Tegner</span>
+      <span class="tag">Seguimiento a 24 meses</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo comparativo en 112 pacientes con inestabilidad crónica de tobillo (CAI) tratados con reparación aumentada con Ligament Advanced Reinforcement System (LARS, n=54) o reconstrucción con autoinjerto (n=58), evaluados en 5 momentos hasta los 24 meses. Outcomes primarios: FAOS-Sport y escala de actividad Tegner; secundarios: otras subescalas FAOS y EVA. Se usaron ecuaciones de estimación generalizadas para las trayectorias longitudinales y un análisis exploratorio de respondedores por diferencia mínima clínicamente importante (MCID). <strong>Hallazgo principal:</strong> ambos grupos mejoraron significativamente en el tiempo (p&lt;.001 en todos los outcomes). El grupo LARS mostró FAOS-Sport y Tegner más altos a 1, 3 y 6 meses (todos p&lt;.001), indicando recuperación funcional temprana más rápida; ventajas tempranas similares se observaron en outcomes secundarios. Las diferencias entre grupos ya no fueron evidentes a los 12 y 24 meses. En el análisis exploratorio de MCID, una mayor proporción de pacientes LARS alcanzó la MCID de FAOS a los 3 meses, mientras que todos los pacientes disponibles de ambos grupos la alcanzaron hacia los 6 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Tanto la reparación aumentada con LARS como la reconstrucción con autoinjerto mejoraron la función a 24 meses, sin diferencia significativa detectable entre técnicas en los outcomes disponibles a largo plazo. La ventaja documentada de LARS fue una recuperación funcional más rápida en los primeros 3-6 meses postoperatorios, que se diluyó posteriormente. Los autores sugieren que LARS podría considerarse en pacientes que priorizan una recuperación temprana. Limitaciones: diseño retrospectivo Nivel III, sin aleatorización, análisis de MCID exploratorio.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: DUS VS MRI MORTON NEUROMA -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Dynamic Ultrasound (DUS) versus Magnetic Resonance Imaging (MRI) for the Diagnosis of Morton's Neuroma: A Prospective Comparative Study</div>
+        <div class="paper-meta">
+          <strong>Biz C, Crimì A, Sciarretta F, Crimì G, Dimaggio N, Corso R, Angelone C, Quaia E, Ruggieri P</strong><br>
+          Foot &amp; Ankle Surgery (FAS) · 11 septiembre 2026
+          <span class="evidence-pill">Nivel II — Estudio diagnóstico prospectivo comparativo, n=76 lesiones</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42736053/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Neuroma de Morton · Ecografía dinámica (DUS) vs. RM</span>
+      <span class="tag">n=76 lesiones (53 neuroma, 23 bursitis intermetatarsiana)</span>
+      <span class="tag">Estándar de referencia: histopatología / seguimiento clínico a 12 meses</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo comparativo, unicéntrico, en pacientes con sospecha de neuroma de Morton (MN), evaluados con ecografía dinámica (DUS) y RM interpretadas de forma independiente y ciega por radiólogos. El estándar de referencia fue la confirmación histopatológica tras excisión quirúrgica para MN, y la resolución de síntomas a los 12 meses tras tratamiento conservador para bursitis intermetatarsiana (IMB). Se calcularon métricas de desempeño diagnóstico y curvas ROC. <strong>Hallazgo principal:</strong> se evaluaron 76 lesiones (53 MN, 23 IMB). La DUS mostró una precisión diagnóstica de 98.68% frente a 89.47% de la RM. El área bajo la curva ROC fue significativamente mayor para la DUS (p=.0147).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte, la ecografía dinámica tuvo un desempeño diagnóstico superior a la RM para diferenciar el neuroma de Morton de la bursitis intermetatarsiana, con mayor precisión global y mayor área bajo la curva ROC. Los autores concluyen que la DUS representa una modalidad de imagen de primera línea confiable y costo-efectiva. Limitaciones: diseño unicéntrico, el abstract no reporta la experiencia específica de los operadores de ecografía ni si los resultados son generalizables a centros sin radiólogos entrenados en ecografía musculoesquelética dinámica.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Testa G, Sapienza M, Marchetti C, Perricone A, Vaccalluzzo A, Ilardo A, Caldaci A, Canavese F, Vescio A, Pavone V</strong> Estudio retrospectivo de datos prospectivos en 121 pacientes pediátricos (218 pies) con pie plano flexible sintomático tratados con artroereisis de calcaneo-stop FIT-CS (2018-2022): AOFAS Hindfoot mejoró de 44.99±10.59 a 92.46±8.78 a los 3 años (p&lt;0.001), con mejoría sostenida y significativa de OxAFQ-C, Catania Flatfoot Score, ángulo de Kite (30.38°→24.02°) y ángulo de Costa-Bertani (155.95°→123.22°); complicaciones 7.4%, revisión quirúrgica en 2 pacientes por rotura de tornillo — <em>Int Orthop</em>, 16 sept (DOI: 10.1007/s00264-026-07030-8)</li>
+      <li><strong>Díaz-Fernández, Martín-de-Salvador, Valverde-Vázquez, Oliver-Grosso</strong> Estudio observacional retrospectivo de 63 pacientes con neuroma interdigital único tratados con ablación por radiofrecuencia (RFA, 2019-2024), seguimiento mínimo 2 años: reducción clínicamente significativa de EVA (≥3 puntos) en 65.2%; mejoría significativa en todos los dominios de MOXFQ (p&lt;.001); 27.0% requirió cirugía posterior; sin predictores significativos de respuesta clínica identificados — <em>Foot Ankle Int (FAI)</em>, 16 sept (DOI: 10.1177/10711007261473603)</li>
+      <li><strong>Tan, Tay, Mohamed Buhary, Toh, Li, Tay</strong> Revisión retrospectiva de 75 pacientes con cirugía unilateral por tendinopatía aquiliana insercional (IAT), comparando IMC normal (n=47, &lt;30 kg/m²) vs. obesidad (n=28, ≥30 kg/m²): ambos grupos mejoraron significativamente en AOFAS Hindfoot, EVA, SF-36 y satisfacción sin diferencias significativas entre grupos a 2 años; complicaciones de herida más frecuentes en obesos (7.1% vs 2.1%) sin significación estadística (p=0.284) — <em>Foot Ankle Surg (FAS)</em>, 11 sept (DOI: 10.1016/j.fas.2026.09.008)</li>
+      <li><strong>Austin, Saggar, Mullen, Olawin, Williams, Heidinger, Lewis, Hogan</strong> Cohorte retrospectiva de 42 pacientes (23 atletas) sometidos a sesamoidectomía del hallux por patología sesamoidea refractaria (2014-2024), seguimiento medio 2.3 años: FAAM-ADL mejoró de 61.2±17.3 a 84.7±16.7 (p&lt;.001, MCID alcanzada en 78.6%); EVA de dolor disminuyó de 4.6±2.5 a 2.7±2.9 (p&lt;.001); los atletas mostraron mejoría significativa en FAAM-Sports (39.7±25.8 a 80.8±26.1, p&lt;.001) — <em>Foot Ankle Int (FAI)</em>, 16 sept (DOI: 10.1177/10711007261472906)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — La Ecografía Dinámica Supera a la RM en la Precisión Diagnóstica del Neuroma de Morton</div>
+        <p>Biz et al. (Foot Ankle Surg, n=76 lesiones) encuentran que la ecografía dinámica (DUS) alcanzó una precisión diagnóstica de 98.68% frente a 89.47% de la RM para diferenciar neuroma de Morton de bursitis intermetatarsiana, con área bajo la curva ROC significativamente mayor para la DUS (p=.0147), usando confirmación histopatológica o resolución clínica a 12 meses como estándar de referencia. Los autores concluyen que la DUS es una modalidad de primera línea confiable y costo-efectiva — un hallazgo que cuestiona la dependencia habitual de la RM como estudio de elección.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio diagnóstico prospectivo Nivel II, unicéntrico, con estándar de referencia sólido (histopatología/seguimiento clínico), pero el abstract no reporta la experiencia del operador de ecografía ni si el hallazgo es reproducible en centros sin radiólogos entrenados en ecografía musculoesquelética dinámica.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Clavo Tibiotalocalcáneo Iguala al ORIF en Complicaciones pese a Mayor Gravedad Basal</div>
+        <p>Litten et al. (FAI, n=140 tras pareo 1:1) muestran que, pese a que los pacientes tratados con clavo tibiotalocalcáneo (TTC) para fracturas de pilón AO/OTA 43C partían con mayor Injury Severity Score, más politrauma, más transfusiones y más ingreso a UCI que los tratados con ORIF, las tasas de infección relacionada a la fractura, reoperación, no unión y amputación fueron similares entre ambos grupos tras el pareo por gravedad. Esto respalda el clavo TTC como estrategia de salvataje de extremidad en fracturas con conminución articular severa o tejidos blandos comprometidos.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Cohorte retrospectiva Nivel III, único centro, con pareo 1:1 por gravedad pero sin aleatorización — persiste posible sesgo de selección residual (los pacientes TTC seguían siendo más graves incluso tras el pareo), por lo que la equivalencia en complicaciones debe interpretarse con cautela.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Bioestimulación Medular en OLT — Lo que Muestra el Estudio</h4>
+          <p>Xu et al. (Arthroscopy, n=103, seguimiento ≥10 años) identifican que en pacientes &gt;45 años, una duración de síntomas preoperatoria &gt;25.5 meses y una profundidad de edema óseo basal &gt;10.5 mm en la RM son umbrales predictivos de no alcanzar mejoría clínicamente relevante en calidad de vida tras bioestimulación medular. Son datos útiles para la consejería preoperatoria en pacientes mayores con OLT crónicas.</p>
+        </div>
+        <div class="app-item">
+          <h4>Reconstrucción de OLT Quísticas Grandes — Lo que Muestra el Estudio</h4>
+          <p>Cai et al. (FAI, n=32) muestran que la planificación con simulación computacional y guías de corte 3D personalizadas para el trasplante osteoperióstico autólogo (AOPT) se asoció a menor dolor, mejor función en actividades diarias, menor tiempo quirúrgico y menor recurrencia del quiste frente a la técnica convencional — con la salvedad explícita de los autores de que la muestra es pequeña y el diseño no aleatorizado.</p>
+        </div>
+        <div class="app-item">
+          <h4>Diagnóstico de Neuroma de Morton — Lo que Muestra el Estudio</h4>
+          <p>Biz et al. (Foot Ankle Surg, n=76 lesiones) reportan que la ecografía dinámica alcanzó mayor precisión diagnóstica que la RM (98.68% vs 89.47%) para diferenciar neuroma de Morton de bursitis intermetatarsiana, con estándar de referencia histopatológico o seguimiento clínico a 12 meses, respaldando su uso como estudio de imagen de primera línea.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Bioestimulación Medular (BMS) y Escala MOCART / MOCART 2.0</div>
+          <div class="glos-def">La bioestimulación medular (bone marrow stimulation, BMS) —adoptada como término paraguas por el consenso internacional (Foot Ankle Spec 2026)— agrupa los procedimientos de acceso a la médula ósea subcondral (p. ej. microfractura) para el tratamiento de OLT. El MOCART y su versión actualizada MOCART 2.0 son escalas de RM que evalúan la calidad del tejido de reparación cartilaginosa; Xu et al. (Arthroscopy 2026) las usaron junto a escalas clínicas para documentar peores resultados de BMS en pacientes mayores de 45 años con edema óseo profundo o síntomas prolongados.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">AOPT (Trasplante Osteoperióstico Autólogo) con Guía de Corte 3D</div>
+          <div class="glos-def">Técnica quirúrgica en la que se trasplantan injertos osteoperiósticos obtenidos de la cresta ilíaca hacia defectos osteocondrales grandes del talo, típicamente tras osteotomía de acceso. Cai et al. (FAI 2026) evaluaron una variante asistida por simulación computacional preoperatoria y guías de corte (cutting jigs) impresas en 3D para navegar la osteotomía y la creación del lecho óseo, con menor recurrencia quística y menor morbilidad del sitio de osteotomía frente a la técnica convencional en su serie de 32 pacientes.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">LARS (Ligament Advanced Reinforcement System)</div>
+          <div class="glos-def">Dispositivo sintético de refuerzo ligamentario utilizado como aumento en la reparación de ligamentos, incluyendo el complejo lateral del tobillo en la inestabilidad crónica. Wu et al. (FAI 2026, n=112) compararon la reparación aumentada con LARS frente a la reconstrucción con autoinjerto, encontrando recuperación funcional más rápida con LARS en los primeros 3-6 meses, sin diferencia detectable a los 12-24 meses.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fractura de Pilón AO/OTA 43C y Clavo Tibiotalocalcáneo (TTC)</div>
+          <div class="glos-def">La clasificación AO/OTA 43C describe fracturas intraarticulares completas de la tibia distal (pilón) con compromiso articular complejo, asociadas a alta tasa de complicaciones. El clavo tibiotalocalcáneo (TTC) fusiona tobillo y articulación subastragalina mediante un clavo intramedular, utilizado selectivamente como alternativa al ORIF convencional cuando la conminución articular, la calidad ósea o los tejidos blandos limitan la reconstrucción anatómica — Litten et al. (FAI 2026) lo evaluaron como estrategia de salvataje de extremidad en pacientes con fracturas más graves.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 32 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 11 – 17 Septiembre 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Foot &amp; Ankle Specialist · Arthroscopy · Foot and Ankle Surgery (FAS) · International Orthopaedics<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
