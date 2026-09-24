@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 33 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 33 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 18 – 24 septiembre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 10 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · Foot Ankle Surg · JFAS · Ir J Med Sci · J Invest Surg</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: OFFLOADING DFU NETWORK META-ANALYSIS -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Offloading Strategies for Diabetic Foot Ulcers: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials</div>
+        <div class="paper-meta">
+          <strong>Koonalinthip, Koonalintip, Koonalinthip</strong><br>
+          Foot &amp; Ankle Surgery (FAS) · 16 septiembre 2026
+          <span class="evidence-pill rct">Nivel I — Revisión sistemática y metaanálisis en red de 28 ECA, n=2016</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42760183/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Úlcera de pie diabético · Offloading quirúrgico vs. no quirúrgico</span>
+      <span class="tag">Metaanálisis en red · 28 ECA · n=2016</span>
+      <span class="tag">Nivel I</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metaanálisis en red de ensayos clínicos aleatorizados que evaluaron estrategias de offloading (quirúrgicas y no quirúrgicas) para la cicatrización de úlceras de pie diabético (UPD), dado que los metaanálisis en red previos se habían centrado principalmente en intervenciones no quirúrgicas. El outcome primario fue la tasa de cicatrización de la úlcera. Se incluyeron 28 ECA con 2016 participantes; las intervenciones se clasificaron y ordenaron mediante P-scores. <strong>Hallazgo principal:</strong> dado que el análisis primario mostró inconsistencia en la red, las conclusiones se basaron en un análisis de sensibilidad que resolvió dicha inconsistencia. El offloading quirúrgico (RR 1.47), los dispositivos no removibles hasta la rodilla personalizados (RR 1.36) y los prefabricados (RR 1.32) fueron superiores al cuidado habitual.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El offloading quirúrgico y los dispositivos no removibles hasta la rodilla (personalizados o prefabricados) mostraron la mayor efectividad para la cicatrización de UPD frente al cuidado habitual, respaldando las guías actuales y el uso de offloading quirúrgico en pacientes seleccionados. Limitación explícita de los autores: el análisis primario presentó inconsistencia en la red, por lo que las conclusiones se apoyan en un análisis de sensibilidad; el abstract no especifica qué procedimientos quirúrgicos concretos se agruparon bajo "offloading quirúrgico".</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: IMN VS IPF OPEN DISTAL TIBIAL FRACTURES -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Intramedullary Nailing versus Internal Plate Fixation in the Repair of Open, Distal Tibial Fractures with Articular Involvement — A Retrospective Analysis</div>
+        <div class="paper-meta">
+          <strong>George-Johnson, Ward, Cloake, Millington</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 21 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=49 (fracturas abiertas AO/OTA 43-C)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42767589/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fractura tibial distal abierta AO/OTA 43-C · Compromiso articular</span>
+      <span class="tag">Clavo intramedular (IMN) vs. placa (IPF) · n=49</span>
+      <span class="tag">Centro terciario · 2015–2023</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Análisis retrospectivo en un centro terciario (abril 2015–diciembre 2023) que comparó enclavado intramedular (IMN, n=25) frente a fijación con placa interna (IPF, n=24) en 49 pacientes adultos con fracturas tibiales distales abiertas AO/OTA 43-C con compromiso articular. El outcome primario fue la incidencia de complicaciones; los secundarios, tiempo a carga de peso y a consolidación radiográfica. <strong>Hallazgo principal:</strong> las tasas de complicaciones fueron significativamente mayores en el grupo IPF (54% vs. 24% IMN, p=.032). La tasa de amputación fue menor con IMN (0% vs. 17% IPF, p=.035). El retorno a pabellón fue más frecuente con IPF (50% vs. 8% IMN, p=.001). El score arterial OTA medio fue mayor en el grupo IMN (1.20 vs. 1.00, p=.032).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>En esta cohorte, el enclavado intramedular se asoció a menores tasas de complicaciones, menor retorno a pabellón y ausencia de amputaciones frente a la fijación con placa, en fracturas tibiales distales abiertas con compromiso articular. Los autores concluyen que el IMN podría ser más adecuado para reparar este patrón de lesión. Limitaciones explícitas: diseño retrospectivo Nivel III, centro único, muestra pequeña (n=49) y una diferencia basal en el score arterial OTA entre grupos que el abstract no ajusta estadísticamente.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: TRANSFIBULAR TM TAA 10-YEAR SURVIVORSHIP -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Long-term Survivorship of Transfibular Trabecular Metal Total Ankle Arthroplasty: 10-Year Minimum Clinical and Radiographic Follow-up</div>
+        <div class="paper-meta">
+          <strong>Schafer, Day, Convery, Zhang, Schon</strong><br>
+          Foot &amp; Ankle International (FAI) · 18 septiembre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos, cohorte prospectiva de un solo cirujano, n=71 tobillos, seguimiento medio 11 años</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42757717/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">TAA transfibular · Metal trabecular (TM) · Sobrevida a largo plazo</span>
+      <span class="tag">n=71 tobillos (68 pacientes) · Seguimiento medio 11 años</span>
+      <span class="tag">COFAS CROCS</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión retrospectiva de pacientes seguidos prospectivamente tras artroplastia total de tobillo (TAA) transfibular primaria con componente de metal trabecular (TM), realizada por un único cirujano entre octubre 2012 y febrero 2016, con seguimiento clínico y radiográfico mínimo de 10 años. Se incluyeron 71 de 79 TAA (89.9%), edad media 61 años, seguimiento medio 11.0 años. Se evaluaron PROMs (SF-12 PCS/MCS, AOS, EVA), alineación radiográfica, movimiento y lucencias periprotésicas, y reoperaciones según el sistema COFAS CROCS. <strong>Hallazgo principal:</strong> hubo 1 revisión del componente metálico (CROCS 11) por infección periprotésica que requirió amputación infrapatelar. Veintinueve tobillos (40.8%) tuvieron reoperaciones (ninguno más de 3), la más frecuente por debridamiento de canaleta (gutter, n=12; CROCS 4). Se detectaron 5 quistes en 4 tobillos (7%) al seguimiento final. Los PROMs y la alineación/movimiento radiográfico se mantuvieron estables entre los 5 y ≥10 años.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Esta cohorte de un solo cirujano documentó 98.6% de sobrevida del implante TM transfibular a 11 años de seguimiento medio, con alineación y movimiento radiográfico estables y baja tasa de lucencias periprotésicas entre los 5 y 10 años. Los autores concluyen que estos resultados respaldan la TAA transfibular como tratamiento duradero a largo plazo para la artrosis de tobillo. Limitaciones explícitas: serie de casos Nivel IV, un solo cirujano, sin grupo comparativo.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: ARTHROSCOPIC VS OPEN TTCA -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">A Retrospective Comparative Study of Arthroscopic Versus Open Tibiotalocalcaneal Arthrodesis Using a Straight Retrograde Intramedullary Nail</div>
+        <div class="paper-meta">
+          <strong>Huang, Ye, Xiong, Li</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 22 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=55</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42772547/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artrodesis tibiotalocalcánea (TTCA) · Clavo intramedular retrógrado recto</span>
+      <span class="tag">Artroscópica (n=27) vs. abierta (n=28)</span>
+      <span class="tag">Fusión confirmada por TC</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo comparativo en 55 pacientes (55 pies) sometidos a artrodesis tibiotalocalcánea (TTCA) con clavo intramedular retrógrado recto entre diciembre 2022 y diciembre 2024, comparando técnica abierta (n=28) y artroscópica (n=27). Se evaluaron duración operatoria, pérdida sanguínea intraoperatoria, estancia hospitalaria, escalas clínicas, complicaciones y fusión confirmada por TC (≥75% de puenteo óseo). <strong>Hallazgo principal:</strong> la fusión confirmada por TC fue similar entre grupos (96.4% abierta vs. 96.3% artroscópica, p=.987), sin diferencias significativas en tiempo a fusión ni duración operatoria. La TTCA artroscópica tuvo menor pérdida sanguínea intraoperatoria (p&lt;.0001) y menor estancia hospitalaria (p=.021). AOFAS, EVA, SF-36 y UCLA mejoraron significativamente respecto al basal en ambos grupos. Hubo 2 infecciones superficiales de herida en el grupo abierto.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La TTCA artroscópica mostró tasas de fusión y mejoría funcional comparables a la técnica abierta, con menor sangrado intraoperatorio y menor estancia hospitalaria, en pacientes seleccionados. Los propios autores señalan que el diseño retrospectivo y el desbalance temporal entre los grupos obligan a interpretar estos hallazgos con cautela, y plantean la TTCA artroscópica como una alternativa factible en pacientes seleccionados. Limitación: Nivel III, centro único.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: SINUS TARSI VS EXTENSILE LATERAL SANDERS III-IV -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Postoperative Hindfoot Alignment After Sinus Tarsi Versus Extensile Lateral Approach for Sanders Type III-IV Calcaneal Fractures</div>
+        <div class="paper-meta">
+          <strong>Yavuz, Buyukkuscu, Kocabiyik, Tuncer, Polat, Guler</strong><br>
+          Foot &amp; Ankle Surgery (FAS) · 17 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=74, seguimiento medio 40.8 meses</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42760182/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de calcáneo Sanders III-IV · Seno del tarso vs. abordaje lateral extensible</span>
+      <span class="tag">n=74 (38 ST vs. 36 EL)</span>
+      <span class="tag">Alineación del retropié · Böhler/Gissane</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo comparativo en 74 pacientes con fracturas de calcáneo intraarticulares Sanders tipo 3 y 4, tratados entre enero 2017 y junio 2023 mediante abordaje de seno del tarso (ST, n=38) o abordaje lateral extensible (EL, n=36), con la alineación posoperatoria del retropié como outcome primario. Se evaluaron ángulo de alineación del retropié, ancho calcáneo, ángulos de Böhler y Gissane, escala AOFAS y EVA, con seguimiento medio de 40.8 ± 12.4 meses. <strong>Hallazgo principal:</strong> no hubo diferencia significativa en la alineación posoperatoria del retropié entre grupos (p=.25), ni en los parámetros radiográficos ni en los resultados clínicos (todos p&gt;.05).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El abordaje de seno del tarso logró alineación posoperatoria del retropié, restauración radiográfica y resultados clínicos comparables al abordaje lateral extensible en fracturas de calcáneo Sanders III-IV. Limitación: el abstract no reporta específicamente las tasas de complicación de partes blandas entre abordajes, que es la ventaja tradicionalmente atribuida al abordaje de seno del tarso; diseño retrospectivo Nivel III.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: US-GUIDED INJECTION PSEUDO-POUCH RPTD -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Diagnostic Validity of Ultrasound Imaging After Injection Into the Peroneal Tendon Sheath for Detecting Pseudo-Pouch Formation in Recurrent Peroneal Tendon Dislocation</div>
+        <div class="paper-meta">
+          <strong>Nishimura, Nakazora, Senga, Ito, Hasegawa</strong><br>
+          Foot &amp; Ankle International (FAI) · 23 septiembre 2026
+          <span class="evidence-pill">Nivel III — Estudio diagnóstico de casos y controles retrospectivo, n=34 tobillos (23 RPTD, 11 controles)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42779084/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Luxación recurrente del tendón peroneo (RPTD) · Pseudo-pouch</span>
+      <span class="tag">Ecografía con inyección intravaina (US-I) vs. RM</span>
+      <span class="tag">Estándar de referencia: hallazgos intraoperatorios</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio diagnóstico retrospectivo de casos y controles que evaluó la inyección de fluido guiada por ecografía dentro de la vaina peronea (US-I) para detectar la formación de pseudo-pouch (por curación incompleta del complejo retináculo peroneo superior/reborde fibrocartilaginoso) en la luxación recurrente del tendón peroneo (RPTD), comparándola con RM. Se incluyeron 23 tobillos con RPTD confirmada quirúrgicamente y 11 tobillos sintomáticos control, evaluados de forma independiente por 3 cirujanos de pie y tobillo; el estándar de referencia fue el hallazgo intraoperatorio en el grupo RPTD. <strong>Hallazgo principal:</strong> 21 de 23 casos RPTD tenían pseudo-pouch intraoperatorio, todos detectados por US-I. La US-I mostró 100% de sensibilidad (IC 95%, 83.9–100.0%) y 100% de especificidad (IC 95%, 75.3–100.0%) para la detección de pseudo-pouch, mientras que la RM mostró 38.1% de sensibilidad (IC 95%, 18.1–61.6%) y 100.0% de especificidad.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La inyección intravaina guiada por ecografía detectó la formación de pseudo-pouch con sensibilidad y especificidad del 100%, superando ampliamente a la RM (38.1% de sensibilidad) para el diagnóstico de RPTD, usando hallazgos intraoperatorios como estándar de referencia. Los autores señalan que esta técnica puede aportar información diagnóstica útil, particularmente cuando la luxación no puede reproducirse en el examen físico. Limitaciones explícitas: cohorte retrospectiva pequeña y unicéntrica; se requiere validación prospectiva en una cohorte consecutiva con sospecha de RPTD.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Murphy, Conway, Fahey, Loughlin</strong> Revisión sistemática y metaanálisis de 3 estudios comparativos (n=227; 104 fijación con tornillo de compresión solo [LSO] vs. 123 con placa peronea) para fracturas del maléolo lateral: tasas de reoperación significativamente menores con LSO, sin diferencia en tasa de consolidación entre grupos — <em>Ir J Med Sci</em>, 23 sept (DOI: 10.1007/s11845-026-04647-x)</li>
+      <li><strong>Wang, Zang, Zhang, Zhang, Lai, Gong, Du, Li, Wu</strong> Cohorte retrospectiva de 125 pacientes con osteotomía supramaleolar de apertura medial (MOWSMO), comparando 4 estrategias de manejo del gap de osteotomía (vacío, jaula metálica, aloinjerto estructural, autoinjerto): la retención de vacío mostró consolidación radiográfica más lenta a los 3 meses (7% vs. 49-68% en los demás grupos, p&lt;.001), sin diferencia en consolidación a los 12 meses ni en resultados clínicos finales; mayor altura del gap se asoció a menor probabilidad de consolidación a 3 meses (OR 0.808, p=.025) — <em>J Foot Ankle Surg (JFAS)</em>, 21 sept (DOI: 10.1053/j.jfas.2026.09.012)</li>
+      <li><strong>Demir, Gonder, Unat, Erol, Kisi, Kaya, Perktaş</strong> Cohorte retrospectiva comparativa de 44 niños con fracturas de Seymour abiertas y neglectadas del hallux (&gt;48 horas de evolución), tratados con fijación transarticular (n=16), fijación extraarticular con alambres cruzados (n=17) o sin fijación esquelética (n=11): pérdida de reducción en 5/11 pacientes sin fijación vs. 0/33 con fijación (p&lt;.001); la fijación extraarticular mostró recuperación más temprana del rango de movimiento interfalángico completo que la transarticular (56 vs. 77 días, p=.002); osteomielitis en 12/44 pacientes, correlacionada con mayor demora en el tratamiento — <em>J Foot Ankle Surg (JFAS)</em>, 19 sept (DOI: 10.1053/j.jfas.2026.09.014)</li>
+      <li><strong>Zhang, Liu, Yan, Kang, Liu</strong> Estudio retrospectivo de 88 pacientes con hallux valgus moderado-severo tratados con osteotomía Chevron biplanar distal combinada con Scarf (n=49) o Lapidus proximal (n=39): el grupo Chevron+Scarf tuvo menor EVA a 1 semana y 1 mes, y menor tiempo de consolidación y de carga completa de peso; el grupo Chevron+Lapidus logró menor ángulo de hallux valgus (HVA) y ángulo intermetatarsiano (IMA) a los 3 y 6 meses; mejoría en DMAA, AOFAS, SF-36 y tasas de complicación comparables entre grupos — <em>J Invest Surg</em>, 14 sept (DOI: 10.1080/08941939.2026.2702142)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Enclavado Intramedular Reduce Complicaciones y Amputaciones frente a la Placa en Fracturas Tibiales Distales Abiertas 43-C</div>
+        <p>George-Johnson et al. (JFAS, n=49) encuentran que, en fracturas tibiales distales abiertas AO/OTA 43-C con compromiso articular, el enclavado intramedular (IMN) se asoció a una tasa de complicaciones más de dos veces menor que la fijación con placa (24% vs. 54%, p=.032), sin amputaciones en el grupo IMN frente a 17% en el grupo con placa (p=.035), y a un retorno a pabellón significativamente menor (8% vs. 50%, p=.001). Esto cuestiona la elección por defecto de la placa en este patrón de lesión.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Cohorte retrospectiva Nivel III, centro único, muestra pequeña (n=49), con una diferencia basal en el score arterial OTA entre grupos que el abstract no ajusta estadísticamente — se requiere confirmación en series más grandes antes de generalizar.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Offloading Quirúrgico Supera al Cuidado Habitual en Cicatrización de Úlceras de Pie Diabético</div>
+        <p>Koonalinthip et al. (Foot Ankle Surg, metaanálisis en red de 28 ECA, n=2016) encuentran que el offloading quirúrgico (RR 1.47) y los dispositivos no removibles hasta la rodilla, personalizados (RR 1.36) o prefabricados (RR 1.32), fueron superiores al cuidado habitual para la cicatrización de úlceras de pie diabético. Esto respalda considerar el offloading quirúrgico en pacientes seleccionados, más allá del enfoque tradicionalmente centrado en dispositivos no quirúrgicos.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Metaanálisis en red Nivel I de ECA, pero los propios autores reportan inconsistencia en el análisis primario de la red, por lo que las conclusiones se basan en un análisis de sensibilidad; el abstract no detalla qué procedimientos quirúrgicos específicos se agruparon bajo "offloading quirúrgico".</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Fijación de Fracturas Tibiales Distales Abiertas 43-C — Lo que Muestra el Estudio</h4>
+          <p>George-Johnson et al. (JFAS, n=49) muestran menores tasas de complicaciones, menos retorno a pabellón y ninguna amputación con enclavado intramedular frente a fijación con placa, en fracturas tibiales distales abiertas con compromiso articular. Los propios autores señalan la muestra pequeña y el diseño retrospectivo como limitantes para generalizar.</p>
+        </div>
+        <div class="app-item">
+          <h4>Abordaje en Fracturas de Calcáneo Sanders III-IV — Lo que Muestra el Estudio</h4>
+          <p>Yavuz et al. (Foot Ankle Surg, n=74) muestran que el abordaje de seno del tarso logra alineación del retropié, restauración radiográfica y resultados clínicos comparables al abordaje lateral extensible en fracturas de calcáneo Sanders III-IV, aunque el abstract no reporta específicamente las complicaciones de partes blandas entre abordajes.</p>
+        </div>
+        <div class="app-item">
+          <h4>Diagnóstico de Luxación Recurrente del Tendón Peroneo — Lo que Muestra el Estudio</h4>
+          <p>Nishimura et al. (FAI, n=34 tobillos) reportan que la inyección intravaina guiada por ecografía detectó pseudo-pouch con 100% de sensibilidad y especificidad, frente a 38.1% de sensibilidad de la RM, usando hallazgos intraoperatorios como estándar de referencia, en una cohorte pequeña que los autores señalan requiere validación prospectiva.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">AO/OTA 43-C y Enclavado Intramedular (IMN) vs. Fijación con Placa (IPF)</div>
+          <div class="glos-def">La clasificación AO/OTA 43-C describe fracturas intraarticulares completas de la tibia distal (pilón) con compromiso articular complejo. El enclavado intramedular (IMN) estabiliza la fractura con un clavo dentro del canal medular, mientras que la fijación con placa interna (IPF) usa una placa y tornillos sobre la superficie ósea. George-Johnson et al. (JFAS 2026) compararon ambas técnicas en fracturas abiertas 43-C, encontrando menores complicaciones y amputaciones con IMN.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Offloading Quirúrgico y Dispositivos No Removibles en Úlceras de Pie Diabético</div>
+          <div class="glos-def">El "offloading" (descarga) busca reducir la presión plantar sobre una úlcera de pie diabético para favorecer su cicatrización, mediante dispositivos no quirúrgicos (p. ej. yeso de contacto total u otros dispositivos no removibles hasta la rodilla) o procedimientos quirúrgicos. Koonalinthip et al. (Foot Ankle Surg 2026) los compararon y ordenaron mediante un metaanálisis en red con P-scores, encontrando que el offloading quirúrgico y los dispositivos no removibles hasta la rodilla fueron superiores al cuidado habitual.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Artrodesis Tibiotalocalcánea (TTCA) con Clavo Intramedular Retrógrado Recto</div>
+          <div class="glos-def">Procedimiento de fusión simultánea de las articulaciones tibiotalar y subastragalina mediante un clavo intramedular retrógrado recto, utilizado como salvataje en patología severa de tobillo y retropié. Huang et al. (JFAS 2026, n=55) compararon el abordaje artroscópico con el abierto para esta técnica, encontrando tasas de fusión por TC y mejoría funcional similares, con menor sangrado y estancia hospitalaria en la vía artroscópica.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Pseudo-Pouch en la Luxación Recurrente del Tendón Peroneo (RPTD)</div>
+          <div class="glos-def">El "pseudo-pouch" es una bolsa o receso anómalo que se forma por la curación incompleta del complejo retináculo peroneo superior/reborde fibrocartilaginoso tras episodios repetidos de luxación del tendón peroneo, permitiendo su desplazamiento fuera del surco retromaleolar. Nishimura et al. (FAI 2026) evaluaron la inyección de fluido intravaina guiada por ecografía (US-I) para visualizar esta formación, con mayor sensibilidad que la RM frente a hallazgos intraoperatorios.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 33 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 18 – 24 Septiembre 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Journal of Foot &amp; Ankle Surgery (JFAS) · Foot and Ankle Surgery (FAS) · Irish Journal of Medical Science · Journal of Investigative Surgery<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
