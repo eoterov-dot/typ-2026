@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 34 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 34 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 25 septiembre – 1 octubre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 10 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 FAI · Foot Ankle Surg · JFAS · Eur J Trauma Emerg Surg · Int Orthop · J Clin Med</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: TTC ARTHRODESIS IMN VS OP -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Tibiotalocalcaneal Arthrodesis: Deformity Correction in Medically Comorbid Patients</div>
+        <div class="paper-meta">
+          <strong>Alecxih, Klouda, Duff, Parker, Wilson, Doty</strong><br>
+          Foot &amp; Ankle International (FAI) · 28 septiembre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva comparativa, n=73 tobillos (69 pacientes)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42803123/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artrodesis tibiotalocalcánea (TTC) · Pacientes de alto riesgo y comorbilidad</span>
+      <span class="tag">Clavo intramedular (IMN, n=55) vs. placa abierta (OP, n=18)</span>
+      <span class="tag">Centro terciario · 2014–2025</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión retrospectiva de 73 tobillos en 69 pacientes consecutivos sometidos a artrodesis tibiotalocalcánea (TTC) por un cirujano de pie y tobillo fellowship-trained en un centro académico terciario (2014–2025), en pacientes de alto riesgo con amplio rango de deformidad y comorbilidades, comparando clavo intramedular (IMN, n=55) frente a fijación con placa abierta (OP, n=18). <strong>Hallazgo principal:</strong> las complicaciones posoperatorias ocurrieron en 23/73 tobillos (32%): 16/55 con IMN (29%) vs. 7/18 con OP (39%) (OR 0.64, IC95% 0.21–1.96; p=.56, no significativo). La artrodesis TTC de revisión fue necesaria en 2/55 con IMN (4%) vs. 5/18 con OP (28%) (OR 0.10, IC95% 0.02–0.56; p=.008). Las revisiones de IMN fueron por fracturas periprotésicas; las de OP, por 4 pseudoartrosis y 1 fractura periprotésica. La amputación ocurrió en 4/55 IMN (7%) vs. 1/18 OP (6%) (p=.99, no significativo). De la cohorte, 19 tobillos se presentaron con pseudoartrosis previa y 34 con artropatía de Charcot.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El estudio sugiere una menor tasa de consolidación y una mayor tasa de cirugía de revisión tras fijación con placa abierta en comparación con el clavo intramedular, en pacientes de alto riesgo con diabetes y deformidades severas. Los autores concluyen que el enclavado intramedular puede ser un constructo más confiable que la placa abierta en este grupo de pacientes. Limitaciones explícitas: diseño retrospectivo Nivel III, centro único, grupos de tamaño desigual (55 vs. 18), y la complicación global (32%) no mostró diferencia estadísticamente significativa entre técnicas pese a la diferencia en revisiones.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: SHETTY TEST VS OTTAWA ANKLE RULES -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Comparison of the Shetty Test and Ottawa Ankle Rules for Foot and Ankle Fractures in the Emergency Department: A Prospective Validation Study</div>
+        <div class="paper-meta">
+          <strong>Gumustas, Altinbilek, Topcu, Avlac, Oztekin, Karaketir, Ozturker</strong><br>
+          European Journal of Trauma and Emergency Surgery · 25 septiembre 2026
+          <span class="evidence-pill">Nivel II — Estudio prospectivo de validación diagnóstica, n=100</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42789051/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Fractura de pie y tobillo en urgencias · Test de Shetty vs. Reglas de Ottawa (OAR)</span>
+      <span class="tag">n=100 · Estándar de referencia: radiografía/TC</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo de validación diagnóstica en 100 pacientes consecutivos con trauma agudo de pie y/o tobillo en quienes al menos uno de dos médicos tratantes indicó radiografía. Ambas pruebas índice (test de Shetty y Reglas de Ottawa para el Tobillo, OAR) se realizaron de forma independiente por 2 médicos de urgencias cegados entre sí; donde difirieron, el paciente se clasificó como positivo si cualquiera de las dos lo era. El estándar de referencia fue la fractura en radiografía, o en TC ante sospecha clínica. <strong>Hallazgo principal:</strong> hubo fractura en 26/100 pacientes (26%); 8 (30.8%) fueron ocultas, detectadas solo por TC. El test de Shetty mostró menor sensibilidad que la OAR (76.9% vs. 92.3%) pero mayor especificidad (67.6% vs. 18.9%). El test de Shetty no detectó 6 de 26 fracturas, incluyendo dos de talo y una de la base del 5º metatarsiano, todas manejadas con inmovilización con férula de yeso. Usado solo, el test de Shetty habría evitado 56 radiografías a costa de 6 fracturas no detectadas, frente a 16 radiografías evitadas y 2 fracturas no detectadas con la OAR. La concordancia entre ambas pruebas fue pobre (kappa 0.19).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El test de Shetty no reprodujo la sensibilidad reportada en su estudio de derivación y pasó por alto casi una cuarta parte de las fracturas, todas las cuales requirieron inmovilización. Los autores concluyen que no puede recomendarse como herramienta aislada para excluir fractura de pie y tobillo en urgencias; su mayor especificidad podría justificar evaluarlo como complemento aplicado después de la OAR, y no en su reemplazo. Limitación explícita: muestra única de un servicio de urgencias (n=100); el abstract no detalla el nivel de experiencia de los evaluadores.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: MEDIAL MALLEOLAR STRESS FRACTURES BASKETBALL -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Plate-Based Operative Management of Medial Malleolar Stress Fractures in High-Level Basketball Players: A Short Report</div>
+        <div class="paper-meta">
+          <strong>O'Malley, Kim, O'Malley</strong><br>
+          Foot &amp; Ankle International (FAI) · 29 septiembre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos retrospectiva, n=10 jugadores de básquetbol de alto nivel</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42808558/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de estrés del maléolo medial · Básquetbol de alto nivel</span>
+      <span class="tag">Fijación con placa resistente al cizallamiento · n=10</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos retrospectiva de 10 jugadores de básquetbol de alto nivel (2007–2025) tratados quirúrgicamente por fractura de estrés del maléolo medial (MMSF). Todos fueron evaluados con radiografía, RM y TC. El tratamiento operatorio consistió en fijación con placa resistente al cizallamiento (placa antideslizante de un tercio de tubo o placa en gancho) con tornillos perpendiculares a la fractura, injerto óseo selectivo, aumentación biológica, y tratamiento del impingement anterior asociado cuando estaba indicado. <strong>Hallazgo principal:</strong> todos los pacientes eran varones, con edad mediana 20.5 años; la TC mostró en todos los casos un patrón de fractura vertical originado en el plafón tibial anteromedial. Se logró consolidación en todos los jugadores. Nueve retornaron a actividades completas del equipo a las 12 semanas y a competencia a una mediana de 4 meses. Un jugador presentó una refractura traumática a los 8 meses tras la fijación índice, requirió 2 procedimientos de revisión, finalmente consolidó tras placa anterior suplementaria, y retornó al juego a los 6 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La fijación con placa se asoció a consolidación confiable y retorno al juego en jugadores de básquetbol de alto nivel con fractura de estrés del maléolo medial, aunque 1 de 10 jugadores requirió cirugía de revisión por refractura. Los autores señalan que, dado el patrón de fractura vertical consistente y las demandas de carga específicas del deporte, la fijación con placa resistente al cizallamiento puede considerarse en esta población. Limitación explícita: serie de casos Nivel IV, n=10, sin grupo comparativo.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: CHARCOT NEUROARTHROPATHY LIMB SALVAGE -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Neglected Infected Charcot Neuroarthropathy of the Ankle: Limb Salvage Using a One-Stage Reconstruction by Distraction Histogenesis Principles</div>
+        <div class="paper-meta">
+          <strong>Hosny, Elmesalamy, Abdelnaser</strong><br>
+          International Orthopaedics · 5 septiembre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos, n=55 pacientes (Eichenholtz estadio III)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42700253/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Neuroartropatía de Charcot (CN) de tobillo neglectada e infectada</span>
+      <span class="tag">Histogénesis por distracción · Técnica "corticotomía primero"</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de 55 pacientes con neuroartropatía de Charcot (CN) de tobillo en estadio III de Eichenholtz, neglectada e infectada, tratados con un protocolo de manejo especializado caracterizado por un procedimiento en una sola etapa, la técnica "corticotomía primero" y desbridamiento no radical. Se sospechó osteomielitis clínica y radiográficamente en todos los pacientes, con infección activa presente en el 45.5% de los casos al momento de la reconstrucción y el resto con osteomielitis crónica quiescente. <strong>Hallazgo principal:</strong> aprovechando el potencial angiogénico de los principios de histogénesis por distracción, se logró salvataje de la extremidad en 52 de 55 pacientes (94.5%), consolidación radiográfica en 48 pacientes (87.3%) y deambulación independiente en 50 pacientes (90.9%), incluyendo pacientes con ulceración crónica, dependencia de silla de ruedas e infección multirresistente.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores presentan esta estrategia de reconstrucción en una sola etapa basada en principios de histogénesis por distracción como una alternativa de salvataje de extremidad frente a la amputación infrapatelar, abordaje tradicionalmente considerado habitual en la CN de tobillo infectada y neglectada. Limitación explícita: serie de casos Nivel IV sin grupo comparativo; el abstract no detalla el seguimiento medio ni compara directamente los resultados con la amputación.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: AKIN OSTEOTOMY FIXATION VS NO FIXATION -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Comparative Study of Akin Osteotomies With and Without Fixation in Open Hallux Valgus Correction Surgery: Retrospective Analysis of 200 Osteotomies</div>
+        <div class="paper-meta">
+          <strong>Testa, Porreca, Ruiz-Nasarre, Alvarez-Goenaga, Poggio-Cano, Dalmau-Pastor, Montoya de la Torre, Riegger, Ruiz-Riquelme</strong><br>
+          Journal of Clinical Medicine · 15 septiembre 2026
+          <span class="evidence-pill">Nivel III — Estudio comparativo retrospectivo unicéntrico, n=200 osteotomías</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42795937/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Osteotomía de Akin en hallux valgus · Con fijación (n=100) vs. sin fijación (n=100)</span>
+      <span class="tag">Ángulos DASA e IPOA</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio retrospectivo comparativo de casos y controles, unicéntrico, que evaluó 200 osteotomías de Akin en cirugía de corrección abierta de hallux valgus, comparando 100 osteotomías sin fijación frente a 100 con fijación. Se analizaron 5 mediciones radiológicas hasta la consolidación y se evaluó la incidencia de complicaciones intra y posoperatorias. <strong>Hallazgo principal:</strong> no hubo diferencia entre los grupos en los valores de corrección de los parámetros radiológicos principales (DASA e IPOA). En el grupo sin fijación, todos los casos lograron consolidación. En el grupo con fijación, un caso mostró pseudoartrosis asintomática. De las 200 cirugías, 4 (2%) requirieron reoperación: una re-osteotomía de Akin por hipocorrección en el grupo sin fijación, y un caso de pseudoartrosis asintomática en el grupo con fijación que no requirió reintervención.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La ausencia de fijación interna no pareció comprometer la consolidación de la osteotomía de Akin, y el mantenimiento del grado de corrección y las tasas de complicación en el grupo sin fijación fueron similares a los del grupo con fijación. Los propios autores califican los resultados como "prometedores" pero señalan explícitamente que se necesitan más estudios para confirmar los datos. Limitación explícita: diseño retrospectivo Nivel III, centro único.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: TAA NATIVE ANKLE RESTORATION AND ROM -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">The Effect of Restoring the Native Ankle on Clinical Outcome and Range of Motion in Total Ankle Arthroplasty</div>
+        <div class="paper-meta">
+          <strong>Hintermann, Susdorf, Chelli, Peterhans, Ruiz</strong><br>
+          Foot and Ankle Surgery (FAS) · 23 septiembre 2026
+          <span class="evidence-pill">Nivel III — Revisión retrospectiva de datos prospectivos, n=178 tobillos (89 mejores vs. 89 peores de 471)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42805843/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artroplastia total de tobillo (TAA) · Posicionamiento del implante</span>
+      <span class="tag">Rango de movimiento (ROM) · Altura talar</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión retrospectiva en la que se seleccionaron los 89 mejores y 89 peores casos según resultado clínico, de una cohorte de 471 tobillos tras cirugía primaria de TAA, para evaluar cómo el tamaño y posicionamiento del implante influyen en los resultados clínicos. Se midieron en radiografías estándar el nivel de la línea articular tibiotalar, la altura y el radio del talo, la posición anteroposterior del talo y el ángulo de la superficie tibial lateral, correlacionándolos con las medidas de resultado clínico. <strong>Hallazgo principal:</strong> la altura talar fue el único parámetro correlacionado con el rango de movimiento (ROM); aumentó más en el grupo de buena evolución (p=.031). El ROM aumentó en el grupo de buena evolución (p=.001) pero no en el de mala evolución (p=.141). El nivel de la línea articular y el posicionamiento del componente no difirieron entre los grupos de buena y mala evolución.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Aunque el nivel de la línea articular y el posicionamiento del componente no difirieron entre los grupos de buena y mala evolución clínica, los resultados clínicos y el ROM fueron mayores en el grupo de buena evolución, lo que según los autores sugiere la influencia de otros factores —como la condición de partes blandas— más allá del solo posicionamiento radiográfico del implante. Limitación explícita: Nivel III, revisión retrospectiva de datos prospectivos; el abstract no especifica qué factores de partes blandas se evaluaron concretamente.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Yvinou, Delaigue, Sadoun, Rigolot, Bauer, Rougereau</strong> Estudio biomecánico cadavérico exploratorio pareado en 16 pies de 8 donantes que evaluó cambios en la presión intraarticular de las articulaciones tarsometatarsiana y metatarsofalángica del primer radio tras osteotomías percutáneas de chevron y Akin (PECA): ningún cambio de presión relacionado con PECA permaneció significativo tras el ajuste de Holm por comparaciones múltiples; los autores aclaran que esto no establece equivalencia, presión de contacto cartilaginoso, ni seguridad biomecánica — <em>J Foot Ankle Surg (JFAS)</em>, 28 sept (DOI: 10.1053/j.jfas.2026.09.015)</li>
+      <li><strong>Khvesyuk, Nogier, van Rooij, Beaudet</strong> Serie de 31 pacientes sometidos a reconstrucción ligamentaria anatómica de tobillo con autoinjerto de gracilis cosechado mediante abordaje posterior por inestabilidad crónica de tobillo: a un seguimiento medio de 5.1 meses, 1 paciente presentó neuropatía del nervio safeno y 5 refirieron molestias alrededor del sitio donante, resueltas en 3 de ellos — <em>Foot Ankle Surg (FAS)</em>, 10 sept (DOI: 10.1016/j.fas.2026.09.006)</li>
+      <li><strong>Gong, Zhang, Tang, Wang, Ma, Shi</strong> Serie retrospectiva de 13 pacientes con fracturas conminutas del cuerpo del talo tratados con varillas absorbibles combinadas con tornillos de compresión canulados: consolidación en todos los pacientes sin complicaciones intraoperatorias; score AOFAS retropié-tobillo mejoró de 44–63 preoperatorio a 62–95 en el último seguimiento (mediana 18 meses); 2 pacientes con artritis postraumática y 1 con hipoestesia plantar leve — <em>Zhongguo Gu Shang (China J Orthop Traumatol)</em>, 25 sept (DOI: 10.12200/j.issn.1003-0034.20250974)</li>
+      <li><strong>Liu, Odusanya, Farid, Longden, Huq, Maamoun</strong> Cohorte retrospectiva de 4 años (n=292) en un centro de trauma terciario que comparó manejo y resultados de fracturas abiertas de tibia/fíbula/tobillo entre adultos &lt;65 años (n=183) y ≥65 años (n=109): el grupo de mayor edad tuvo más fracturas Gustilo-Anderson grado IIIb (52%), mayor frecuencia de cobertura de partes blandas en una sola etapa (55%), estancia hospitalaria más prolongada (16 vs. 10 días) y mortalidad intrahospitalaria exclusiva en este grupo (10%) — <em>J Plast Reconstr Aesthet Surg (JPRAS)</em>, 17 sept (DOI: 10.1016/j.bjps.2026.09.011)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Clavo Intramedular Reduce la Cirugía de Revisión frente a la Placa Abierta en Artrodesis TTC de Pacientes Comórbidos</div>
+        <p>Alecxih et al. (FAI, n=73 tobillos) encuentran que, en pacientes de alto riesgo con deformidad severa y comorbilidades (diabetes, Charcot) sometidos a artrodesis tibiotalocalcánea, el clavo intramedular se asoció a una tasa de revisión más de 6 veces menor que la placa abierta (4% vs. 28%, p=.008), aunque la tasa global de complicaciones no difirió significativamente entre técnicas. Esto cuestiona el uso por defecto de la placa abierta en este tipo de pacientes.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Cohorte retrospectiva Nivel III, centro único, con grupos de tamaño muy desigual (55 IMN vs. 18 OP) — se requiere confirmación con muestras más balanceadas antes de generalizar.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — La Fijación Interna Podría No Ser Necesaria en la Osteotomía de Akin</div>
+        <p>Testa et al. (J Clin Med, n=200 osteotomías) encuentran que la osteotomía de Akin sin fijación logró consolidación en el 100% de los casos, con corrección radiológica (DASA, IPOA) y tasas de complicación comparables al grupo con fijación. Esto cuestiona la necesidad rutinaria de implantes en esta osteotomía dentro de la corrección de hallux valgus.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio comparativo retrospectivo Nivel III, centro único; los propios autores califican los resultados como "prometedores" pero señalan explícitamente la necesidad de estudios adicionales de confirmación.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Artrodesis TTC en Pacientes de Alto Riesgo — Lo que Muestra el Estudio</h4>
+          <p>Alecxih et al. (FAI, n=73) muestran una menor tasa de revisión con clavo intramedular frente a placa abierta en artrodesis tibiotalocalcánea de pacientes con deformidad severa y comorbilidades. Los propios autores señalan el diseño retrospectivo y el desbalance de grupos como limitantes para generalizar.</p>
+        </div>
+        <div class="app-item">
+          <h4>Reglas Diagnósticas en Trauma de Tobillo — Lo que Muestra el Estudio</h4>
+          <p>Gumustas et al. (Eur J Trauma Emerg Surg, n=100) muestran que el test de Shetty, usado solo, pasó por alto casi 1 de cada 4 fracturas de pie/tobillo frente a las Reglas de Ottawa, por lo que los autores no lo recomiendan como herramienta aislada para descartar fractura en urgencias.</p>
+        </div>
+        <div class="app-item">
+          <h4>Fijación en Osteotomía de Akin — Lo que Muestra el Estudio</h4>
+          <p>Testa et al. (J Clin Med, n=200) muestran consolidación y corrección radiológica comparables con y sin fijación interna en la osteotomía de Akin, aunque los propios autores piden confirmación en estudios adicionales antes de cambiar la práctica rutinaria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Artrodesis Tibiotalocalcánea (TTC): Clavo Intramedular (IMN) vs. Placa Abierta (OP)</div>
+          <div class="glos-def">La artrodesis TTC fusiona simultáneamente las articulaciones tibiotalar y subastragalina, utilizada como salvataje en patología severa de tobillo y retropié, frecuentemente en pacientes con deformidad o comorbilidad grave. El clavo intramedular (IMN) estabiliza mediante un implante dentro del canal medular, mientras que la placa abierta (OP) usa una placa y tornillos sobre la superficie ósea. Alecxih et al. (FAI 2026) compararon ambas técnicas en pacientes de alto riesgo, encontrando menor tasa de revisión con IMN.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Reglas de Ottawa para el Tobillo (OAR) y Test de Shetty</div>
+          <div class="glos-def">Las Reglas de Ottawa para el Tobillo son una herramienta de decisión clínica ampliamente validada para decidir qué pacientes con trauma de tobillo/pie requieren radiografía. El test de Shetty es una alternativa propuesta como más simple. Gumustas et al. (Eur J Trauma Emerg Surg 2026) compararon ambas pruebas frente a imágenes como estándar de referencia, encontrando que el test de Shetty tuvo menor sensibilidad que la OAR.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Neuroartropatía de Charcot (CN) e Histogénesis por Distracción</div>
+          <div class="glos-def">La neuroartropatía de Charcot es una destrucción articular progresiva asociada a neuropatía (con frecuencia diabética), que en estadio III de Eichenholtz y con infección sobreagregada tradicionalmente se maneja con amputación infrapatelar. La histogénesis por distracción, basada en los principios de Ilizarov, utiliza fijación externa circular y corticotomía para estimular la formación ósea y angiogénesis. Hosny et al. (Int Orthop 2026) la aplicaron como estrategia de salvataje de extremidad en CN infectada y neglectada de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Osteotomía de Akin en Hallux Valgus</div>
+          <div class="glos-def">La osteotomía de Akin es una osteotomía en cuña de cierre de la falange proximal del primer dedo, utilizada frecuentemente como complemento de otras osteotomías metatarsianas en la corrección del hallux valgus, para corregir la deformidad residual del hallux interfalángico. Testa et al. (J Clin Med 2026) compararon su realización con y sin fijación interna en 200 osteotomías, evaluando los ángulos DASA e IPOA.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 34 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 25 Septiembre – 1 Octubre 2026<br>
+  Fuentes: Foot &amp; Ankle International (FAI) · Foot and Ankle Surgery (FAS) · Journal of Foot &amp; Ankle Surgery (JFAS) · European Journal of Trauma and Emergency Surgery · International Orthopaedics · Journal of Clinical Medicine · Journal of Plastic, Reconstructive &amp; Aesthetic Surgery (JPRAS) · China Journal of Orthopaedics and Traumatology<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
