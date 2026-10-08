@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 35 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 35 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 2 – 8 de octubre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 8 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Journal of Foot &amp; Ankle Surgery (JFAS) · Journal of Bone and Joint Surgery (JBJS) · Vascular Medicine</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: PAT-GUIDED DFU MANAGEMENT -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">Pedal Acceleration Time-Guided Management of Diabetic Foot Ulcers With Borderline Ischemia</div>
+        <div class="paper-meta">
+          <strong>Shahat, Elkady, Shaamash, Elnaggar, Ali</strong><br>
+          Vascular Medicine · 7 octubre 2026
+          <span class="evidence-pill">Nivel II — Estudio prospectivo cuasi-experimental, n=263 pacientes con UPD e índice tobillo-brazo anormal</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42841362/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Úlcera de pie diabético (UPD) · Isquemia borderline</span>
+      <span class="tag">Pedal Acceleration Time (PAT) · n=263</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio prospectivo cuasi-experimental en 263 pacientes consecutivos con úlceras del pie diabético (UPD) e índice tobillo-brazo (ABI) anormal, en quienes se midió el tiempo de aceleración pedio (PAT) mediante ecografía dúplex de las arterias pedias para guiar la conducta terapéutica: un punto de corte predefinido de PAT ≥180 ms orientó a revascularización endovascular, mientras que PAT &lt;180 ms orientó a desbridamiento aislado. Los desenlaces primarios a 24 meses incluyeron sobrevida libre de amputación (AFS), cicatrización, eventos adversos mayores de la extremidad (MALE) y eventos cardiovasculares mayores (MACE); la precisión diagnóstica del PAT para estenosis infrapoplítea significativa se evaluó contra angiografía convencional como estándar de referencia. <strong>Hallazgo principal:</strong> a 24 meses, la AFS fue numéricamente mayor en el grupo de revascularización que en el de desbridamiento aislado (64.2% vs. 58.4%), sin diferencia estadísticamente significativa en la comparación puntual (p=.344), aunque el análisis de Kaplan-Meier mostró una diferencia significativa en la AFS a lo largo del seguimiento (log-rank p&lt;.05). La sobrevida global y la libertad de reintervención no difirieron entre grupos. El análisis multivariable identificó la etapa avanzada de la clasificación WIfI y una categoría de PAT más alta como predictores de amputación mayor; el estadio WIfI avanzado también se asoció a falta de cicatrización, y la categoría de PAT mostró una asociación limítrofe con la falta de cicatrización. El PAT mostró un desempeño diagnóstico excelente para estenosis arterial significativa (AUC 0.88); con el punto de corte ≥180 ms, la sensibilidad fue 84.0% y la especificidad 81.2%, con una exactitud global de 82.5%.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El PAT se perfila como un complemento fisiológico útil a la evaluación de perfusión distal en UPD con isquemia borderline, permitiendo identificar enfermedad arterial hemodinámicamente significativa y estratificar el riesgo de amputación. Los propios autores señalan que estos hallazgos respaldan continuar evaluando el PAT como herramienta adjunta, no como reemplazo del estándar diagnóstico actual. Limitación explícita: la diferencia en sobrevida libre de amputación entre grupos no alcanzó significación estadística en la comparación puntual a 24 meses (p=.344), y la asociación entre categoría de PAT y falta de cicatrización fue descrita por los propios autores como "limítrofe".</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: JBJS PERSPECTIVE ANKLE CARTILAGE EARLY INTERVENTION -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">From Sprain to End-Stage Osteoarthritis: Why Earlier Intervention in Ankle Cartilage Damage Deserves More Attention</div>
+        <div class="paper-meta">
+          <strong>Hollander, Dahmen, Murawski, Gianakos, Takao, Nakasa, Lee, Guss, Ferkel, Kennedy, Kerkhoffs</strong><br>
+          Journal of Bone and Joint Surgery (JBJS) · 6 octubre 2026
+          <span class="evidence-pill">Artículo de perspectiva clínica — sin diseño de estudio primario propio</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42837429/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Daño cartilaginoso de tobillo · De esguince a osteoartrosis terminal</span>
+      <span class="tag">Intervención temprana vs. tratamiento quirúrgico tardío</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Artículo de perspectiva de un grupo internacional de cirujanos de tobillo y pie que aborda el espectro del daño cartilaginoso del tobillo, desde las lesiones osteocondrales del talo hasta la osteoartrosis de tobillo en etapa terminal. Los autores señalan que la osteoartrosis de tobillo en etapa terminal se ha asociado a una carga de salud comparable a la de enfermedades crónicas mayores como la insuficiencia cardíaca congestiva y la enfermedad renal, afectando predominantemente a pacientes jóvenes y activos. Destacan que la osteoartrosis de tobillo suele tener naturaleza postraumática, lo que permite estudiar los resultados a largo plazo de las lesiones articulares traumáticas e identificar potenciales blancos de intervención temprana. <strong>Planteamiento central:</strong> la literatura científica se ha enfocado predominantemente en los resultados tras el tratamiento quirúrgico de las lesiones osteocondrales del talo o de la osteoartrosis, mientras que la evidencia sobre tratamiento no operatorio ha sido limitada y metodológicamente débil, siendo la evidencia sobre intervenciones tempranas (p. ej., estilo de vida o productos biológicos) aún más escasa.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores concluyen que la mayor oportunidad para mejorar los resultados a largo plazo en el daño cartilaginoso del tobillo podría residir en el reconocimiento temprano y el inicio temprano del tratamiento, más que en el enfoque predominante actual centrado en el tratamiento quirúrgico de lesiones ya avanzadas. Limitación explícita: se trata de un artículo de perspectiva ("current concepts") sin un diseño de estudio primario propio; los propios autores señalan que la evidencia sobre tratamiento no operatorio y sobre intervenciones tempranas es limitada y metodológicamente débil.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — NEW: PROPELLER FLAPS ANKLE/HINDFOOT FRACTURES -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">A Simplified Protocol Using Septocutaneous Perforator-Based Propeller Flaps for Concurrent Fixation and Coverage of Complex Ankle and Hindfoot Fractures</div>
+        <div class="paper-meta">
+          <strong>Reingrittha, Kamphaengkaew, Jitprapaikulsarn, Manoprasertkul, Sengpanich, Rungsakaolert</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 7 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva unicéntrica, n=67 pacientes</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42843780/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fracturas complejas de tobillo y retropié · Cobertura de partes blandas</span>
+      <span class="tag">Colgajo en hélice basado en perforante septocutáneo (SC) · n=67</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo unicéntrico en 67 pacientes elegibles con fracturas complejas de tobillo y retropié (área de defecto media 45.3 ± 18.0 cm²), tratados entre enero de 2020 y diciembre de 2023 con fijación interna concurrente y cobertura de partes blandas mediante colgajo en hélice ("propeller flap") basado en perforante septocutáneo (SC), planteado como abordaje simplificado e independiente de equipamiento microquirúrgico, accesible para cirujanos no microquirurgos en entornos con recursos limitados. Se evaluaron el grado de necrosis, la sobrevida del colgajo, las tasas de revisión, el tiempo de consolidación ósea y el estado funcional mediante el Foot Functional Index (FFI) a un seguimiento mínimo de un año. <strong>Hallazgo principal:</strong> la fijación concurrente con cobertura mediante colgajo en hélice basado en perforante SC logró sobrevida completa del colgajo en toda la cohorte, con un tiempo medio a la cirugía definitiva de 8.1 ± 4.2 días. Se presentó necrosis parcial en 19% (13 de 67), todas resueltas espontáneamente por cicatrización secundaria. El score FFI medio global fue 14.0 ± 7.6, y el tiempo mediano de consolidación ósea fue 11 semanas. La necrosis parcial retrasó significativamente la consolidación ósea (16 vs. 11 semanas; p&lt;.001), asociándose a peor recuperación funcional (FFI 22.2 ± 9.9 vs. 12.0 ± 5.4; p&lt;.001).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los colgajos en hélice basados en perforante SC ofrecen, según los autores, un abordaje confiable y reproducible para la fijación y cobertura concurrentes de fracturas complejas de tobillo y retropié, destacando que prevenir la necrosis parcial es crucial para un tiempo de consolidación y una recuperación funcional óptimos. Limitación explícita: diseño de cohorte retrospectivo Nivel III, unicéntrico; el abstract no reporta grupo comparativo con otras técnicas de cobertura.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: COMPOSITE DEFORMITY SCORE OLT -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">The Composite Deformity Score (CDS): Development and Preliminary Assessment of a Radiographic Scoring System for Assessing Osteochondral Lesion Severity of the Talus</div>
+        <div class="paper-meta">
+          <strong>Hamoud, Swealem, Hatata</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 5 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte prospectiva, n=80 pacientes con OLT confirmada por RM</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42833444/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Lesión osteocondral del talo (OLT) · Score radiográfico de deformidad</span>
+      <span class="tag">Composite Deformity Score (CDS) · n=80</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte prospectiva de 80 pacientes con lesiones osteocondrales del talo (OLT) confirmadas por RM (junio 2024-junio 2025), en la que se desarrolló y evaluó preliminarmente el Composite Deformity Score (CDS), un score radiográfico de cinco parámetros (LDTA, HAD, MAD, ángulo de Meary, calcaneal pitch) diseñado a priori para resumir múltiples dominios de alineación de la extremidad inferior, con estratificación prospectiva según la localización de la lesión (zonas de Raikin medial, central y lateral). Dos radiólogos fellowship-trained midieron las lesiones en RM de forma ciega e independiente. <strong>Hallazgo principal:</strong> el CDS mostró excelente confiabilidad (ICC interobservador 0.91; intraobservador 0.92-0.93) y correlacionó con el tamaño de la lesión (r=+0.74, p&lt;.001). El CDS y el tamaño de la lesión variaron significativamente según la localización: las lesiones mediales tuvieron el CDS más alto (6.1±0.7) y la mayor proporción de lesiones grandes (66.7%), mientras que las laterales tuvieron el CDS más bajo (3.4±1.2) y la menor proporción de lesiones grandes (5.6%) (p&lt;.001 para ambos). El CDS se mantuvo asociado de forma independiente a OLT grandes (&gt;2 cm²) tras ajuste por IMC (OR 3.04, p&lt;.001; AUROC=0.87) y tras ajuste por localización (OR 2.76, p&lt;.001), y correlacionó inversamente con el score AOFAS (ρ=-0.70, p&lt;.001) en todas las localizaciones. Un punto de corte de CDS&gt;6 mostró 75% de sensibilidad y 100% de especificidad.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores concluyen que el CDS es un score reproducible y confiable, significativamente asociado a la severidad de la OLT, con puntajes más altos en lesiones mediales, lo que respalda su plausibilidad biológica. Señalan explícitamente que se requiere validación prospectiva multicéntrica frente a resultados clínicos antes de su adopción clínica. Limitación explícita: Nivel III, cohorte de evaluación preliminar; los propios autores advierten que no debe adoptarse clínicamente sin validación adicional.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: FREIBERG MINI-SCREW -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Outcomes of Mini-Screw Fixation Following Dorsal Closing Wedge Osteotomy for Treatment of Freiberg's Disease</div>
+        <div class="paper-meta">
+          <strong>Baheeg, Elgohary, Hamed, Basiony, Gawish, Elzeiny, Gad</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 6 octubre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos prospectiva observacional, n=48 pacientes (13-30 años, Smillie II-IV)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42838503/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Enfermedad de Freiberg · Osteotomía en cuña de cierre dorsal</span>
+      <span class="tag">Fijación con mini-tornillo · n=48</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de casos prospectiva observacional de 48 pacientes consecutivos de 13 a 30 años con enfermedad de Freiberg (osteocondrosis de la cabeza de un metatarsiano menor, mayoritariamente el 2°), estadios de Smillie II, III o IV, refractaria a tratamiento conservador, tratados con osteotomía en cuña de cierre dorsal fijada con un único mini-tornillo. Se evaluó el dolor mediante escala visual análoga (EVA) preoperatoria y a los 6 meses de seguimiento final, la consolidación radiográfica de la osteotomía y las complicaciones. <strong>Hallazgo principal:</strong> hubo una reducción sustancial del dolor, con EVA media mejorando de 8.67±0.88 a 1.33±2.01 (p&lt;.001). Se logró consolidación radiográfica en todos los pacientes, a una media de 7.31±1.22 semanas. Se presentó fragmentación intraoperatoria de la cabeza metatarsiana en 3 pacientes (6.25%) e infección superficial de herida en 3 (6.25%), y todos los pacientes presentaron alguna pérdida de la flexión plantar de la articulación metatarsofalángica (media 11°).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La osteotomía en cuña de cierre dorsal con fijación con mini-tornillo se asoció a una reducción sustancial del dolor y a una tasa de complicaciones baja en esta serie de pacientes con enfermedad de Freiberg refractaria al tratamiento conservador, aunque los propios autores reportan que todos los pacientes presentaron alguna pérdida de la flexión plantar metatarsofalángica. Limitación explícita: serie de casos Nivel IV, sin grupo comparativo frente a otras técnicas de fijación.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: DORSIFLEXION MTP ARTHRODESIS PES PLANUS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Dorsiflexion Angles Following First MTP Arthrodesis in Adult Pes Planus: A Retrospective Radiographic Cohort Study</div>
+        <div class="paper-meta">
+          <strong>Dyke, Owusu Ansah, Zaidi, Smith, Strong, Whittingslow, Tennant, Lalli</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 7 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte radiográfica retrospectiva, n=112 pies operados (102 pacientes)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42843779/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artrodesis de la primera MTP · Hallux rigidus · Pie plano (pes planus)</span>
+      <span class="tag">Ángulo de dorsiflexión · Calcaneal pitch · n=112</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Cohorte radiográfica retrospectiva de pacientes de 18 a 90 años sometidos a artrodesis primaria de la primera articulación metatarsofalángica (MTP) entre 2006 y 2021 en una institución académica única, para determinar si el pie plano (pes planus) radiográfico influye en el ángulo de dorsiflexión del hallux posoperatorio. Radiografías con carga obtenidas ≥12 semanas tras la cirugía fueron evaluadas por tres revisores ortopédicos independientes entrenados en residencia; se midieron el ángulo de dorsiflexión, el ángulo de Meary y el calcaneal pitch, definiéndose pie plano como ángulo de Meary &gt;4° o calcaneal pitch ≤19°. Se incluyeron 112 pies operados de 102 pacientes; 93 (83%) cumplieron criterios de pie plano. <strong>Hallazgo principal:</strong> el ángulo de dorsiflexión medio fue 23.49°±8.59° con pie plano vs. 24.61°±7.92° sin pie plano. Tras ajuste por edad, sexo e IMC, el pie plano no se asoció de forma independiente al ángulo de dorsiflexión (β=-0.62°, IC95% -4.69° a 3.46°, p=.765). El calcaneal pitch fue menor con pie plano (18.51°±5.84° vs. 24.14°±3.42°, p&lt;.001), y se identificó una interacción significativa entre pie plano y calcaneal pitch (β=1.24, IC95% 0.06-2.41, p=.039). Las tasas de complicación no difirieron entre grupos.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El pie plano no influyó de forma independiente en el ángulo de dorsiflexión posoperatorio tras artrodesis de la primera MTP, pero el calcaneal pitch modificó esta relación, lo que según los autores sugiere que la alineación del retropié debería considerarse en la planificación preoperatoria. Limitación explícita: diseño retrospectivo Nivel III, centro único; el abstract no reporta seguimiento clínico funcional más allá de la medición radiográfica y las tasas de complicación.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Kızkapan, Kunt, Güzel, Koputan</strong> Estudio de casos y controles retrospectivo (n=313: 116 con tendinopatía aquiliana insercional [IAT] vs. 197 controles) que evaluó parámetros radiográficos y de RM de alineación de tobillo/retropié: el ángulo de Fowler-Philip, el posterior tuberosity inclination angle (PTIA), la altura de la prominencia ósea (bump height) y el grosor tendinoso fueron predictores independientes de IAT en regresión logística multivariable (OR 1.26, 1.15, 1.21 y 1.23, respectivamente) — <em>J Foot Ankle Surg (JFAS)</em>, 5 oct (DOI: 10.1053/j.jfas.2026.10.005)</li>
+      <li><strong>Pereira Filho, Ferreira, Lam, Lewis, Proença, Dias, Mattos e Dinato, Pagnano</strong> Estudio de confiabilidad retrospectivo transversal (n=50 radiografías, 3 observadores) que comparó el Head Interspace Ratio (HIR) existente con el nuevo Neck Interspace Ratio (NIR) propuesto para planificación quirúrgica en hallux valgus: el NIR mostró mejor confiabilidad intra e interobservador (ICC interobservador 0.886 vs. 0.464 del HIR) y menor error de medición — <em>J Foot Ankle Surg (JFAS)</em>, 3 oct (DOI: 10.1053/j.jfas.2026.09.017)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Tiempo de Aceleración Pedio (PAT) Podría Guiar la Decisión de Revascularizar en Isquemia Borderline del Pie Diabético</div>
+        <p>Shahat et al. (Vasc Med, n=263) muestran que un punto de corte de PAT ≥180 ms identificó enfermedad arterial infrapoplítea hemodinámicamente significativa con un AUC de 0.88 (sensibilidad 84.0%, especificidad 81.2%), y que una categoría de PAT más alta se asoció, junto al estadio WIfI avanzado, a mayor riesgo de amputación mayor. Esto sugiere que el PAT podría complementar al índice tobillo-brazo (ABI) para decidir qué pacientes con isquemia borderline requieren revascularización endovascular frente a manejo con desbridamiento aislado.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Estudio prospectivo cuasi-experimental unicéntrico; la diferencia en sobrevida libre de amputación a 24 meses entre el grupo revascularizado y el de desbridamiento aislado no alcanzó significación estadística en la comparación puntual (64.2% vs. 58.4%, p=.344), por lo que los propios autores plantean el PAT como herramienta adjunta a validar, no como reemplazo del estándar actual.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Daño Cartilaginoso de Tobillo Podría Requerir Reconocimiento e Intervención Mucho Antes de lo que la Práctica Actual Contempla</div>
+        <p>Hollander et al. (JBJS) señalan que la osteoartrosis de tobillo en etapa terminal conlleva una carga de salud comparable a la de enfermedades crónicas mayores como la insuficiencia cardíaca congestiva, afectando predominantemente a pacientes jóvenes y activos, y que la literatura se ha concentrado en el tratamiento quirúrgico de lesiones ya avanzadas, dejando la evidencia sobre intervención temprana (estilo de vida, biológicos) especialmente escasa. Esto cuestiona el enfoque predominante centrado en el tratamiento quirúrgico tardío por sobre el reconocimiento e intervención tempranos tras el trauma articular inicial.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): Artículo de perspectiva clínica sin diseño de estudio primario propio; los mismos autores reconocen que la evidencia sobre tratamiento no operatorio e intervenciones tempranas es "limitada y metodológicamente débil".</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Isquemia Borderline en Pie Diabético — Lo que Muestra el Estudio</h4>
+          <p>Shahat et al. (Vasc Med, n=263) muestran que un PAT ≥180 ms identifica estenosis infrapoplítea significativa con AUC 0.88 y se asocia, junto al estadio WIfI avanzado, a mayor riesgo de amputación mayor. Los propios autores señalan que se requiere mayor evaluación de esta herramienta adjunta.</p>
+        </div>
+        <div class="app-item">
+          <h4>Daño Cartilaginoso de Tobillo — Lo que Muestra el Estudio</h4>
+          <p>Hollander et al. (JBJS) destacan la escasa evidencia sobre tratamiento no operatorio y la oportunidad de mejorar resultados a largo plazo mediante reconocimiento e intervención tempranos, antes de llegar a la osteoartrosis en etapa terminal.</p>
+        </div>
+        <div class="app-item">
+          <h4>Cobertura de Fracturas Complejas de Tobillo/Retropié — Lo que Muestra el Estudio</h4>
+          <p>Reingrittha et al. (JFAS, n=67) muestran sobrevida completa del colgajo en hélice basado en perforante septocutáneo para fijación y cobertura concurrentes, con necrosis parcial en 19% asociada a mayor tiempo de consolidación y peor función.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Pedal Acceleration Time (PAT)</div>
+          <div class="glos-def">Medida Doppler derivada de la aceleración del flujo arterial pedio, utilizada para evaluar la perfusión distal en pacientes con isquemia borderline cuando el índice tobillo-brazo (ABI) es anormal. Shahat et al. (Vasc Med 2026) propusieron un punto de corte de PAT ≥180 ms para guiar la decisión entre revascularización endovascular y desbridamiento aislado en úlceras del pie diabético.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Colgajo en Hélice (Propeller Flap) Basado en Perforante Septocutáneo</div>
+          <div class="glos-def">Técnica de cobertura de partes blandas que rota un colgajo alrededor del eje de un vaso perforante septocutáneo, sin requerir anastomosis microquirúrgica, lo que la hace accesible para cirujanos no microquirurgos. Reingrittha et al. (JFAS 2026) la emplearon para fijación y cobertura concurrentes de fracturas complejas de tobillo y retropié.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Composite Deformity Score (CDS) y Lesión Osteocondral del Talo (OLT)</div>
+          <div class="glos-def">El CDS es un score radiográfico de cinco parámetros de alineación de la extremidad inferior (LDTA, HAD, MAD, ángulo de Meary, calcaneal pitch) desarrollado para resumir el grado de deformidad asociado a una OLT. Hamoud et al. (JFAS 2026) lo correlacionaron con el tamaño de la lesión y la localización según la grilla de Raikin.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Enfermedad de Freiberg y Osteotomía en Cuña de Cierre Dorsal</div>
+          <div class="glos-def">La enfermedad de Freiberg es una osteocondrosis de la cabeza de un metatarsiano menor (más frecuentemente el 2°), que predomina en mujeres adolescentes. En casos refractarios al tratamiento conservador, la osteotomía en cuña de cierre dorsal reorienta la superficie articular dañada fuera del eje de carga. Baheeg et al. (JFAS 2026) evaluaron su fijación con un único mini-tornillo en 48 pacientes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 35 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 2 – 8 Octubre 2026<br>
+  Fuentes: Journal of Foot &amp; Ankle Surgery (JFAS) · Journal of Bone and Joint Surgery (JBJS) · Vascular Medicine<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
