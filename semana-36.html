@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 36 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 36 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 9 – 15 de octubre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 8 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Journal of Orthopaedic Trauma · Foot &amp; Ankle International (FAI) · Journal of Foot &amp; Ankle Surgery (JFAS) · Journal of Bone and Joint Surgery (JBJS) · Foot &amp; Ankle Surgery (FAS)</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: RCT EARLY VS DELAYED WEIGHT BEARING ANKLE FRACTURE -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">A Prospective Randomized Trial to Assess Early versus Delayed Weight Bearing Following Operatively Treated Ankle Fractures in the United States</div>
+        <div class="paper-meta">
+          <strong>Obremskey, Archer, Gaski, Gitajn, Natoli, Spitler, Levy, Thompson, Wysocki, Reider</strong><br>
+          Journal of Orthopaedic Trauma · 14 octubre 2026
+          <span class="evidence-pill rct">Nivel I — ECA prospectivo multicéntrico, 19 centros de trauma de EE.UU., n=418</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42873990/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag rct">ECA Nivel I</span>
+      <span class="tag">Fractura de tobillo · Carga precoz vs. diferida · n=418</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Ensayo clínico aleatorizado prospectivo multicéntrico (19 centros de trauma de EE.UU.) en 418 pacientes adultos con fractura de tobillo (OTA/AO 44 A, B o C) tratados con fijación quirúrgica, excluyendo fracturas abiertas Gustilo-Anderson IIIB/IIIC, lesiones sindesmóticas fijadas y lesiones con compromiso arterial en que el cirujano consideró insegura la carga. Se asignó aleatoriamente carga precoz (2 semanas posoperatorias, n=214) o carga diferida (6 semanas, n=204). Los co-desenlaces primarios fueron (1) no inferioridad de la carga precoz respecto a la diferida en reoperación por complicaciones (falla de material, no unión, pérdida de reducción, infección o fusión) y (2) superioridad "gated" de la carga precoz en tiempo de retorno al trabajo, ambos evaluados dentro de 365 días. <strong>Hallazgo principal:</strong> la reoperación por complicaciones ocurrió en 2.3% (IC95% 0.3-4.4%) del grupo precoz vs. 3.4% (IC95% 0.9-5.9%) del grupo diferido; la carga precoz fue no inferior a la diferida en reoperación (diferencia 1.5 puntos porcentuales; IC90% bilateral -1.7% a 4.8%, que excluyó el margen de no inferioridad de -5.0%). El tiempo mediano de retorno al trabajo fue 54 días (IC95% 42-77) en el grupo precoz vs. 69 días (IC95% 47-89) en el diferido, pero la carga precoz no fue superior para este desenlace (Hazard Ratio 1.1, IC95% 0.8-1.6, p=.475).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los propios autores señalan que estos hallazgos se suman a la evidencia creciente que respalda la seguridad de la carga precoz tras fijación de fracturas de tobillo bi- y trimaleolares sin disrupción sindesmótica, una preocupación clave tanto para clínicos como para pacientes. Limitación explícita: a pesar de un tiempo mediano numéricamente menor de retorno al trabajo con carga precoz, los autores reportan que no se encontró un beneficio estadísticamente significativo en este desenlace (HR 1.1, p=.475).</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: RCT WEIGHTBEARING AFTER 1ST MTP FUSION -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">To Walk or Not? A Prospective, Randomised Controlled Trial to Evaluate the Effect of Weightbearing on Patient Outcomes Following First Metatarsophalangeal Joint Fusion</div>
+        <div class="paper-meta">
+          <strong>Purdie, Glazebrook, Dissanayake, Burgesson, Morash, Glazebrook</strong><br>
+          Foot &amp; Ankle International · 9 octubre 2026
+          <span class="evidence-pill rct">Nivel I — ECA prospectivo, n=68 (NCT04473196)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42852924/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag rct">ECA Nivel I</span>
+      <span class="tag">Artrodesis 1ª MTF · WBAT vs. NWB · n=68</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Ensayo clínico aleatorizado prospectivo en 68 pacientes sometidos a artrodesis aislada de la primera articulación metatarsofalángica (MTF) por hallux rigidus o hallux valgus severo con osteoartrosis tras fracaso del manejo no quirúrgico, comparando carga inmediata según tolerancia (WBAT, n=33) vs. protocolo tradicional sin carga (NWB, n=35), con técnica quirúrgica y fijación estandarizadas (tornillos cruzados o placa) por 2 cirujanos de tobillo y pie con fellowship. Desenlaces primarios: escala visual analógica (EVA) de dolor y Foot and Ankle Ability Measure (subescala FAAM-ADL) a 12 meses; secundarios: no unión, complicaciones (infección, problemas de herida) y satisfacción del paciente. <strong>Hallazgo principal:</strong> ambos grupos mejoraron significativamente en dolor y función a los 12 meses (p&lt;.001 para ambos), sin diferencias estadísticamente significativas entre WBAT y NWB en EVA (2.97±2.215 vs. 2.54±2.147; p=.423), FAAM (81.31±16.028 vs. 85.02±18.863; p=.387) ni satisfacción (8.00±2.76 vs. 8.34±2.52; p=.594). Las tasas de complicaciones fueron comparables, con 1 caso de irritación por material en cada grupo (p=.739).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores concluyen que la carga inmediata tras artrodesis aislada de la 1ª MTF es segura y produce alivio del dolor, satisfacción y tasas de complicaciones similares al protocolo tradicional sin carga, lo que respalda estrategias posoperatorias más permisivas. Un editorial acompañante de Baumhauer (FAI, mismo número) discute este ensayo en el contexto de la evolución hacia protocolos guiados por el paciente. Limitación explícita: los propios autores señalan que "no pudo excluirse" una ventaja funcional clínicamente significativa del protocolo sin carga, reflejo de las limitaciones estadísticas de un ensayo de n=68.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — HOT: HIGH INFECTION RATE ATFL REPAIR WITH INTERNAL BRACE -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">High Infection Rate in Open Anterior Talofibular Ligament Repair with Internal Brace Augmentation and Immediate Permissive Weight Bearing</div>
+        <div class="paper-meta">
+          <strong>Poon, Lambert, de Vries, van Raaij</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 11 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, n=65 (34 ATFL-IB vs. 31 ATFL sin augmentación)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42860173/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Inestabilidad lateral de tobillo · Reparación ATFL abierta</span>
+      <span class="tag">Internal Brace · Infección de sitio quirúrgico (ISQ)</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo que comparó la reparación abierta del ligamento talofibular anterior (ATFL) con augmentación mediante Internal Brace y carga permisiva inmediata (grupo ATFL-IB, n=34, enero 2022-febrero 2024) frente a la reparación abierta sin augmentación y con rehabilitación restringida (grupo ATFL, n=31, enero 2016-marzo 2019). El desenlace primario fue infección de sitio quirúrgico (ISQ) dentro de 90 días que requiriera antibioticoterapia o intervención quirúrgica. <strong>Hallazgo principal:</strong> la ISQ ocurrió en 5 de 34 pacientes (15%) del grupo ATFL-IB frente a 0 de 31 (0%) del grupo ATFL sin augmentación (p=.034). Otras complicaciones incluyeron inestabilidad persistente de tobillo (3%) y malposición (3%) en el grupo ATFL-IB, y dolor por el nudo (3%) en el grupo ATFL. Las características basales y el tiempo operatorio fueron comparables entre grupos; solo la prevalencia de tabaquismo fue mayor en el grupo ATFL sin augmentación.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La reparación del ATFL con augmentación mediante Internal Brace y carga permisiva inmediata se asoció a una tasa de ISQ significativamente mayor que la reparación sin augmentación con rehabilitación restringida. Limitación explícita: los propios autores señalan que, dado que la augmentación y el protocolo de rehabilitación difirieron de forma concurrente (cohortes de épocas distintas), no pudo determinarse la contribución relativa de cada factor al riesgo de infección.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: JBJS CONTEMPORARY TREATMENT ALGORITHM OLT -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Evolving Management Strategies for Osteochondral Lesions of the Talus: A Contemporary Treatment Algorithm</div>
+        <div class="paper-meta">
+          <strong>Rubin, Tham, Gauthier, Murawski, Ferkel, Kennedy</strong><br>
+          Journal of Bone and Joint Surgery (JBJS) · 9 octubre 2026
+          <span class="evidence-pill">Artículo de revisión de conceptos actuales — sin diseño de estudio primario propio</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42853905/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Lesión osteocondral del talo (OLT) · Algoritmo de tratamiento</span>
+      <span class="tag">Fijación · Estimulación medular · Reemplazo · Rescate</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Artículo de conceptos actuales que propone un algoritmo contemporáneo para el tratamiento quirúrgico de las lesiones osteocondrales del talo (OLT), señalando que los resultados quirúrgicos están influenciados por el tamaño y morfología de la lesión, la integridad del cartílago, el compromiso del hueso subcondral y la estabilidad del tobillo. Los autores describen: la fijación del fragmento, que preserva la unidad osteocondral nativa en lesiones agudas con fragmento viable; la técnica "lift-drill-fill-fix" para lesiones crónicas seleccionadas con fragmento salvable y hueso subcondral comprometido; las técnicas de estimulación de la médula ósea (microfractura, perforación ante/retrógrada), que han mostrado mejoría del dolor y la función en lesiones pequeñas y contenidas, aunque la durabilidad a largo plazo del tejido fibrocartilaginoso de reparación es variable; los procedimientos de reemplazo (trasplante osteocondral autólogo y aloinjerto osteocondral), con resultados favorables en lesiones grandes o estructuralmente complejas; las estrategias basadas en células y matriz (ACI, MACI, AMIC), con mejoría clínica y de reparación cartilaginosa en pacientes seleccionados; abordajes emergentes (scaffolds, autoinjerto osteoperióstico, adyuvantes biológicos como BMAC, PRP y ácido hialurónico), con resultados clínicos tempranos prometedores pero evidencia aún limitada; y procedimientos de rescate (aloinjerto masivo, resurfacing metálico, hemiartroplastia, artrodesis) para lesiones extensas o tras fracaso de cirugía previa, con resultados variables y altas tasas de complicación y fracaso.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>El algoritmo propuesto por los autores orienta la elección quirúrgica (fijación, estimulación medular, reemplazo, técnicas celulares o rescate) según el tamaño, morfología, compromiso subcondral y estabilidad asociada de la lesión. Limitación explícita: se trata de un artículo de conceptos actuales sin diseño de estudio primario propio; los propios autores señalan que la evidencia sobre los abordajes emergentes (scaffolds, autoinjerto osteoperióstico, adyuvantes biológicos) "permanece limitada", y que los procedimientos de rescate muestran resultados variables "con altas tasas de complicación y fracaso".</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: OSTEOPOROSIS ANKLE/HINDFOOT ARTHRODESIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">The Effects of Osteoporosis on Ankle and Hindfoot Arthrodesis Outcomes: A Matched Database Analysis</div>
+        <div class="paper-meta">
+          <strong>Kiritsis, Beiene, Morales, O'Neill, Anastasio</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 10 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva de base de datos (TriNetX™), pareada por puntaje de propensión</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42858766/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Osteoporosis · Artrodesis de tobillo, subastragalina y triple</span>
+      <span class="tag">Base de datos TriNetX™ · Pareamiento por propensión</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo utilizando la red de investigación TriNetX™ para identificar pacientes sometidos a artrodesis de tobillo, subastragalina o triple entre enero de 2010 y septiembre de 2024, estratificados en tres cohortes (osteoporosis, baja densidad mineral ósea [DMO] y controles) con pareamiento por puntaje de propensión 1:1. Los desenlaces primarios fueron la utilización hospitalaria a 90 días y la tasa de pseudoartrosis a 1 año; un análisis secundario comparó a los pacientes osteoporóticos con y sin tratamiento farmacológico. <strong>Hallazgo principal:</strong> dentro de los 90 días posoperatorios, los pacientes con osteoporosis presentaron tasas más altas de eventos adversos generales, reingreso hospitalario y visitas a urgencias. A 1 año, la cohorte de baja DMO mostró mayor incidencia de aflojamiento o desplazamiento mecánico y de amputación bajo la rodilla frente a controles, y tasas de pseudoartrosis más bajas. No se observaron diferencias significativas a 90 días ni a 1 año entre los pacientes osteoporóticos con tratamiento farmacológico frente a sin tratamiento.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La osteoporosis y la baja DMO se asociaron a mayor morbilidad tras artrodesis de tobillo, subastragalina y triple, particularmente complicaciones posoperatorias y fracaso mecánico, lo que según los autores subraya la necesidad de tamizaje estandarizado de salud ósea preoperatoria y estrategias de optimización dirigidas. Limitación explícita: diseño retrospectivo de base de datos administrativa; el tratamiento farmacológico de la osteoporosis no mostró diferencias significativas en los desenlaces evaluados, dato que los propios autores reportan sin profundizar en sus causas.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: OSTEOPOROSIS ANKLE ORIF COMPLICATIONS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Impact of Preoperative Osteoporosis on Short- and Long-Term Complications Following Ankle ORIF: A Multi-Institutional Propensity-Matched Analysis</div>
+        <div class="paper-meta">
+          <strong>Horani, Lawand, Wang, Cione, Ghali, Ruelos, Hagedorn</strong><br>
+          Foot &amp; Ankle Surgery (FAS) · 5 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva multi-institucional pareada por propensión, n=4190</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42869684/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Osteoporosis · Fractura de tobillo · ORIF</span>
+      <span class="tag">Complicaciones a corto y largo plazo · n=4190 pareados</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo multi-institucional en pacientes sometidos a reducción abierta y fijación interna (ORIF) de tobillo entre 2004 y 2022 con al menos 2 años de seguimiento, comparando pacientes con y sin osteoporosis preoperatoria (definida por códigos ICD-10 M80 y M81) mediante pareamiento por puntaje de propensión 1:1, con cohortes pareadas de 4190 pacientes. <strong>Hallazgo principal:</strong> a 90 días, el grupo con osteoporosis presentó mayores tasas de infección del dispositivo (1.0% vs. 0.5%; RR 2.10), trombosis venosa profunda (1.4% vs. 0.8%; RR 1.63) y transfusión (1.9% vs. 1.1%; RR 1.63). A 2 años, la infección del dispositivo (2.6% vs. 1.4%; RR 1.80) y la retirada de material de osteosíntesis (14.2% vs. 11.6%; RR 1.23) se mantuvieron elevadas en el grupo con osteoporosis.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>La osteoporosis preoperatoria se asoció a un aumento de las complicaciones a corto y largo plazo tras ORIF de tobillo. Los propios autores señalan que, dado que estas lesiones se tratan de forma aguda, la optimización de la salud ósea y la elección de fijación adecuada para hueso osteoporótico se abordan mejor en el período posoperatorio. Limitación explícita: diseño retrospectivo de bases de datos administrativas; el abstract no reporta un análisis de qué estrategias específicas de fijación modifican este riesgo.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Jeong, Kim, Kim, Lee, Kyung</strong> Estudio comparativo retrospectivo (n=44 pacientes, 22 por grupo, seguimiento ≥1 año) entre artroplastia total de tobillo (TAA) en osteoartrosis vara tipo rotacional vs. traslacional según la aposición de la gotera medial: el grupo traslacional logró y mantuvo la corrección de la migración del centro talar y del ángulo de alineación del retropié (AOFAS 51.4→92.2, p&lt;.001), mientras que el grupo rotacional mostró deterioro del ángulo de alineación del retropié entre el año 1 y el seguimiento final (AOFAS 56.9→80.4, p&lt;.001) — <em>Foot Ankle Surg (FAS)</em>, 5 oct (DOI: 10.1016/j.fas.2026.10.002)</li>
+      <li><strong>Çaltepe, Güler, Ceylan, Çakır, Alp, Polat</strong> Cohorte retrospectiva (n=58) de fracturas bimaleolares con compromiso del maléolo posterior y lateral tratadas con fijación de ambos maléolos vía abordaje posterolateral: ninguna de las clasificaciones de Haraguchi, Bartoníček/Rammelt o Mason-Molloy mostró asociación significativa con el AOFAS a 1 año (p=.994, p=.130 y p=.836, respectivamente) ni con el grado de Kellgren-Lawrence, aunque los autores señalan que subgrupos pequeños y desiguales limitaron la precisión del análisis — <em>J Foot Ankle Surg (JFAS)</em>, 13 oct (DOI: 10.1053/j.jfas.2026.10.010)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Dos Ensayos Nivel I Respaldan Protocolos de Carga Más Permisivos, sin Encontrar Ventaja Funcional Clara en Acelerarla</div>
+        <p>Obremskey et al. (J Orthop Trauma, ECA n=418) muestran que la carga precoz (2 semanas) tras ORIF de fractura de tobillo bi/trimaleolar sin disrupción sindesmótica es no inferior a la carga diferida (6 semanas) en reoperación por complicaciones, y Purdie et al. (FAI, ECA n=68) muestran que la carga inmediata según tolerancia tras artrodesis de la 1ª MTF produce dolor, función y satisfacción comparables a un protocolo sin carga. En ambos ensayos la carga más precoz resultó segura.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): en ninguno de los dos ensayos la carga más precoz demostró superioridad estadística en el desenlace funcional evaluado (retorno al trabajo HR 1.1, p=.475 en el primero; FAAM p=.387 en el segundo), y los propios autores del segundo ensayo señalan que no pudo excluirse una ventaja funcional del protocolo sin carga.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — La Osteoporosis Preoperatoria se Asocia a Más Complicaciones tanto en ORIF de Tobillo como en Artrodesis de Tobillo/Retropié, sin Tamizaje Estandarizado Actual</div>
+        <p>Horani et al. (Foot Ankle Surg, n=4190 pareados) muestran mayores tasas de infección del dispositivo, TVP y transfusión a 90 días, e infección y retiro de material a 2 años, en pacientes con osteoporosis preoperatoria sometidos a ORIF de tobillo. De forma convergente, Kiritsis et al. (JFAS, base TriNetX™) muestran mayor utilización hospitalaria a 90 días y mayor aflojamiento mecánico y amputación bajo la rodilla a 1 año en pacientes con osteoporosis/baja DMO sometidos a artrodesis de tobillo, subastragalina o triple.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): ambos son estudios retrospectivos de bases de datos administrativas; en el estudio de artrodesis, el tratamiento farmacológico de la osteoporosis no modificó significativamente los desenlaces evaluados, y ninguno de los dos estudios evalúa específicamente estrategias de fijación adaptadas a hueso osteoporótico.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Carga Posoperatoria tras Fractura de Tobillo — Lo que Muestra el Estudio</h4>
+          <p>Obremskey et al. (J Orthop Trauma, n=418) muestran que la carga a las 2 semanas es no inferior a la carga a las 6 semanas en reoperación por complicaciones tras ORIF de fractura de tobillo sin disrupción sindesmótica, sin beneficio estadístico demostrado en el tiempo de retorno al trabajo.</p>
+        </div>
+        <div class="app-item">
+          <h4>Carga tras Artrodesis de la 1ª MTF — Lo que Muestra el Estudio</h4>
+          <p>Purdie et al. (FAI, n=68) muestran dolor, función y satisfacción comparables entre carga inmediata según tolerancia y protocolo sin carga tras artrodesis aislada de la 1ª MTF, con tasas de complicaciones similares entre ambos grupos.</p>
+        </div>
+        <div class="app-item">
+          <h4>Reparación del ATFL con Internal Brace — Lo que Muestra el Estudio</h4>
+          <p>Poon et al. (JFAS, n=65) muestran una tasa de infección de sitio quirúrgico significativamente mayor con augmentación mediante Internal Brace y carga permisiva inmediata (15%) frente a reparación sin augmentación y rehabilitación restringida (0%).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">WBAT vs. NWB (Weightbearing As Tolerated / Non-Weightbearing)</div>
+          <div class="glos-def">Protocolos posoperatorios que permiten carga según tolerancia del paciente (WBAT) o la restringen por completo (NWB) durante el período de consolidación o cicatrización. Purdie et al. (FAI 2026) los compararon de forma aleatorizada tras artrodesis de la 1ª MTF, y Obremskey et al. (J Orthop Trauma 2026) compararon carga a 2 vs. 6 semanas tras ORIF de fractura de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Internal Brace (IB) en Reparación del ATFL</div>
+          <div class="glos-def">Augmentación de la reparación primaria del ligamento talofibular anterior (ATFL) con una cinta de sutura de alta resistencia, destinada a aumentar la resistencia del ligamento y permitir rehabilitación más temprana. Poon et al. (JFAS 2026) reportaron una tasa de infección de sitio quirúrgico significativamente mayor cuando se combinó con carga permisiva inmediata, frente a reparación sin augmentación y rehabilitación restringida.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Algoritmo de Tratamiento de la Lesión Osteocondral del Talo (OLT)</div>
+          <div class="glos-def">Marco de decisión quirúrgica que escalona las opciones terapéuticas según tamaño, morfología y compromiso subcondral de la lesión: fijación del fragmento, estimulación de la médula ósea (microfractura, perforación), procedimientos de reemplazo (trasplante osteocondral autólogo o aloinjerto) y técnicas basadas en células/matriz. Rubin et al. (JBJS 2026) lo describieron como un algoritmo contemporáneo, incluyendo procedimientos de rescate para lesiones extensas o fracasadas.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Análisis Pareado por Puntaje de Propensión (Propensity Score Matching)</div>
+          <div class="glos-def">Técnica estadística que empareja pacientes expuestos (p. ej., con osteoporosis) y no expuestos con características basales similares, para reducir el sesgo de confusión en estudios retrospectivos de bases de datos. Horani et al. (Foot Ankle Surg 2026, n=4190 pareados) y Kiritsis et al. (JFAS 2026, base TriNetX™) la emplearon para evaluar el impacto de la osteoporosis en los desenlaces tras cirugía de tobillo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 36 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 9 – 15 Octubre 2026<br>
+  Fuentes: Journal of Orthopaedic Trauma · Foot &amp; Ankle International (FAI) · Journal of Foot &amp; Ankle Surgery (JFAS) · Journal of Bone and Joint Surgery (JBJS) · Foot &amp; Ankle Surgery (FAS)<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
