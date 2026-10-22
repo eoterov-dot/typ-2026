@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 37 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 37 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 16 – 22 de octubre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 8 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Journal of Foot &amp; Ankle Surgery (JFAS) · Archives of Orthopaedic and Trauma Surgery · JBJS Essential Surgical Techniques · Clinical Orthopaedics and Related Research (CORR) · Foot &amp; Ankle Specialist · Clinical Imaging</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: PEEK RCT PEDIATRIC CALCANEAL LENGTHENING -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">PEEK in Pediatric Calcaneal Lengthening: Alternative or Compromise? A Randomized Controlled Trial</div>
+        <div class="paper-meta">
+          <strong>Hamoud, Elnemr</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 19 octubre 2026
+          <span class="evidence-pill rct">Nivel I — ECA, 60 pies en 60 pacientes, seguimiento mínimo 24 meses (media 29 meses)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42896697/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag rct">ECA Nivel I</span>
+      <span class="tag">Pie plano flexible pediátrico · PEEK vs. AIBG · n=60 pies</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Ensayo clínico aleatorizado que incluyó 60 pies unilaterales en 60 pacientes pediátricos con pie plano flexible sometidos a osteotomía de alargamiento calcáneo lateral (LCLO), asignados 1:1 a interposición con jaula de polieteretercetona (PEEK) o injerto óseo autólogo de cresta ilíaca (AIBG). Se obtuvieron radiografías en carga preoperatorias, posoperatorias inmediatas, a 3, 6 y 12 meses y en el seguimiento final (mínimo 24 meses; media 29 meses), con medición de seis ángulos por dos observadores ciegos. <strong>Hallazgo principal:</strong> los puntajes AOFAS finales fueron similares entre PEEK (87.04±7.42) y AIBG (88.31±6.56; p=.489), y las seis mediciones angulares mostraron trayectorias radiográficas similares en el tiempo, sin interacción significativa tratamiento×tiempo, con la mayor corrección lograda inmediatamente tras la cirugía. La unión ósea ocurrió en todos los pies. Sin embargo, las complicaciones compuestas fueron significativamente más frecuentes con PEEK (27% vs. 3%; p=.026).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, PEEK y AIBG produjeron trayectorias funcionales y radiológicas similares, pero la mayor tasa de complicaciones con PEEK "respalda una evaluación comparativa adicional" antes de adoptarlo como alternativa sistemática al injerto óseo autólogo. Limitación explícita: el abstract no detalla la naturaleza específica de las complicaciones que compusieron esa tasa del 27%.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: GOUT MIMICS INFECTION ACHILLES REPAIR -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Gout May Mimic Infection, Even Years After Achilles Tendon Repair</div>
+        <div class="paper-meta">
+          <strong>DeSena, Fine-Lease, Hornick, Parker, Kalin, Lin, Bariteau, Chiodo</strong><br>
+          Clinical Orthopaedics and Related Research (CORR) · 16 octubre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos, n=4, estudio terapéutico, 3 centros académicos</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42885909/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Reparación de Aquiles · Gota tendinosa tardía</span>
+      <span class="tag">Diagnóstico diferencial con infección</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Serie de 4 casos (3 centros académicos, abril 2021-junio 2024) de varones adultos (42-55 años) que desarrollaron dolor agudo atraumático, edema, eritema, drenaje, fluctuación o induración en la región del Aquiles entre 2 y 18 años después de una reparación abierta previa del tendón. <strong>Hallazgo principal:</strong> en 3 de 4 pacientes el cuadro se interpretó inicialmente como infección y llevó a aspiración y/o irrigación y desbridamiento quirúrgico; en esos 3 pacientes se identificó material tofáceo calcáreo junto al tendón, los cultivos bacterianos fueron negativos y el análisis histológico confirmó cristales de urato monosódico. El cuarto paciente fue tratado de forma no quirúrgica por sospecha de gota (hiperuricemia y mejoría con tratamiento no quirúrgico), sin confirmación patológica. Todos los pacientes reportaron resolución de síntomas en el seguimiento (6 a 16 meses), incluso con ácido úrico sérico normal en algunos casos.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores señalan que la gota tendinosa de aparición tardía tras reparación del Aquiles puede imitar estrechamente una infección posoperatoria, incluso con ácido úrico sérico normal, y que en pacientes sin signos sistémicos de sepsis, la consideración temprana de gota y el análisis rutinario de cristales en material aspirado o quirúrgico "puede ayudar a evitar desbridamiento quirúrgico innecesario o antibioticoterapia empírica prolongada". Limitación explícita: serie de solo 4 casos (Nivel IV), sin denominador poblacional conocido (los autores "especulan" que es del orden de varios cientos), y en 1 de los 4 casos la gota no fue confirmada patológicamente.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — HOT: CRP/ALBUMIN RATIO AMPUTATION -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Admission C-Reactive Protein-to-Albumin Ratio Is Associated With Early Major Amputation After Minor Amputation in Patients With Infected Foot Wounds</div>
+        <div class="paper-meta">
+          <strong>Kim HB, Cho, Kim JS, Jung, Lee</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 19 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte retrospectiva, n=257</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42896696/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Herida infectada del pie · Amputación menor vs. mayor</span>
+      <span class="tag">Razón PCR/Albúmina (CAR) · n=257</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte retrospectivo (marzo 2005-septiembre 2025) en 257 pacientes sometidos a amputación menor por heridas infectadas del pie, que evaluó si la razón proteína C reactiva/albúmina (CAR) al ingreso se asocia con progresión a amputación mayor dentro de 90 días. <strong>Hallazgo principal:</strong> 60 de 257 pacientes (23.3%) progresaron a amputación mayor dentro de 90 días. Valores más altos de CAR al ingreso se asociaron significativamente con amputación mayor, manteniéndose como predictor independiente en el análisis multivariable (hazard ratio 1.17; IC95% 1.05-1.31; p=.004). La incorporación de CAR mejoró el rendimiento predictivo del modelo basal (área bajo la curva .883 vs. .810).</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Los autores concluyen que la CAR al ingreso es un factor simple e independiente asociado con amputación mayor temprana tras amputación menor, que "puede ayudar a facilitar la estratificación de riesgo temprana". Limitación explícita: diseño retrospectivo de un único centro (Dong-A University Hospital), Nivel III, sin validación externa reportada en el abstract.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: FAST-TRACK TOTAL ANKLE REPLACEMENT -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Clinical Outcomes and Feasibility of a Fast-Track Protocol After Total Ankle Replacement: A Prospective Study</div>
+        <div class="paper-meta">
+          <strong>Vena, Moggio, Cofano, Longo, van Dijk P, van Dijk CN, Gasparini, Mercurio</strong><br>
+          Archives of Orthopaedic and Trauma Surgery · 20 octubre 2026
+          <span class="evidence-pill">Estudio observacional prospectivo de un solo brazo, n=22, sin grupo control</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42902056/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Artroplastia total de tobillo · Protocolo fast-track</span>
+      <span class="tag">Recuperación funcional precoz · n=22</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio observacional prospectivo en pacientes adultos consecutivos sometidos a artroplastia total de tobillo primaria por vía anterior (enero 2023-junio 2024), todos operados por el mismo cirujano con el mismo implante, bajo un protocolo "fast-track" que incluyó movilización posoperatoria precoz, manejo multimodal del dolor, control del sangrado y fisioterapia estructurada con criterios de alta estandarizados. Se incluyeron 22 pacientes. <strong>Hallazgo principal:</strong> el puntaje AOFAS Ankle Hindfoot mejoró significativamente de una mediana de 29.0 preoperatorio a 68.0 al alta. La movilización activa del tobillo se logró a una mediana de 2 días, la marcha asistida con bastones a 3 días, y la estancia hospitalaria mediana fue de 5 días. La cicatrización de heridas fue favorable, con puntajes ASEPSIS bajos y solo una complicación menor de herida manejada de forma conservadora; no se observaron complicaciones mayores de herida, infecciones ni eventos adversos relacionados con la prótesis.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, el protocolo fast-track tras artroplastia total de tobillo fue factible y se asoció con recuperación funcional precoz y un perfil de seguridad a corto plazo favorable. Limitación explícita: los propios autores señalan que, dada la ausencia de grupo control, estos hallazgos deben interpretarse como "preliminares y descriptivos", y que se necesitan estudios comparativos de mayor tamaño con seguimiento más prolongado para determinar su efectividad frente al cuidado posoperatorio convencional.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: ALL-SUTURE FIXATION TURF TOE -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">All-Suture Fixation for Acute Turf Toe Injuries</div>
+        <div class="paper-meta">
+          <strong>Pappa, Haritos, Ardavanis, Eckel, Martin</strong><br>
+          JBJS Essential Surgical Techniques · 20 octubre 2026
+          <span class="evidence-pill">Artículo de técnica quirúrgica — sin diseño de estudio comparativo propio</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42890921/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Turf toe de alto grado · Fijación sin nudos (knotless)</span>
+      <span class="tag">Cinta de sutura · Retorno al deporte</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Artículo de técnica quirúrgica que describe una reconstrucción capsular de la articulación metatarsofalángica (MTF) del hallux mediante anclas de sutura sin nudos ("knotless") y aumentación con cinta de sutura, para lesiones agudas de turf toe de alto grado (con disrupción capsuloligamentosa, insuficiencia del complejo sesamoideo e inestabilidad de la MTF), en forma aislada o combinadas con un bunion traumático. La técnica emplea un abordaje medial directo, perforaciones isométricas en la base medial de la falange proximal y en la eminencia medial de la cabeza del metatarsiano, un ancla sin nudos para reparar la cápsula medial y una segunda ancla en la inserción de la placa plantar, con tensado de la cinta con el hallux en 20° de flexión plantar y ajuste final en posición neutra para preservar el rango de movimiento. Los autores señalan que el tratamiento quirúrgico de las lesiones de turf toe de alto grado se ha asociado a alivio confiable del dolor, restauración de la estabilidad y altas tasas de retorno al deporte, con estudios previos que sugieren mejor función y retorno más temprano al juego frente al tratamiento no quirúrgico prolongado en pacientes apropiados; el retorno habitual a la actividad sin restricciones ocurre entre 6 y 9 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Las anclas de sutura sin nudos, de bajo perfil, buscan minimizar la prominencia de material e irritación de tejidos blandos, y la aumentación con cinta de sutura permite movilización controlada más temprana, lo que según los autores reduce la necesidad de inmovilización prolongada con férula tipo spica. Limitación explícita: artículo descriptivo de técnica quirúrgica sin datos de resultados clínicos propios ni grupo comparativo; los autores advierten que un tensado excesivo de la cápsula de la MTF "puede alterar la biomecánica" de la articulación.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: CUBOID/NAVICULAR FRACTURES NTDB -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Injury Patterns, In-Hospital Outcomes, and Resource Utilization of Acute Cuboid and Navicular Fractures</div>
+        <div class="paper-meta">
+          <strong>Liu, Gupta, Ahmad</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 18 octubre 2026
+          <span class="evidence-pill">Nivel III — Estudio transversal retrospectivo de base de datos (National Trauma Data Bank, 2017-2019), n=3424 pacientes / 4084 fracturas</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42893741/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de cuboides y navicular · Politrauma</span>
+      <span class="tag">National Trauma Data Bank · n=3424</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio transversal retrospectivo que interrogó el National Trauma Data Bank del American College of Surgeons (2017-2019) para caracterizar demografía, patrones de lesión, evolución intrahospitalaria y utilización de recursos en pacientes de centros de trauma con fracturas agudas de cuboides y/o navicular. Se identificaron 3424 pacientes con 4084 fracturas (2327 con fractura de cuboides y 1637 de navicular, 540 con ambas). <strong>Hallazgo principal:</strong> los mecanismos de tránsito representaron el 64.5% de los casos y el 25.1% presentó politrauma; las fracturas concomitantes más frecuentes fueron de metatarsianos, calcáneo y talo. Las fracturas combinadas fueron más frecuentes ipsilaterales que contralaterales (457 vs. 18 pacientes). A pesar de complicaciones poco frecuentes, solo el 50.2% fue dado de alta a domicilio sin servicios de cuidado post-agudo. La mortalidad intrahospitalaria fue 1.1%. Tras ajuste, el politrauma (OR 3.75; IC95% 3.04-4.61), el compromiso bilateral y las fracturas asociadas de tobillo, tibia, fíbula o metatarsianos se asociaron con alta a cuidado post-agudo, mientras que el patrón específico de fractura no mostró esa asociación.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, las fracturas de cuboides y navicular son predominantemente lesiones de alta energía que rara vez ocurren en forma aislada, y las necesidades de cuidado post-agudo, el ingreso a UCI y la estancia hospitalaria se asociaron con la carga global de la lesión más que con el hueso específico fracturado. Limitación explícita: diseño retrospectivo de base de datos administrativa (NTDB); el abstract no reporta datos de seguimiento funcional a mediano o largo plazo tras el alta.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Samara, Herzog, Kim, Yedikian, Stewart, Galdi, Lin</strong> Cohorte retrospectiva bicéntrica (n=38 pacientes tratados quirúrgicamente por rotura aguda del tendón de Aquiles; 23 con seguro privado, 15 con Medicaid o sin seguro): los pacientes con Medicaid o sin seguro tuvieron una demora significativamente mayor desde la lesión hasta la evaluación ortopédica inicial (17.0 vs. 4.0 días, p=.024) y hasta la cirugía (30.0 vs. 10.0 días, p=.045), aunque el tiempo entre la evaluación ortopédica y la cirugía en sí no difirió entre grupos (11.0 vs. 6.0 días, p=.206) — <em>Foot Ankle Spec</em>, 17 oct (DOI: 10.1177/19386400261495193)</li>
+      <li><strong>Jang, Shim, Kim, Uhm, Suh, Park, Choi</strong> Desarrollo y validación de un modelo de aprendizaje profundo basado en U-Net (entrenado con 858 y validado con 184+185 radiografías dorsoplantares en carga) para la medición automática del ángulo de hallux valgus (HVA) y el ángulo intermetatarsiano (IMA): en la validación temporal (100 radiografías adicionales) el error absoluto medio fue 2.118° para HVA (ICC 0.961) y 0.966° para IMA (ICC 0.919), con precisión consistente entre deformidades leves, moderadas y severas — <em>Clin Imaging</em>, 17 oct (DOI: 10.1016/j.clinimag.2026.110973)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — PEEK como Material de Interposición en Alargamiento Calcáneo Pediátrico: Resultados Funcionales Similares, pero Más Complicaciones que el Injerto Óseo Autólogo</div>
+        <p>Hamoud y Elnemr (J Foot Ankle Surg, ECA n=60 pies) muestran que las jaulas de PEEK y el injerto óseo autólogo de cresta ilíaca (AIBG) producen trayectorias funcionales (AOFAS) y radiológicas similares tras osteotomía de alargamiento calcáneo lateral en pie plano flexible pediátrico, con unión ósea en el 100% de los casos con ambos materiales.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): las complicaciones compuestas fueron significativamente más frecuentes con PEEK (27% vs. 3%; p=.026), lo que los propios autores señalan que "respalda una evaluación comparativa adicional" antes de generalizar su uso como alternativa al injerto autólogo para evitar la morbilidad del sitio donante.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — La Gota puede Imitar una Infección Años Después de una Reparación del Aquiles</div>
+        <p>DeSena et al. (Clin Orthop Relat Res, serie de 4 casos) describen pacientes que desarrollaron dolor, edema, eritema, drenaje o induración en la región del Aquiles entre 2 y 18 años después de la reparación abierta del tendón, con un cuadro clínico que llevó a aspiración y/o desbridamiento quirúrgico por sospecha de infección en 3 de los 4 casos, confirmándose posteriormente cristales de urato monosódico con cultivos bacterianos negativos.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): los autores recomiendan considerar la gota de forma temprana y realizar análisis rutinario de cristales en material aspirado o quirúrgico en pacientes sin signos sistémicos de sepsis, lo que "puede ayudar a evitar desbridamiento quirúrgico innecesario o antibioticoterapia empírica prolongada"; se trata, sin embargo, de una serie de solo 4 casos (Nivel IV) sin denominador poblacional conocido.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>PEEK vs. Injerto Óseo Autólogo en Alargamiento Calcáneo Pediátrico — Lo que Muestra el Estudio</h4>
+          <p>Hamoud y Elnemr (J Foot Ankle Surg, ECA n=60 pies) muestran resultados AOFAS y radiográficos equivalentes entre PEEK y AIBG, pero con una tasa de complicaciones compuestas significativamente mayor con PEEK (27% vs. 3%).</p>
+        </div>
+        <div class="app-item">
+          <h4>Razón PCR/Albúmina como Predictor de Amputación Mayor — Lo que Muestra el Estudio</h4>
+          <p>Kim et al. (J Foot Ankle Surg, n=257) muestran que la razón PCR/albúmina al ingreso es un predictor independiente de amputación mayor dentro de 90 días tras amputación menor por heridas infectadas del pie (HR 1.17; IC95% 1.05-1.31), mejorando el AUC del modelo predictivo de .810 a .883.</p>
+        </div>
+        <div class="app-item">
+          <h4>Gota tras Reparación del Aquiles — Lo que Muestra el Estudio</h4>
+          <p>DeSena et al. (Clin Orthop Relat Res, n=4) muestran que la gota de aparición tardía en la región del Aquiles puede imitar clínicamente una infección posoperatoria incluso años después de la reparación, confirmándose cristales de urato monosódico con cultivos negativos en los casos tratados quirúrgicamente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">PEEK (Polieteretercetona) vs. AIBG (Injerto Óseo Autólogo de Cresta Ilíaca)</div>
+          <div class="glos-def">Materiales de interposición empleados en la osteotomía de alargamiento calcáneo lateral (LCLO) para el pie plano flexible pediátrico; el PEEK evita la morbilidad de un sitio donante óseo pero requiere un implante no biológico. Hamoud y Elnemr (J Foot Ankle Surg 2026) los compararon de forma aleatorizada, encontrando resultados funcionales similares pero más complicaciones con PEEK.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Razón PCR/Albúmina (CAR, C-reactive Protein-to-Albumin Ratio)</div>
+          <div class="glos-def">Biomarcador compuesto calculado a partir de la proteína C reactiva y la albúmina sérica al ingreso, utilizado para estratificar el riesgo de progresión a complicaciones mayores. Kim et al. (J Foot Ankle Surg 2026) lo validaron como predictor independiente de amputación mayor temprana tras amputación menor por heridas infectadas del pie.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Protocolo Fast-Track en Artroplastia Total de Tobillo</div>
+          <div class="glos-def">Programa perioperatorio estructurado que combina movilización precoz, manejo multimodal del dolor, control del sangrado y fisioterapia con criterios de alta estandarizados, con el objetivo de acelerar la recuperación funcional. Vena et al. (Arch Orthop Trauma Surg 2026) lo evaluaron de forma prospectiva en 22 pacientes tras artroplastia total de tobillo.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Fijación con Sutura sin Nudos (Knotless) y Cinta de Sutura en Turf Toe</div>
+          <div class="glos-def">Técnica de reconstrucción capsular de la articulación metatarsofalángica del hallux mediante anclas de sutura sin nudos y aumentación con cinta de alta resistencia, diseñada para reducir el bulto del material y permitir movilización controlada temprana. Pappa et al. (JBJS Essent Surg Tech 2026) la describieron para lesiones agudas de turf toe de alto grado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 37 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 16 – 22 Octubre 2026<br>
+  Fuentes: Journal of Foot &amp; Ankle Surgery (JFAS) · Archives of Orthopaedic and Trauma Surgery · JBJS Essential Surgical Techniques · Clinical Orthopaedics and Related Research (CORR) · Foot &amp; Ankle Specialist · Clinical Imaging<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
