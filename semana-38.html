@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 38 — Actualización T&P 2026</title>
+<style>
+  :root{--navy:#0f2a4a;--teal:#1a7f8e;--green:#1e7c4b;--red:#c0392b;--gray:#f5f7fa;--text:#1a1a2e;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:#eef2f7;color:var(--text);}
+  .header{background:linear-gradient(135deg,var(--navy) 0%,#1a4a72 100%);color:white;padding:40px 48px 32px;border-bottom:4px solid var(--teal);}
+  .back{display:block;color:rgba(255,255,255,0.7);font-size:0.82rem;margin-bottom:16px;text-decoration:none;}
+  .back:hover{color:white;}
+  .header h1{font-size:1.9rem;font-weight:700;}
+  .header .sub{font-size:0.95rem;opacity:0.75;margin-top:6px;}
+  .header .meta{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;}
+  .meta-item{font-size:0.8rem;opacity:0.8;}
+  .badge-current{display:inline-block;background:#e74c3c;color:white;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:12px;margin-left:14px;vertical-align:middle;letter-spacing:0.5px;}
+  .container{max-width:860px;margin:0 auto;padding:40px 24px 80px;}
+  .section-label{font-size:0.73rem;text-transform:uppercase;font-weight:700;color:#888;letter-spacing:1px;margin-bottom:14px;margin-top:36px;}
+  .evidence-pill{display:inline-block;background:#fff3e0;border:1px solid #ffcc80;border-radius:6px;padding:2px 9px;font-size:0.72rem;font-weight:700;color:#e65100;margin-left:8px;}
+  .evidence-pill.rct{background:#e8f4ec;border-color:#a8d8b8;color:#145a32;}
+  .paper{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);padding:28px 32px;margin-bottom:20px;border-left:5px solid var(--teal);}
+  .paper.hot{border-left-color:var(--red);}
+  .paper.gold{border-left-color:#d4a017;box-shadow:0 2px 18px rgba(212,160,23,0.18);}
+  .paper-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px;}
+  .paper-num{background:var(--navy);color:white;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+  .paper-num.gold{background:#d4a017;}
+  .paper-title{font-size:1.05rem;font-weight:700;color:var(--navy);line-height:1.45;}
+  .paper-meta{font-size:0.78rem;color:#777;margin-top:5px;line-height:1.7;}
+  .paper-meta strong{color:#555;}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0;}
+  .tag{background:var(--gray);border:1px solid #dce3ec;border-radius:8px;padding:3px 10px;font-size:0.70rem;color:#555;}
+  .tag.hot{background:#fdecea;border-color:#e8b4b4;color:var(--red);font-weight:700;}
+  .tag.new{background:#e6f4ec;border-color:#a8dab8;color:var(--green);font-weight:700;}
+  .tag.rct{background:#fff8e1;border-color:#ffe082;color:#7d5a00;font-weight:700;}
+  .divider{height:1px;background:#eef2f7;margin:6px 0 16px;}
+  .block{margin-top:14px;}
+  .block h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px;color:#888;font-weight:700;margin-bottom:7px;}
+  .block p{font-size:0.90rem;line-height:1.65;color:#2a2a3e;}
+  .impacto{background:linear-gradient(135deg,#e8f4fd,#d8edf8);border-radius:10px;padding:14px 18px;margin-top:14px;}
+  .impacto h4{font-size:0.78rem;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:7px;letter-spacing:0.5px;}
+  .impacto p{font-size:0.88rem;line-height:1.6;color:#0e4050;}
+  .rct-box{background:linear-gradient(135deg,#fffde7,#fff8e1);border:1.5px solid #ffe082;border-radius:10px;padding:12px 18px;margin-bottom:14px;}
+  .rct-box p{font-size:0.84rem;color:#4a3800;font-weight:600;line-height:1.5;}
+  .others{background:white;border-radius:12px;padding:20px 24px;box-shadow:0 2px 10px rgba(0,0,0,0.06);font-size:0.84rem;line-height:1.9;color:#444;}
+  .others ul{padding-left:18px;}
+  .section-card{background:white;border-radius:14px;box-shadow:0 2px 14px rgba(0,0,0,0.07);overflow:hidden;margin-bottom:20px;}
+  .section-card-title{padding:14px 22px;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px;color:white;}
+  .section-card-title.red{background:#7b1010;}
+  .section-card-title.green{background:var(--green);}
+  .section-card-title.purple{background:#4a3580;}
+  .section-card-body{padding:16px 22px 22px;}
+  .disrupt-item{background:#fdecea;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:14px 16px;margin:12px 0;}
+  .disrupt-label{font-size:0.70rem;text-transform:uppercase;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:0.5px;}
+  .disrupt-item p{font-size:0.88rem;line-height:1.6;color:#2a0a0a;}
+  .disrupt-item .verdict{margin-top:8px;font-weight:700;color:#7b1010;font-size:0.84rem;}
+  .app-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .app-item{background:#e6f4ec;border-radius:8px;padding:14px 16px;border-top:3px solid var(--green);}
+  .app-item h4{font-size:0.78rem;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:8px;}
+  .app-item p{font-size:0.84rem;line-height:1.65;color:#1a3325;}
+  .glos-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .glos-item{background:#f4f1fc;border-left:3px solid #6c5ce7;border-radius:0 8px 8px 0;padding:12px 14px;}
+  .glos-term{font-weight:700;font-size:0.88rem;color:#3a2570;margin-bottom:4px;}
+  .glos-def{font-size:0.82rem;color:#444;line-height:1.55;}
+  .footer{text-align:center;padding:24px;font-size:0.76rem;color:#888;border-top:1px solid #dce3ec;margin-top:32px;}
+  a{color:var(--teal);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  @media(max-width:768px){.app-grid{grid-template-columns:1fr;}.glos-grid{grid-template-columns:1fr;}.header{padding:24px 20px;}.container{padding:20px 14px;}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back" href="index-typ-2026.html">← Volver al índice</a>
+  <h1>Semana 38 · Actualización T&amp;P 2026 <span class="badge-current">SEMANA ACTUAL</span></h1>
+  <div class="sub">Dr. Eduardo Otero · Cirugía de Tobillo, Pie y Medicina Deportiva</div>
+  <div class="meta">
+    <div class="meta-item">📅 23 – 29 de octubre, 2026</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📄 8 papers seleccionados</div>
+    &nbsp;&nbsp;
+    <div class="meta-item">📚 Journal of Foot &amp; Ankle Surgery (JFAS) · Foot &amp; Ankle Surgery · Foot &amp; Ankle Specialist · JB JS Open Access · European Journal of Orthopaedic Surgery &amp; Traumatology · Foot (Edinburgh) · Journal of Pediatric Orthopaedics</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-label">Top 6 — seleccionados por impacto clínico y nivel de evidencia</div>
+
+  <!-- PAPER 1 — HOT: HIGH REOPERATION RATES 1ST MTP ARTHRODESIS -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">1</div>
+      <div>
+        <div class="paper-title">High Reoperation Rates Following First Metatarsophalangeal Joint Arthrodesis Using a Modern Compression Plating System With a Retrograde Integrated Lag Screw</div>
+        <div class="paper-meta">
+          <strong>Dimock, Fraig, Poutoglidou, Elliot, Marsland</strong><br>
+          Foot (Edinburgh) · 27 octubre 2026
+          <span class="evidence-pill">Nivel IV — Serie de casos prospectiva, 29 artrodesis en 26 pacientes, seguimiento a 12 meses</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42945641/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Artrodesis 1ª MTF · Placa Ortholoc 2 CrossCheck</span>
+      <span class="tag">Reoperación 17-21% · n=29</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Evaluación prospectiva de 26 pacientes (29 artrodesis de la articulación metatarsofalángica del hallux) tratados entre diciembre 2020 y diciembre 2021 con el sistema de placa dorsal Ortholoc 2 CrossCheck con tornillo de compresión retrógrado integrado. Se registraron puntajes funcionales (EQ5D, MOXFQ y EVA de dolor/salud) preoperatorios y a los 6 y 12 meses, además de la unión ósea y las complicaciones. <strong>Hallazgo principal:</strong> los puntajes MOXFQ mejoraron significativamente en la mayoría de los dominios a los 6 y 12 meses. Se logró unión ósea en 26 de 29 articulaciones (90%), con pseudoartrosis en 3 (10%) a los 12 meses. Se observó irritación por el material de osteosíntesis en el 17% de los casos (n=5), de los cuales 4 requirieron retiro de la placa, y un paciente requirió fusión de revisión. En los 6 pacientes que no necesitaron cirugía adicional, los puntajes EVA fueron levemente más altos a los 12 meses.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, aunque los puntajes funcionales globales fueron altos, este sistema de placa con tornillo de compresión retrógrado presenta una tasa de reoperación relativamente alta, atribuible a pseudoartrosis o a problemas con el material de osteosíntesis, "probablemente debido al diseño voluminoso de la placa y a su posición relativamente distal". Limitación explícita: serie de casos prospectiva de Nivel IV, sin grupo comparativo frente a otros sistemas de placas.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 2 — HOT: SUTURE-BUTTON NMA SYNDESMOSIS -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">2</div>
+      <div>
+        <div class="paper-title">Suture-Button Fixation Provides a Statistically But Not Clinically Important Improvement in Function for Syndesmotic Injuries in Unstable Ankle Fractures: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials</div>
+        <div class="paper-meta">
+          <strong>Hoskins, Gusho, Horner, Haase</strong><br>
+          JB JS Open Access · 27 octubre 2026
+          <span class="evidence-pill rct">Nivel I — Revisión sistemática y metanálisis en red, 12 ECA, n=883 pacientes</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42924391/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag rct">Metanálisis en red Nivel I</span>
+      <span class="tag">Fijación sindesmal · Botón de sutura vs. tornillo · n=883</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Metanálisis en red (NMA) de 12 ensayos clínicos aleatorizados (883 pacientes) que comparó estrategias de fijación sindesmal en fracturas de tobillo inestables con lesión sindesmal: fijación con botón de sutura/dinámica, tornillo metálico de 3 corticales (referencia), tornillo metálico de 4 corticales, tornillo bioabsorbible y ausencia de fijación. <strong>Hallazgo principal:</strong> para el puntaje funcional OMAS al año, la fijación con botón de sutura obtuvo el mejor ranking (P-score 0.86; diferencia de medias +5.2 puntos vs. tornillo de 3 corticales; IC95% +1.1 a +9.2) — estadísticamente significativa pero por debajo de la diferencia mínima clínicamente importante de 10 puntos — mientras que el tornillo de 4 corticales obtuvo el ranking más bajo. El AOFAS no mostró diferencias entre el botón de sutura y el tornillo de 3 corticales. La malreducción fue menor con el botón de sutura (OR 0.26-0.27 según el modelo), y la reoperación por cualquier causa favoreció al botón de sutura y al tornillo bioabsorbible, al evitar el retiro rutinario del implante. La certeza de la evidencia fue baja a muy baja.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, la fijación con botón de sutura/dinámica ofrece una función al año al menos equivalente a los tornillos, con menor malreducción y menos reoperaciones por cualquier causa al evitar el retiro rutinario del implante; sin embargo, "las diferencias funcionales son pequeñas y están por debajo de la diferencia mínima clínicamente importante, y la certeza de la evidencia es baja". Limitación explícita: certeza de evidencia baja a muy baja según evaluación tipo CINeMA.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 3 — HOT: SUTURE AUGMENTATION BROSTRÖM -->
+  <div class="paper hot">
+    <div class="paper-header">
+      <div class="paper-num">3</div>
+      <div>
+        <div class="paper-title">Suture Augmentation May Facilitate Earlier Return to Sport Without Improving Return Rates or Clinical Outcomes Following Modified Broström Repair: A Systematic Review and Meta-Analysis</div>
+        <div class="paper-meta">
+          <strong>Rubin, Alzobi, Hedbany, Tham, Milner, Emanuel, Galetta, Montgomery, Kerkhoffs, D'Hooghe, Walls, Kennedy</strong><br>
+          Foot &amp; Ankle Specialist · 22 octubre 2026
+          <span class="evidence-pill">Revisión sistemática y metanálisis, 16 estudios, n=987 pacientes (672 con aumentación de sutura vs. 315 sin ella)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42910640/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag hot">🔥 HOT</span>
+      <span class="tag">Broström modificada · Aumentación con sutura</span>
+      <span class="tag">Retorno al deporte · n=987</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metanálisis (PRISMA) de 16 estudios que incluyeron 672 pacientes sometidos a reparación del ligamento talofibular anterior (ATFL) con aumentación de sutura y 315 pacientes sin aumentación, tras reparación de Broström modificada por inestabilidad crónica lateral de tobillo. <strong>Hallazgo principal:</strong> ambas cohortes mostraron mejoras significativas en parámetros radiográficos y clínicos. La aumentación con sutura se asoció a un retorno al deporte (RTS) más rápido (13.0 vs. 19.6 semanas), pero con una tasa global de RTS menor (74.0% vs. 82.9%). No hubo diferencias estadísticamente significativas en complicaciones (RR 0.86; IC95% 0.30-2.47) ni en fallos (RR 0.65; IC95% 0.25-1.65). La aumentación abierta mostró una mayor tasa de complicaciones (6.9% vs. 0%) y de fallos (3.1% vs. 0.8%) que la aumentación artroscópica.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, este metanálisis no demostró diferencias clínicamente significativas en parámetros radiográficos, resultados reportados por el paciente, complicaciones o tasas de fallo entre la reparación de Broström aislada y la aumentada con sutura; aunque la aumentación se asoció a un RTS más rápido, "esto no se tradujo en mayores tasas globales de RTS, lo que indica que un retorno más temprano no equivale a una mejor recuperación funcional". Limitación explícita: los autores señalan que la menor tasa de complicaciones observada con la técnica artroscópica frente a la abierta "debe interpretarse con cautela dada la evidencia limitada y no comparativa".</p>
+    </div>
+  </div>
+
+  <!-- PAPER 4 — NEW: RCT INSOLE PLANTAR FASCIITIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">4</div>
+      <div>
+        <div class="paper-title">Effect of a New Functional Insole Compared to a Common Bedding Insole Therapy for Plantar Fasciitis: A Prospective Randomized Multicenter Study</div>
+        <div class="paper-meta">
+          <strong>Hardt, Brozat-Essen, Vogt, Krieger, Kauffhold, Wendlandt, Russlies, Hansen</strong><br>
+          Foot &amp; Ankle Surgery · 23 octubre 2026
+          <span class="evidence-pill rct">Nivel I — ECA multicéntrico, n=131 pacientes</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42934053/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag rct">ECA Nivel I</span>
+      <span class="tag">Fascitis plantar · Plantillas funcionales vs. de acolchado · n=131</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio aleatorizado, multicéntrico, en 131 pacientes con fascitis plantar asignados a plantillas de acolchado blando (grupo A) o plantillas funcionales (grupo B). Se completaron cuestionarios a las 0, 6, 12 y 24 semanas utilizando el Foot and Ankle Disability Index, el puntaje AOFAS y una escala visual analógica (EVA) de dolor. <strong>Hallazgo principal:</strong> el sexo, la obesidad y el tiempo de bipedestación/marcha no se correlacionaron con la severidad de los síntomas. El 84.5% de los pacientes mostró mejoría significativa en dolor y movilidad con cualquiera de los dos tipos de plantilla.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, no se demostró superioridad de las plantillas funcionales sobre las de acolchado blando; "ambas tratan eficazmente la fascitis plantar". Limitación explícita: el abstract no reporta el desglose de la tasa de mejoría por subgrupo según el tipo de plantilla, solo la cifra combinada del 84.5%.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 5 — NEW: PR VS STA CALCANEAL FRACTURES META-ANALYSIS -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">5</div>
+      <div>
+        <div class="paper-title">Closed Percutaneous Reduction Versus Mini-Open Sinus Tarsi Approach for Fixation of Displaced Intra-Articular Calcaneal Fractures: A Systematic Review and Meta-Analysis</div>
+        <div class="paper-meta">
+          <strong>de Sa, Durand-Hill, Sivanadarajah, Kwok, Mushtaq</strong><br>
+          European Journal of Orthopaedic Surgery &amp; Traumatology · 27 octubre 2026
+          <span class="evidence-pill">Nivel III — Revisión sistemática y metanálisis, 8 estudios, n=837 pacientes</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42944804/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Fractura de calcáneo Sanders II-III · Reducción percutánea vs. seno del tarso</span>
+      <span class="tag">n=837</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Revisión sistemática y metanálisis que incluyó 837 pacientes de 8 estudios elegibles, comparando la reducción percutánea cerrada (PR) frente al abordaje mini-abierto del seno del tarso (STA) para fracturas de calcáneo intraarticulares desplazadas (DIACF) tipo Sanders II y III agudas. <strong>Hallazgo principal:</strong> PR mostró una reducción del 53% en la tasa de complicaciones globales frente a STA (RR 0.47; IC95% 0.27-0.83; p=.009), incluidas las complicaciones de la herida. Los puntajes AOFAS favorecieron marginalmente a PR (diferencia de medias 0.82 puntos; p=.034), con relevancia clínica dudosa según los propios autores. Los parámetros radiológicos fueron comparables, aunque el ancho calcáneo permaneció mayor con PR. PR también se asoció a menor tiempo hasta la cirugía, menor estancia hospitalaria y menor tiempo intraoperatorio, aunque con alta heterogeneidad en las estimaciones combinadas.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, PR demuestra menores tasas de complicaciones con resultados funcionales y radiológicos comparables frente a STA en la fijación de fracturas de calcáneo menos complejas, y "puede ser una estrategia de fijación aceptable para estos patrones de fractura" frente a STA. Limitación explícita: alta heterogeneidad en las estimaciones combinadas, y la diferencia en AOFAS tiene "relevancia clínica dudosa" según los propios autores.</p>
+    </div>
+  </div>
+
+  <!-- PAPER 6 — NEW: SCREW VS K-WIRE LISFRANC TYPE B -->
+  <div class="paper">
+    <div class="paper-header">
+      <div class="paper-num">6</div>
+      <div>
+        <div class="paper-title">Screw Versus Kirschner Wire Fixation in Myerson Type B Lisfranc Injuries: A Retrospective Comparative Cohort Study With Plantar Pressure Assessment</div>
+        <div class="paper-meta">
+          <strong>Çalışkan, Elmas, Çelik, Tan, Ertürk</strong><br>
+          Journal of Foot &amp; Ankle Surgery (JFAS) · 26 octubre 2026
+          <span class="evidence-pill">Nivel III — Cohorte comparativa retrospectiva, n=56 pacientes (36 tornillo vs. 20 agujas de Kirschner)</span>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/42933592/" style="display:inline-block;margin-top:10px;padding:5px 14px;background:#f0f7ff;border:1px solid #1a7f8e;border-radius:6px;color:#1a7f8e;text-decoration:none;font-size:0.78rem;font-weight:600">Ver en PubMed →</a>
+        </div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag new">NEW</span>
+      <span class="tag">Lesión de Lisfranc Myerson tipo B · Tornillo vs. aguja de Kirschner</span>
+      <span class="tag">Presión plantar · n=56</span>
+    </div>
+    <div class="divider"></div>
+    <div class="block">
+      <h4>Resumen clínico</h4>
+      <p>Estudio de cohorte comparativo retrospectivo en 36 pacientes tratados con tornillo y 20 con aguja de Kirschner (K-wire) por lesiones de Lisfranc tipo B de Myerson, evaluados tras al menos 12 meses. Se analizaron el puntaje AOFAS de mediopié, el MOXFQ, la EVA de dolor, el ángulo de Meary y la asimetría de presión plantar del mediopié. El grupo de tornillo presentó más lesiones de alta energía (25/36 vs. 8/20) y más reducciones abiertas (24/36 vs. 6/20). <strong>Hallazgo principal:</strong> tras ajuste por edad, energía de la lesión, subtipo, conminución y diástasis máxima, la fijación con K-wire se asoció a menor tiempo operatorio (diferencia -16.1 minutos; IC95% -25.4 a -6.8; p&lt;.001) y a mayor dolor (+0.87 puntos EVA; IC95% 0.17-1.57; p=.015), asociaciones que se mantuvieron en todos los análisis. Las comparaciones de puntaje funcional y de presión plantar fueron no concluyentes, y las estimaciones del ángulo de Meary variaron según el modelo.</p>
+    </div>
+    <div class="impacto">
+      <h4>Impacto práctico</h4>
+      <p>Según los autores, la fijación con K-wire se asoció a cirugías más cortas y a dolor modestamente mayor, pero "la importancia clínica permanece incierta" y estos hallazgos "no establecen superioridad ni equivalencia y requieren confirmación prospectiva". Limitación explícita: según los propios autores, la severidad de la lesión no medida, las diferencias de rehabilitación y el retiro selectivo de implante limitan la interpretación.</p>
+    </div>
+  </div>
+
+  <div class="section-label">También publicado esta semana</div>
+  <div class="others">
+    <ul>
+      <li><strong>Than, Jaber, Nasr, Tzanis, Hegazy, McGovern, Sivanathan, Sivanesan, Khair, Nakanishi, Loizou</strong> Revisión sistemática y metanálisis de brazo único (11 estudios, 476 pacientes con inestabilidad crónica lateral de tobillo tratados con reparación de sutura sin nudos "knotless"): los puntajes AOFAS mejoraron de 63.23 preoperatorio a 90.67 en el seguimiento final, los puntajes Karlsson-Peterson de 62.75 a 88.03 y la EVA de 5.80 a 1.23; la tasa de complicaciones global combinada fue del 6% y la de reoperación del 2%; los autores señalan que la evidencia es de baja calidad y que "se requieren estudios comparativos directos frente a las técnicas tradicionales de Broström-Gould con nudos para determinar el estándar de referencia" — <em>Foot Ankle Spec</em>, 16 oct (DOI: 10.1177/19386400261485359)</li>
+      <li><strong>Rajjoub, Murata, Slyepkan, DeVilbiss, Shobode, Wani, Tulchin-Francis, Tabaie</strong> Cohorte retrospectiva de 257 niños tratados con el método de Ponseti por pie equinovaro idiopático (2007-2025): al menos una recurrencia ocurrió en 150 niños (58.4%), asociada a complicaciones prenatales o del parto (OR 2.32), menor frecuencia de tenotomía de Aquiles inicial (OR 0.50) y menor adherencia al uso del yeso/férula, siendo la adherencia parcial durante la fase de tiempo completo el factor más fuerte (OR ajustado 5.23); la transferencia del tendón tibial anterior (TATT) se asoció a recurrencia repetida menos frecuente que el yesado solo (11.1% vs. 50.5%, p&lt;.0001) — <em>J Pediatr Orthop</em>, 23 oct (DOI: 10.1097/BPO.0000000000003511)</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Disrupción · Aplicación clínica · Glosario</div>
+
+  <div class="section-card">
+    <div class="section-card-title red"><span>⚠️</span> DISRUPCIÓN — Hallazgos que Modifican el Manejo Estándar</div>
+    <div class="section-card-body">
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — Alta Tasa de Reoperación con Placa de Compresión Moderna en Artrodesis de la 1ª MTF</div>
+        <p>Dimock et al. (Foot, serie prospectiva n=29 artrodesis) muestran que, a pesar de puntajes funcionales (MOXFQ) altos a 12 meses, el sistema de placa dorsal Ortholoc 2 CrossCheck con tornillo de compresión retrógrado presenta pseudoartrosis en el 10% de los casos e irritación por material de osteosíntesis en el 17%, con retiro de placa en 4 de 29 y una fusión de revisión.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): los propios autores atribuyen la alta tasa de reoperación "probablemente al diseño voluminoso de la placa y a su posición relativamente distal", lo que cuestiona la adopción no crítica de este sistema específico frente a otras opciones de placa para la artrodesis de la 1ª MTF.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — El Botón de Sutura Mejora la Función de Forma Significativa pero no Clínicamente Relevante en la Fijación Sindesmal</div>
+        <p>Hoskins et al. (JB JS Open Access, metanálisis en red de 12 ECA, n=883) muestran que la fijación con botón de sutura ocupa el mejor ranking para el OMAS al año frente al tornillo de 3 corticales (+5.2 puntos; IC95% +1.1 a +9.2), con menor malreducción y menos reoperaciones por cualquier causa.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): la diferencia funcional, aunque estadísticamente significativa, está "por debajo de la diferencia mínima clínicamente importante" de 10 puntos, y la certeza de la evidencia es baja a muy baja, por lo que los autores no establecen al botón de sutura como superior en términos clínicamente relevantes.</div>
+      </div>
+      <div class="disrupt-item">
+        <div class="disrupt-label">DISRUPCIÓN — La Aumentación con Sutura Acelera el Retorno al Deporte tras Broström Modificada, pero no Mejora la Tasa de Retorno ni los Resultados Clínicos</div>
+        <p>Rubin et al. (Foot Ankle Spec, metanálisis de 16 estudios, n=987) muestran que la aumentación con sutura tras reparación de Broström modificada reduce el tiempo hasta el retorno al deporte (13.0 vs. 19.6 semanas), pero con una tasa global de retorno menor (74.0% vs. 82.9%) y sin diferencias significativas en complicaciones o fallos frente a la reparación aislada.</p>
+        <div class="verdict">Veredicto (según los datos del estudio): según los autores, "un retorno más temprano no equivale a una mejor recuperación funcional", por lo que la aumentación sistemática con sutura no está respaldada por mejores resultados clínicos o radiográficos en este análisis combinado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title green"><span>🏥</span> APLICACIÓN CLÍNICA — Centro Trauma Ñuble</div>
+    <div class="section-card-body">
+      <div class="app-grid">
+        <div class="app-item">
+          <h4>Placa de Compresión en Artrodesis de la 1ª MTF — Lo que Muestra el Estudio</h4>
+          <p>Dimock et al. (Foot, n=29) muestran unión ósea en el 90% de los casos con el sistema Ortholoc 2 CrossCheck, pero con irritación por material de osteosíntesis en el 17% y retiro de placa en 4 de 29 artrodesis, lo que los autores atribuyen al diseño y posición de la placa.</p>
+        </div>
+        <div class="app-item">
+          <h4>Botón de Sutura vs. Tornillo en Fijación Sindesmal — Lo que Muestra el Estudio</h4>
+          <p>Hoskins et al. (JB JS Open Access, NMA n=883) muestran función al año al menos equivalente a los tornillos con el botón de sutura, menor malreducción (OR 0.26-0.27) y menos reoperaciones por cualquier causa, aunque con certeza de evidencia baja a muy baja.</p>
+        </div>
+        <div class="app-item">
+          <h4>Plantillas Funcionales vs. de Acolchado en Fascitis Plantar — Lo que Muestra el Estudio</h4>
+          <p>Hardt et al. (Foot Ankle Surg, ECA n=131) muestran que el 84.5% de los pacientes mejora significativamente en dolor y movilidad con cualquiera de los dos tipos de plantilla, sin demostrarse superioridad de la plantilla funcional sobre la de acolchado blando.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-card-title purple"><span>📚</span> GLOSARIO TÉCNICO</div>
+    <div class="section-card-body">
+      <div class="glos-grid">
+        <div class="glos-item">
+          <div class="glos-term">Placa Dorsal con Tornillo de Compresión Retrógrado Integrado (Ortholoc 2 CrossCheck)</div>
+          <div class="glos-def">Sistema de osteosíntesis para la artrodesis de la articulación metatarsofalángica del hallux, que combina una placa dorsal con un tornillo de compresión retrógrado incorporado al diseño. Dimock et al. (Foot 2026) lo evaluaron prospectivamente, reportando una tasa de reoperación relativamente alta asociada a pseudoartrosis y a irritación por material de osteosíntesis.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Metanálisis en Red (NMA) y Diferencia Mínima Clínicamente Importante (MCID)</div>
+          <div class="glos-def">La NMA compara simultáneamente múltiples intervenciones combinando ensayos aleatorizados mediante comparaciones directas e indirectas; la MCID es el umbral de cambio en un puntaje funcional que un paciente percibiría como relevante. Hoskins et al. (JB JS Open Access 2026) la aplicaron para mostrar que el botón de sutura supera a los tornillos de forma estadísticamente significativa pero por debajo de la MCID de 10 puntos del OMAS.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Aumentación con Sutura en la Reparación de Broström Modificada</div>
+          <div class="glos-def">Técnica que añade una sutura de refuerzo (abierta o artroscópica) a la reparación del ligamento talofibular anterior, con el objetivo de aumentar la estabilidad inicial y permitir una rehabilitación más acelerada. Rubin et al. (Foot Ankle Spec 2026) la asociaron a un retorno al deporte más rápido, pero sin mejorar la tasa global de retorno ni los resultados clínicos frente a la reparación aislada.</div>
+        </div>
+        <div class="glos-item">
+          <div class="glos-term">Reducción Percutánea Cerrada (PR) vs. Abordaje del Seno del Tarso (STA) en Fracturas de Calcáneo</div>
+          <div class="glos-def">Dos estrategias mínimamente invasivas para la fijación de fracturas de calcáneo intraarticulares desplazadas Sanders II-III: la PR evita la apertura de la piel sobre el seno del tarso, mientras que la STA utiliza una incisión mini-abierta en esa región. de Sa et al. (Eur J Orthop Surg Traumatol 2026) mostraron menores tasas de complicaciones con PR en un metanálisis de 837 pacientes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Semana 38 | Dr. Eduardo Otero — Centro Trauma Ñuble | Período: 23 – 29 Octubre 2026<br>
+  Fuentes: Journal of Foot &amp; Ankle Surgery (JFAS) · Foot &amp; Ankle Surgery · Foot &amp; Ankle Specialist · JB JS Open Access · European Journal of Orthopaedic Surgery &amp; Traumatology · Foot (Edinburgh) · Journal of Pediatric Orthopaedics<br>
+  <em>Análisis académico crítico de uso interno. Contenido derivado exclusivamente de los abstracts originales de PubMed (pubmed.ncbi.nlm.nih.gov).</em>
+</div>
+
+</body>
+</html>
